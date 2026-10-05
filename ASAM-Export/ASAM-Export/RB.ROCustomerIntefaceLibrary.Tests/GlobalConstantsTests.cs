@@ -1,0 +1,343 @@
+using System;
+using System.Data;
+using System.IO;
+using System.Configuration;
+using RB.ROCustomerInterfaceExportLibrary;
+using Xunit;
+
+namespace RB.ROCustomerIntefaceLibrary.Tests
+{
+    /// <summary>
+    /// Unit tests for GlobalConstants static methods, Utilities, and constants.
+    /// </summary>
+    public class GlobalConstantsTests
+    {
+        #region Constants Validation
+
+        [Fact]
+        public void BatchSize_IsFive()
+        {
+            Assert.Equal(5, GlobalConstants.BatchSize);
+        }
+
+        [Fact]
+        public void LoggerLevels_AreSequential()
+        {
+            Assert.Equal(1, GlobalConstants.LOGGERLEVEL1);
+            Assert.Equal(2, GlobalConstants.LOGGERLEVEL2);
+            Assert.Equal(3, GlobalConstants.LOGGERLEVEL3);
+        }
+
+        #endregion
+
+        #region Struct Constants
+
+        [Fact]
+        public void IMFFileTags_HasExpectedValues()
+        {
+            Assert.Equal("EXPORT_IMF", IMFFileTags.Root_Node);
+            Assert.Equal("ISSUE", IMFFileTags.Issue);
+            Assert.Equal("ISSUERELEASEMAP", IMFFileTags.Irmap);
+            Assert.Equal("ExternalNextState", IMFFileTags.ExternalNextState);
+            Assert.Equal("ExternalState_Parallel1", IMFFileTags.ExternalState_Parallel1);
+            Assert.Equal("ExternalState_Parallel2", IMFFileTags.ExternalState_Parallel2);
+            Assert.Equal("ExternalHistory", IMFFileTags.ExternalHistory);
+            Assert.Equal("ExternalConversation", IMFFileTags.ExternalConversation);
+            Assert.Equal("ISSUERELEASEMAP", IMFFileTags.IRMAP);
+            Assert.Equal("ExternalExchangedAttach", IMFFileTags.ExternalExchangedAttach);
+            Assert.Equal("ExternalUpdateVersion", IMFFileTags.ExternalUpdateVersion);
+            Assert.Equal("CommercialQuotationReq", IMFFileTags.CommercialQuotationReq);
+            Assert.Equal("ExternalLastExportedDate", IMFFileTags.ExternalLastExportedDate);
+        }
+
+        [Fact]
+        public void QueryMethods_HasExpectedValues()
+        {
+            Assert.Equal("getIssueById", GlobalConstants.QueryMethods.getIssueByIdForIssueEntrypoint);
+            Assert.Equal("getIssueReleaseMapByRQ1Id", GlobalConstants.QueryMethods.getIssueReleaseMapByRQ1Id);
+            Assert.Equal("updateIssue", GlobalConstants.QueryMethods.UpdateIssue);
+            Assert.Equal("UpdateIssueReleaseMap", GlobalConstants.QueryMethods.UpdateIssueReleaseMap);
+            Assert.Equal("updateExchangeProtocol", GlobalConstants.QueryMethods.UpdateXprot);
+            Assert.Equal("uploadCommercialFiles", GlobalConstants.QueryMethods.uploadCommercialFiles);
+            Assert.Equal("uploadExchangedFiles", GlobalConstants.QueryMethods.uploadExchangedFiles);
+            Assert.Equal("getIssueByDBId", GlobalConstants.QueryMethods.getIssueByDBId);
+            Assert.Equal("getReleaseByDBId", GlobalConstants.QueryMethods.getReleaseByDBId);
+            Assert.Equal("getProjectByDbId", GlobalConstants.QueryMethods.getProjectByDbId);
+        }
+
+        [Fact]
+        public void BizTalkConfigParams_PathsAreNotEmpty()
+        {
+            Assert.False(string.IsNullOrEmpty(BizTalkConfigParams.ROASAMLOGGER));
+            Assert.False(string.IsNullOrEmpty(BizTalkConfigParams.EX_RO_INTERFACE_CONFIG));
+        }
+
+        [Fact]
+        public void XsltConfig_PathsAreNotEmpty()
+        {
+            Assert.False(string.IsNullOrEmpty(XsltConfig.xslFilePath));
+            Assert.False(string.IsNullOrEmpty(XsltConfig.Audi_Validator));
+            Assert.False(string.IsNullOrEmpty(XsltConfig.ASAM_Templates));
+        }
+
+        #endregion
+
+        #region Utilities
+
+        [Fact]
+        public void LoadItemFromBizTalkAppConfig_NonExistentKey_ReturnsNull()
+        {
+            string result = Utilities.LoadItemFromBizTalkAppConfig("NonExistentKey_12345");
+            Assert.Null(result);
+        }
+
+        #endregion
+
+        #region isCurrentlyExecuting
+
+        [Fact]
+        public void IsCurrentlyExecuting_EmptyTable_ReturnsTrue()
+        {
+            // Clear the shared table for this test
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Clear();
+
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+
+            bool result = GlobalConstants.isCurrentlyExecuting("XP1", "file.xml", logger);
+
+            Assert.True(result);
+            File.Delete(tempFile);
+        }
+
+        [Fact]
+        public void IsCurrentlyExecuting_MatchingXprotAndFile_ReturnsFalse()
+        {
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Clear();
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Add("XP1", "file.xml");
+
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+
+            bool result = GlobalConstants.isCurrentlyExecuting("XP1", "file.xml", logger);
+
+            Assert.False(result);
+            File.Delete(tempFile);
+        }
+
+        [Fact]
+        public void IsCurrentlyExecuting_MatchingXprotDifferentFile_ReturnsTrue()
+        {
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Clear();
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Add("XP1", "other.xml");
+
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+
+            bool result = GlobalConstants.isCurrentlyExecuting("XP1", "file.xml", logger);
+
+            Assert.True(result);
+            File.Delete(tempFile);
+        }
+
+        [Fact]
+        public void IsCurrentlyExecuting_DifferentXprot_ReturnsTrue()
+        {
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Clear();
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Add("XP2", "file.xml");
+
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+
+            bool result = GlobalConstants.isCurrentlyExecuting("XP1", "file.xml", logger);
+
+            Assert.True(result);
+            File.Delete(tempFile);
+        }
+
+        #endregion
+
+        #region RegisterForExecution
+
+        [Fact]
+        public void RegisterForExecution_AddsRowsToTable()
+        {
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Clear();
+
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+
+            GlobalConstants.RegisterForExecution("XP1", "AUDI", "file1.xml|file2.xml", logger);
+
+            Assert.Equal(2, GlobalConstants.g_CurrentlyExecutingTable.Rows.Count);
+            File.Delete(tempFile);
+        }
+
+        [Fact]
+        public void RegisterForExecution_DuplicateFile_NotAddedTwice()
+        {
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Clear();
+
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+
+            GlobalConstants.RegisterForExecution("XP1", "AUDI", "file1.xml", logger);
+            GlobalConstants.RegisterForExecution("XP1", "AUDI", "file1.xml", logger);
+
+            Assert.Equal(1, GlobalConstants.g_CurrentlyExecutingTable.Rows.Count);
+            File.Delete(tempFile);
+        }
+
+        [Fact]
+        public void RegisterForExecution_DifferentFiles_AllAdded()
+        {
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Clear();
+
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+
+            GlobalConstants.RegisterForExecution("XP1", "AUDI", "file1.xml", logger);
+            GlobalConstants.RegisterForExecution("XP1", "AUDI", "file2.xml", logger);
+
+            Assert.Equal(2, GlobalConstants.g_CurrentlyExecutingTable.Rows.Count);
+            File.Delete(tempFile);
+        }
+
+        #endregion
+
+        #region DeRegisterFromExecution
+
+        [Fact]
+        public void DeRegisterFromExecution_RemovesMatchingXprot()
+        {
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Clear();
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Add("XP1", "file1.xml");
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Add("XP1", "file2.xml");
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Add("XP2", "file3.xml");
+
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+
+            GlobalConstants.DeRegisterFromExecution("XP1", logger);
+
+            Assert.Equal(1, GlobalConstants.g_CurrentlyExecutingTable.Rows.Count);
+            Assert.Equal("XP2", GlobalConstants.g_CurrentlyExecutingTable.Rows[0]["XPROT"].ToString());
+            File.Delete(tempFile);
+        }
+
+        [Fact]
+        public void DeRegisterFromExecution_NoMatchingXprot_TableUnchanged()
+        {
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Clear();
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Add("XP1", "file1.xml");
+
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+
+            GlobalConstants.DeRegisterFromExecution("XP999", logger);
+
+            Assert.Equal(1, GlobalConstants.g_CurrentlyExecutingTable.Rows.Count);
+            File.Delete(tempFile);
+        }
+
+        [Fact]
+        public void DeRegisterFromExecution_EmptyTable_DoesNotThrow()
+        {
+            GlobalConstants.g_CurrentlyExecutingTable.Rows.Clear();
+
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+
+            GlobalConstants.DeRegisterFromExecution("XP1", logger);
+
+            Assert.Equal(0, GlobalConstants.g_CurrentlyExecutingTable.Rows.Count);
+            File.Delete(tempFile);
+        }
+
+        #endregion
+
+        #region ROConfigurationManager.VerifyLoggerandSet
+
+        [Fact]
+        public void VerifyLoggerandSet_WithLogger_LogsInfo()
+        {
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+            var mgr = new ROConfigurationManager("", logger);
+
+            mgr.VerifyLoggerandSet("test message", "", null);
+
+            string content = File.ReadAllText(tempFile);
+            Assert.Contains("test message", content);
+            File.Delete(tempFile);
+        }
+
+        [Fact]
+        public void VerifyLoggerandSet_WithLoggerAndException_LogsException()
+        {
+            string tempFile = Path.GetTempFileName();
+            var logger = new Logger(tempFile);
+            var mgr = new ROConfigurationManager("", logger);
+
+            mgr.VerifyLoggerandSet("context", "", new Exception("test error"));
+
+            string content = File.ReadAllText(tempFile);
+            Assert.Contains("test error", content);
+            File.Delete(tempFile);
+        }
+
+        [Fact]
+        public void VerifyLoggerandSet_WithAsyncLogger_LogsInfo()
+        {
+            string tempDir = Path.Combine(Path.GetTempPath(), "VLS_" + Guid.NewGuid().ToString("N"));
+            Directory.CreateDirectory(tempDir);
+
+            var asyncLogger = new AsyncLogger(tempDir, "XP1");
+            var mgr = new ROConfigurationManager("", asyncLogger, "REC1");
+
+            mgr.VerifyLoggerandSet("async message", "REC1", null);
+
+            string logFile = Path.Combine(tempDir, "REC1_log.txt");
+            Assert.True(File.Exists(logFile));
+            string content = File.ReadAllText(logFile);
+            Assert.Contains("async message", content);
+
+            Directory.Delete(tempDir, true);
+        }
+
+        [Fact]
+        public void VerifyLoggerandSet_NullLoggers_DoesNotThrow()
+        {
+            var mgr = new ROConfigurationManager();
+            mgr.VerifyLoggerandSet("test", "", null);
+        }
+
+        #endregion
+
+        #region ConfigClass
+
+        [Fact]
+        public void ConfigClass_DefaultProperties_AreNull()
+        {
+            var config = new ConfigClass();
+            Assert.Null(config.CQUser);
+            Assert.Null(config.CQPasword);
+            Assert.Null(config.InterfaceConfigFile);
+        }
+
+        [Fact]
+        public void ConfigClass_SetProperties_RoundTrip()
+        {
+            var config = new ConfigClass();
+            config.CQUser = "user1";
+            config.CQPasword = "pass1";
+            config.CQDB = "DB1";
+
+            Assert.Equal("user1", config.CQUser);
+            Assert.Equal("pass1", config.CQPasword);
+            Assert.Equal("DB1", config.CQDB);
+        }
+
+        #endregion
+    }
+}

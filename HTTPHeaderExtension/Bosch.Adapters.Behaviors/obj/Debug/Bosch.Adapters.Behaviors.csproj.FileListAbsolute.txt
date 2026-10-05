@@ -1,0 +1,12 @@
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\bin\Debug\Bosch.Adapters.Behaviors.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\bin\Debug\Bosch.Adapters.Behaviors.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\obj\Debug\Bosch.Adapters.Behaviors.csproj.CoreCompileInputs.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\obj\Debug\Bosch.Adapters.Behaviors.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\obj\Debug\Bosch.Adapters.Behaviors.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\obj\Debug\Bosch.Adapters.Behaviors.csproj.AssemblyReference.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\bin\Debug\Bosch.Adapters.Behaviors.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\bin\Debug\Bosch.Adapters.Behaviors.pdb
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\obj\Debug\Bosch.Adapters.Behaviors.csproj.AssemblyReference.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\obj\Debug\Bosch.Adapters.Behaviors.csproj.CoreCompileInputs.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\obj\Debug\Bosch.Adapters.Behaviors.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\HTTPHeaderExtension\Bosch.Adapters.Behaviors\obj\Debug\Bosch.Adapters.Behaviors.pdb

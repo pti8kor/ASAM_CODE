@@ -1,0 +1,1020 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="778e2f67-10f4-4b61-8ee2-e9b8ab59f11a" LowerBound="1.1" HigherBound="308.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="FTPFileShift" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="28b16174-cb44-459f-8bb8-c1a6fc8a2252" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="ReceiveImportResultPortType" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="aa30eef4-d599-4263-8d6d-00de6ac6de6b" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="6c24b40c-2959-4bde-870b-26fafb39ab21" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.60">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer_DEV.SingleFileShiftInformation" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="2263e69a-91cf-42d7-9baa-c65dfb05eb40" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_ACK" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="d32c66fc-5d24-4611-8502-04676882593c" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="c35f51f3-719c-4777-8d42-389fc94dd38f" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.35">
+                    <om:Property Name="Ref" Value="System.Xml.XmlDocument" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="3400c978-8081-418d-9b00-c2172b9b1023" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_ACK2" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="35626aef-7bf8-461f-a581-f4bde967bacb" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="43bcc2a5-513c-4ee6-8e1d-e45eb880e5c0" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.35">
+                    <om:Property Name="Ref" Value="System.Xml.XmlDocument" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="a4c07bd5-e112-4ea1-8e5b-ff9926673d9c" ParentLink="Module_PortType" LowerBound="25.1" HigherBound="32.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_1" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="91c5958c-cc22-447e-8810-afd9079d4bae" ParentLink="PortType_OperationDeclaration" LowerBound="27.1" HigherBound="31.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="51cd180e-9bea-46ed-9063-7787d8169d14" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="29.13" HigherBound="29.35">
+                    <om:Property Name="Ref" Value="System.Xml.XmlDocument" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="99ace0a5-f475-4adf-aa12-41b11e8d9999" ParentLink="Module_PortType" LowerBound="32.1" HigherBound="39.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_2" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="c1429570-4749-4d0d-8484-c955b3869613" ParentLink="PortType_OperationDeclaration" LowerBound="34.1" HigherBound="38.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="19cc2667-d5d1-4241-917e-e18541a9f4d3" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="36.13" HigherBound="36.86">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="61585367-a356-41f2-a386-e57323c08954" ParentLink="Module_PortType" LowerBound="39.1" HigherBound="46.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_3" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="b7145c79-91db-4e06-87e5-40114d88d283" ParentLink="PortType_OperationDeclaration" LowerBound="41.1" HigherBound="45.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="3d944112-8917-45bd-881f-12994f2b3b0f" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="43.13" HigherBound="43.87">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="69afd710-b9ee-4a2c-825c-7abfaef6906d" ParentLink="Module_PortType" LowerBound="46.1" HigherBound="53.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_4" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="25ffb343-3eec-4280-8f41-2b9f9b939e52" ParentLink="PortType_OperationDeclaration" LowerBound="48.1" HigherBound="52.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="f3f99747-1797-4c5b-8368-1f911ffa1bdb" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="50.13" HigherBound="50.86">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="746f59ff-d269-494b-808c-ecf7e8a55115" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="50.88" HigherBound="50.162">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="6cca1bde-f167-4a7c-a0f1-03b536bf14ec" ParentLink="Module_PortType" LowerBound="53.1" HigherBound="60.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_5" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="716fe12f-ddb1-4e1c-8702-d062f0f302b9" ParentLink="PortType_OperationDeclaration" LowerBound="55.1" HigherBound="59.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="3392e617-3023-4571-ae8d-70da90b96c3b" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="57.13" HigherBound="57.86">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="327de6a6-63f1-402f-a24b-4aa74e7b4335" ParentLink="Module_PortType" LowerBound="60.1" HigherBound="67.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_6" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="7faedb8f-5e6c-4cdb-9b2a-17ac7e2494ee" ParentLink="PortType_OperationDeclaration" LowerBound="62.1" HigherBound="66.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="3ab9fa5a-140a-4bd2-926c-79e4172825b6" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="64.13" HigherBound="64.87">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="2aaacb72-287d-4e49-ae0e-82472771c621" ParentLink="Module_PortType" LowerBound="67.1" HigherBound="74.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_7" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="604d332a-3136-4bce-ab76-c70c5d0b088a" ParentLink="PortType_OperationDeclaration" LowerBound="69.1" HigherBound="73.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="9e42c8bb-08f9-498c-b48f-3952296ae5b8" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="71.13" HigherBound="71.86">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="6264a38a-4df0-4787-ba22-0dc45e4bfa6b" ParentLink="Module_PortType" LowerBound="74.1" HigherBound="81.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_8" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="c896c9ba-eaf9-4c23-83ad-d091827ca927" ParentLink="PortType_OperationDeclaration" LowerBound="76.1" HigherBound="80.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="92083815-8fa0-4df7-8e7b-ead5c791d305" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="78.13" HigherBound="78.61">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.InitialTransmitterRequestSchema" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="403a1e46-a3bb-4186-9186-1b5d4920f7cc" ParentLink="Module_PortType" LowerBound="81.1" HigherBound="88.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_9" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="6cd46fcf-88f5-4a82-8336-4c1decad27c1" ParentLink="PortType_OperationDeclaration" LowerBound="83.1" HigherBound="87.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="71114050-e5fa-4188-ac0b-00ebba6ba38e" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="85.13" HigherBound="85.61">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.InitialTransmitterRequestSchema" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="d2e65f81-fdaa-4ba1-92f1-cbf5d2e252af" ParentLink="Module_ServiceDeclaration" LowerBound="88.1" HigherBound="307.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="FileShift" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="VariableDeclaration" OID="6e1e6627-e107-4eec-89d5-e86905a6184c" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="107.1" HigherBound="108.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="AnalystComments" Value="Successfully downloaded filenames, given in lines." />
+                <om:Property Name="Name" Value="SuccFileNameList" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="17252e53-8c68-4cdf-a527-388163b2fdb5" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="108.1" HigherBound="109.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="tmpStr1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="916207e1-9ed6-4ae6-b75a-13e740e83182" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="109.1" HigherBound="110.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="shiftResult" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="367fbe3e-747f-4843-85f2-fd9c983c0c7e" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="110.1" HigherBound="111.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.BTLoggerLibrary.BTLogger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROBTLogger" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="4c467730-a245-44ad-be97-675bb3c5a36d" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="111.1" HigherBound="112.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.BTLoggerLibrary.Logger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROLogger" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="b4b34b78-b95e-4f7e-a84b-a95f63965cfc" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="112.1" HigherBound="113.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sACKFileName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="1e4eaa33-200a-4883-9b2a-2b64da1e9293" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="113.1" HigherBound="114.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sACKFileNameWO" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="9f0b2b99-dd77-41ab-9aab-f4f14437e184" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="114.1" HigherBound="115.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sFolderName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="d689e230-df61-4abb-aada-ed3af2217d88" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="115.1" HigherBound="116.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sTemp" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="93eb846a-2338-4a6f-95fc-26278d573f5a" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="116.1" HigherBound="117.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="bACKFileExists" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="32fe72b9-c3fa-4ba3-a9e7-0ce0017c8ebe" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="117.1" HigherBound="118.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.FTPLibrary.FTPHandler" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="FTPHandler1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="452303a1-d8da-4cb0-8f8f-736f2c23d7dc" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="118.1" HigherBound="119.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sDownloadHost" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="0da1e3d4-9e70-46c6-b67a-de9e6ef6f2e8" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="119.1" HigherBound="120.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Int32" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="iDelayTime" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="ae0190b7-8e5f-4d54-838d-318d8fa3ef3a" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="101.1" HigherBound="102.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer_DEV.SingleFileShiftInformation" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgSingleFileImportResult" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="4470b280-b9cb-483d-a95b-dd2d01194cd7" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="102.1" HigherBound="103.1">
+                <om:Property Name="Type" Value="System.Xml.XmlDocument" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgACK" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="8ae06dde-fbb5-495c-96f5-e109a1f5ce13" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="103.1" HigherBound="104.1">
+                <om:Property Name="Type" Value="System.Xml.XmlDocument" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgError" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="6f5e5fc2-2970-4c09-a2dc-6ae01c2433b1" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="104.1" HigherBound="105.1">
+                <om:Property Name="Type" Value="System.Xml.XmlDocument" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgTxReq" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="b4052bff-01d8-44f4-bc55-f8b6284c0217" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="105.1" HigherBound="106.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer.InitialTransmitterRequestSchema" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgTransmitterREQCopy" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="6400aa11-9a1b-4d52-99e5-2c58a58307af" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="106.1" HigherBound="107.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer.InitialTransmitterRequestSchema" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgTransmitterREQ" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="bbe59e99-d2c5-490b-b15b-221708df7622" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="1bb18933-1f9f-4f56-8b1f-d0be090b7fe2" ParentLink="ServiceBody_Statement" LowerBound="122.1" HigherBound="134.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="ReceiveImportResultPort" />
+                    <om:Property Name="MessageName" Value="msgSingleFileImportResult" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive_ImportResult" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="b9cbc59d-0425-49ca-9b86-424802cce2f1" ParentLink="ServiceBody_Statement" LowerBound="134.1" HigherBound="136.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FILESHIFT&quot;,&quot;Inside fileshift orch&quot; );" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Expression_1" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="7096ad74-f0a9-4028-b627-012c74a0e8e9" ParentLink="ServiceBody_Statement" LowerBound="136.1" HigherBound="138.1">
+                    <om:Property Name="Expression" Value=" ROLogger  = ROBTLogger.GetLogger(msgSingleFileImportResult.InterfaceName,msgSingleFileImportResult.XProtID, &quot;Import&quot;);" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="SetLogger" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="9859b988-fdd3-4286-b0fd-84fdd25c1dcd" ParentLink="ServiceBody_Statement" LowerBound="138.1" HigherBound="171.1">
+                    <om:Property Name="Expression" Value="&#xD;&#xA;FTPHandler1 = new RB.FTPLibrary.FTPHandler(msgSingleFileImportResult.InterfaceName, msgSingleFileImportResult.RQ1System);&#xD;&#xA;&#xD;&#xA;if(msgSingleFileImportResult.Mode == &quot;Automatic&quot;)&#xD;&#xA;{&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FILESHIFT for Automatic mode&quot; ,&#xD;&#xA;ROLogger);&#xD;&#xA;    FTPHandler1.GetDateTimeFolderBasedOnMode(msgSingleFileImportResult.DownloadTargetPath);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FILESHIFT&quot;,&quot;checkstatus=&quot; +msgSingleFileImportResult.Status);&#xD;&#xA;//REUBK-1592 SingleFileShift&#xD;&#xA;&#xD;&#xA;//fetch next Filename to tmpStr1&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FILESHIFT - import status = &quot; + msgSingleFileImportResult.Status,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;SuccFileNameList = msgSingleFileImportResult.FileName;&#xD;&#xA;&#xD;&#xA;tmpStr1 = FTPHandler1.ReadStringLine(SuccFileNameList, 1);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;callin shift source file&quot;,&#xD;&#xA;ROLogger);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FILESHIFT&quot;,&quot;call ShiftSourceFile&quot;);&#xD;&#xA;shiftResult = FTPHandler1.ShiftSourceFile(tmpStr1,msgSingleFileImportResult.XProtID,msgSingleFileImportResult.DownloadTargetPath,msgSingleFileImportResult.DownloadTime,msgSingleFileImportResult.Status);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPShiftFile : ShiftSourceFileFile &lt;&quot; + tmpStr1 +&quot;&gt; &quot; + shiftResult,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ShiftFile" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="f149725d-d1cc-47ad-9388-ad4e601fe08c" ParentLink="ServiceBody_Statement" LowerBound="171.1" HigherBound="173.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FILESHIFT&quot;,&quot;TransactionID=&quot; +msgSingleFileImportResult.TransactionID);" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Expression_3" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Decision" OID="63ce9f27-d47b-4ff3-9671-a97fa227870d" ParentLink="ServiceBody_Statement" LowerBound="173.1" HigherBound="299.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Decide_1" />
+                    <om:Property Name="Signal" Value="False" />
+                    <om:Element Type="DecisionBranch" OID="9ed832f9-6f57-4ddf-97a0-8479878c8b06" ParentLink="ReallyComplexStatement_Branch" LowerBound="174.13" HigherBound="299.1">
+                        <om:Property Name="Expression" Value="FTPHandler1.canShiftACK == &quot;1&quot; &amp;&amp; msgSingleFileImportResult.TransactionID != &quot;&quot; " />
+                        <om:Property Name="IsGhostBranch" Value="True" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Rule_1" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="VariableAssignment" OID="e2b61a6b-9850-4ea0-837e-6010002e440a" ParentLink="ComplexStatement_Statement" LowerBound="176.1" HigherBound="182.1">
+                            <om:Property Name="Expression" Value="&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FILESHIFT&quot;,&quot;construct ack msg&quot;);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;start TransferACK&quot;,&#xD;&#xA;ROLogger);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Expression_2" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="Construct" OID="72d14793-ac58-4592-bd33-45f69d6ed0a9" ParentLink="ComplexStatement_Statement" LowerBound="182.1" HigherBound="205.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="ConstructMsgAck" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="MessageRef" OID="2ae490ec-b21e-48a4-86df-dafecf348066" ParentLink="Construct_MessageRef" LowerBound="183.27" HigherBound="183.33">
+                                <om:Property Name="Ref" Value="msgACK" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="MessageAssignment" OID="144b9e3f-16a7-4872-a8b0-2ea6a8cf48db" ParentLink="ComplexStatement_Statement" LowerBound="185.1" HigherBound="204.1">
+                                <om:Property Name="Expression" Value="//ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;inside set msgACK&quot;,ROLogger);&#xD;&#xA;&#xD;&#xA;msgACK = FTPHandler1.SetValuesForACK(msgSingleFileImportResult.TransactionID,msgSingleFileImportResult.StatusInfo,msgSingleFileImportResult.Status);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;set SetTAFileName&quot;,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;sACKFileName = FTPHandler1.SetTAFileName(msgSingleFileImportResult.FileName, ROLogger);&#xD;&#xA;sACKFileNameWO = FTPHandler1.GetFileNameWithoutExtn(sACKFileName);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;sACKFileName=&quot; +sACKFileName,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;//msgTxReq = FTPHandler1.FrameMsgACKREQ(msgACK,sACKFileName);&#xD;&#xA;//ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;set msgTxReq&quot;,ROLogger);&#xD;&#xA;//msgREQ.transmitterRequest = msgTxReq;&#xD;&#xA;&#xD;&#xA;" />
+                                <om:Property Name="ReportToAnalyst" Value="False" />
+                                <om:Property Name="Name" Value="MessageAssignment_1" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="VariableAssignment" OID="f95f9268-14f0-4fdc-bf62-3cd992cd7c59" ParentLink="ComplexStatement_Statement" LowerBound="205.1" HigherBound="214.1">
+                            <om:Property Name="Expression" Value="sFolderName = FTPHandler1.GetFormattedDateTime(msgSingleFileImportResult.DownloadTime)+ &quot;_&quot;+ msgSingleFileImportResult.XProtID;&#xD;&#xA;sFolderName =&quot;D:\\ASAM-IF-IMPORT\\Import\\082 - TransferAcknowledgment\\&quot;+sFolderName;&#xD;&#xA;&#xD;&#xA;System.IO.Directory.CreateDirectory(sFolderName);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now) + &quot;Framing dynamic port name&quot;,&#xD;&#xA;ROLogger);&#xD;&#xA;PortsndACK1(Microsoft.XLANGs.BaseTypes.Address) = &quot;file://&quot; + sFolderName + &quot;/&quot; + sACKFileName;&#xD;&#xA;//ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now) + &quot;Before dynamic port creation&quot;,ROLogger);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="setPortAddress" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                        <om:Element Type="Send" OID="63bdfffd-2ad6-443a-a8df-56b3161a814a" ParentLink="ComplexStatement_Statement" LowerBound="214.1" HigherBound="216.1">
+                            <om:Property Name="PortName" Value="PortsndACK1" />
+                            <om:Property Name="MessageName" Value="msgACK" />
+                            <om:Property Name="OperationName" Value="Operation_1" />
+                            <om:Property Name="OperationMessageName" Value="Request" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Send_1" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                        <om:Element Type="VariableAssignment" OID="877b6a75-b888-4cb1-8bd5-72c53eaf9f8f" ParentLink="ComplexStatement_Statement" LowerBound="216.1" HigherBound="233.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FILESHIFT&quot;,&quot;after sending file to ACk folder&quot;);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now) + &quot;After dynamic port creation&quot;,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;iDelayTime = System.Convert.ToInt32(FTPHandler1.ACKDelayTime);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now) + &quot;Introducing delay time of &quot;+ iDelayTime.ToString() +&quot; millisec&quot;,&#xD;&#xA;ROLogger);&#xD;&#xA;System.Threading.Thread.Sleep(iDelayTime);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now) + &quot;Checking if ACK file exists after delay time&quot;,&#xD;&#xA;ROLogger);&#xD;&#xA; &#xD;&#xA;bACKFileExists = FTPHandler1.CheckACKFileExists(msgSingleFileImportResult.XProtID,msgSingleFileImportResult.DownloadTime,sACKFileName);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now) + &quot;bACKFileExists:&quot;+bACKFileExists.ToString(),&#xD;&#xA;ROLogger);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Sleep" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="Decision" OID="f9a25805-2d3f-445f-8675-6d59d1a5fbdd" ParentLink="ComplexStatement_Statement" LowerBound="233.1" HigherBound="298.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Decide_2" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="DecisionBranch" OID="b9bc45f9-1826-4381-91e2-665e32056ffd" ParentLink="ReallyComplexStatement_Branch" LowerBound="234.17" HigherBound="285.1">
+                                <om:Property Name="Expression" Value="bACKFileExists == true" />
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Rule_1" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="Construct" OID="285a97ac-24b5-4bb8-809d-bf83c149bf03" ParentLink="ComplexStatement_Statement" LowerBound="236.1" HigherBound="254.1">
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="ConstructTxReq" />
+                                    <om:Property Name="Signal" Value="True" />
+                                    <om:Element Type="MessageRef" OID="9248d143-fa1c-4087-8e95-e1a05e1aaaf6" ParentLink="Construct_MessageRef" LowerBound="237.31" HigherBound="237.39">
+                                        <om:Property Name="Ref" Value="msgTxReq" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                    <om:Element Type="MessageRef" OID="2a5d45dc-f276-4026-b65e-dee443636dba" ParentLink="Construct_MessageRef" LowerBound="237.41" HigherBound="237.58">
+                                        <om:Property Name="Ref" Value="msgTransmitterREQ" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                    <om:Element Type="MessageAssignment" OID="ae9c067f-3f92-4a63-98ac-20dc476c44a7" ParentLink="ComplexStatement_Statement" LowerBound="239.1" HigherBound="253.1">
+                                        <om:Property Name="Expression" Value="ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Frame msgTxReq&quot;,ROLogger);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;//For Zip file transfer&#xD;&#xA;msgTxReq = FTPHandler1.FrameMsgACKREQ(sFolderName,sACKFileNameWO,msgSingleFileImportResult.RQ1System,msgSingleFileImportResult.InterfaceName,msgSingleFileImportResult.XProtID, ROLogger, msgSingleFileImportResult.Category);&#xD;&#xA;&#xD;&#xA;//For normal xml transfer&#xD;&#xA;//msgTxReq = FTPHandler1.FrameMsgACKREQ(msgACK,sACKFileName);&#xD;&#xA;&#xD;&#xA;//ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Set msgTxReq&quot;,ROLogger);&#xD;&#xA;&#xD;&#xA;msgTransmitterREQ = msgTxReq;&#xD;&#xA;&#xD;&#xA;" />
+                                        <om:Property Name="ReportToAnalyst" Value="False" />
+                                        <om:Property Name="Name" Value="MessageAssignment_1" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                </om:Element>
+                                <om:Element Type="VariableAssignment" OID="50f95b09-0ceb-4f67-b402-cfa3b4a3af24" ParentLink="ComplexStatement_Statement" LowerBound="254.1" HigherBound="264.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FILESHIFT&quot;,&quot;call TransferACKFile&quot;);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;callin TransferACKFile&quot;,&#xD;&#xA;ROLogger);&#xD;&#xA;shiftResult = FTPHandler1.TransferACKFile(sACKFileName,msgSingleFileImportResult.DownloadTime,msgSingleFileImportResult.XProtID);&#xD;&#xA;&#xD;&#xA;//ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot; aft callin TransferACKFile&quot; +shiftResult,ROLogger);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPShiftFile : TransferACKFile for &lt;&quot; + sACKFileName +&quot;&gt; &quot; + shiftResult,&#xD;&#xA;ROLogger);&#xD;&#xA;" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="ShiftACKFile" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                                <om:Element Type="VariableAssignment" OID="78e6976a-9bb4-4786-9a28-fd89b6ff504b" ParentLink="ComplexStatement_Statement" LowerBound="264.1" HigherBound="269.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FILESHIFT&quot;,&quot;send wb servicerq to sendport&quot; );&#xD;&#xA;tmpStr1=msgSingleFileImportResult.TransactionID;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPShiftFile : TransactionID is&quot; + tmpStr1,&#xD;&#xA;ROLogger);" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Expression_1" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                                <om:Element Type="Send" OID="44c24508-ed2e-4079-b4d6-438851e03aeb" ParentLink="ComplexStatement_Statement" LowerBound="269.1" HigherBound="271.1">
+                                    <om:Property Name="PortName" Value="TransmitterRequestSendPort" />
+                                    <om:Property Name="MessageName" Value="msgTransmitterREQ" />
+                                    <om:Property Name="OperationName" Value="Operation_1" />
+                                    <om:Property Name="OperationMessageName" Value="Request" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Send_4" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                                <om:Element Type="Construct" OID="9e356cc7-4d38-4c18-9419-e86d5ad380cd" ParentLink="ComplexStatement_Statement" LowerBound="271.1" HigherBound="280.1">
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="ConstructMessage_2" />
+                                    <om:Property Name="Signal" Value="True" />
+                                    <om:Element Type="MessageRef" OID="2fc053fc-2aae-40d0-8fcf-978c2ec6ff24" ParentLink="Construct_MessageRef" LowerBound="272.31" HigherBound="272.52">
+                                        <om:Property Name="Ref" Value="msgTransmitterREQCopy" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                    <om:Element Type="MessageAssignment" OID="880170a8-8496-4492-9bb9-cad436a8b32c" ParentLink="ComplexStatement_Statement" LowerBound="274.1" HigherBound="279.1">
+                                        <om:Property Name="Expression" Value="msgTransmitterREQCopy = msgTransmitterREQ;&#xD;&#xA;sDownloadHost = msgSingleFileImportResult.RQ1System;&#xD;&#xA;sDownloadHost = sDownloadHost.Substring(sDownloadHost.LastIndexOf(&quot;@&quot;)+1);&#xD;&#xA;msgTransmitterREQCopy(FILE.ReceivedFileName) = sDownloadHost + &quot;_&quot; + msgSingleFileImportResult.XProtID +&quot;_083_&quot; +&quot;TransmitterRequest_&quot; + sACKFileNameWO; &#xD;&#xA;" />
+                                        <om:Property Name="ReportToAnalyst" Value="False" />
+                                        <om:Property Name="Name" Value="MessageAssignment_3" />
+                                        <om:Property Name="Signal" Value="True" />
+                                    </om:Element>
+                                </om:Element>
+                                <om:Element Type="Send" OID="e01a6165-2d7e-4c60-b963-ac4b84136cc8" ParentLink="ComplexStatement_Statement" LowerBound="280.1" HigherBound="282.1">
+                                    <om:Property Name="PortName" Value="TransmitterRequestCopyPort" />
+                                    <om:Property Name="MessageName" Value="msgTransmitterREQCopy" />
+                                    <om:Property Name="OperationName" Value="Operation_1" />
+                                    <om:Property Name="OperationMessageName" Value="Request" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Send_3" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                                <om:Element Type="VariableAssignment" OID="664dacdc-0256-45e0-81ad-feb8c34d26da" ParentLink="ComplexStatement_Statement" LowerBound="282.1" HigherBound="284.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FILESHIFT&quot;,&quot;send wb servicerq to send port ends&quot; );" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Expression_8" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="DecisionBranch" OID="8ca80e36-eaa0-4d3e-84d8-97b4e5d38b5d" ParentLink="ReallyComplexStatement_Branch">
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Else" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="Construct" OID="c1681754-d9d9-4396-8745-78533d16eb61" ParentLink="ComplexStatement_Statement" LowerBound="287.1" HigherBound="295.1">
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="SetmsgError" />
+                                    <om:Property Name="Signal" Value="True" />
+                                    <om:Element Type="MessageAssignment" OID="de5c94f3-e604-4506-843e-25423c370aff" ParentLink="ComplexStatement_Statement" LowerBound="290.1" HigherBound="294.1">
+                                        <om:Property Name="Expression" Value="msgError = FTPHandler1.SetValuesForError(msgSingleFileImportResult.XProtID,msgSingleFileImportResult.FileName,&quot;File not transferred to Export share&quot;);&#xD;&#xA;sTemp = FTPHandler1.GetFileNameWithoutExtn(msgSingleFileImportResult.FileName);&#xD;&#xA;msgError(FILE.ReceivedFileName) = msgSingleFileImportResult.XProtID+ &quot;_&quot;+ sTemp;" />
+                                        <om:Property Name="ReportToAnalyst" Value="False" />
+                                        <om:Property Name="Name" Value="MessageAssignment_2" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                    <om:Element Type="MessageRef" OID="b82d1adc-06db-478f-b677-9e8688aaadae" ParentLink="Construct_MessageRef" LowerBound="288.31" HigherBound="288.39">
+                                        <om:Property Name="Ref" Value="msgError" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                </om:Element>
+                                <om:Element Type="Send" OID="c9d662c7-c69f-4ea7-94b6-a3060b695a42" ParentLink="ComplexStatement_Statement" LowerBound="295.1" HigherBound="297.1">
+                                    <om:Property Name="PortName" Value="sndError" />
+                                    <om:Property Name="MessageName" Value="msgError" />
+                                    <om:Property Name="OperationName" Value="Operation_1" />
+                                    <om:Property Name="OperationMessageName" Value="Request" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Send_2" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="DecisionBranch" OID="43fa5402-54f6-45c7-b900-20a368fcd497" ParentLink="ReallyComplexStatement_Branch">
+                        <om:Property Name="IsGhostBranch" Value="True" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Else" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="d970e890-a2dd-450f-9dcc-036e9354661f" ParentLink="ServiceBody_Statement" LowerBound="299.1" HigherBound="303.1">
+                    <om:Property Name="Expression" Value="ROBTLogger.CloseLogger(ROLogger);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="CloseLogger" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="e3a2f897-ae22-4b09-a718-b6913cde968f" ParentLink="ServiceBody_Statement" LowerBound="303.1" HigherBound="305.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FILESHIFT&quot;,&quot;End fileshift orch&quot; );" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Expression_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="f64ee3ea-41d2-4047-8e2a-e0202d9a204b" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="91.1" HigherBound="93.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPFileShift.ReceiveImportResultPortType" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ReceiveImportResultPort" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="96766c21-8892-47b7-bd8c-a565a5208e69" ParentLink="PortDeclaration_CLRAttribute" LowerBound="91.1" HigherBound="92.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="8bf05034-19cf-49f7-9db1-ba6b4d4c87e8" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="93.1" HigherBound="95.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="22" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPFileShift.PortType_ACK" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="PortsndACK1" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="PhysicalBindingAttribute" OID="3d82cad9-b458-4ec8-b23a-a34927298406" ParentLink="PortDeclaration_CLRAttribute" LowerBound="93.1" HigherBound="94.1">
+                    <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
+                    <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
+                    <om:Property Name="TransportType" Value="HTTP" />
+                    <om:Property Name="URI" Value="http://tempURI" />
+                    <om:Property Name="IsDynamic" Value="True" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="155448c5-923f-4e4c-b15c-a396c57c3d06" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="95.1" HigherBound="97.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPFileShift.PortType_1" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sndError" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="93e1533c-bbc5-4cde-97c7-bf6f85473f83" ParentLink="PortDeclaration_CLRAttribute" LowerBound="95.1" HigherBound="96.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="4170c834-f489-4be7-a3c6-7e8f53d0a8f2" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="97.1" HigherBound="99.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="100" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPFileShift.PortType_8" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="TransmitterRequestSendPort" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="6559e003-bbe7-4bc8-a766-e5f45c36506c" ParentLink="PortDeclaration_CLRAttribute" LowerBound="97.1" HigherBound="98.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="399d2487-4091-4081-aeb5-009e7e67b891" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="99.1" HigherBound="101.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="115" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPFileShift.PortType_9" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="TransmitterRequestCopyPort" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="d1562d13-66f9-42c0-b455-857c07750251" ParentLink="PortDeclaration_CLRAttribute" LowerBound="99.1" HigherBound="100.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module FTPFileShift
+{
+    internal porttype ReceiveImportResultPortType
+    {
+        oneway Operation_1
+        {
+            FTPIssueTransfer_DEV.SingleFileShiftInformation
+        };
+    };
+    internal porttype PortType_ACK
+    {
+        oneway Operation_1
+        {
+            System.Xml.XmlDocument
+        };
+    };
+    internal porttype PortType_ACK2
+    {
+        oneway Operation_1
+        {
+            System.Xml.XmlDocument
+        };
+    };
+    internal porttype PortType_1
+    {
+        oneway Operation_1
+        {
+            System.Xml.XmlDocument
+        };
+    };
+    internal porttype PortType_2
+    {
+        oneway Operation_1
+        {
+            FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request
+        };
+    };
+    internal porttype PortType_3
+    {
+        oneway Operation_1
+        {
+            FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_response
+        };
+    };
+    internal porttype PortType_4
+    {
+        requestresponse Operation_1
+        {
+            FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request, FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_response
+        };
+    };
+    internal porttype PortType_5
+    {
+        oneway Operation_1
+        {
+            FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request
+        };
+    };
+    internal porttype PortType_6
+    {
+        oneway Operation_1
+        {
+            FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_response
+        };
+    };
+    internal porttype PortType_7
+    {
+        oneway Operation_1
+        {
+            FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request
+        };
+    };
+    internal porttype PortType_8
+    {
+        oneway Operation_1
+        {
+            FTPIssueTransfer.InitialTransmitterRequestSchema
+        };
+    };
+    internal porttype PortType_9
+    {
+        oneway Operation_1
+        {
+            FTPIssueTransfer.InitialTransmitterRequestSchema
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service FileShift
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port implements ReceiveImportResultPortType ReceiveImportResultPort;
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding(typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
+        port uses dynamic PortType_ACK PortsndACK1;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_1 sndError;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_8 TransmitterRequestSendPort;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_9 TransmitterRequestCopyPort;
+        message FTPIssueTransfer_DEV.SingleFileShiftInformation msgSingleFileImportResult;
+        message System.Xml.XmlDocument msgACK;
+        message System.Xml.XmlDocument msgError;
+        message System.Xml.XmlDocument msgTxReq;
+        message FTPIssueTransfer.InitialTransmitterRequestSchema msgTransmitterREQCopy;
+        message FTPIssueTransfer.InitialTransmitterRequestSchema msgTransmitterREQ;
+        System.String SuccFileNameList;
+        System.String tmpStr1;
+        System.String shiftResult;
+        RB.BTLoggerLibrary.BTLogger ROBTLogger;
+        RB.BTLoggerLibrary.Logger ROLogger;
+        System.String sACKFileName;
+        System.String sACKFileNameWO;
+        System.String sFolderName;
+        System.String sTemp;
+        System.Boolean bACKFileExists;
+        RB.FTPLibrary.FTPHandler FTPHandler1;
+        System.String sDownloadHost;
+        System.Int32 iDelayTime;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("1bb18933-1f9f-4f56-8b1f-d0be090b7fe2")]
+            activate receive (ReceiveImportResultPort.Operation_1, msgSingleFileImportResult);
+            SuccFileNameList = "";
+            tmpStr1 = "";
+            shiftResult = "";
+            ROBTLogger = new RB.BTLoggerLibrary.BTLogger();
+            sACKFileName = "";
+            sACKFileNameWO = "";
+            sFolderName = "";
+            sTemp = "";
+            bACKFileExists = true;
+            sDownloadHost = "";
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("b9cbc59d-0425-49ca-9b86-424802cce2f1")]
+            System.Diagnostics.EventLog.WriteEntry("FILESHIFT","Inside fileshift orch" );
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("7096ad74-f0a9-4028-b627-012c74a0e8e9")]
+             ROLogger  = ROBTLogger.GetLogger(msgSingleFileImportResult.InterfaceName,msgSingleFileImportResult.XProtID, "Import");
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("9859b988-fdd3-4286-b0fd-84fdd25c1dcd")]
+            
+            FTPHandler1 = new RB.FTPLibrary.FTPHandler(msgSingleFileImportResult.InterfaceName, msgSingleFileImportResult.RQ1System);
+            
+            if(msgSingleFileImportResult.Mode == "Automatic")
+            {
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FILESHIFT for Automatic mode" ,
+            ROLogger);
+                FTPHandler1.GetDateTimeFolderBasedOnMode(msgSingleFileImportResult.DownloadTargetPath);
+            }
+            
+            
+            
+            
+            System.Diagnostics.EventLog.WriteEntry("FILESHIFT","checkstatus=" +msgSingleFileImportResult.Status);
+            //REUBK-1592 SingleFileShift
+            
+            //fetch next Filename to tmpStr1
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FILESHIFT - import status = " + msgSingleFileImportResult.Status,
+            ROLogger);
+            
+            SuccFileNameList = msgSingleFileImportResult.FileName;
+            
+            tmpStr1 = FTPHandler1.ReadStringLine(SuccFileNameList, 1);
+            
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "callin shift source file",
+            ROLogger);
+            System.Diagnostics.EventLog.WriteEntry("FILESHIFT","call ShiftSourceFile");
+            shiftResult = FTPHandler1.ShiftSourceFile(tmpStr1,msgSingleFileImportResult.XProtID,msgSingleFileImportResult.DownloadTargetPath,msgSingleFileImportResult.DownloadTime,msgSingleFileImportResult.Status);
+            
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPShiftFile : ShiftSourceFileFile <" + tmpStr1 +"> " + shiftResult,
+            ROLogger);
+            
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("f149725d-d1cc-47ad-9388-ad4e601fe08c")]
+            System.Diagnostics.EventLog.WriteEntry("FILESHIFT","TransactionID=" +msgSingleFileImportResult.TransactionID);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("63ce9f27-d47b-4ff3-9671-a97fa227870d")]
+            if (FTPHandler1.canShiftACK == "1" && msgSingleFileImportResult.TransactionID != "" )
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("e2b61a6b-9850-4ea0-837e-6010002e440a")]
+                
+                System.Diagnostics.EventLog.WriteEntry("FILESHIFT","construct ack msg");
+                
+                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "start TransferACK",
+                ROLogger);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("72d14793-ac58-4592-bd33-45f69d6ed0a9")]
+                construct msgACK
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("144b9e3f-16a7-4872-a8b0-2ea6a8cf48db")]
+                    //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "inside set msgACK",ROLogger);
+                    
+                    msgACK = FTPHandler1.SetValuesForACK(msgSingleFileImportResult.TransactionID,msgSingleFileImportResult.StatusInfo,msgSingleFileImportResult.Status);
+                    
+                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "set SetTAFileName",
+                    ROLogger);
+                    
+                    sACKFileName = FTPHandler1.SetTAFileName(msgSingleFileImportResult.FileName, ROLogger);
+                    sACKFileNameWO = FTPHandler1.GetFileNameWithoutExtn(sACKFileName);
+                    
+                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "sACKFileName=" +sACKFileName,
+                    ROLogger);
+                    
+                    
+                    //msgTxReq = FTPHandler1.FrameMsgACKREQ(msgACK,sACKFileName);
+                    //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "set msgTxReq",ROLogger);
+                    //msgREQ.transmitterRequest = msgTxReq;
+                    
+                }
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("f95f9268-14f0-4fdc-bf62-3cd992cd7c59")]
+                sFolderName = FTPHandler1.GetFormattedDateTime(msgSingleFileImportResult.DownloadTime)+ "_"+ msgSingleFileImportResult.XProtID;
+                sFolderName ="D:\\ASAM-IF-IMPORT\\Import\\082 - TransferAcknowledgment\\"+sFolderName;
+                
+                System.IO.Directory.CreateDirectory(sFolderName);
+                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now) + "Framing dynamic port name",
+                ROLogger);
+                PortsndACK1(Microsoft.XLANGs.BaseTypes.Address) = "file://" + sFolderName + "/" + sACKFileName;
+                //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now) + "Before dynamic port creation",ROLogger);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("63bdfffd-2ad6-443a-a8df-56b3161a814a")]
+                send (PortsndACK1.Operation_1, msgACK);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("877b6a75-b888-4cb1-8bd5-72c53eaf9f8f")]
+                System.Diagnostics.EventLog.WriteEntry("FILESHIFT","after sending file to ACk folder");
+                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now) + "After dynamic port creation",
+                ROLogger);
+                
+                iDelayTime = System.Convert.ToInt32(FTPHandler1.ACKDelayTime);
+                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now) + "Introducing delay time of "+ iDelayTime.ToString() +" millisec",
+                ROLogger);
+                System.Threading.Thread.Sleep(iDelayTime);
+                
+                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now) + "Checking if ACK file exists after delay time",
+                ROLogger);
+                 
+                bACKFileExists = FTPHandler1.CheckACKFileExists(msgSingleFileImportResult.XProtID,msgSingleFileImportResult.DownloadTime,sACKFileName);
+                
+                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now) + "bACKFileExists:"+bACKFileExists.ToString(),
+                ROLogger);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("f9a25805-2d3f-445f-8675-6d59d1a5fbdd")]
+                if (bACKFileExists == true)
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("285a97ac-24b5-4bb8-809d-bf83c149bf03")]
+                    construct msgTxReq, msgTransmitterREQ
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("ae9c067f-3f92-4a63-98ac-20dc476c44a7")]
+                        ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Frame msgTxReq",ROLogger);
+                        
+                        
+                        //For Zip file transfer
+                        msgTxReq = FTPHandler1.FrameMsgACKREQ(sFolderName,sACKFileNameWO,msgSingleFileImportResult.RQ1System,msgSingleFileImportResult.InterfaceName,msgSingleFileImportResult.XProtID, ROLogger, msgSingleFileImportResult.Category);
+                        
+                        //For normal xml transfer
+                        //msgTxReq = FTPHandler1.FrameMsgACKREQ(msgACK,sACKFileName);
+                        
+                        //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Set msgTxReq",ROLogger);
+                        
+                        msgTransmitterREQ = msgTxReq;
+                        
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("50f95b09-0ceb-4f67-b402-cfa3b4a3af24")]
+                    System.Diagnostics.EventLog.WriteEntry("FILESHIFT","call TransferACKFile");
+                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "callin TransferACKFile",
+                    ROLogger);
+                    shiftResult = FTPHandler1.TransferACKFile(sACKFileName,msgSingleFileImportResult.DownloadTime,msgSingleFileImportResult.XProtID);
+                    
+                    //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + " aft callin TransferACKFile" +shiftResult,ROLogger);
+                    
+                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPShiftFile : TransferACKFile for <" + sACKFileName +"> " + shiftResult,
+                    ROLogger);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("78e6976a-9bb4-4786-9a28-fd89b6ff504b")]
+                    System.Diagnostics.EventLog.WriteEntry("FILESHIFT","send wb servicerq to sendport" );
+                    tmpStr1=msgSingleFileImportResult.TransactionID;
+                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPShiftFile : TransactionID is" + tmpStr1,
+                    ROLogger);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("44c24508-ed2e-4079-b4d6-438851e03aeb")]
+                    send (TransmitterRequestSendPort.Operation_1, msgTransmitterREQ);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("9e356cc7-4d38-4c18-9419-e86d5ad380cd")]
+                    construct msgTransmitterREQCopy
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("880170a8-8496-4492-9bb9-cad436a8b32c")]
+                        msgTransmitterREQCopy = msgTransmitterREQ;
+                        sDownloadHost = msgSingleFileImportResult.RQ1System;
+                        sDownloadHost = sDownloadHost.Substring(sDownloadHost.LastIndexOf("@")+1);
+                        msgTransmitterREQCopy(FILE.ReceivedFileName) = sDownloadHost + "_" + msgSingleFileImportResult.XProtID +"_083_" +"TransmitterRequest_" + sACKFileNameWO; 
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("e01a6165-2d7e-4c60-b963-ac4b84136cc8")]
+                    send (TransmitterRequestCopyPort.Operation_1, msgTransmitterREQCopy);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("664dacdc-0256-45e0-81ad-feb8c34d26da")]
+                    System.Diagnostics.EventLog.WriteEntry("FILESHIFT","send wb servicerq to send port ends" );
+                }
+                else 
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("c1681754-d9d9-4396-8745-78533d16eb61")]
+                    construct msgError
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("de5c94f3-e604-4506-843e-25423c370aff")]
+                        msgError = FTPHandler1.SetValuesForError(msgSingleFileImportResult.XProtID,msgSingleFileImportResult.FileName,"File not transferred to Export share");
+                        sTemp = FTPHandler1.GetFileNameWithoutExtn(msgSingleFileImportResult.FileName);
+                        msgError(FILE.ReceivedFileName) = msgSingleFileImportResult.XProtID+ "_"+ sTemp;
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("c9d662c7-c69f-4ea7-94b6-a3060b695a42")]
+                    send (sndError.Operation_1, msgError);
+                }
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("d970e890-a2dd-450f-9dcc-036e9354661f")]
+            ROBTLogger.CloseLogger(ROLogger);
+            
+            
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("e3a2f897-ae22-4b09-a718-b6913cde968f")]
+            System.Diagnostics.EventLog.WriteEntry("FILESHIFT","End fileshift orch" );
+        }
+    }
+}
+

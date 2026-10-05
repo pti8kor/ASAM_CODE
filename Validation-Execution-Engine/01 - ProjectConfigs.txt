@@ -1,0 +1,10 @@
+
+
+
+HIS Webservice Production - https://wi-his.emea.bosch.com/hiswebservices/vwid2ttn?wsdl
+HIS Webservice Acceptance - https://wi0dgs02.emea.bosch.com:7503/hiswebservices/vwid2ttn?wsdl
+
+
+New:
+HIS Webservice Dev/Acceptance - https://wi0dgs13.emea.bosch.com/Vwid2ttnWebService/vwid2ttn_v2?wsdl
+HIS Webservice Production - https://wi-his.emea.bosch.com:443/Vwid2ttnWebService/vwid2ttn_v2?wsdl

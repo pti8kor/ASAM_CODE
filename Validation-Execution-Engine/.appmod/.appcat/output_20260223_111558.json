@@ -1,0 +1,6093 @@
+{
+  "version": "1.0.0",
+  "producer": ".NET AppCAT CLI",
+  "metadata": {
+    "analysisStartTime": "2026-02-23T05:46:29.2593819Z",
+    "analysisEndTime": "2026-02-23T05:46:35.740972Z",
+    "privacyMode": "Protected",
+    "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2271074",
+    "targetIds": [
+      "AppService.Windows",
+      "AppService.Linux",
+      "AKS.Linux",
+      "AKS.Windows",
+      "ACA",
+      "AppServiceContainer.Linux",
+      "AppServiceContainer.Windows",
+      "AppServiceManagedInstance.Windows"
+    ],
+    "targetDisplayNames": [
+      "Azure App Service",
+      "Azure Kubernetes Service",
+      "Azure Container Apps",
+      "Azure App Service Container",
+      "Azure App Service Managed Instance"
+    ],
+    "os": [
+      "windows",
+      "linux"
+    ]
+  },
+  "summary": {
+    "totalProjects": 4,
+    "totalIssues": 15,
+    "totalIncidents": 131,
+    "totalEffort": 293,
+    "charts": {
+      "severity": {
+        "mandatory": 15,
+        "optional": 8,
+        "potential": 108,
+        "information": 0
+      },
+      "category": {
+        "Local": 100,
+        "Security": 17,
+        "SMTP": 5,
+        "HTTP": 8,
+        "Dockerfile": 1
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "RB.ROCustomerIntefaceLibrary\\RB.ROCustomerInterfaceLibrary.csproj",
+      "issues": 8,
+      "storyPoints": 214,
+      "properties": {
+        "appName": "RB.ROCustomerInterfaceLibrary",
+        "frameworks": [
+          ".NETFramework,Version=v4.7.2"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ]
+      },
+      "incidents": [
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "f7d40a42-ad28-43ec-bac3-da7ad8e65603",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 2218,
+          "column": 34,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "e8119ea4-2cf7-4711-a734-19b504dbb92a",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.Directory",
+          "line": 668,
+          "column": 20,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "90047f4c-a29c-4c3d-8f35-1363ce9e5142",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 2283,
+          "column": 24,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "51a2af39-ef3f-4130-9ac8-0b7362c38a1f",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 674,
+          "column": 16,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "ec998e97-341a-412a-9452-22d8e7eb5dd6",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 2242,
+          "column": 28,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "8845dfb0-31bb-4958-b411-ad0189066620",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 2242,
+          "column": 46,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "b47ae003-127d-493f-9ebc-cc1a472b6198",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 2238,
+          "column": 24,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "d9f5f18d-9422-4abb-b296-972aa8b4c55e",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 2238,
+          "column": 45,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "f6c6a0a3-ba61-4ff5-a817-eda40ddae2f8",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 2237,
+          "column": 24,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "95055906-3786-41ad-a9b3-bf056a50c67e",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 2237,
+          "column": 46,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "2bcc0dc1-5603-42c0-8aac-46bed6692a63",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileStream",
+          "line": 2274,
+          "column": 24,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "a419a776-75c3-45a4-86a2-152313982fa9",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileStream",
+          "line": 2274,
+          "column": 55,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "5e2315ef-25b9-43b9-90b0-615c11150fff",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileStream",
+          "line": 2227,
+          "column": 16,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "f394a601-ff77-420e-862f-9221d8ee8b51",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.Directory",
+          "line": 303,
+          "column": 38,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "e51e5c25-875a-478a-a0b3-5801fc182c35",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.Directory",
+          "line": 665,
+          "column": 21,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "73609aec-3aae-4c11-93f2-047fd9f2847b",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.Directory",
+          "line": 617,
+          "column": 20,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "e507ced9-5626-42f8-ac5c-34bd5476dcec",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.Directory",
+          "line": 359,
+          "column": 20,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "aa66543a-6972-45df-92ec-22dc2728df25",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.Directory",
+          "line": 520,
+          "column": 20,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "2a279747-da31-49e6-a511-148079909f73",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 1334,
+          "column": 28,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "f5270b93-4851-48b9-83bd-197a429d91a0",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileStream",
+          "line": 2267,
+          "column": 37,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "e6fe67b1-3be1-4d19-a340-e80494b45073",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 1336,
+          "column": 48,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "31581c09-128c-4419-8da3-c84cb29837a4",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.Directory",
+          "line": 2224,
+          "column": 36,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "9b2ba08d-99b4-4fdb-8bb1-652b9b81e0e7",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.Directory",
+          "line": 319,
+          "column": 31,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "3a967c67-56ae-42a9-ba4a-038faf9e7ea0",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.Directory",
+          "line": 363,
+          "column": 35,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "384b44b8-2dee-43ac-a583-88bebb4bd00d",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.Directory",
+          "line": 524,
+          "column": 48,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "d277349d-c2ae-4802-8945-208213fd617a",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "System.Xml.XmlDocument.Load",
+          "line": 541,
+          "column": 28,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "19e118de-5a2a-4708-82d1-79ed8ea70dc6",
+          "location": "RB.ROCustomerIntefaceLibrary\\BTHelper.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 2476,
+          "column": 29,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "1be10123-a0ab-4727-91a0-e7d1ea3b6d8f",
+          "location": "RB.ROCustomerIntefaceLibrary\\Logger.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 128,
+          "column": 17,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "34d6ebcb-4b59-460e-8ed6-9b5a42abc9ec",
+          "location": "RB.ROCustomerIntefaceLibrary\\Logger.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 134,
+          "column": 28,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "9a9f488c-ede7-40e3-a720-a9436ec8132c",
+          "location": "RB.ROCustomerIntefaceLibrary\\Logger.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.StreamWriter",
+          "line": 130,
+          "column": 28,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "15aa4f9e-b69c-4471-92d1-567cb2202525",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROConfigurationManager.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 59,
+          "column": 38,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "9d8c8466-abc0-4787-ae87-b1ee3c2cb0aa",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROConfigurationManager.cs",
+          "locationKind": "File",
+          "snippet": "System.Xml.Linq.XDocument.Load",
+          "line": 63,
+          "column": 41,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "104acb5b-c1c7-4c03-8516-51c80b2aa4d2",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 374,
+          "column": 42,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "6a7a1f7e-438d-4a16-8566-b03681a6fbdb",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 373,
+          "column": 43,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "fdeb573e-0927-4ab8-b29c-bef7b8433014",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 345,
+          "column": 37,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "d67cdad4-6177-421b-8c31-42438f3aa8d8",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 369,
+          "column": 46,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "80c075d3-267e-4691-aa4b-7d7efeae2dcc",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 368,
+          "column": 48,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "86ff9e9d-54da-4933-b61b-073e97d200da",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 371,
+          "column": 39,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "641baa16-304a-47c7-b2f5-58f17b423144",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 499,
+          "column": 43,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "54004457-cdc4-4027-be5d-3e88cd528225",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 500,
+          "column": 54,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "307cd2ed-9efe-499d-b3ef-7a2eab991e7e",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 502,
+          "column": 49,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "d346c52a-4218-4aa3-8c2f-9a6148717377",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 501,
+          "column": 54,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "e500f450-5896-4b34-bace-2b2b23255021",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 503,
+          "column": 49,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "acfbdb37-14c0-45d6-a35e-c01fae2a3766",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 504,
+          "column": 46,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "f9ed3116-debe-41e1-8565-91a94d444c5a",
+          "location": "RB.ROCustomerIntefaceLibrary\\ROGlobalConstants.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 366,
+          "column": 45,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "175893e1-a6fc-4bee-a813-da2fad982115",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 176,
+          "column": 30,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "4c2a0f40-801c-4366-a704-65116fe56618",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities.cs",
+          "locationKind": "File",
+          "snippet": "System.Xml.Linq.XDocument.Load",
+          "line": 178,
+          "column": 27,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0003",
+          "incidentId": "891277f8-f154-437f-bd2f-d9ace469aea7",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities.cs",
+          "locationKind": "File",
+          "snippet": "password",
+          "line": 669,
+          "column": 67,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0004",
+          "incidentId": "1b460607-e8a7-4fe3-80d1-f908edb8e6af",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.NetworkCredential",
+          "line": 674,
+          "column": 38,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0004",
+          "incidentId": "ad6efdc7-6f39-47c3-824e-6aa4f0f82967",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.NetworkCredential",
+          "line": 674,
+          "column": 42,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "SMTP.0001",
+          "incidentId": "75345104-b697-4f03-a6d0-20c312e919ec",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.Mail.MailMessage",
+          "line": 658,
+          "column": 66,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "SMTP.0001",
+          "incidentId": "423e95be-3f8f-4be5-86f7-d45e218d72e8",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.Mail.SmtpClient",
+          "line": 676,
+          "column": 16,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "SMTP.0001",
+          "incidentId": "1fa39ca6-d8a0-486b-a181-7e5667c4a753",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.Mail.SmtpClient",
+          "line": 676,
+          "column": 44,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "e2377a24-1db6-4660-98af-5cf24e9940cf",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\OSLC_QueryResult.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 20,
+          "column": 50,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "91f02fe1-2def-4aff-89f0-441fa3dfc7de",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\OSLC_QueryResult.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 72,
+          "column": 38,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0003",
+          "incidentId": "4b0067eb-083b-4d1b-b5b0-dabfb72ddcca",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RODataInterface.cs",
+          "locationKind": "File",
+          "snippet": "password",
+          "line": 82,
+          "column": 69,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "mandatory"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "51b793b5-422b-4622-bc6e-92f13b416b03",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_CQAPI_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 868,
+          "column": 24,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "bc800773-e189-4326-bb56-0284c6eec84e",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_CQAPI_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 1009,
+          "column": 12,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "d215975a-a140-4c5d-8f52-d3013636e5eb",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_CQAPI_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 1009,
+          "column": 35,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "df7b5112-2c75-4ec6-b7fb-5be4edda7897",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_CQAPI_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 865,
+          "column": 26,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "91e0930d-4739-4aab-9671-ca99f5348c12",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_CQAPI_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 648,
+          "column": 34,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "HTTP.0001",
+          "incidentId": "74b6541b-32a8-4ae2-ac8d-0f19320d52e2",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.HttpWebRequest",
+          "line": 370,
+          "column": 16,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "HTTP.0001",
+          "incidentId": "14c0f582-4326-444a-bbb8-4b8fdb00867a",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.WebRequest",
+          "line": 370,
+          "column": 44,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "HTTP.0001",
+          "incidentId": "338852c1-6ada-4c2c-9f7f-68a1a6edada9",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.HttpWebRequest",
+          "line": 370,
+          "column": 79,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "HTTP.0001",
+          "incidentId": "67799585-a127-415b-98c4-11d9c14f1bc1",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.Http.HttpClient",
+          "line": 543,
+          "column": 36,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "54f33439-b56f-4cfe-9681-6372c43072d0",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 436,
+          "column": 38,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "3a109c47-82ed-4842-b595-04b5b45767fe",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 503,
+          "column": 44,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "f47ceaeb-d29d-4e89-b573-737a6280968d",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 455,
+          "column": 44,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "01b20975-dcbb-476f-a649-27b72c6f69a0",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 479,
+          "column": 44,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "0d4af03c-6081-406f-8252-952f4a317047",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 20,
+          "column": 50,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "89a3b179-8fa2-4d31-981c-7f3b18c8e625",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 23,
+          "column": 48,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "e922b7ec-4739-4e57-98f9-ff5dae9d5bbe",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 24,
+          "column": 53,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "cc8a7450-3a8f-47f3-b196-7ff3e1cdcc4a",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 21,
+          "column": 50,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "d3e2fd22-4fdd-4670-a323-1c5e442f6e1f",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 22,
+          "column": 50,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "a1ca34bf-d522-40d8-8952-7264cd59a2f9",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 675,
+          "column": 50,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "df0aee9c-314b-41c9-a637-bacb141fe988",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 786,
+          "column": 54,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "9e8664c9-c9b1-4370-af59-036de268c61c",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 974,
+          "column": 50,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0004",
+          "incidentId": "e6a2d9df-ebe8-4d6b-b1d0-6f0c13ada1fc",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.NetworkCredential",
+          "line": 371,
+          "column": 41,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0004",
+          "incidentId": "1d646cb6-a6f4-4a8d-8637-303497c59a11",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.NetworkCredential",
+          "line": 371,
+          "column": 45,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0004",
+          "incidentId": "89d4fdb0-476b-4b90-8a1e-2911b7fc5a75",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.NetworkCredential",
+          "line": 541,
+          "column": 30,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0004",
+          "incidentId": "92ed6aa1-63c2-437a-8e8d-5adbcccb2977",
+          "location": "RB.ROCustomerIntefaceLibrary\\RODataInterface\\RO_OSLC_DataInterface.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.NetworkCredential",
+          "line": 541,
+          "column": 34,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0001",
+          "incidentId": "df320dde-ed10-4bb5-a68c-1ff79b7df600",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities\\Encryption.cs",
+          "locationKind": "File",
+          "snippet": "System.Security.Cryptography.MD5CryptoServiceProvider",
+          "line": 21,
+          "column": 12,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0001",
+          "incidentId": "4323d384-30a7-4cee-9ca0-ce6d29d24662",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities\\Encryption.cs",
+          "locationKind": "File",
+          "snippet": "System.Security.Cryptography.MD5CryptoServiceProvider",
+          "line": 21,
+          "column": 56,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0001",
+          "incidentId": "756cea40-b495-4786-acfb-3074596e3270",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities\\Encryption.cs",
+          "locationKind": "File",
+          "snippet": "System.Security.Cryptography.MD5CryptoServiceProvider",
+          "line": 63,
+          "column": 12,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0001",
+          "incidentId": "3a60d8dc-cd3a-4583-b3f7-7f6791ccaa67",
+          "location": "RB.ROCustomerIntefaceLibrary\\Utilities\\Encryption.cs",
+          "locationKind": "File",
+          "snippet": "System.Security.Cryptography.MD5CryptoServiceProvider",
+          "line": 63,
+          "column": 56,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "optional"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "2beff85c-17a1-40b4-a2f0-48cb366135f0",
+          "location": "RB.ROCustomerIntefaceLibrary\\ValidationEngine\\AttachmentHandler.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 74,
+          "column": 37,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "SMTP.0001",
+          "incidentId": "f5e7882b-22cc-4179-9da4-eba9fea97273",
+          "location": "RB.ROCustomerIntefaceLibrary\\ValidationEngine\\Condition.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.Mail.MailMessage",
+          "line": 503,
+          "column": 28,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "SMTP.0001",
+          "incidentId": "1b19d48f-69ac-4541-9a04-5e5b8b69865d",
+          "location": "RB.ROCustomerIntefaceLibrary\\ValidationEngine\\Condition.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.Mail.MailMessage",
+          "line": 503,
+          "column": 52,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "a7fa1df5-1ec4-4dea-84fa-35cbb0d00d00",
+          "location": "RB.ROCustomerIntefaceLibrary\\ValidationEngine\\ROValidationEngineManager.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 2090,
+          "column": 44,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "54981cf4-c035-4632-be25-ee6c668f1927",
+          "location": "RB.ROCustomerIntefaceLibrary\\ValidationEngine\\ROValidationEngineManager.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 1245,
+          "column": 81,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "7b72afb1-127a-4dce-875b-eb9b6b61990c",
+          "location": "RB.ROCustomerIntefaceLibrary\\ValidationEngine\\ROValidationEngineManager.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 1380,
+          "column": 89,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "2aa2e272-6ff7-4281-9d46-4af47f1a7fbe",
+          "location": "RB.ROCustomerIntefaceLibrary\\ValidationEngine\\ROValidationEngineManager.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.FileInfo",
+          "line": 1501,
+          "column": 81,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        }
+      ]
+    },
+    {
+      "path": "RO_TestBed\\RO_TestBed.csproj",
+      "issues": 6,
+      "storyPoints": 74,
+      "properties": {
+        "appName": "RO_TestBed",
+        "frameworks": [
+          ".NETFramework,Version=v4.7.2"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ]
+      },
+      "incidents": [
+        {
+          "ruleId": "Security.0002",
+          "incidentId": "095d1f38-2581-4f70-b1c4-026c44bdad51",
+          "location": "RO_TestBed\\App.config",
+          "locationKind": "File",
+          "snippet": "\u003CappSettings /\u003E",
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "optional"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "optional"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "HTTP.0001",
+          "incidentId": "cb981629-5ed3-42a3-9a21-879b987842d1",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.HttpWebRequest",
+          "line": 435,
+          "column": 16,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "HTTP.0001",
+          "incidentId": "d26fb256-d6ea-44ff-8225-bba0c2cd70f1",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.WebRequest",
+          "line": 435,
+          "column": 44,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "HTTP.0001",
+          "incidentId": "1a71da6d-c815-43fd-b6b0-7c718e097a76",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.HttpWebRequest",
+          "line": 435,
+          "column": 79,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "HTTP.0001",
+          "incidentId": "8fc7c206-0856-447f-8af3-04bc232e9452",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.Http.HttpClient",
+          "line": 468,
+          "column": 40,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "93891051-ea27-4ae1-944d-b61e937ad2d2",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 156,
+          "column": 69,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "26dab892-3a79-4c6d-b361-6c93fadd4ee4",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 512,
+          "column": 49,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "f5bab08f-795a-49da-bb6c-c150e4eb0f43",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 979,
+          "column": 34,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "41c908bb-c205-4484-a2a6-f69120449af0",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 192,
+          "column": 42,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "b8d75a67-bdb4-4f61-bb44-18f521e8db7e",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 799,
+          "column": 42,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "00f60dff-bdb2-40bc-ab6d-f33c928aff87",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 140,
+          "column": 56,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "ce8b3af5-f510-456a-a601-88b6efe3de28",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 188,
+          "column": 56,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "ff0d2dbe-7630-4847-b831-c7dbb1cafb37",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 988,
+          "column": 79,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "cacf0d23-cc2f-41e1-8022-874cdc55093b",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 993,
+          "column": 47,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "fb06abf4-5cc0-44c5-905a-e9c6112fbc92",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 507,
+          "column": 42,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "37e69107-ac06-407a-bbbd-4da996cec3a2",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 229,
+          "column": 34,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "4f3a15ce-d22d-442f-9a33-dc3fddbbf787",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 877,
+          "column": 44,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "b44b5b1e-76f6-42df-9db1-9c9a0fde00d3",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 979,
+          "column": 16,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "8a9f7788-991b-4066-ab4c-2014c442db95",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Xml.XmlDocument.Load",
+          "line": 746,
+          "column": 12,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "387531eb-85db-4f24-baff-dc7ab7c60d86",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Xml.XmlDocument.Load",
+          "line": 135,
+          "column": 12,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "3808ab1f-4e26-4763-acf9-6972c2e76f25",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 988,
+          "column": 62,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "8254754c-046e-48e1-9080-06a8c60a53e7",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Xml.XmlDocument.Load",
+          "line": 603,
+          "column": 16,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "ee18f90e-cf70-489f-8e68-9521baf422f3",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.IO.File",
+          "line": 993,
+          "column": 30,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "605ce8cc-ddea-4583-ab0f-3f24f8484af4",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Xml.Linq.XDocument.Load",
+          "line": 229,
+          "column": 19,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "6f439c1e-7ad6-4220-b11c-6bb002a3fbec",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Xml.Linq.XDocument.Load",
+          "line": 877,
+          "column": 29,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "9136fdfa-e63d-4a32-8a10-add86c794a48",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 377,
+          "column": 50,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "ce736cad-3818-4d3d-902a-1c8c1a4747ca",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 380,
+          "column": 48,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "d7a2066d-afbc-42d5-aa1b-3b39ee5a1523",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 381,
+          "column": 53,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "b709a7f3-d5ee-4f73-99ed-26dda7b0a56b",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 378,
+          "column": 50,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "d48c45b1-2183-48ea-910e-3225899847ad",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "http://",
+          "line": 379,
+          "column": 50,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "9a418554-1be9-473b-b133-18111f775151",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "https://",
+          "line": 286,
+          "column": 30,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0006",
+          "incidentId": "74220848-8059-4b8d-925e-e3fd43f5ceb5",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "https://",
+          "line": 464,
+          "column": 42,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0004",
+          "incidentId": "b39391a6-6153-443d-8705-9f4fb79ecd25",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.NetworkCredential",
+          "line": 436,
+          "column": 41,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0004",
+          "incidentId": "8d71fcde-8a2e-4350-96ae-2bc6d7a2a546",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.NetworkCredential",
+          "line": 436,
+          "column": 45,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0004",
+          "incidentId": "9fc3eb94-9069-4be2-a77a-abcbf8db4912",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.NetworkCredential",
+          "line": 466,
+          "column": 34,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Security.0004",
+          "incidentId": "81e91afb-dfe0-45ba-a8b5-0b092f90d4b3",
+          "location": "RO_TestBed\\frmMain.cs",
+          "locationKind": "File",
+          "snippet": "System.Net.NetworkCredential",
+          "line": 466,
+          "column": 38,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0003",
+          "incidentId": "d38eee69-27cf-4f3a-b75d-6aa5094d2203",
+          "location": "RO_TestBed\\TestForm.cs",
+          "locationKind": "File",
+          "snippet": "System.Xml.XmlDocument.Load",
+          "line": 29,
+          "column": 12,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppService.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AKS.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "ACA": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 3,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        },
+        {
+          "ruleId": "Local.0002",
+          "incidentId": "1183ab05-56d1-40d6-90fd-60f0c90b9935",
+          "location": "RO_TestBed\\TestForm.Designer.cs",
+          "locationKind": "File",
+          "snippet": "^[a-zA-Z]:[\\\\/]",
+          "line": 222,
+          "column": 43,
+          "targets": {
+            "AppService.Windows": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppService.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AKS.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "ACA": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 1,
+              "severity": "mandatory"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 1,
+              "severity": "information"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 1,
+              "severity": "potential"
+            }
+          },
+          "labels": []
+        }
+      ]
+    },
+    {
+      "path": "ROValidationTest\\ROValidationTest.csproj",
+      "issues": 0,
+      "storyPoints": 0,
+      "properties": {
+        "appName": "ROValidationTest",
+        "frameworks": [
+          ".NETFramework,Version=v4.7.2"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ]
+      },
+      "incidents": []
+    },
+    {
+      "path": ".",
+      "issues": 1,
+      "storyPoints": 5,
+      "properties": {
+        "appName": "",
+        "frameworks": [],
+        "languages": [
+          ""
+        ],
+        "tools": [
+          "MSBuild"
+        ]
+      },
+      "incidents": [
+        {
+          "ruleId": "Dockerfile.0101",
+          "incidentId": "bc23c320-34bc-4e32-bcf5-c490a1613c9d",
+          "location": ".",
+          "locationKind": "file",
+          "message": "File(s) missing",
+          "snippet": "",
+          "targets": {
+            "AppService.Windows": {
+              "effort": 5,
+              "severity": "optional"
+            },
+            "AppService.Linux": {
+              "effort": 5,
+              "severity": "optional"
+            },
+            "AKS.Linux": {
+              "effort": 5,
+              "severity": "optional"
+            },
+            "AKS.Windows": {
+              "effort": 5,
+              "severity": "optional"
+            },
+            "ACA": {
+              "effort": 5,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Linux": {
+              "effort": 5,
+              "severity": "optional"
+            },
+            "AppServiceContainer.Windows": {
+              "effort": 5,
+              "severity": "optional"
+            },
+            "AppServiceManagedInstance.Windows": {
+              "effort": 5,
+              "severity": "optional"
+            }
+          },
+          "labels": []
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "Local.0002": {
+      "id": "Local.0002",
+      "description": "Your application has hardcoded local or network paths that might not be available on Azure.\n\nReview and ensure that you are attempting to access paths that would be available when your application lives in Azure.\n\n Application should use paths relative to application root folder or store them in Azure Storage or Azure CDN.",
+      "title": "Hardcoded local or network paths detected",
+      "severity": "mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Azure Storage",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2243159"
+        },
+        {
+          "title": "Azure CDN",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2251637"
+        },
+        {
+          "title": "Design to scale out",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2251007"
+        }
+      ],
+      "labels": []
+    },
+    "Local.0003": {
+      "id": "Local.0003",
+      "description": "Your application has local or network IO operations.\n\nIf you are targeting Managed Instance on Azure App Service, move persistent I/O to storage mounts (Azure Files/UNC). Keep local writes to temp only; connect to external dependencies via private endpoints/VNet to reduce latency.\n\nIO operations outside of the application folder might not be available on Azure App Service. Review and ensure IO APIs are attempting to access paths that will be available when your app is running on App Service sandbox. If you choose the containerized hosting option, your scenario still might be broken or have scalability issues.\n\nPossible solutions:\n    1. Files that the application needs can be deployed with the application or put in Azure Storage. You can use Azure Storage File Shares as a drop-in replacement for on-premises file share.\n    2. Other services that the application depends on might need to be migrated to Azure, this way you will get the benefit of lower latency in the cloud.\n    3. If your application needs to depend on services that run on-premise, you can connect your Azure and local networks with ExpressRoute, Hybrid Connections, or VPN solutions.",
+      "title": "Local or network IO operations detected",
+      "severity": "potential",
+      "effort": 3,
+      "links": [
+        {
+          "title": "[Managed Instance] Storage mounts",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2346952"
+        },
+        {
+          "title": "Azure file share",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2242591"
+        },
+        {
+          "title": "ExpressRoute",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250577"
+        },
+        {
+          "title": "Hybrid Connections",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2242588"
+        },
+        {
+          "title": "Connect an on-prem network",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2242591"
+        },
+        {
+          "title": "Design to scale out",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2251007"
+        }
+      ],
+      "labels": []
+    },
+    "Local.0006": {
+      "id": "Local.0006",
+      "description": "Your application has hardcoded URLs that might correspond to services that are not accessible on Azure.\n\nReview and ensure that the application is attempting to access URLs that would be available from Azure. You might need to migrate those services to Azure too, this way you will get the benefit of lower latency in the cloud.\n\nIf your application needs to depend on services that run on-premises, you can connect your Azure and local networks with ExpressRoute, Hybrid Connections, or VPN solutions.",
+      "title": "Hardcoded URLs detected",
+      "severity": "potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "ExpressRoute",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250577"
+        },
+        {
+          "title": "Hybrid Connections",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2242588"
+        },
+        {
+          "title": "Connect an on-prem network",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2242591"
+        }
+      ],
+      "labels": []
+    },
+    "Security.0003": {
+      "id": "Security.0003",
+      "description": "Hardcoded sensitive data detected.\n\nIf you are targeting Managed Instance on Azure App Service, externalize secrets to Key Vault/App Configuration; use managed identity instead of passwords or embedded connection strings.\n\nWhile if targeting other Azure compute services:\n\nAvoid placing sensitive data such as passwords, ids, tokens etc., directly in config files and code since it compromises the security of your application.\n\nUse Azure App Configuration or Azure KeyVault to store secrets.",
+      "title": "Hardcoded sensitive data detected",
+      "severity": "optional",
+      "effort": 3,
+      "links": [
+        {
+          "title": "Centralized app configuration and security",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250733"
+        }
+      ],
+      "labels": []
+    },
+    "Security.0004": {
+      "id": "Security.0004",
+      "description": "Explicit password-based credentials usage is detected.\n\nEnsure that the dependencies accessed with the credentials and the authentication mechanism used will both work from the target Azure environment.\n\nAlso, consider replacing explicit credential usage with passwordless alternatives. When credentials are loaded from secure sources it might be OK, however it is considered the best practice for Azure applications to use password-less authentication (via managed identity for example) or to store secrets and passwords in Azure App Configuration or Azure KeyVault.",
+      "title": "Explicit password-based credentials usage is detected",
+      "severity": "potential",
+      "effort": 3,
+      "links": [
+        {
+          "title": "Use managed identities for Azure App Service",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2250759"
+        }
+      ],
+      "labels": []
+    },
+    "SMTP.0001": {
+      "id": "SMTP.0001",
+      "description": "If you are targeting Managed Instance on Azure App Service, use an authenticated SMTP relay (e.g., SendGrid/Exchange Online). Store credentials in Key Vault; validate outbound restrictions for your subscription.\n\nWhile if targeting other Azure compute services, SMTP connections in your code might not work on Azure. Outbound email messages that are sent directly to external domains are made available only to certain subscription types. We recommend using authenticated SMTP relay services instead.",
+      "title": "SMTP connections detected",
+      "severity": "potential",
+      "effort": 3,
+      "links": [
+        {
+          "title": "Troubleshoot SMTP problems",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2243158"
+        },
+        {
+          "title": "Set up emails with Microsoft 365 or Office 365",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2249851"
+        }
+      ],
+      "labels": []
+    },
+    "HTTP.0001": {
+      "id": "HTTP.0001",
+      "description": "Your application is trying to reach external resources via HTTP protocol.\n\nFor Managed Instance on App Service, secure connectivity to internal/on-prem HTTP services is managed via plan-level VNet integration and private endpoints. Keep inbound traffic restricted to 80/443; capture any required HTTP config in install scripts. Use Bastion JIT RDP only for diagnostics\u2014persist all changes via install scripts. Outbound traffic does not impose similar restrictions.\n\nWhile if targeting other Azure compute services, ensure the resources it is trying to reach are accessible from the Azure environment. If those HTTP requests are sent to internal services or services hosted on-prem, you probably will need to migrate those services to Azure as well.\n\nAlso, keep in mind that Azure App Service supports port 80 for HTTP and port 443 for HTTPS traffic. If you are using any other ports, you need to update them before moving to Azure.",
+      "title": "Access to external resources via HTTP is detected",
+      "severity": "potential",
+      "effort": 3,
+      "links": [
+        {
+          "title": "[Managed Instance] Bastion JIT RDP",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2346953"
+        },
+        {
+          "title": "[Managed Instance] Install scripts",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2347059"
+        },
+        {
+          "title": "Azure App Service networking features",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2243264"
+        }
+      ],
+      "labels": []
+    },
+    "Security.0001": {
+      "id": "Security.0001",
+      "description": "MD5/SHA1 usage detected. \n\n Due to collision problems with MD5/SHA1, Microsoft recommends SHA256 or SHA512. \n\n Consider using the SHA256 class or the SHA512 class instead of the MD5 class. Use MD5 only for compatibility with legacy applications and data.",
+      "title": "MD5/SHA1 usage detected",
+      "severity": "optional",
+      "effort": 1,
+      "links": [
+        {
+          "title": "SHA256",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250387"
+        },
+        {
+          "title": "SHA512",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250388"
+        }
+      ],
+      "labels": []
+    },
+    "Security.0002": {
+      "id": "Security.0002",
+      "description": "Connection strings without configuration builders detected.  \n\n Keeping connection strings directly in the app is not the best practice and might introduce security risks, increased maintenance, scalability challenges or compliance standards (such as PCI DSS, GDPR, etc.). \n\n Instead, it is recommended to use configuration builders to get secrets from secure sources in Azure environment.",
+      "title": "Connection strings without configuration builders detected",
+      "severity": "optional",
+      "effort": 3,
+      "links": [
+        {
+          "title": "Configuration builders",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250915"
+        },
+        {
+          "title": "Storing application secrets",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250916"
+        },
+        {
+          "title": "Centralized app configuration and security",
+          "url": "https://go.microsoft.com/fwlink/?LinkID=2250733"
+        }
+      ],
+      "labels": []
+    },
+    "Dockerfile.0101": {
+      "id": "Dockerfile.0101",
+      "description": "Ensure Dockerfile exists in the repository",
+      "title": "Dockerfile Missing",
+      "severity": "optional",
+      "effort": 5,
+      "links": [
+        {
+          "title": "docker",
+          "url": "https://docker.com"
+        }
+      ],
+      "labels": [
+        "domain=cloud-readiness",
+        "category=docker-containerization"
+      ]
+    }
+  }
+}

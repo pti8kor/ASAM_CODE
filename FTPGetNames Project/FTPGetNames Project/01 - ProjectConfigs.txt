@@ -1,0 +1,9 @@
+
+
+In BT Webservice publish wizard:
+
+WebService Namespace = http://FTPGetNames/
+
+WebService Project Location = http://localhost/FTPGetNames_Proxy = http://SI0VM521/FTPGetNames_Proxy
+--> WebService Location = http://si0vm521/FTPGetNames_Proxy/FTPGetNames_Project_FTPGetNames_RR_P.asmx
+--> WebService WSDL = http://si0vm521/FTPGetNames_Proxy/FTPGetNames_Project_FTPGetNames_RR_P.asmx?WSDL

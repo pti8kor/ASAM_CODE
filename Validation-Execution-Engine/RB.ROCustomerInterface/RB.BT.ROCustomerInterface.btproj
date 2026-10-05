@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21107</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F725D76F-5AA7-42CC-9F88-6984567122E0}</ProjectGuid>
+    <ProjectTypeGuids>{EF7E3281-CD33-11D4-8326-00C04FA0CE8D};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>library</OutputType>
+    <GenericProcessing>true</GenericProcessing>
+    <RootNamespace>RB.ROCustomerInterface</RootNamespace>
+    <AssemblyName>RB.ROCustomerInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <BpelCompliance>True</BpelCompliance>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <EnableUnitTesting>True</EnableUnitTesting>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>RB.BT.ROCustomerInterface_Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Name>System.Configuration</Name>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Pipeline">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.DefaultPipelines">
+      <Name>Microsoft.BizTalk.DefaultPipelines</Name>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.GlobalPropertySchemas">
+      <Name>Microsoft.BizTalk.GlobalPropertySchemas</Name>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.TestTools">
+      <Name>Microsoft.BizTalk.TestTools</Name>
+    </Reference>
+    <Reference Include="Microsoft.XLANGs.BaseTypes">
+      <Name>Microsoft.XLANGs.BaseTypes</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schema\ASAM\issue_v3_0_0.sl.xsd.cs">
+      <DependentUpon>issue_v3_0_0.sl.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\ASAM\xml.xsd.cs">
+      <DependentUpon>xml.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\AttachmentsBinaryCompare\BinaryComparison.xsd.cs">
+      <DependentUpon>BinaryComparison.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\BMW\ASAM_ISSUE_V3.0.1_proposed.xsd.cs">
+      <DependentUpon>ASAM_ISSUE_V3.0.1_proposed.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\BMW\issue_v3_1_0.sl.xsd.cs">
+      <DependentUpon>issue_v3_1_0.sl.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\BMW\xml.xsd.cs">
+      <DependentUpon>xml.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\HISMapperIN.xsd.cs">
+      <DependentUpon>HISMapperIN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\HISMapperOUT.xsd.cs">
+      <DependentUpon>HISMapperOUT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\HISMappingDBMapper.xsd.cs">
+      <DependentUpon>HISMappingDBMapper.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\RB.ASAM\RB.RO.ASAM.xsd.cs">
+      <DependentUpon>RB.RO.ASAM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Schema\Transfer\SingleFileShiftInformation.xsd.cs">
+      <DependentUpon>SingleFileShiftInformation.xsd</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schema\Transfer\TransferResultInformation.xsd.cs">
+      <DependentUpon>TransferResultInformation.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schema\ASAM\issue_v3_0_0.sl.xsd">
+      <TypeName>issue_v3_0_0_sl</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.ASAM</Namespace>
+    </Schema>
+    <Schema Include="Schema\ASAM\xml.xsd">
+      <TypeName>xml</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.ASAM</Namespace>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schema\DAIMLER\issue_v3_1_0-DaiModV1.sl.xsd">
+      <TypeName>issue_v3_1_0_DaiModV1_sl</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.DAIMLER</Namespace>
+    </Schema>
+    <Schema Include="Schema\RB.ASAM\RB.RO.ASAM.xsd">
+      <TypeName>RB_RO_ASAM</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.RB.ASAM</Namespace>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="RB.BT.ROCustomerInterface_Key.snk" />
+    <Schema Include="Schema\DAIMLER\MessageAcknowledge.xsd">
+      <TypeName>MessageAcknowledge</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.DAIMLER</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="Schema\BMW\issue_v3_2_0.sl.xsd">
+      <TypeName>issue_v3_2_0_sl</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.BMW</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="Schema\DAIMLER\issue_v3_1_1-DaiModV2.sl.xsd">
+      <TypeName>issue_v3_1_1_DaiModV2_sl</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.DAIMLER</Namespace>
+    </Schema>
+    <Schema Include="Schema\vwid2ttn_hisser.xsd">
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <TypeName>vwid2ttn_hisser</TypeName>
+    </Schema>
+    <Schema Include="Schema\vwid2ttn_vwid2ttn_webservices_his_bosch_com.xsd">
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <TypeName>vwid2ttn_vwid2ttn_webservices_his_bosch_com</TypeName>
+    </Schema>
+    <Schema Include="Schema\DAIMLER\xml.xsd">
+      <TypeName>xml</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.DAIMLER</Namespace>
+    </Schema>
+    <Schema Include="Schema\HISMapperIN.xsd">
+      <TypeName>HISMapperIN</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema</Namespace>
+    </Schema>
+    <Schema Include="Schema\HISMapperOUT.xsd">
+      <TypeName>HISMapperOUT</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema</Namespace>
+    </Schema>
+    <Schema Include="Schema\HISMappingDBMapper.xsd">
+      <TypeName>HISMappingDBMapper</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema</Namespace>
+    </Schema>
+    <Schema Include="Schema\AttachmentsBinaryCompare\BinaryComparison.xsd">
+      <TypeName>BinaryComparison</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.AttachmentsBinaryCompare</Namespace>
+    </Schema>
+    <Schema Include="Schema\Transfer\SingleFileShiftInformation.xsd">
+      <TypeName>SingleFileShiftInformation</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.Transfer</Namespace>
+    </Schema>
+    <Schema Include="Schema\Transfer\SingleFileTransferResultOld.xsd">
+      <TypeName>SingleFileTransferResultOld</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.Transfer</Namespace>
+    </Schema>
+    <Schema Include="Schema\Transfer\TransferResultInformation.xsd">
+      <TypeName>TransferResultInformation</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.Transfer</Namespace>
+    </Schema>
+    <Schema Include="Schema\BMW\issue_v3_1_0.sl.xsd">
+      <TypeName>issue_v3_1_0_sl</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.BMW</Namespace>
+    </Schema>
+    <Schema Include="Schema\BMW\xml.xsd">
+      <TypeName>xml</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.BMW</Namespace>
+    </Schema>
+    <Schema Include="Schema\BMW\ASAM_ISSUE_V3.0.1_proposed.xsd">
+      <TypeName>ASAM_ISSUE_V3_0_1_proposed</TypeName>
+      <Namespace>RB.ROCustomerInterface.Schema.BMW</Namespace>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Map\TransferResult_FileName.btm">
+      <TypeName>TransferResult_FileName</TypeName>
+      <Namespace>RB.ROCustomerInterface.Map</Namespace>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Map\IMFCopy.btm">
+      <TypeName>IMFCopy</TypeName>
+      <Namespace>RB.ROCustomerInterface.Map</Namespace>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="RB.RO_ASAM_ISSUE_IMF_CLOSEDNOTOK.btm">
+      <TypeName>RB_RO_ASAM_ISSUE_IMF_CLOSEDNOTOK</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_ASAM_ISSUE_IMF_CLOSEDOK.btm">
+      <TypeName>RB_RO_ASAM_ISSUE_IMF_CLOSEDOK</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_ASAM_ISSUE_IMF_ESTIMATEDACCEPTED.btm">
+      <TypeName>RB_RO_ASAM_ISSUE_IMF_ESTIMATEDACCEPTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_ASAM_ISSUE_IMF_ESTIMATEDPILOTACCEPTED.btm">
+      <TypeName>RB_RO_ASAM_ISSUE_IMF_ESTIMATEDPILOTACCEPTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_ASAM_ISSUE_IMF_ESTIMATEDPILOTREJECTED.btm">
+      <TypeName>RB_RO_ASAM_ISSUE_IMF_ESTIMATEDPILOTREJECTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_ASAM_ISSUE_IMF_ESTIMATEDREJECTED.btm">
+      <TypeName>RB_RO_ASAM_ISSUE_IMF_ESTIMATEDREJECTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_ASAM_ISSUE_IMF_MAP.btm">
+      <TypeName>RB_RO_ASAM_ISSUE_IMF_MAP</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_ASAM_ISSUE_IMF_SPECIFIEDAPPROVED.btm">
+      <TypeName>RB_RO_ASAM_ISSUE_IMF_SPECIFIEDAPPROVED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_ASAM_ISSUE_IMF_SPECIFIEDREJECTED.btm">
+      <TypeName>RB_RO_ASAM_ISSUE_IMF_SPECIFIEDREJECTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_BMW310_ISSUE_IMF_ACCEPTED.btm">
+      <TypeName>RB_RO_BMW310_ISSUE_IMF_ACCEPTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_BMW310_ISSUE_IMF_MAP.btm">
+      <TypeName>RB_RO_BMW310_ISSUE_IMF_MAP</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_BMW_ISSUE_IMF_MAP.btm">
+      <TypeName>RB_RO_BMW_ISSUE_IMF_MAP</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="RB.RO_ASAM_ISSUE_IMF_CANCELED.btm">
+      <TypeName>RB_RO_ASAM_ISSUE_IMF_CANCELED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <XLang Include="Orchestration\RB.Issue.ValidateAndExecute.odx">
+      <TypeName>RB_Issue_ValidateAndExecuteTest</TypeName>
+      <Namespace>RB.ROCustomerInterface.Orchestration</Namespace>
+      <SubType>Designer</SubType>
+    </XLang>
+    <XLang Include="Orchestration\RB.ROCustomerInterface_Orchestration.odx">
+      <TypeName>RB_ROCustomerInterface_Orchestration_New</TypeName>
+      <Namespace>RB.ROCustomerInterface.Orchestration</Namespace>
+      <SubType>Designer</SubType>
+    </XLang>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Map\SinglefileImport.btm">
+      <TypeName>SinglefileImport</TypeName>
+      <Namespace>RB.ROCustomerInterface.Map</Namespace>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Map\SinglelFileTransferResultCopy.btm">
+      <TypeName>SinglelFileTransferResultCopy_btm</TypeName>
+      <Namespace>RB.ROCustomerInterface.Map</Namespace>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="RB.RO_DAIMLER310_ISSUE_IMF_REQUESTED.btm">
+      <TypeName>RB_RO_DAIMLER310_ISSUE_IMF_REQUESTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="TransformHISOutToIMFOut.btm">
+      <TypeName>TransformHISOutToIMFOut</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="Transform_HISInToWebReq.btm">
+      <TypeName>Transform_HISInToWebReq</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="Transform_IMFToHISIn.btm">
+      <TypeName>Transform_IMFToHISIn</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="WebResponse2HISOut.btm">
+      <TypeName>WebResponse2HISOut</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Transform_IMFOutToIMFOut2.btm">
+      <TypeName>Transform_IMFOutToIMFOut2</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="RB.RO_DAIMLER310_ISSUE_IMF_REJECTED.btm">
+      <TypeName>RB_RO_DAIMLER310_ISSUE_IMF_REJECTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_DAIMLER310_ISSUE_IMF_ACCEPTED.btm">
+      <TypeName>RB_RO_DAIMLER310_ISSUE_IMF_ACCEPTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_DAIMLER310_ISSUE_IMF_CANCELLED.btm">
+      <TypeName>RB_RO_DAIMLER310_ISSUE_IMF_CANCELLED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <XLang Include="Orchestration\RB.ROExchangeProtocol_Restart.odx">
+      <TypeName>RB_ROExchangeProtocol_Restart</TypeName>
+      <Namespace>RB.ROCustomerInterface.Orchestration</Namespace>
+      <SubType>Designer</SubType>
+    </XLang>
+    <Map Include="RB.RO_DAIMLER311_ISSUE_IMF_INFOUPDATE.btm">
+      <TypeName>RB_RO_DAIMLER311_ISSUE_IMF_INFOUPDATE</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_DAIMLER311_ISSUE_IMF_REQUESTED.btm">
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <TypeName>RB_RO_DAIMLER311_ISSUE_IMF_REQUESTED</TypeName>
+    </Map>
+    <Map Include="RB.RO_DAIMLER311_ISSUE_IMF_REJECTED.btm">
+      <TypeName>RB_RO_DAIMLER311_ISSUE_IMF_REJECTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_DAIMLER311_ISSUE_IMF_ACCEPTED.btm">
+      <TypeName>RB_RO_DAIMLER311_ISSUE_IMF_ACCEPTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_DAIMLER311_ISSUE_IMF_CANCELLED.btm">
+      <TypeName>RB_RO_DAIMLER311_ISSUE_IMF_CANCELLED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+    </Map>
+    <Map Include="RB.RO_AUDIHW_ISSUE_IMF_MAP.btm">
+      <TypeName>RB_RO_AUDIHW_ISSUE_IMF_MAP</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_BMW320_ISSUE_IMF_PROPOSED.btm">
+      <TypeName>RB_RO_BMW320_ISSUE_IMF_PROPOSED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_BMW320_ISSUE_IMF_REJECTED.btm">
+      <TypeName>RB_RO_BMW320_ISSUE_IMF_REJECTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_DAIMLER320_ISSUE_IMF_MSGACK.btm">
+      <TypeName>RB_RO_DAIMLER320_ISSUE_IMF_MSGACK</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_DAIMLER320_ISSUE_IMF_REQUESTED.btm">
+      <TypeName>RB_RO_DAIMLER320_ISSUE_IMF_REQUESTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_DAIMLER320_ISSUE_IMF_ACCEPTED.btm">
+      <TypeName>RB_RO_DAIMLER320_ISSUE_IMF_ACCEPTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_DAIMLER320_ISSUE_IMF_CANCELLED.btm">
+      <TypeName>RB_RO_DAIMLER320_ISSUE_IMF_CANCELLED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_DAIMLER320_ISSUE_IMF_REJECTED.btm">
+      <TypeName>RB_RO_DAIMLER320_ISSUE_IMF_REJECTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_DAIMLER320_ISSUE_IMF_INFOUPDATE.btm">
+      <TypeName>RB_RO_DAIMLER320_ISSUE_IMF_INFOUPDATE</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_BMW320_ISSUE_IMF_PROSPR_PROPOSED.btm">
+      <TypeName>RB_RO_BMW320_ISSUE_IMF_PROSPR_PROPOSED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_BMW320_ISSUE_IMF_PROSPR_INFO.btm">
+      <TypeName>RB_RO_BMW320_ISSUE_IMF_PROSPR_INFO</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_BMW320_ISSUE_IMF_PROSPR_CLOSED.btm">
+      <TypeName>RB_RO_BMW320_ISSUE_IMF_PROSPR_CLOSED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Map Include="RB.RO_BMW320_ISSUE_IMF_PROSPR_REJECTED.btm">
+      <TypeName>RB_RO_BMW320_ISSUE_IMF_PROSPR_REJECTED</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+    <Content Include="Schema\vwid2ttn.BindingInfo.xml" />
+    <XLang Include="Orchestration\RB.HISMapping.odx">
+      <TypeName>vwid2ttn</TypeName>
+      <Namespace>RB.ROCustomerInterface</Namespace>
+      <SubType>Designer</SubType>
+    </XLang>
+    <Content Include="Schema\vwid2ttn_Custom.BindingInfo.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RB.ROCustomerIntefaceLibrary\RB.ROCustomerInterfaceLibrary.csproj">
+      <Project>{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}</Project>
+      <Name>RB.ROCustomerInterfaceLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />
+</Project>

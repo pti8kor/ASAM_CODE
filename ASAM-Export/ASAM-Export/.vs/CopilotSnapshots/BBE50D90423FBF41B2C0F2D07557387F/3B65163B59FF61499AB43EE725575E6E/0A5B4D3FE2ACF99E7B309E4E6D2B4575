@@ -1,0 +1,257 @@
+﻿using System;
+using System.Net;
+using System.Xml;
+using System.Xml.Linq;
+using RB.ROCustomerInterfaceExportLibrary;
+using Xunit;
+
+namespace RB.ROCustomerIntefaceLibrary.Tests
+{
+    /// <summary>
+    /// Unit tests for the pure/static methods in RO_OSLC_DataInterface that do not require
+    /// network or configuration file access.
+    /// </summary>
+    public class RO_OSLC_DataInterfaceTests
+    {
+        #region ReBuildUrlFromBody
+
+        [Fact]
+        public void ReBuildUrlFromBody_AddsOslcPropertiesFromBody()
+        {
+            string url = "http://server/resource?rcm.action=modify&oslc.properties=cq%3AOld";
+            string body = @"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""no""?>
+                <rdf:RDF xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
+                         xmlns:cq=""http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/""
+                         xmlns:oslc_cm=""http://open-services.net/ns/cm#"">
+                    <oslc_cm:ChangeRequest rdf:about=""http://server/resource"">
+                        <cq:FieldA>ValueA</cq:FieldA>
+                        <cq:FieldB>ValueB</cq:FieldB>
+                    </oslc_cm:ChangeRequest>
+                </rdf:RDF>";
+
+            string result = RO_OSLC_DataInterface.ReBuildUrlFromBody(url, body);
+
+            // Should contain ExternalNextState (mandatory) + FieldA + FieldB
+            Assert.Contains("ExternalNextState", WebUtility.UrlDecode(result));
+            Assert.Contains("FieldA", WebUtility.UrlDecode(result));
+            Assert.Contains("FieldB", WebUtility.UrlDecode(result));
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_StripsExistingOslcProperties()
+        {
+            string url = "http://server/resource?rcm.action=modify&oslc.properties=cq%3AOldField";
+            string body = @"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""no""?>
+                <rdf:RDF xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
+                         xmlns:cq=""http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/""
+                         xmlns:oslc_cm=""http://open-services.net/ns/cm#"">
+                    <oslc_cm:ChangeRequest rdf:about=""http://server/resource"">
+                        <cq:NewField>Val</cq:NewField>
+                    </oslc_cm:ChangeRequest>
+                </rdf:RDF>";
+
+            string result = RO_OSLC_DataInterface.ReBuildUrlFromBody(url, body);
+
+            string decoded = WebUtility.UrlDecode(result);
+            // OldField should no longer be present
+            Assert.DoesNotContain("OldField", decoded);
+            Assert.Contains("NewField", decoded);
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_AddsRcmActionIfMissing()
+        {
+            string url = "http://server/resource?oslc.properties=cq%3AOld";
+            string body = @"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""no""?>
+                <rdf:RDF xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
+                         xmlns:cq=""http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/""
+                         xmlns:oslc_cm=""http://open-services.net/ns/cm#"">
+                    <oslc_cm:ChangeRequest rdf:about=""http://server/resource"">
+                        <cq:F1>V1</cq:F1>
+                    </oslc_cm:ChangeRequest>
+                </rdf:RDF>";
+
+            string result = RO_OSLC_DataInterface.ReBuildUrlFromBody(url, body);
+            Assert.Contains("rcm.action=modify", result);
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_AlwaysIncludesExternalNextState()
+        {
+            string url = "http://server/resource?rcm.action=modify";
+            string body = @"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""no""?>
+                <rdf:RDF xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
+                         xmlns:cq=""http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/""
+                         xmlns:oslc_cm=""http://open-services.net/ns/cm#"">
+                    <oslc_cm:ChangeRequest rdf:about=""http://server/resource"">
+                        <cq:SomeField>Val</cq:SomeField>
+                    </oslc_cm:ChangeRequest>
+                </rdf:RDF>";
+
+            string result = RO_OSLC_DataInterface.ReBuildUrlFromBody(url, body);
+            Assert.Contains("ExternalNextState", WebUtility.UrlDecode(result));
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_NullUrl_Throws()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                RO_OSLC_DataInterface.ReBuildUrlFromBody(null, "<rdf:RDF/>"));
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_NullBody_Throws()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                RO_OSLC_DataInterface.ReBuildUrlFromBody("http://x", null));
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_EmptyUrl_Throws()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                RO_OSLC_DataInterface.ReBuildUrlFromBody("  ", "<rdf:RDF/>"));
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_EmptyBody_Throws()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                RO_OSLC_DataInterface.ReBuildUrlFromBody("http://x", "  "));
+        }
+
+        #endregion
+
+        #region GenerateBody
+
+        // GenerateBody requires an instance but the parts we test are pure XML logic.
+        // We need a minimal instance; the constructor calls LoadConfigurations which can
+        // silently fail, so we can still construct one for body-generation testing.
+
+        [Fact]
+        public void GenerateBody_IssueType_ProducesRdfWithIssueFields()
+        {
+            // Arrange: Create a minimal XIMF document
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF>
+                              <ISSUE>
+                                  <ExternalNextState>SPECIFIED</ExternalNextState>
+                                  <ExternalHistory>some history</ExternalHistory>
+                              </ISSUE>
+                           </EXPORT_IMF>");
+
+            // We need an instance. Constructor may fail internally but GenerateBody
+            // only needs XIMF, url, recordType.
+            var obj = CreateMinimalInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource?param=1", "ISSUE");
+
+            Assert.Contains("<dcterms:type>Issue</dcterms:type>", result);
+            Assert.Contains("ExternalNextState", result);
+            Assert.Contains("SPECIFIED", result);
+            Assert.Contains("ExternalHistory", result);
+            Assert.Contains("http://server/resource", result);
+        }
+
+        [Fact]
+        public void GenerateBody_IssueReleaseMapType_ProducesRdfWithIrmFields()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF>
+                              <ISSUERELEASEMAP>
+                                  <ExternalNextState>ACCEPTED</ExternalNextState>
+                                  <ExternalConversation>conv</ExternalConversation>
+                              </ISSUERELEASEMAP>
+                           </EXPORT_IMF>");
+
+            var obj = CreateMinimalInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource?param=1", "ISSUERELEASEMAP");
+
+            Assert.Contains("<dcterms:type>Issuereleasemap</dcterms:type>", result);
+            Assert.Contains("ExternalNextState", result);
+            Assert.Contains("ACCEPTED", result);
+        }
+
+        [Fact]
+        public void GenerateBody_UnknownType_ReturnsEmpty()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml("<Root/>");
+
+            var obj = CreateMinimalInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource", "UNKNOWN");
+            Assert.Equal(string.Empty, result);
+        }
+
+        [Fact]
+        public void GenerateBody_NoMatchingNode_ReturnsEmpty()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml("<Root><OTHER>x</OTHER></Root>");
+
+            var obj = CreateMinimalInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource", "ISSUE");
+            Assert.Equal(string.Empty, result);
+        }
+
+        [Fact]
+        public void GenerateBody_EmptyChildValues_AreExcluded()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF>
+                              <ISSUE>
+                                  <ExternalNextState></ExternalNextState>
+                                  <ExternalHistory>has value</ExternalHistory>
+                              </ISSUE>
+                           </EXPORT_IMF>");
+
+            var obj = CreateMinimalInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource", "ISSUE");
+
+            // ExternalNextState is empty so should NOT appear in body
+            Assert.DoesNotContain("ExternalNextState", result);
+            Assert.Contains("ExternalHistory", result);
+        }
+
+        [Fact]
+        public void GenerateBody_UrlQueryParamsStripped_OnlyBaseUrlUsed()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF><ISSUE><F1>V</F1></ISSUE></EXPORT_IMF>");
+
+            var obj = CreateMinimalInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource?param=1&other=2", "ISSUE");
+
+            Assert.Contains("http://server/resource", result);
+            Assert.DoesNotContain("param=1", result);
+        }
+
+        /// <summary>
+        /// Creates a minimal RO_OSLC_DataInterface using the parameterless base constructor path.
+        /// GenerateBody and ReBuildUrlFromBody do not need config loaded.
+        /// </summary>
+        private RO_OSLC_DataInterface CreateMinimalInterface()
+        {
+            // The constructor that takes parameters calls LoadConfigurations which needs config files.
+            // We exploit the fact that GenerateBody only uses XIMF parameter and does not touch any
+            // instance state. We can create it with dummy values; the base constructor will catch
+            // the configuration load failure silently.
+            try
+            {
+                return new RO_OSLC_DataInterface("DUMMY", "DUMMY", "DUMMY", null);
+            }
+            catch
+            {
+                // If constructor throws, fall back
+                return null;
+            }
+        }
+
+        #endregion
+    }
+}

@@ -1,0 +1,495 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="0bbc557a-42fb-4df7-b3b6-64da0b7c04b0" LowerBound="1.1" HigherBound="126.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="BTBinaryComparison" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="0e2fb17a-82f2-4662-a85f-237bee7ffc73" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="Rec_BinCompPortType" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="6c498d38-5250-4dde-9320-1461246f99ba" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="f141644b-27ad-42f5-9dfe-de247a4cea9a" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.51">
+                    <om:Property Name="Ref" Value="RB.BT.ROBinaryComparison.BinaryCompare" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="70854250-0c99-4a3e-b18d-84611c83a02f" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_Ident" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="d3c60312-70bc-4359-93db-ac5232a16dcb" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="168290c8-870b-4037-9a19-d3a3b504891f" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.51">
+                    <om:Property Name="Ref" Value="RB.BT.ROBinaryComparison.BinaryCompare" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="18e6addb-31d9-43ca-ad72-35f781a5eaa3" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_DIFF" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="27815460-46b6-4fc9-a192-33dba7e5c6bb" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="c526a2e2-c270-4157-8b3a-b52ada79bce0" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.51">
+                    <om:Property Name="Ref" Value="RB.BT.ROBinaryComparison.BinaryCompare" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="20ab6059-086b-41c1-a57f-ae7e3199f302" ParentLink="Module_PortType" LowerBound="25.1" HigherBound="32.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_ERROR" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="e24b95b3-3f74-4daa-8d62-d1fad1fbf238" ParentLink="PortType_OperationDeclaration" LowerBound="27.1" HigherBound="31.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="c8b4b60e-24a9-41cc-8682-beb9bf1ff2f0" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="29.13" HigherBound="29.51">
+                    <om:Property Name="Ref" Value="RB.BT.ROBinaryComparison.BinaryCompare" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="19ed5308-bebb-4383-80fd-1216a78d8b26" ParentLink="Module_ServiceDeclaration" LowerBound="32.1" HigherBound="125.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="BizTalk_Orchestration2" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="PortDeclaration" OID="ec6e2d37-e2eb-4665-a080-c08cfb13bfff" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="35.1" HigherBound="37.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="BTBinaryComparison.Rec_BinCompPortType" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Prot_RCV" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="d75dbe01-3cf2-412c-b059-800a1f049658" ParentLink="PortDeclaration_CLRAttribute" LowerBound="35.1" HigherBound="36.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="a183d9fe-bbf8-4fbd-b6a1-d08ee456bb76" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="37.1" HigherBound="39.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="BTBinaryComparison.PortType_Ident" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="PORT_IDENTITIES" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="8d959573-9e3f-4d34-ae86-416e7cb5ae1a" ParentLink="PortDeclaration_CLRAttribute" LowerBound="37.1" HigherBound="38.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="99f02a35-f41b-4bd1-a31f-2f16d019c309" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="39.1" HigherBound="41.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="BTBinaryComparison.PortType_DIFF" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="PORT_DIFF" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="LogicalBindingAttribute" OID="2c3d7902-3941-40ac-a6a4-76844aa0284b" ParentLink="PortDeclaration_CLRAttribute" LowerBound="39.1" HigherBound="40.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="0cf328f0-001b-4617-a6d0-bda1f39f0976" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="41.1" HigherBound="43.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="BTBinaryComparison.PortType_ERROR" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="PORT_ERROR" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="dabb425e-64c9-4b34-82ac-c62acce60093" ParentLink="PortDeclaration_CLRAttribute" LowerBound="41.1" HigherBound="42.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="31ad42a7-9aad-458d-ad2e-131b12e3daca" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="45.1" HigherBound="46.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Int64" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="iListOfFiles" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="106af274-6526-49b0-be3b-28a7f8773dcf" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="46.1" HigherBound="47.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sFileNames" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="d0419384-d8b9-47f6-9168-46da706d02e6" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="47.1" HigherBound="48.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sFileName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="fd14e0ff-2930-4cbb-bfbe-62d3d3150744" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="48.1" HigherBound="49.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.BT.ROBinaryComparisonLibrary.FileComparison" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROBinComp" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="8dac87ff-63f9-48b3-9743-f87d09f8797f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="49.1" HigherBound="50.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sTargetPath" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="c1e5a544-51bc-4102-868e-722feb8972f7" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="50.1" HigherBound="51.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="bIsEqual" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="b004c82b-b4f6-409b-bba0-e8da9a6e889f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="51.1" HigherBound="52.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sStatus" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="6c176a57-4d22-414c-8072-788a6eb43b21" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="43.1" HigherBound="44.1">
+                <om:Property Name="Type" Value="RB.BT.ROBinaryComparison.BinaryCompare" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgBinCompareCopy" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="78f1ba2c-0cba-4435-8af5-492d73977196" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="44.1" HigherBound="45.1">
+                <om:Property Name="Type" Value="RB.BT.ROBinaryComparison.BinaryCompare" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgBinCompare" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="bb44d1b4-2746-4158-828a-07a2b3ae0c61" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="137d5bc1-7097-48b0-9224-cc2f14420f34" ParentLink="ServiceBody_Statement" LowerBound="54.1" HigherBound="62.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="Prot_RCV" />
+                    <om:Property Name="MessageName" Value="msgBinCompare" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Scope" OID="6e911921-72f5-4715-a493-77369053770d" ParentLink="ServiceBody_Statement" LowerBound="62.1" HigherBound="123.1">
+                    <om:Property Name="InitializedTransactionType" Value="True" />
+                    <om:Property Name="IsSynchronized" Value="False" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Scope_1" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="VariableAssignment" OID="f2c6f490-74e2-4b1f-944e-ff01d7d12ddb" ParentLink="ComplexStatement_Statement" LowerBound="67.1" HigherBound="69.1">
+                        <om:Property Name="Expression" Value="sStatus = ROBinComp.TestCompare(msgBinCompare);" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Expression_1" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="Decision" OID="4c38a546-d752-439b-a225-1e72ab238181" ParentLink="ComplexStatement_Statement" LowerBound="69.1" HigherBound="112.1">
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Decide_2" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="DecisionBranch" OID="5e03980a-d107-4ef5-80f9-42995b0af043" ParentLink="ReallyComplexStatement_Branch" LowerBound="70.21" HigherBound="84.1">
+                            <om:Property Name="Expression" Value="sStatus == &quot;Identical&quot;" />
+                            <om:Property Name="IsGhostBranch" Value="True" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Rule_1" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="Construct" OID="a9247795-8645-49c7-9a80-2387fe48e557" ParentLink="ComplexStatement_Statement" LowerBound="72.1" HigherBound="81.1">
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="ConstructMessage_2" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="MessageAssignment" OID="d1992bda-1d0a-482b-9d3c-e91e54747a7f" ParentLink="ComplexStatement_Statement" LowerBound="75.1" HigherBound="80.1">
+                                    <om:Property Name="Expression" Value="msgBinCompareCopy = msgBinCompare;&#xD;&#xA;msgBinCompareCopy.BinaryComparisonStatus = sStatus;&#xD;&#xA;msgBinCompareCopy(FILE.ReceivedFileName) = System.IO.Path.GetFileNameWithoutExtension(msgBinCompare(FILE.ReceivedFileName));&#xD;&#xA;//System.Diagnostics.EventLog.WriteEntry(&quot;Biztalk : BinCOmapre&quot;, &quot;before end&quot; , System.Diagnostics.EventLogEntryType.Information);" />
+                                    <om:Property Name="ReportToAnalyst" Value="False" />
+                                    <om:Property Name="Name" Value="MessageAssignment_2" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                                <om:Element Type="MessageRef" OID="3494fe5a-8e53-4d7e-ba2b-3014918cc8f2" ParentLink="Construct_MessageRef" LowerBound="73.35" HigherBound="73.52">
+                                    <om:Property Name="Ref" Value="msgBinCompareCopy" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="Send" OID="ee020a6c-92bc-478d-a79e-db242a339c2d" ParentLink="ComplexStatement_Statement" LowerBound="81.1" HigherBound="83.1">
+                                <om:Property Name="PortName" Value="PORT_IDENTITIES" />
+                                <om:Property Name="MessageName" Value="msgBinCompareCopy" />
+                                <om:Property Name="OperationName" Value="Operation_1" />
+                                <om:Property Name="OperationMessageName" Value="Request" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Send_1" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="DecisionBranch" OID="e4042693-7cdb-4191-82b5-b5ee595e6b04" ParentLink="ReallyComplexStatement_Branch" LowerBound="84.26" HigherBound="98.1">
+                            <om:Property Name="Expression" Value="sStatus == &quot;Different&quot;" />
+                            <om:Property Name="IsGhostBranch" Value="True" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Rule_2" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="Construct" OID="fe8bac55-1a29-4a63-adb6-dce27b452d27" ParentLink="ComplexStatement_Statement" LowerBound="86.1" HigherBound="95.1">
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="ConstructMessage_2" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="MessageRef" OID="f86e543b-a257-4416-bc51-235633556ecd" ParentLink="Construct_MessageRef" LowerBound="87.35" HigherBound="87.52">
+                                    <om:Property Name="Ref" Value="msgBinCompareCopy" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                                <om:Element Type="MessageAssignment" OID="6e658e6d-a50d-4bbe-8e18-b503d40bec1d" ParentLink="ComplexStatement_Statement" LowerBound="89.1" HigherBound="94.1">
+                                    <om:Property Name="Expression" Value="msgBinCompareCopy = msgBinCompare;&#xD;&#xA;msgBinCompareCopy.BinaryComparisonStatus = sStatus;&#xD;&#xA;msgBinCompareCopy(FILE.ReceivedFileName) = System.IO.Path.GetFileNameWithoutExtension(msgBinCompare(FILE.ReceivedFileName));&#xD;&#xA;//System.Diagnostics.EventLog.WriteEntry(&quot;Biztalk : BinCOmapre&quot;, &quot;before end&quot; , System.Diagnostics.EventLogEntryType.Information);" />
+                                    <om:Property Name="ReportToAnalyst" Value="False" />
+                                    <om:Property Name="Name" Value="MessageAssignment_2" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="Send" OID="d308526d-00ef-4a8f-94cf-89c9f292e176" ParentLink="ComplexStatement_Statement" LowerBound="95.1" HigherBound="97.1">
+                                <om:Property Name="PortName" Value="PORT_DIFF" />
+                                <om:Property Name="MessageName" Value="msgBinCompareCopy" />
+                                <om:Property Name="OperationName" Value="Operation_1" />
+                                <om:Property Name="OperationMessageName" Value="Request" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Send_2" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="DecisionBranch" OID="761f6ef9-54f9-48bf-91ca-d98a3be34982" ParentLink="ReallyComplexStatement_Branch">
+                            <om:Property Name="IsGhostBranch" Value="True" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Else" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="Construct" OID="89a7536f-697e-4c4a-baec-9294fa9c0057" ParentLink="ComplexStatement_Statement" LowerBound="100.1" HigherBound="109.1">
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="ConstructMessage_2" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="MessageRef" OID="091a86c7-4e95-42b9-8d61-5f3b0b1d569f" ParentLink="Construct_MessageRef" LowerBound="101.35" HigherBound="101.52">
+                                    <om:Property Name="Ref" Value="msgBinCompareCopy" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                                <om:Element Type="MessageAssignment" OID="244901c3-bd07-413b-a974-9f517765d42c" ParentLink="ComplexStatement_Statement" LowerBound="103.1" HigherBound="108.1">
+                                    <om:Property Name="Expression" Value="msgBinCompareCopy = msgBinCompare;&#xD;&#xA;msgBinCompareCopy.BinaryComparisonStatus = sStatus;&#xD;&#xA;msgBinCompareCopy(FILE.ReceivedFileName) = System.IO.Path.GetFileNameWithoutExtension(msgBinCompare(FILE.ReceivedFileName));&#xD;&#xA;//System.Diagnostics.EventLog.WriteEntry(&quot;Biztalk : BinCOmapre&quot;, &quot;before end&quot; , System.Diagnostics.EventLogEntryType.Information);" />
+                                    <om:Property Name="ReportToAnalyst" Value="False" />
+                                    <om:Property Name="Name" Value="MessageAssignment_2" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="Send" OID="de71c02a-8a5b-4c5f-bf32-b28a2644ab20" ParentLink="ComplexStatement_Statement" LowerBound="109.1" HigherBound="111.1">
+                                <om:Property Name="PortName" Value="PORT_ERROR" />
+                                <om:Property Name="MessageName" Value="msgBinCompareCopy" />
+                                <om:Property Name="OperationName" Value="Operation_1" />
+                                <om:Property Name="OperationMessageName" Value="Request" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Send_3" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Catch" OID="a4965d2c-73d0-4095-ac09-d49128beed77" ParentLink="Scope_Catch" LowerBound="115.1" HigherBound="121.1">
+                        <om:Property Name="ExceptionType" Value="General Exception" />
+                        <om:Property Name="IsFaultMessage" Value="False" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="CatchException_1" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="Throw" OID="97e239d9-8883-4417-8909-6dda86697480" ParentLink="Catch_Statement" LowerBound="118.1" HigherBound="120.1">
+                            <om:Property Name="ThrownReference" Value="General Exception" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="ThrowException_1" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module BTBinaryComparison
+{
+    internal porttype Rec_BinCompPortType
+    {
+        oneway Operation_1
+        {
+            RB.BT.ROBinaryComparison.BinaryCompare
+        };
+    };
+    internal porttype PortType_Ident
+    {
+        oneway Operation_1
+        {
+            RB.BT.ROBinaryComparison.BinaryCompare
+        };
+    };
+    internal porttype PortType_DIFF
+    {
+        oneway Operation_1
+        {
+            RB.BT.ROBinaryComparison.BinaryCompare
+        };
+    };
+    internal porttype PortType_ERROR
+    {
+        oneway Operation_1
+        {
+            RB.BT.ROBinaryComparison.BinaryCompare
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service BizTalk_Orchestration2
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port implements Rec_BinCompPortType Prot_RCV;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_Ident PORT_IDENTITIES;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_DIFF PORT_DIFF;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_ERROR PORT_ERROR;
+        message RB.BT.ROBinaryComparison.BinaryCompare msgBinCompareCopy;
+        message RB.BT.ROBinaryComparison.BinaryCompare msgBinCompare;
+        System.Int64 iListOfFiles;
+        System.String sFileNames;
+        System.String sFileName;
+        RB.BT.ROBinaryComparisonLibrary.FileComparison ROBinComp;
+        System.String sTargetPath;
+        System.Boolean bIsEqual;
+        System.String sStatus;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("137d5bc1-7097-48b0-9224-cc2f14420f34")]
+            activate receive (Prot_RCV.Operation_1, msgBinCompare);
+            sFileNames = "";
+            sFileName = "";
+            ROBinComp = new RB.BT.ROBinaryComparisonLibrary.FileComparison();
+            sTargetPath = "";
+            bIsEqual = true;
+            sStatus = "";
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("6e911921-72f5-4715-a493-77369053770d")]
+            scope
+            {
+                body
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("f2c6f490-74e2-4b1f-944e-ff01d7d12ddb")]
+                    sStatus = ROBinComp.TestCompare(msgBinCompare);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("4c38a546-d752-439b-a225-1e72ab238181")]
+                    if (sStatus == "Identical")
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("a9247795-8645-49c7-9a80-2387fe48e557")]
+                        construct msgBinCompareCopy
+                        {
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("d1992bda-1d0a-482b-9d3c-e91e54747a7f")]
+                            msgBinCompareCopy = msgBinCompare;
+                            msgBinCompareCopy.BinaryComparisonStatus = sStatus;
+                            msgBinCompareCopy(FILE.ReceivedFileName) = System.IO.Path.GetFileNameWithoutExtension(msgBinCompare(FILE.ReceivedFileName));
+                            //System.Diagnostics.EventLog.WriteEntry("Biztalk : BinCOmapre", "before end" , System.Diagnostics.EventLogEntryType.Information);
+                        }
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("ee020a6c-92bc-478d-a79e-db242a339c2d")]
+                        send (PORT_IDENTITIES.Operation_1, msgBinCompareCopy);
+                    }
+                    else if (sStatus == "Different")
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("fe8bac55-1a29-4a63-adb6-dce27b452d27")]
+                        construct msgBinCompareCopy
+                        {
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("6e658e6d-a50d-4bbe-8e18-b503d40bec1d")]
+                            msgBinCompareCopy = msgBinCompare;
+                            msgBinCompareCopy.BinaryComparisonStatus = sStatus;
+                            msgBinCompareCopy(FILE.ReceivedFileName) = System.IO.Path.GetFileNameWithoutExtension(msgBinCompare(FILE.ReceivedFileName));
+                            //System.Diagnostics.EventLog.WriteEntry("Biztalk : BinCOmapre", "before end" , System.Diagnostics.EventLogEntryType.Information);
+                        }
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("d308526d-00ef-4a8f-94cf-89c9f292e176")]
+                        send (PORT_DIFF.Operation_1, msgBinCompareCopy);
+                    }
+                    else 
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("89a7536f-697e-4c4a-baec-9294fa9c0057")]
+                        construct msgBinCompareCopy
+                        {
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("244901c3-bd07-413b-a974-9f517765d42c")]
+                            msgBinCompareCopy = msgBinCompare;
+                            msgBinCompareCopy.BinaryComparisonStatus = sStatus;
+                            msgBinCompareCopy(FILE.ReceivedFileName) = System.IO.Path.GetFileNameWithoutExtension(msgBinCompare(FILE.ReceivedFileName));
+                            //System.Diagnostics.EventLog.WriteEntry("Biztalk : BinCOmapre", "before end" , System.Diagnostics.EventLogEntryType.Information);
+                        }
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("de71c02a-8a5b-4c5f-bf32-b28a2644ab20")]
+                        send (PORT_ERROR.Operation_1, msgBinCompareCopy);
+                    }
+                }
+                exceptions
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("a4965d2c-73d0-4095-ac09-d49128beed77")]
+                    catch
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("97e239d9-8883-4417-8909-6dda86697480")]
+                        throw;
+                    }
+                }
+            }
+        }
+    }
+}
+

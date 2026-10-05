@@ -1,0 +1,141 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace RB.ROCustomerInterfaceExportLibrary
+{
+    public abstract class RODataInterface
+    {
+
+        #region Variables
+        public XDocument xInterfacConfig;
+        public XDocument InterfaceConfigFile
+        {
+            get { return xInterfacConfig; }
+            set { xInterfacConfig = value; }
+        }
+
+        AsyncLogger asyn_objlogger = null;
+        Logger obj_ologger = null;
+        public string recordId = string.Empty;
+        
+
+
+        public string CQUser { get; set; }
+        public string CQPasword { get; set; }
+        public string CQRepo { get; set; }
+        public string CQDB { get; set; }
+        public string CQWebURL { get; set; }
+        public string CQOSLCServer { get; set; }
+        public string CQWebRecordFormat { get; set; }
+        public string CQOSLCCOREVersion { get; set; }
+        public string CQToolName { get; set; }
+        public string CQToolVersion { get; set; }
+        public string CQToolTesting { get; set; }
+
+        public string CQWhiteLabelUser { get; set; }
+
+
+        
+
+        #endregion
+
+        #region constructor
+        public RODataInterface(string sSystemKey, string strExchangeFormat, string Record, AsyncLogger async_ologger)
+        {
+            asyn_objlogger = async_ologger;
+            recordId = Record;
+            LoadConfigurations(sSystemKey, strExchangeFormat, recordId);
+        }
+        public RODataInterface()
+        {
+            
+        }
+        #endregion
+
+        #region methods
+        void LoadConfigurations(string sSystemKey, string strExchangeFormat, string recordId)
+        {
+            try
+            {
+                if(asyn_objlogger!=null)
+                 asyn_objlogger.LogInfoAsync(recordId,"LoadConfigurations : starts" + strExchangeFormat);
+                string strConfigFilePath = BizTalkConfigParams.EX_RO_INTERFACE_CONFIG;
+                if (asyn_objlogger != null)
+                    asyn_objlogger.LogInfoAsync(recordId, "strConfigFilePath : " + strConfigFilePath);
+
+                ROConfigurationManager rConfigMgr = new ROConfigurationManager(strConfigFilePath, asyn_objlogger, recordId);
+                InterfaceConfigFile = rConfigMgr.LoadConfigurationXML();
+
+                if (InterfaceConfigFile == null)
+                {
+                    
+                    throw new Exception("LoadConfigurations(): Configration file missing ");
+                }
+                XElement xCQNode = InterfaceConfigFile.Element("CONFIGURATIONS")
+                                                      .Element("REQUESTONE").Element("CQ")
+                                                      .Element("SERVERS").Elements("SERVER")
+                                                      .Where(n => n.FirstAttribute != null
+                                                      && n.FirstAttribute.Value == sSystemKey)
+                                                      .Select(n => n).Single();
+
+                CQUser = xCQNode.Element("LDAPUSER").Value;
+                CQPasword = Encryption.DecryptString(xCQNode.Element("PASSWORD").Value, "RO");
+                CQDB = xCQNode.Element("DB").Value;
+                CQRepo = xCQNode.Element("SCHEMAREPO").Value;
+                CQWebURL = xCQNode.Element("CQWEB").Value;
+                CQWebRecordFormat = xCQNode.Element("CQWEB_FORMAT").Value;
+                CQOSLCCOREVersion = xCQNode.Element("OSLC_CORE_VERSION").Value;
+                CQOSLCServer = xCQNode.Element("OSLCSERVER").Value;
+                CQToolName = xCQNode.Element("TOOLNAME").Value;
+                CQToolVersion = xCQNode.Element("TOOLVERSION").Value;
+                CQToolTesting = xCQNode.Element("TOOLTESTING").Value;
+                CQWhiteLabelUser = xCQNode.Element("WHITELABELUSER").Value;
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                if (asyn_objlogger != null)
+                    asyn_objlogger.LogExceptionAsync(recordId, ex);
+            }
+        }
+
+        //string GetProjectIDFromConfigXML()
+        //{
+        //    string sProjectID = string.Empty;
+        //    try
+        //    {
+        //        try
+        //        {
+        //            XElement xProject = InterfaceConfigFile.Element("CONFIGURATIONS").Element("REQUESTONE").Element("PROJECTS").Element("PROJECT");
+        //            sProjectID = xProject.Element("ID").Value;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            //Utilities.objLogger.LogException(ex, "From GetProjectID()");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //Utilities.objLogger.LogException(ex, "From GetProjectID()");
+
+        //    }
+        //    return sProjectID;
+        //}
+
+        
+
+        //public virtual void Close() { }
+
+        //public abstract string GetInitialVal(string xprot);
+
+        #endregion
+    }
+}

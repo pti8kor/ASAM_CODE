@@ -1,0 +1,836 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="2e239c8e-eb80-4428-b30b-cbb7ce97abc0" LowerBound="1.1" HigherBound="285.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="FTPIssueTransfer" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="ServiceDeclaration" OID="8aa0e76e-eeec-4341-8241-446a8f420ac4" ParentLink="Module_ServiceDeclaration" LowerBound="32.1" HigherBound="284.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="SendMessageAcknowledgement" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="VariableDeclaration" OID="3a92f8ed-4f9a-4714-8810-9eefdd0bf6ab" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="49.1" HigherBound="50.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="responseStatus" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="5c7ca20d-bb26-49ea-803b-f546c5d7d310" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="50.1" HigherBound="51.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="responseMessage" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="72110cc1-9b78-439d-9e02-d31a3f6a6b9f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="51.1" HigherBound="52.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgACKFileName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="1f6ca8f4-4a10-48e4-9157-a9d971278824" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="52.1" HigherBound="53.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="RQ1System" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="b8ae16d7-3479-4ac7-8d2e-6372be443745" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="53.1" HigherBound="54.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="interfaceName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="ff8dbaf4-fd1b-4d69-8088-67eb9ff98d40" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="54.1" HigherBound="55.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="mailStatus" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="90e2f889-ba60-4153-984b-38b8e00cbd16" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="55.1" HigherBound="56.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="xprotID" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="0cb3cf85-f270-4b78-bc52-724b5e3aa739" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="56.1" HigherBound="57.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.BTLoggerLibrary.Logger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROLogger" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="5a6c48cc-2754-4b8a-8315-5b55abb9871f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="57.1" HigherBound="58.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.BTLoggerLibrary.BTLogger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROBTLogger" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="8a7ec392-8304-437d-ab98-2b0d9d5afea5" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="58.1" HigherBound="59.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.FTPLibrary.FTPHandler" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="FTPHandler1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="8ede69df-596a-4ed7-9e70-08bfcff898b4" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="59.1" HigherBound="60.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="category" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="4ee86955-e13b-40e7-bbf8-5f2b7701ff5e" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="46.1" HigherBound="47.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgREQ" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="37a8f703-6658-47d3-89e1-88535331bc3b" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="47.1" HigherBound="48.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_response" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgRES" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="93cfa114-273a-41a0-aa6f-f81aba6ee0cf" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="48.1" HigherBound="49.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer.InitialTransmitterRequestSchema" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="receivedMsg" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="51588f47-24d7-436d-b078-cf3835cc86c2" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="562759cd-ebf4-487d-b806-a16845e5ddd0" ParentLink="ServiceBody_Statement" LowerBound="62.1" HigherBound="74.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="TransmitterRequestRecievePort" />
+                    <om:Property Name="MessageName" Value="receivedMsg" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="1614766b-da8e-45ed-bdc6-6919ae21f2b0" ParentLink="ServiceBody_Statement" LowerBound="74.1" HigherBound="90.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Transmitter Request received at &quot;+System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now));&#xD;&#xA;msgACKFileName = System.Convert.ToString(xpath(receivedMsg,&quot;string(/*[local-name()='transmitterRequest' and namespace-uri()='http://FTPIssueTransfer.InitialTransmitterRequestSchema']/*[local-name()='transferFile' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Transmitter Request msg ACK FileName: &quot;+ msgACKFileName);&#xD;&#xA;interfaceName = System.Convert.ToString(xpath(receivedMsg,&quot;string(/*[local-name()='transmitterRequest' and namespace-uri()='http://FTPIssueTransfer.InitialTransmitterRequestSchema']/*[local-name()='InterfaceName' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Transmitter Request Interface Name: &quot;+ interfaceName);&#xD;&#xA;RQ1System = System.Convert.ToString(xpath(receivedMsg,&quot;string(/*[local-name()='transmitterRequest' and namespace-uri()='http://FTPIssueTransfer.InitialTransmitterRequestSchema']/*[local-name()='RQ1System' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Transmitter Request RQ1System: &quot;+ RQ1System);&#xD;&#xA;FTPHandler1 = new RB.FTPLibrary.FTPHandler();&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Successfully initiated FTPHandler&quot;);&#xD;&#xA;xprotID = System.Convert.ToString(xpath(receivedMsg,&quot;string(/*[local-name()='transmitterRequest' and namespace-uri()='http://FTPIssueTransfer.InitialTransmitterRequestSchema']/*[local-name()='XProtID' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Transmitter Request XProtID: &quot;+ xprotID);&#xD;&#xA;ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,&quot;Import&quot;);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Setting log for msg acknowledgement&quot;,ROLogger);&#xD;&#xA;category = System.Convert.ToString(xpath(receivedMsg,&quot;string(/*[local-name()='transmitterRequest' and namespace-uri()='http://FTPIssueTransfer.InitialTransmitterRequestSchema']/*[local-name()='Category' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Transmitter Request Category: &quot;+ category);" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="SetVariables" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Scope" OID="c2a767a2-13e8-4035-948d-32c4a9dc90c0" ParentLink="ServiceBody_Statement" LowerBound="90.1" HigherBound="282.1">
+                    <om:Property Name="InitializedTransactionType" Value="True" />
+                    <om:Property Name="IsSynchronized" Value="False" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Scope_1" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Construct" OID="e460493d-31f9-4299-b74c-fced14113aee" ParentLink="ComplexStatement_Statement" LowerBound="95.1" HigherBound="101.1">
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="ConstructTransmitterMessage" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="Transform" OID="5ed3f3f7-c168-4401-85a2-62c9fdd500ed" ParentLink="ComplexStatement_Statement" LowerBound="98.1" HigherBound="100.1">
+                            <om:Property Name="ClassName" Value="FTPIssueTransfer.TransformTransmitterRequestMessage" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Transform_2" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="MessagePartRef" OID="7f90adb6-f3e3-4cf8-81f5-6bfeea9d556a" ParentLink="Transform_InputMessagePartRef" LowerBound="99.118" HigherBound="99.129">
+                                <om:Property Name="MessageRef" Value="receivedMsg" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="MessagePartReference_1" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="MessagePartRef" OID="fe1f6845-d272-4cb6-ac3f-be2d3ff12a27" ParentLink="Transform_OutputMessagePartRef" LowerBound="99.36" HigherBound="99.61">
+                                <om:Property Name="MessageRef" Value="msgREQ" />
+                                <om:Property Name="PartRef" Value="transmitterRequest" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="MessagePartReference_2" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="MessageRef" OID="50c75634-0fa4-418c-a283-93f697b117a5" ParentLink="Construct_MessageRef" LowerBound="96.31" HigherBound="96.37">
+                            <om:Property Name="Ref" Value="msgREQ" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Decision" OID="9f15cbd4-7a44-47a5-b615-53b84f29de95" ParentLink="ComplexStatement_Statement" LowerBound="101.1" HigherBound="221.1">
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Check Interface Name" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="DecisionBranch" OID="d917d6f0-6cd6-4f89-9dbf-748017c9f9f1" ParentLink="ReallyComplexStatement_Branch" LowerBound="102.21" HigherBound="140.1">
+                            <om:Property Name="Expression" Value="System.String.Equals(interfaceName,&quot;RO-ASAM-DAIMLER&quot;)" />
+                            <om:Property Name="IsGhostBranch" Value="True" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="IsDaimlerInterface" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="Send" OID="80bdb8d1-462a-4705-967d-c7a7a99bac9c" ParentLink="ComplexStatement_Statement" LowerBound="104.1" HigherBound="106.1">
+                                <om:Property Name="PortName" Value="Port_DAIMLER_TRANSRECEIVE" />
+                                <om:Property Name="MessageName" Value="msgREQ" />
+                                <om:Property Name="OperationName" Value="startTransmit" />
+                                <om:Property Name="OperationMessageName" Value="Request" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="SendDaimlerPort" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="Receive" OID="04870a02-1bf5-4498-bbb4-c46bfa5a1754" ParentLink="ComplexStatement_Statement" LowerBound="106.1" HigherBound="108.1">
+                                <om:Property Name="Activate" Value="False" />
+                                <om:Property Name="PortName" Value="Port_DAIMLER_TRANSRECEIVE" />
+                                <om:Property Name="MessageName" Value="msgRES" />
+                                <om:Property Name="OperationName" Value="startTransmit" />
+                                <om:Property Name="OperationMessageName" Value="Response" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="ReceiveDaimlerPort" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="c3e2ecba-e2c9-400e-b2cf-3686eb7594b2" ParentLink="ComplexStatement_Statement" LowerBound="108.1" HigherBound="116.1">
+                                <om:Property Name="Expression" Value="ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,&quot;Import&quot;);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Daimler Transmitter Response received at &quot;+System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now));&#xD;&#xA;ROBTLogger.WriteLog(&quot;Daimler Transmitter Response received at &quot;+System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now),ROLogger);&#xD;&#xA;responseStatus = System.Convert.ToString(xpath(msgRES.startTransmitResult,&quot;string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='failure' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Daimler Transmitter Received Response Status - &quot; + responseStatus);&#xD;&#xA;responseMessage = System.Convert.ToString(xpath(msgRES.startTransmitResult,&quot;string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='result' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Daimler Transmitter Received Response Message - &quot; + responseMessage);" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="SetDaimlerResponseInfo" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="Send" OID="69596319-9315-4c3d-ba20-ee93edf9ad3d" ParentLink="ComplexStatement_Statement" LowerBound="116.1" HigherBound="118.1">
+                                <om:Property Name="PortName" Value="Port_WSOUT" />
+                                <om:Property Name="MessageName" Value="msgRES" />
+                                <om:Property Name="OperationName" Value="Operation_1" />
+                                <om:Property Name="OperationMessageName" Value="Request" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Send_1" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="a9a02a7d-b38c-4fbe-bb7f-9b45097a9117" ParentLink="ComplexStatement_Statement" LowerBound="118.1" HigherBound="139.1">
+                                <om:Property Name="Expression" Value="if(responseStatus == &quot;true&quot;)&#xD;&#xA;{&#xD;&#xA;    &#xD;&#xA;    if(!System.String.IsNullOrEmpty(responseMessage))&#xD;&#xA;    {&#xD;&#xA;        if(responseMessage.Contains(&quot;HTTP/1.1 500&quot;))&#xD;&#xA;        {&#xD;&#xA;            ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Daimler Transmitter Response has error,sending mail&quot;,&#xD;&#xA;            ROLogger);&#xD;&#xA;            System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Daimler Transmitter Response has error,sending mail&quot;);           &#xD;&#xA;            mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);&#xD;&#xA;            if(mailStatus)&#xD;&#xA;            {&#xD;&#xA;                System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Mail sent successfully&quot;);           &#xD;&#xA;                ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Mail sent successfully&quot;,&#xD;&#xA;                ROLogger);&#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;}" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="ReadResponseAndSendMails" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="DecisionBranch" OID="57c729b8-e7cf-4a4f-a224-de138e95e0ce" ParentLink="ReallyComplexStatement_Branch" LowerBound="140.26" HigherBound="178.1">
+                            <om:Property Name="Expression" Value="System.String.Equals(interfaceName,&quot;RO-ASAM-BMW&quot;) &amp;&amp;  System.String.Equals(category,&quot;BMW-PROSPR&quot;)" />
+                            <om:Property Name="IsGhostBranch" Value="True" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Rule_1" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="Send" OID="ae75022a-f41d-4437-976f-dc5fedf24fa8" ParentLink="ComplexStatement_Statement" LowerBound="142.1" HigherBound="144.1">
+                                <om:Property Name="PortName" Value="Port_BMW_TRANSRECEIVE" />
+                                <om:Property Name="MessageName" Value="msgREQ" />
+                                <om:Property Name="OperationName" Value="startTransmit" />
+                                <om:Property Name="OperationMessageName" Value="Request" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="SendBMWPort" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="Receive" OID="51212de7-dc6d-4776-b7bf-9a25bbbab0e1" ParentLink="ComplexStatement_Statement" LowerBound="144.1" HigherBound="146.1">
+                                <om:Property Name="Activate" Value="False" />
+                                <om:Property Name="PortName" Value="Port_BMW_TRANSRECEIVE" />
+                                <om:Property Name="MessageName" Value="msgRES" />
+                                <om:Property Name="OperationName" Value="startTransmit" />
+                                <om:Property Name="OperationMessageName" Value="Response" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="ReceiveBMWPort" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="c62f7e6a-af35-492b-ad9c-ac5dc871ffa6" ParentLink="ComplexStatement_Statement" LowerBound="146.1" HigherBound="154.1">
+                                <om:Property Name="Expression" Value="ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,&quot;Import&quot;);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;BMW Transmitter Response received at &quot;+System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now));&#xD;&#xA;ROBTLogger.WriteLog(&quot;BMW Transmitter Response received at &quot;+System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now),ROLogger);&#xD;&#xA;responseStatus = System.Convert.ToString(xpath(msgRES.startTransmitResult,&quot;string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='failure' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;BMW Transmitter Received Response Status - &quot; + responseStatus);&#xD;&#xA;responseMessage = System.Convert.ToString(xpath(msgRES.startTransmitResult,&quot;string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='result' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;BMW Transmitter Received Response Message - &quot; + responseMessage);" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="SetBMWResponseInfo" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="Send" OID="0a701e99-f5bf-40cb-b7a2-4d8925794c73" ParentLink="ComplexStatement_Statement" LowerBound="154.1" HigherBound="156.1">
+                                <om:Property Name="PortName" Value="Port_WSOUT" />
+                                <om:Property Name="MessageName" Value="msgRES" />
+                                <om:Property Name="OperationName" Value="Operation_1" />
+                                <om:Property Name="OperationMessageName" Value="Request" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Send_4" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="e2427e37-d7ef-4b02-a3dd-6b5fb605eaea" ParentLink="ComplexStatement_Statement" LowerBound="156.1" HigherBound="177.1">
+                                <om:Property Name="Expression" Value="if(responseStatus == &quot;true&quot;)&#xD;&#xA;{&#xD;&#xA;    //ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID);&#xD;&#xA;    if(!System.String.IsNullOrEmpty(responseMessage))&#xD;&#xA;    {&#xD;&#xA;        if(responseMessage.Contains(&quot;HTTP/1.1 500&quot;))&#xD;&#xA;        {&#xD;&#xA;            System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;BMW Transmitter Response has error,sending mail&quot;);           &#xD;&#xA;            ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;BMW Transmitter Response has error,sending mail&quot;,&#xD;&#xA;            ROLogger);&#xD;&#xA;            mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);&#xD;&#xA;            if(mailStatus)&#xD;&#xA;            {&#xD;&#xA;                System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Mail sent successfully&quot;);   &#xD;&#xA;                ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Mail sent successfully&quot;,&#xD;&#xA;                ROLogger);        &#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;}" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="ReadResponseAndSendMails" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="DecisionBranch" OID="87627154-887b-4181-9f0a-d3e6520a00ab" ParentLink="ReallyComplexStatement_Branch" LowerBound="178.26" HigherBound="216.1">
+                            <om:Property Name="Expression" Value="System.String.Equals(interfaceName,&quot;RO-ASAM-BMW&quot;) &amp;&amp;  System.String.Equals(category,&quot;BMW-CC-PROSPR&quot;)" />
+                            <om:Property Name="IsGhostBranch" Value="True" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Rule_2" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="Send" OID="c3b88a7a-aafb-49a0-b358-219881faaa30" ParentLink="ComplexStatement_Statement" LowerBound="180.1" HigherBound="182.1">
+                                <om:Property Name="PortName" Value="Port_BMW_CC_TRANSRECIEVE" />
+                                <om:Property Name="MessageName" Value="msgREQ" />
+                                <om:Property Name="OperationName" Value="startTransmit" />
+                                <om:Property Name="OperationMessageName" Value="Request" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="SendBMWCCPort" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="Receive" OID="541be316-1a36-478b-b45a-04496556d244" ParentLink="ComplexStatement_Statement" LowerBound="182.1" HigherBound="184.1">
+                                <om:Property Name="Activate" Value="False" />
+                                <om:Property Name="PortName" Value="Port_BMW_CC_TRANSRECIEVE" />
+                                <om:Property Name="MessageName" Value="msgRES" />
+                                <om:Property Name="OperationName" Value="startTransmit" />
+                                <om:Property Name="OperationMessageName" Value="Response" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="ReceiveBMWCCPort" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="0410dae9-8f4e-42a1-99d9-22532d9ff029" ParentLink="ComplexStatement_Statement" LowerBound="184.1" HigherBound="192.1">
+                                <om:Property Name="Expression" Value="ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,&quot;Import&quot;);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;BMW Transmitter Response received at &quot;+System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now));&#xD;&#xA;ROBTLogger.WriteLog(&quot;BMW Transmitter Response received at &quot;+System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now),ROLogger);&#xD;&#xA;responseStatus = System.Convert.ToString(xpath(msgRES.startTransmitResult,&quot;string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='failure' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;BMW Transmitter Received Response Status - &quot; + responseStatus);&#xD;&#xA;responseMessage = System.Convert.ToString(xpath(msgRES.startTransmitResult,&quot;string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='result' and namespace-uri()=''])&quot;));&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;BMW Transmitter Received Response Message - &quot; + responseMessage);" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="SetBMWCCResponseInfo" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="Send" OID="9943c390-056e-4ada-a0a8-d6c54822f80d" ParentLink="ComplexStatement_Statement" LowerBound="192.1" HigherBound="194.1">
+                                <om:Property Name="PortName" Value="Port_WSOUT" />
+                                <om:Property Name="MessageName" Value="msgRES" />
+                                <om:Property Name="OperationName" Value="Operation_1" />
+                                <om:Property Name="OperationMessageName" Value="Request" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Send_4" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="VariableAssignment" OID="41e4ca8e-f986-4396-8abf-c31524733096" ParentLink="ComplexStatement_Statement" LowerBound="194.1" HigherBound="215.1">
+                                <om:Property Name="Expression" Value="if(responseStatus == &quot;true&quot;)&#xD;&#xA;{&#xD;&#xA;    //ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID);&#xD;&#xA;    if(!System.String.IsNullOrEmpty(responseMessage))&#xD;&#xA;    {&#xD;&#xA;        if(responseMessage.Contains(&quot;HTTP/1.1 500&quot;))&#xD;&#xA;        {&#xD;&#xA;            System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;BMW Transmitter Response has error,sending mail&quot;);           &#xD;&#xA;            ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;BMW Transmitter Response has error,sending mail&quot;,&#xD;&#xA;            ROLogger);&#xD;&#xA;            mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);&#xD;&#xA;            if(mailStatus)&#xD;&#xA;            {&#xD;&#xA;                System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Mail sent successfully&quot;);   &#xD;&#xA;                ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Mail sent successfully&quot;,&#xD;&#xA;                ROLogger);        &#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;}" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="ReadResponseAndSendMails" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="DecisionBranch" OID="b365f816-0fab-46c1-abb0-fea89705625b" ParentLink="ReallyComplexStatement_Branch">
+                            <om:Property Name="IsGhostBranch" Value="True" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Else" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="VariableAssignment" OID="85592bda-5aed-456c-9f54-d133b9467a01" ParentLink="ComplexStatement_Statement" LowerBound="218.1" HigherBound="220.1">
+                                <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;InterfaceName is not DAIMLER or BMW&quot;);           " />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Log" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="VariableAssignment" OID="407888b7-2ef2-4a1b-a689-3bff592da8f4" ParentLink="ComplexStatement_Statement" LowerBound="221.1" HigherBound="223.1">
+                        <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Out of transmitter scope&quot;);&#xD;&#xA;" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="SuccessLog" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                    <om:Element Type="Catch" OID="55a8f2c0-2ec8-4751-ae3f-847b581570e6" ParentLink="Scope_Catch" LowerBound="226.1" HigherBound="244.1">
+                        <om:Property Name="ExceptionName" Value="systemException" />
+                        <om:Property Name="ExceptionType" Value="System.SystemException" />
+                        <om:Property Name="IsFaultMessage" Value="False" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="CatchSystemException" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="VariableAssignment" OID="3c8f9f30-f00b-4ff2-b1d7-da7aa132ec20" ParentLink="Catch_Statement" LowerBound="229.1" HigherBound="243.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Inside catch of transmitter system exception&quot;);       &#xD;&#xA;ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,&quot;Import&quot;);       &#xD;&#xA;if(systemException != null)&#xD;&#xA;{&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Sending mail after system exception&quot;);            &#xD;&#xA;    ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Sending mail after system exception&quot;,ROLogger);&#xD;&#xA;    mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);&#xD;&#xA;    if(mailStatus)&#xD;&#xA;    {&#xD;&#xA;        System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Mail sent successfully&quot;);           &#xD;&#xA;        ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Mail sent successfully&quot;,ROLogger); &#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Expression_1" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Catch" OID="8f2080d2-4072-4043-8ecc-0d4a0d123203" ParentLink="Scope_Catch" LowerBound="244.1" HigherBound="264.1">
+                        <om:Property Name="ExceptionName" Value="soapException" />
+                        <om:Property Name="ExceptionType" Value="System.Web.Services.Protocols.SoapException" />
+                        <om:Property Name="IsFaultMessage" Value="False" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="CatchSoapException" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="VariableAssignment" OID="d314e148-f3b9-4a0c-8489-d38dc543da44" ParentLink="Catch_Statement" LowerBound="247.1" HigherBound="263.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Inside catch of transmitter soap exception&quot; );&#xD;&#xA;ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,&quot;Import&quot;);&#xD;&#xA;if(soapException != null)&#xD;&#xA;{&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Sending mail after soap exception&quot;);            &#xD;&#xA;    &#xD;&#xA;    ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + soapException.Message ,ROLogger);  &#xD;&#xA;    ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Sending mail after soap exception&quot;,ROLogger);&#xD;&#xA;    mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);&#xD;&#xA;    if(mailStatus)&#xD;&#xA;    {&#xD;&#xA;        System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Mail sent successfully&quot;);           &#xD;&#xA;        ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Mail sent successfully&quot;,ROLogger);        &#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Expression_2" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Catch" OID="7e94074a-937a-4a4d-ae84-f37dd4873794" ParentLink="Scope_Catch" LowerBound="264.1" HigherBound="280.1">
+                        <om:Property Name="ExceptionType" Value="General Exception" />
+                        <om:Property Name="IsFaultMessage" Value="False" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="CatchGeneralException" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="VariableAssignment" OID="d3588c06-50a1-41fa-a32a-5dc3011fcca9" ParentLink="Catch_Statement" LowerBound="267.1" HigherBound="279.1">
+                            <om:Property Name="Expression" Value="    System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Inside catch of transmitter general exception&quot; );&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Sending mail after general exception&quot;);        &#xD;&#xA;    ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,&quot;Import&quot;);&#xD;&#xA;    ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Sending mail after general exception&quot;,ROLogger);&#xD;&#xA;    mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);&#xD;&#xA;    if(mailStatus)&#xD;&#xA;    {&#xD;&#xA;        System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Mail sent successfully&quot;);          &#xD;&#xA;        ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Mail sent successfully&quot;,ROLogger);&#xD;&#xA;    }&#xD;&#xA;    &#xD;&#xA;" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Expression_3" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="e462a36c-c769-40aa-93a3-841ea97c22cc" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="35.1" HigherBound="38.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="True" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="Transmitted" />
+                <om:Property Name="Type" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.TransmitterService" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Port_DAIMLER_TRANSRECEIVE" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="LogicalBindingAttribute" OID="5bc8118d-790f-487e-8d13-ca3c0d9bcd81" ParentLink="PortDeclaration_CLRAttribute" LowerBound="35.1" HigherBound="36.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="cc8ea6c8-5d1a-4209-a39d-f29fa7137252" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="38.1" HigherBound="40.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="14" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPIssueTransfer.PortType_4" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Port_WSOUT" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="LogicalBindingAttribute" OID="fd5c82a1-d8b4-4877-abba-1d35ad6500b5" ParentLink="PortDeclaration_CLRAttribute" LowerBound="38.1" HigherBound="39.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="c89e596b-2b9a-47bc-9abf-c8c48ff4bcd8" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="40.1" HigherBound="42.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="15" />
+                <om:Property Name="IsWebPort" Value="True" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.TransmitterService" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Port_BMW_TRANSRECEIVE" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="4b16c266-2243-4c06-b99b-247d6932f27b" ParentLink="PortDeclaration_CLRAttribute" LowerBound="40.1" HigherBound="41.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="cb57781d-2db3-41d7-9f92-f43857ba93db" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="42.1" HigherBound="44.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="0" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPIssueTransfer.PortType_7" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="TransmitterRequestRecievePort" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="1b221d08-402c-40d7-9aa7-561c1f5df0b7" ParentLink="PortDeclaration_CLRAttribute" LowerBound="42.1" HigherBound="43.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="dc69848a-3859-4417-abd5-5a391b6882ec" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="44.1" HigherBound="46.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="15" />
+                <om:Property Name="IsWebPort" Value="True" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.TransmitterService" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Port_BMW_CC_TRANSRECIEVE" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="LogicalBindingAttribute" OID="b043f8fb-1620-4c69-9804-d4653f0da28f" ParentLink="PortDeclaration_CLRAttribute" LowerBound="44.1" HigherBound="45.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="8c5d2eeb-25a1-4616-8a35-db6e0c99c559" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_3" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="cf7494de-8fd8-4244-b670-6a02a1e0ab60" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="24d4481f-d3e0-47e9-867f-a89d1a3ca127" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.69">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="58480c5c-c238-4543-9b6c-e8dda0907c0c" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_4" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="2a13486d-3b2b-4568-93f8-0d535851cae9" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="57508f32-98dd-45d7-963f-0c9afb310938" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.70">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="0aef7cfd-9707-4e29-bf13-f46ab485a9bc" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_7" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="2863c2b2-b8bb-4707-948b-214cdaac8a7f" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="4ff3b286-7d09-4af9-aa58-f4292d125a76" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.44">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.InitialTransmitterRequestSchema" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="5fe39244-be1b-4855-a333-6a5a18474a4e" ParentLink="Module_PortType" LowerBound="25.1" HigherBound="32.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="BMW_CCTRANSRECEIVE" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="340f31dd-74fb-470e-9e84-92dfc381261a" ParentLink="PortType_OperationDeclaration" LowerBound="27.1" HigherBound="31.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="5bbe3bf0-a2b6-41a3-bf47-356ee8a9b455" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="29.13" HigherBound="29.69">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="8b9b8689-1147-46f1-b259-fd589f059490" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="29.71" HigherBound="29.128">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransmitterRef.TransmitterService_.startTransmit_response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module FTPIssueTransfer
+{
+    internal porttype PortType_3
+    {
+        oneway Operation_1
+        {
+            TransmitterRef.TransmitterService_.startTransmit_request
+        };
+    };
+    internal porttype PortType_4
+    {
+        oneway Operation_1
+        {
+            TransmitterRef.TransmitterService_.startTransmit_response
+        };
+    };
+    internal porttype PortType_7
+    {
+        oneway Operation_1
+        {
+            InitialTransmitterRequestSchema
+        };
+    };
+    public porttype BMW_CCTRANSRECEIVE
+    {
+        requestresponse Operation_1
+        {
+            TransmitterRef.TransmitterService_.startTransmit_request, TransmitterRef.TransmitterService_.startTransmit_response
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service SendMessageAcknowledgement
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        [Microsoft.XLANGs.BaseTypes.DeliveryNotification(Microsoft.XLANGs.BaseTypes.DeliveryNotification.NotificationLevel.Transmitted)]
+        port uses TransmitterRef.TransmitterService_.TransmitterService Port_DAIMLER_TRANSRECEIVE;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_4 Port_WSOUT;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses TransmitterRef.TransmitterService_.TransmitterService Port_BMW_TRANSRECEIVE;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port implements PortType_7 TransmitterRequestRecievePort;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses TransmitterRef.TransmitterService_.TransmitterService Port_BMW_CC_TRANSRECIEVE;
+        message TransmitterRef.TransmitterService_.startTransmit_request msgREQ;
+        message TransmitterRef.TransmitterService_.startTransmit_response msgRES;
+        message InitialTransmitterRequestSchema receivedMsg;
+        System.String responseStatus;
+        System.String responseMessage;
+        System.String msgACKFileName;
+        System.String RQ1System;
+        System.String interfaceName;
+        System.Boolean mailStatus;
+        System.String xprotID;
+        RB.BTLoggerLibrary.Logger ROLogger;
+        RB.BTLoggerLibrary.BTLogger ROBTLogger;
+        RB.FTPLibrary.FTPHandler FTPHandler1;
+        System.String category;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("562759cd-ebf4-487d-b806-a16845e5ddd0")]
+            activate receive (TransmitterRequestRecievePort.Operation_1, receivedMsg);
+            responseStatus = "";
+            responseMessage = "";
+            msgACKFileName = "";
+            RQ1System = "";
+            interfaceName = "";
+            mailStatus = true;
+            xprotID = "";
+            ROBTLogger = new RB.BTLoggerLibrary.BTLogger();
+            FTPHandler1 = new RB.FTPLibrary.FTPHandler();
+            category = "";
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("1614766b-da8e-45ed-bdc6-6919ae21f2b0")]
+            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Transmitter Request received at "+System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now));
+            msgACKFileName = System.Convert.ToString(xpath(receivedMsg,"string(/*[local-name()='transmitterRequest' and namespace-uri()='http://FTPIssueTransfer.InitialTransmitterRequestSchema']/*[local-name()='transferFile' and namespace-uri()=''])"));
+            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Transmitter Request msg ACK FileName: "+ msgACKFileName);
+            interfaceName = System.Convert.ToString(xpath(receivedMsg,"string(/*[local-name()='transmitterRequest' and namespace-uri()='http://FTPIssueTransfer.InitialTransmitterRequestSchema']/*[local-name()='InterfaceName' and namespace-uri()=''])"));
+            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Transmitter Request Interface Name: "+ interfaceName);
+            RQ1System = System.Convert.ToString(xpath(receivedMsg,"string(/*[local-name()='transmitterRequest' and namespace-uri()='http://FTPIssueTransfer.InitialTransmitterRequestSchema']/*[local-name()='RQ1System' and namespace-uri()=''])"));
+            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Transmitter Request RQ1System: "+ RQ1System);
+            FTPHandler1 = new RB.FTPLibrary.FTPHandler();
+            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Successfully initiated FTPHandler");
+            xprotID = System.Convert.ToString(xpath(receivedMsg,"string(/*[local-name()='transmitterRequest' and namespace-uri()='http://FTPIssueTransfer.InitialTransmitterRequestSchema']/*[local-name()='XProtID' and namespace-uri()=''])"));
+            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Transmitter Request XProtID: "+ xprotID);
+            ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,"Import");
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Setting log for msg acknowledgement",ROLogger);
+            category = System.Convert.ToString(xpath(receivedMsg,"string(/*[local-name()='transmitterRequest' and namespace-uri()='http://FTPIssueTransfer.InitialTransmitterRequestSchema']/*[local-name()='Category' and namespace-uri()=''])"));
+            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Transmitter Request Category: "+ category);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c2a767a2-13e8-4035-948d-32c4a9dc90c0")]
+            scope
+            {
+                body
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("e460493d-31f9-4299-b74c-fced14113aee")]
+                    construct msgREQ
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("5ed3f3f7-c168-4401-85a2-62c9fdd500ed")]
+                        transform (msgREQ.transmitterRequest) = FTPIssueTransfer.TransformTransmitterRequestMessage (receivedMsg);
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("9f15cbd4-7a44-47a5-b615-53b84f29de95")]
+                    if (System.String.Equals(interfaceName,"RO-ASAM-DAIMLER"))
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("80bdb8d1-462a-4705-967d-c7a7a99bac9c")]
+                        send (Port_DAIMLER_TRANSRECEIVE.startTransmit, msgREQ);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("04870a02-1bf5-4498-bbb4-c46bfa5a1754")]
+                        receive (Port_DAIMLER_TRANSRECEIVE.startTransmit, msgRES);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("c3e2ecba-e2c9-400e-b2cf-3686eb7594b2")]
+                        ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,"Import");
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Daimler Transmitter Response received at "+System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now));
+                        ROBTLogger.WriteLog("Daimler Transmitter Response received at "+System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now),ROLogger);
+                        responseStatus = System.Convert.ToString(xpath(msgRES.startTransmitResult,"string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='failure' and namespace-uri()=''])"));
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Daimler Transmitter Received Response Status - " + responseStatus);
+                        responseMessage = System.Convert.ToString(xpath(msgRES.startTransmitResult,"string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='result' and namespace-uri()=''])"));
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Daimler Transmitter Received Response Message - " + responseMessage);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("69596319-9315-4c3d-ba20-ee93edf9ad3d")]
+                        send (Port_WSOUT.Operation_1, msgRES);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("a9a02a7d-b38c-4fbe-bb7f-9b45097a9117")]
+                        if(responseStatus == "true")
+                        {
+                            
+                            if(!System.String.IsNullOrEmpty(responseMessage))
+                            {
+                                if(responseMessage.Contains("HTTP/1.1 500"))
+                                {
+                                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Daimler Transmitter Response has error,sending mail",
+                                    ROLogger);
+                                    System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Daimler Transmitter Response has error,sending mail");           
+                                    mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);
+                                    if(mailStatus)
+                                    {
+                                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Mail sent successfully");           
+                                        ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Mail sent successfully",
+                                        ROLogger);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (System.String.Equals(interfaceName,"RO-ASAM-BMW") &&  System.String.Equals(category,"BMW-PROSPR"))
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("ae75022a-f41d-4437-976f-dc5fedf24fa8")]
+                        send (Port_BMW_TRANSRECEIVE.startTransmit, msgREQ);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("51212de7-dc6d-4776-b7bf-9a25bbbab0e1")]
+                        receive (Port_BMW_TRANSRECEIVE.startTransmit, msgRES);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("c62f7e6a-af35-492b-ad9c-ac5dc871ffa6")]
+                        ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,"Import");
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","BMW Transmitter Response received at "+System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now));
+                        ROBTLogger.WriteLog("BMW Transmitter Response received at "+System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now),ROLogger);
+                        responseStatus = System.Convert.ToString(xpath(msgRES.startTransmitResult,"string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='failure' and namespace-uri()=''])"));
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","BMW Transmitter Received Response Status - " + responseStatus);
+                        responseMessage = System.Convert.ToString(xpath(msgRES.startTransmitResult,"string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='result' and namespace-uri()=''])"));
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","BMW Transmitter Received Response Message - " + responseMessage);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("0a701e99-f5bf-40cb-b7a2-4d8925794c73")]
+                        send (Port_WSOUT.Operation_1, msgRES);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("e2427e37-d7ef-4b02-a3dd-6b5fb605eaea")]
+                        if(responseStatus == "true")
+                        {
+                            //ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID);
+                            if(!System.String.IsNullOrEmpty(responseMessage))
+                            {
+                                if(responseMessage.Contains("HTTP/1.1 500"))
+                                {
+                                    System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","BMW Transmitter Response has error,sending mail");           
+                                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "BMW Transmitter Response has error,sending mail",
+                                    ROLogger);
+                                    mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);
+                                    if(mailStatus)
+                                    {
+                                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Mail sent successfully");   
+                                        ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Mail sent successfully",
+                                        ROLogger);        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (System.String.Equals(interfaceName,"RO-ASAM-BMW") &&  System.String.Equals(category,"BMW-CC-PROSPR"))
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("c3b88a7a-aafb-49a0-b358-219881faaa30")]
+                        send (Port_BMW_CC_TRANSRECIEVE.startTransmit, msgREQ);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("541be316-1a36-478b-b45a-04496556d244")]
+                        receive (Port_BMW_CC_TRANSRECIEVE.startTransmit, msgRES);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("0410dae9-8f4e-42a1-99d9-22532d9ff029")]
+                        ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,"Import");
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","BMW Transmitter Response received at "+System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now));
+                        ROBTLogger.WriteLog("BMW Transmitter Response received at "+System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now),ROLogger);
+                        responseStatus = System.Convert.ToString(xpath(msgRES.startTransmitResult,"string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='failure' and namespace-uri()=''])"));
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","BMW Transmitter Received Response Status - " + responseStatus);
+                        responseMessage = System.Convert.ToString(xpath(msgRES.startTransmitResult,"string(/*[local-name()='transmitterResponse' and namespace-uri()='http://www.bosch.com/edexas/asam/transmitter/services']/*[local-name()='result' and namespace-uri()=''])"));
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","BMW Transmitter Received Response Message - " + responseMessage);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("9943c390-056e-4ada-a0a8-d6c54822f80d")]
+                        send (Port_WSOUT.Operation_1, msgRES);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("41e4ca8e-f986-4396-8abf-c31524733096")]
+                        if(responseStatus == "true")
+                        {
+                            //ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID);
+                            if(!System.String.IsNullOrEmpty(responseMessage))
+                            {
+                                if(responseMessage.Contains("HTTP/1.1 500"))
+                                {
+                                    System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","BMW Transmitter Response has error,sending mail");           
+                                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "BMW Transmitter Response has error,sending mail",
+                                    ROLogger);
+                                    mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);
+                                    if(mailStatus)
+                                    {
+                                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Mail sent successfully");   
+                                        ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Mail sent successfully",
+                                        ROLogger);        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else 
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("85592bda-5aed-456c-9f54-d133b9467a01")]
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","InterfaceName is not DAIMLER or BMW");           
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("407888b7-2ef2-4a1b-a689-3bff592da8f4")]
+                    System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Out of transmitter scope");
+                }
+                exceptions
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("55a8f2c0-2ec8-4751-ae3f-847b581570e6")]
+                    catch (System.SystemException systemException)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("3c8f9f30-f00b-4ff2-b1d7-da7aa132ec20")]
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Inside catch of transmitter system exception");       
+                        ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,"Import");       
+                        if(systemException != null)
+                        {
+                            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Sending mail after system exception");            
+                            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Sending mail after system exception",ROLogger);
+                            mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);
+                            if(mailStatus)
+                            {
+                                System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Mail sent successfully");           
+                                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Mail sent successfully",ROLogger); 
+                            }
+                        }
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("8f2080d2-4072-4043-8ecc-0d4a0d123203")]
+                    catch (System.Web.Services.Protocols.SoapException soapException)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("d314e148-f3b9-4a0c-8489-d38dc543da44")]
+                        System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Inside catch of transmitter soap exception" );
+                        ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,"Import");
+                        if(soapException != null)
+                        {
+                            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Sending mail after soap exception");            
+                            
+                            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + soapException.Message ,ROLogger);  
+                            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Sending mail after soap exception",ROLogger);
+                            mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);
+                            if(mailStatus)
+                            {
+                                System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Mail sent successfully");           
+                                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Mail sent successfully",ROLogger);        
+                            }
+                        }
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("7e94074a-937a-4a4d-ae84-f37dd4873794")]
+                    catch
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("d3588c06-50a1-41fa-a32a-5dc3011fcca9")]
+                            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Inside catch of transmitter general exception" );
+                            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Sending mail after general exception");        
+                            ROLogger = ROBTLogger.GetLogger(interfaceName,xprotID,"Import");
+                            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Sending mail after general exception",ROLogger);
+                            mailStatus = FTPHandler1.SendMailToAdmins(interfaceName,RQ1System,msgACKFileName,xprotID,ROLogger);
+                            if(mailStatus)
+                            {
+                                System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Mail sent successfully");          
+                                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Mail sent successfully",ROLogger);
+                            }
+                            
+                    }
+                }
+            }
+        }
+    }
+}
+

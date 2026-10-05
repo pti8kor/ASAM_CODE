@@ -1,0 +1,98 @@
+C:\Users\hlu2si\Documents\Visual Studio 2010\Projects\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+C:\Users\hlu2si\Documents\Visual Studio 2010\Projects\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+C:\Users\hlu2si\Documents\Visual Studio 2010\Projects\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+C:\Users\hlu2si\Documents\Visual Studio 2010\Projects\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface_DEV\Import\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer_DEV.dll
+D:\RB-ASAM-Interface_DEV\Import\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer_DEV.pdb
+D:\RB-ASAM-Interface_DEV\Import\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer_DEV.dll
+D:\RB-ASAM-Interface_DEV\Import\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer_DEV.pdb
+D:\z_Nikhila\V1.7Ongoing\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\z_Nikhila\V1.7Ongoing\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\z_Nikhila\V1.7Ongoing\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPLibrary.dll
+D:\z_Nikhila\V1.7Ongoing\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\z_Nikhila\V1.7Ongoing\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\z_Nikhila\Deploy\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\z_Nikhila\Deploy\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\z_Nikhila\Deploy\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\z_Nikhila\Deploy\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\z_Nikhila\05.10.2015_Deploy\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\z_Nikhila\05.10.2015_Deploy\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\z_Nikhila\05.10.2015_Deploy\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\z_Nikhila\05.10.2015_Deploy\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\z_Nikhila\NewChanges\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\z_Nikhila\NewChanges\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\z_Nikhila\NewChanges\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\z_Nikhila\NewChanges\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\z_Nikhila\Changes\NewChanges\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll.config
+D:\z_Nikhila\Changes\NewChanges\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\z_Nikhila\Changes\NewChanges\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\z_Nikhila\Changes\NewChanges\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\z_Nikhila\Changes\NewChanges\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\VMA4KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll.config
+D:\RB-ASAM-Interface\Import\960 - Sources\VMA4KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\VMA4KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\VMA4KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\VMA4KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll.config
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\JPR6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll.config
+D:\RB-ASAM-Interface\Import\960 - Sources\JPR6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\JPR6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\JPR6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\JPR6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\BTLogger.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPLibrary.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\Microsoft.BizTalk.Pipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\Microsoft.BizTalk.TestTools.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\Microsoft.XLANGs.BaseTypes.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll.config
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\BTLogger.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPLibrary.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\Microsoft.BizTalk.Pipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\Microsoft.BizTalk.TestTools.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\Microsoft.XLANGs.BaseTypes.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll.config
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\BTLogger.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPLibrary.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.btproj.CoreCompileInputs.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.btproj.CopyComplete
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.btproj.AssemblyReference.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll.config
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\BTLogger.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPLibrary.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.btproj.CoreCompileInputs.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.btproj.CopyComplete
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll.config
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPIssueTransfer.pdb
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\BTLogger.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\ChangeMessagePipeline.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\bin\Debug\FTPLibrary.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.btproj.AssemblyReference.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.btproj.CoreCompileInputs.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.btproj.CopyComplete
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\FTPIssueTransfer\obj\Debug\FTPIssueTransfer.pdb

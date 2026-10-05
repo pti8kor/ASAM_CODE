@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBMapper", "DBMapper\DBMapper.btproj", "{E97E317A-C473-4C54-802B-091B07F751C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E97E317A-C473-4C54-802B-091B07F751C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E97E317A-C473-4C54-802B-091B07F751C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E97E317A-C473-4C54-802B-091B07F751C4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E97E317A-C473-4C54-802B-091B07F751C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E97E317A-C473-4C54-802B-091B07F751C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E97E317A-C473-4C54-802B-091B07F751C4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23ED44FA-09E8-4AD1-9BC7-F77DE8834E8B}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://rngvmc0208:1188/db_bt_tfsroasaminterfaces_sql
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DBMapper\\DBMapper.btproj
+		SccProjectName1 = DBMapper
+		SccLocalPath1 = DBMapper
+	EndGlobalSection
+EndGlobal

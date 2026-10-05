@@ -1,0 +1,91 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.ComponentModel;
+using System.Threading;
+using System.Xml.Linq;
+
+namespace RB.ROCustomerIntefaceLibrary
+{
+    public class TimeOutManager
+    {
+        bool bTimeOutCancelled = false;
+        int m_oTimeout;
+        string sExchangeFormat,sExchangeProtocolId,sSystem;
+        Logger objlogger = null;
+
+        public TimeOutManager(string p_sExchangeFormat, string p_sExchangeProtocolId, string p_sSystem,Logger l_ologger)
+        {
+            try
+            {
+                sExchangeFormat = p_sExchangeFormat;
+                sExchangeProtocolId = p_sExchangeProtocolId;
+                sSystem = p_sSystem;
+                objlogger = l_ologger;
+                string strConfigFilePath = Utilities.LoadItemFromBizTalkAppConfig(sExchangeFormat + GlobalConstants.INTERFACE_CONFIG_PATTERN);
+                ROConfigurationManager rConfigMgr = new ROConfigurationManager(strConfigFilePath, l_ologger);                
+                //RODataInterface.InterfaceConfigFile = rConfigMgr.LoadConfigurationXML();
+                XDocument l_oConfig = rConfigMgr.LoadConfigurationXML(sExchangeFormat); //REUBK-1915
+                if (l_oConfig == null)
+                {
+                    //exception handling
+                    //objlogger.LogInfo("RequestOneCustomerInterface: ValidateIMF: Error Interface config file not loaded / not found");
+                    throw new System.Exception("Could not find config file in timeout manager");
+                }
+
+
+                string sInterfaceTimeOut = l_oConfig.Root.Element(ConfigurationFileTags.INTERFACE_SETTINGS)
+                                           .Element(ConfigurationFileTags.INTERFACE_TIMEOUT).Value;
+
+                m_oTimeout = int.Parse(sInterfaceTimeOut);
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex, "Error in creating timeout manager");
+            }
+        }
+
+        public void StartMeasuringTimeOut()
+        {
+           bTimeOutCancelled = false;
+           Thread l_oTimeOutThread = new Thread(new ThreadStart(DoWork));
+        }
+        public void CancelTimeOut()
+        {
+            bTimeOutCancelled = true;
+        }
+        void DoWork()
+        {
+            Thread.Sleep(m_oTimeout);
+            
+            if (!bTimeOutCancelled)
+            {
+                WriteTimeOutError();
+            }
+        }
+
+        void WriteTimeOutError()
+        {
+            try
+            {
+                ROErrorLogger RoErrorLogger = new ROErrorLogger();
+                Dictionary<string, string> oAddtionalFields = new Dictionary<string, string>();
+                oAddtionalFields.Add("Status", "Failure");
+                RoErrorLogger.WriteLifeToken(sExchangeFormat,sExchangeProtocolId,
+                GlobalConstants.RORecordTypes.EXCHANGEPROTOCOL.ToString(), "Log", true,
+                                    "The requested has timed out please contact the administrator", oAddtionalFields, sSystem, objlogger, null,null);
+                PersistenceDataManager l_oPManager = new PersistenceDataManager();
+
+                l_oPManager.Clear(PersistenceDataStores.LIFETOKEN, sExchangeProtocolId);
+                l_oPManager.Clear(PersistenceDataStores.USERERROR, sExchangeProtocolId);
+                l_oPManager.Clear(PersistenceDataStores.ADMINERROR, sExchangeProtocolId);
+                
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex, "Error in WriteTimeOutError");
+            }
+        }
+    }
+}

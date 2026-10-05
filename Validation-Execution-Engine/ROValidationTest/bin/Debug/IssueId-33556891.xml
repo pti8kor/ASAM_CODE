@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Issue xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/" xmlns:dc="http://purl.org/dc/terms/" xmlns:oslc_cm="http://open-services.net/xmlns/cm/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/ http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record-type/16777542" rdf:about="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891">
+  <dc:type rdf:resource="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record-type/16777542">Issue</dc:type>
+  <dc:title>TDB200002459</dc:title>
+  <ASILClassification/>
+  <DefectiveWorkproduct/>
+  <Approval/>
+  <DefectDetectionLocation/>
+  <SolutionComment/>
+  <SafetyRelevance/>
+  <ExternalMilestones/>
+  <State>ACTIVE</State>
+  <ExternalNextState/>
+  <Category>Requirement</Category>
+
+  <CommercialComment/>
+  <History_Log>
+    &lt;cq:ACTION name="New" login="art2kor" fullname="Karthik" timestamp="01/05/2011 19:16:16"&gt;
+    &lt;cq:STATUS_TRANSITION Status(Old)="New" Status(New)=""&gt;
+    &lt;cq:FIELD name="Title"&gt;&lt;cq:SET&gt;SWSVW##SWSVW_P815Q_6.1.0#30-2010#8765437&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+    &lt;cq:FIELD name="Category"&gt;&lt;cq:SET&gt;Requirement&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+
+    &lt;cq:FIELD name="External_ID"&gt;&lt;cq:SET&gt;8765437&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+    &lt;cq:FIELD name="Description"&gt;&lt;cq:SET&gt;Problem/Anforderungsbeschreibung:
+    Zulieferung und Integration einer Lib
+
+    Grund:
+    unterschiedliches Verhalten zwischen EU6 und EU5-Variante (Tasterr�ckmeldung) &amp; Update wegen KESSY-Anlauf zu 45/11 notwendig
+
+    Deltas:
+    CordStrtStop 12.1.x
+    StrtStopOut 12.1.x&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+    &lt;cq:FIELD name="Type"&gt;&lt;cq:SET&gt;Issue SW&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+
+    &lt;cq:FIELD name="Scope"&gt;&lt;cq:SET&gt;External&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+    &lt;cq:FIELD name="Domain"&gt;&lt;cq:SET&gt;Software&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+    &lt;cq:FIELD name="ExternalDescription"&gt;&lt;cq:SET&gt;Problem/Anforderungsbeschreibung:
+    Zulieferung und Integration einer Lib
+
+    Grund:
+    unterschiedliches Verhalten zwischen EU6 und EU5-Variante (Tasterr�ckmeldung) &amp; Update wegen KESSY-Anlauf zu 45/11 notwendig
+
+    Deltas:
+    CordStrtStop 12.1.x
+    StrtStopOut 12.1.x&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+
+    &lt;cq:FIELD name="belongsToProject"&gt;&lt;cq:SET&gt;TDB200002437&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+    &lt;cq:FIELD name="ExternalState"&gt;&lt;cq:SET&gt;REQUESTED&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+    &lt;cq:FIELD name="ExternalReview"&gt;&lt;cq:SET&gt;Required&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+
+    &lt;cq:FIELD name="ExternalSubmitter"&gt;&lt;cq:SET&gt;33563272&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+    &lt;cq:FIELD name="ExternalAssignee"&gt;&lt;cq:SET&gt;33563534&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+    &lt;cq:FIELD name="ExternalTitle"&gt;&lt;cq:SET&gt;SWSVW##SWSVW_P815Q_6.1.0#30-2010#8765437&lt;/cq:SET&gt;&lt;/cq:FIELD&gt;
+
+    &lt;/cq:STATUS_TRANSITION&gt;
+    &lt;/cq:ACTION&gt;
+  </History_Log>
+  <Priority/>
+  <Title>SWSVW##SWSVW_P815Q_6.1.0#30-2010#8765437</Title>
+  <ExternalTags/>
+  <ExternalLastExportedDate/>
+  <is_duplicate>0</is_duplicate>
+  <ExternalComment/>
+  <is_active>1</is_active>
+  <EstimationComment/>
+  <Description>
+    Problem/Anforderungsbeschreibung:
+    Zulieferung und Integration einer Lib
+
+    Grund:
+    unterschiedliches Verhalten zwischen EU6 und EU5-Variante (Tasterr�ckmeldung) &amp; Update wegen KESSY-Anlauf zu 45/11 notwendig
+
+    Deltas:
+    CordStrtStop 12.1.x
+    StrtStopOut 12.1.x
+  </Description>
+
+  <EstimatedEffort/>
+  <Scope>External</Scope>
+  <unduplicate_state/>
+  <IssueShadowRef rdf:resource="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16778832-33569625" oslc_cm:label="33569625"/>
+  <CommercialAssignee/>
+  <QuotationRequired/>
+  <record_type rdf:resource="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record-type/16777542" oslc_cm:label="Issue"/>
+  <Note_Entry/>
+  <ExternalSubmitter rdf:resource="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16784273-33563272" oslc_cm:label="33563272"/>
+  <id>TDB200002459</id>
+  <version>1</version>
+  <DefectClassification/>
+  <DefectDetectionProcess/>
+  <CommercialAmountDetails/>
+
+  <CommercialAttachments/>
+  <Type>Issue SW</Type>
+  <ExternalHistory/>
+  <ProductionRelevance/>
+  <Notes_Log/>
+  <SpecificationReview/>
+  <External_ID>8765437</External_ID>
+  <Submitter>Karthik (art2kor)</Submitter>
+  <CommercialOrigSolutionAcc/>
+  <Collaboration/>
+  <AccountNumbers/>
+  <ExternalDescription>
+    Problem/Anforderungsbeschreibung:
+    Zulieferung und Integration einer Lib
+
+    Grund:
+    unterschiedliches Verhalten zwischen EU6 und EU5-Variante (Tasterr�ckmeldung) &amp; Update wegen KESSY-Anlauf zu 45/11 notwendig
+
+    Deltas:
+    CordStrtStop 12.1.x
+    StrtStopOut 12.1.x
+  </ExternalDescription>
+
+  <RequirementsReview/>
+  <Tags/>
+  <CommercialAmountConfirmed/>
+  <Assignee rdf:resource="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777223-33562225" oslc_cm:label="art2kor"/>
+  <SalesClassification/>
+  <ExternalConversation/>
+  <DefectDetectionOrga/>
+  <Product/>
+  <ExternalTitle>SWSVW##SWSVW_P815Q_6.1.0#30-2010#8765437</ExternalTitle>
+  <ExternalAssignee rdf:resource="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16784273-33563534" oslc_cm:label="33563534"/>
+  <Domain>Software</Domain>
+  <LifeCycleState>New</LifeCycleState>
+  <CommercialConversation/>
+  <Occurrence/>
+
+  <dbid>33556891</dbid>
+  <DefectDetectionDate/>
+  <ExternalReview>Required</ExternalReview>
+  <Classification/>
+  <Quotation_ID/>
+  <Severity/>
+  <ratl_mastership rdf:resource="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777220-16777404" oslc_cm:label="&lt;local&gt;"/>
+  <lock_version>0</lock_version>
+  <locked_by/>
+  <SubmitDate>2011-05-01T14:46:35Z</SubmitDate>
+  <DRBFM/>
+  <ExternalExchangeFormat/>
+  <ExternalLastImportedDate/>
+
+  <belongsToProject rdf:resource="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16778210-33556869" oslc_cm:label="TDB200002437"/>
+  <ExternalState>REQUESTED</ExternalState>
+  <CommercialAmount/>
+  <FMEARelevance/>
+  <SalesAttachments oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/SalesAttachments"/>
+  <hasParent oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/hasParent"/>
+  <history oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/history"/>
+  <Attachments oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/Attachments"/>
+  <AffectedReleases oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/AffectedReleases"/>
+  <ExternalAttachments oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/ExternalAttachments"/>
+  <hasWorkitems oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/hasWorkitems"/>
+  <hasChildren oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/hasChildren"/>
+  <isLinkedToMilestones oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/isLinkedToMilestones"/>
+  <hasMappedReleases oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/hasMappedReleases"/>
+  <hasAttachmentMappings oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/hasAttachmentMappings"/>
+  <AdminAttachments oslc_cm:collref="http://fe0vm221.de.bosch.com/oslc/cqrest/repo/CDG_ASAM_PROTOTYPE/db/TDB2/record/16777542-33556891/field/AdminAttachments"/>
+
+</Issue>

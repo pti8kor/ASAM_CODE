@@ -1,0 +1,1351 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="39ef3665-482b-4b02-a406-d095a77cc528" LowerBound="1.1" HigherBound="313.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="RB.ROCustomerInterface" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="7d23cfc4-2089-45f9-a018-0f74e2a86c38" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="ptUpdatedIMF" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="ed6ef10f-a002-45a3-a35f-875adc8ee9f2" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="opnSndUpdatedIMF" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="dc56b40c-102b-4d1d-9036-f929308e1564" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.38">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="299905fe-a6ea-481a-a9f1-632a049e58b1" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="ptIMF" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="8ba9d2db-9416-4e77-98fc-eb14a29728d2" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="opnIMF" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="e7ce7ccb-c51c-43bb-b41c-471c1418111e" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.38">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="2d5e29d8-fe9a-4ae1-9a68-25c0acca8d86" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="ptExecutionFailed" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="7d9704c6-f2aa-4f73-9601-4b1ed747c0a1" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="opnSendExecutionFailed" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="55529d4b-0aaf-4464-9fdb-5e5577cb885e" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.38">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="2613d653-2470-4190-ab88-86dad26f5180" ParentLink="Module_PortType" LowerBound="25.1" HigherBound="32.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="prtIMFValidationFailed" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="6dcfeefa-9991-4707-86c7-73e0b0682948" ParentLink="PortType_OperationDeclaration" LowerBound="27.1" HigherBound="31.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="opnIMFValidationFailed" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="72149faa-d061-41e8-bded-1a3ed979f928" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="29.13" HigherBound="29.38">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="371b6c0e-5122-4484-b508-6bbcc6dc4c13" ParentLink="Module_PortType" LowerBound="32.1" HigherBound="39.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="prtIMFInterm" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="cb07b203-753d-4fa2-b672-03580c4398a7" ParentLink="PortType_OperationDeclaration" LowerBound="34.1" HigherBound="38.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="oprnIMFInterm" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="56525cfe-80a0-454c-ab0b-9dcaab8525ae" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="36.13" HigherBound="36.38">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="23b1d0bb-ccc2-40cb-aa2c-978b70ab659c" ParentLink="Module_PortType" LowerBound="39.1" HigherBound="46.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PTValidatedIMF" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="eacf7656-9d0e-40ae-99ab-0d55b4ca3f41" ParentLink="PortType_OperationDeclaration" LowerBound="41.1" HigherBound="45.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="oprnValidatedIMF" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="f49ae4fb-248a-4201-b3b7-355078cee2e1" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="43.13" HigherBound="43.38">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="8feded73-e047-4dd3-b6bd-bcc93452298d" ParentLink="Module_PortType" LowerBound="46.1" HigherBound="53.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_Restarted" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="3ab375be-b67c-4699-9026-818f19243b42" ParentLink="PortType_OperationDeclaration" LowerBound="48.1" HigherBound="52.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="opn_SndIMFRestarted" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="841b1d7f-359f-4732-95cb-611252726462" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="50.13" HigherBound="50.38">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="6e8ea296-3fb4-4f78-9ef1-5a2283d51bd7" ParentLink="Module_PortType" LowerBound="53.1" HigherBound="60.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="opnSendAttForCompare" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="95238f29-ff26-40d4-a701-e747d517ed8f" ParentLink="PortType_OperationDeclaration" LowerBound="55.1" HigherBound="59.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="c707ec2f-c3ea-404a-8617-7810db1dfa22" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="57.13" HigherBound="57.61">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterface.Schema.AttachmentsBinaryCompare.BinaryComparison" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="55f5adf7-fef5-43f5-a097-1dd80c5703ae" ParentLink="Module_ServiceDeclaration" LowerBound="60.1" HigherBound="312.1">
+            <om:Property Name="InitializedTransactionType" Value="True" />
+            <om:Property Name="IsInvokable" Value="True" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="IssueValidateAndExecute" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="VariableDeclaration" OID="ab925bce-7c63-411c-bfb4-7a62681c6711" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="85.1" HigherBound="86.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sIssueID" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="b82b0df1-8148-485c-909b-7056672b8c50" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="86.1" HigherBound="87.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Int64" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="iListOfRestartedFiles" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="d5fc630b-553b-446f-b375-eae7b2860eb7" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="87.1" HigherBound="88.1">
+                <om:Property Name="InitialValue" Value="0" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Int32" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="iListOfUnimportedAtt" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="060f2d21-158b-400e-803c-30cf50ba3d74" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="88.1" HigherBound="89.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sFileNameWOExtn" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="cde5ee8b-2316-4a8d-ae4e-9ecb2511ea31" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="79.1" HigherBound="80.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.Schema.AttachmentsBinaryCompare.BinaryComparison" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgSendAttachmentCompare" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="1b8adf7d-d392-4172-9203-253cd6888f99" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="80.1" HigherBound="81.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.Schema.AttachmentsBinaryCompare.BinaryComparison" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgAttachmentCompare" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="0a67d7e4-233d-47ea-9a35-c328e6486b9f" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="81.1" HigherBound="82.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgIMFAfterValidation" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="12ba12c9-201f-485f-b79f-041f464a88d0" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="82.1" HigherBound="83.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgUpdatedIMF" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="79499064-3e76-4d05-93f4-44ece0255bfb" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="83.1" HigherBound="84.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgSendIMF" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="f5c36e0a-4935-460c-b1af-a5fa2cc5a197" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="84.1" HigherBound="85.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgAfterRestart" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="01fbfa32-e4fc-4959-8ce6-0252d4f02eac" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="VariableDeclaration" OID="adc093d9-6d54-4ff1-88ad-164081c6f346" ParentLink="ServiceBody_Declaration" LowerBound="89.15" HigherBound="89.57">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="RB.ROCustomerIntefaceLibrary.Logger" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Logger" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="0da48449-fc6d-4d21-990c-c75fff0cbb7a" ParentLink="ServiceBody_Declaration" LowerBound="89.59" HigherBound="89.87">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sInterfaceName" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="afa872bc-a8e4-40cf-ba40-219b6d0db67e" ParentLink="ServiceBody_Declaration" LowerBound="89.89" HigherBound="89.111">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sXProtID" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="MessageDeclaration" OID="c8f127e0-6cca-4e81-837f-3ab2828086a0" ParentLink="ServiceBody_Declaration" LowerBound="89.113" HigherBound="89.153">
+                    <om:Property Name="Type" Value="RB.ROCustomerInterface.Schema.RB.ASAM.RB_RO_ASAM" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="msgIMF" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="5c082077-a02d-465a-aa66-b94ad4738f83" ParentLink="ServiceBody_Declaration" LowerBound="89.155" HigherBound="89.185">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sTargetProjectID" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="814226db-6f8b-4c6c-b86e-478735e921d1" ParentLink="ServiceBody_Declaration" LowerBound="89.187" HigherBound="89.220">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sDownloadTargetPath" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="c1931652-c0ff-461b-8fc0-028ea96106cc" ParentLink="ServiceBody_Declaration" LowerBound="89.222" HigherBound="89.277">
+                    <om:Property Name="UseDefaultConstructor" Value="True" />
+                    <om:Property Name="Type" Value="RB.ROCustomerIntefaceLibrary.BTHelper" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ROCustomerLibrary" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="652b0fc1-9e6f-4f76-89cf-4f9526353541" ParentLink="ServiceBody_Declaration" LowerBound="89.279" HigherBound="89.307">
+                    <om:Property Name="InitialValue" Value="true" />
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.Boolean" />
+                    <om:Property Name="ParamDirection" Value="Ref" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="isSuccess" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="7a62ef78-ab5a-40c1-a263-25aa7d06b720" ParentLink="ServiceBody_Declaration" LowerBound="89.309" HigherBound="89.337">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sIssueFileName" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="1418f2a8-de17-419d-8e30-de440ff00067" ParentLink="ServiceBody_Declaration" LowerBound="89.339" HigherBound="89.363">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sLifeToken" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="76095bad-90cc-40e1-ba11-73aca65d5912" ParentLink="ServiceBody_Declaration" LowerBound="89.365" HigherBound="89.392">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sDownloadHost" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="a778d833-6758-4c62-9ae5-09e3f212c2db" ParentLink="ServiceBody_Declaration" LowerBound="89.394" HigherBound="89.415">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sSystem" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="51414756-f7dd-4c47-b48f-c4a1c9afdc56" ParentLink="ServiceBody_Declaration" LowerBound="89.417" HigherBound="89.441">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sFileNames" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="6b50940b-3c06-4006-93dc-3d1cc11c35be" ParentLink="ServiceBody_Declaration" LowerBound="89.443" HigherBound="89.467">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sFirstFile" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="23358d92-9b28-4687-8896-4a942f239f68" ParentLink="ServiceBody_Declaration" LowerBound="89.469" HigherBound="89.492">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sLastFile" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="2d21bafe-37bd-4945-b7c7-0addb20c7631" ParentLink="ServiceBody_Declaration" LowerBound="89.494" HigherBound="89.517">
+                    <om:Property Name="InitialValue" Value="true" />
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.Boolean" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="isMsgAck" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="ffba4d92-1f74-48a0-b9be-81b9e9928f09" ParentLink="ServiceBody_Statement" LowerBound="94.1" HigherBound="96.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Validation Engine Starts&quot; );" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Log" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Construct" OID="1b7f26f5-dec8-4aa7-abfd-2f9ddfa6fdc8" ParentLink="ServiceBody_Statement" LowerBound="96.1" HigherBound="107.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="BeforeValidation_Filename" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="MessageRef" OID="786e772a-11ae-4002-860d-fea32735a8c7" ParentLink="Construct_MessageRef" LowerBound="97.23" HigherBound="97.33">
+                        <om:Property Name="Ref" Value="msgSendIMF" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                    <om:Element Type="Transform" OID="699e9dd3-78d1-454e-87c9-524f9c2edfc3" ParentLink="ComplexStatement_Statement" LowerBound="99.1" HigherBound="101.1">
+                        <om:Property Name="ClassName" Value="RB.ROCustomerInterface.Map.IMFCopy" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="CopyTransform" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessagePartRef" OID="fdecb019-3418-44e2-b66f-b48994675ac7" ParentLink="Transform_OutputMessagePartRef" LowerBound="100.28" HigherBound="100.38">
+                            <om:Property Name="MessageRef" Value="msgSendIMF" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_6" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessagePartRef" OID="bd61278b-b644-4f1f-8407-f40940d8ce8a" ParentLink="Transform_InputMessagePartRef" LowerBound="100.78" HigherBound="100.84">
+                            <om:Property Name="MessageRef" Value="msgIMF" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_5" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="MessageAssignment" OID="06be15f3-7395-43a0-9a56-4ad5d2624399" ParentLink="ComplexStatement_Statement" LowerBound="101.1" HigherBound="106.1">
+                        <om:Property Name="Expression" Value="msgSendIMF = ROCustomerLibrary.PrettyXml(msgSendIMF,Logger);&#xD;&#xA;msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + &quot;_&quot; + sXProtID +&quot;_030_&quot; + &quot;IMF_Before_Validate&quot;; &#xD;&#xA;sInterfaceName = sInterfaceName;&#xD;&#xA;    &#xD;&#xA;" />
+                        <om:Property Name="ReportToAnalyst" Value="False" />
+                        <om:Property Name="Name" Value="MessageAssignment_1" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="Send" OID="2cd74589-6aac-437d-a722-40b9ab971a03" ParentLink="ServiceBody_Statement" LowerBound="107.1" HigherBound="109.1">
+                    <om:Property Name="PortName" Value="pIMFInterm" />
+                    <om:Property Name="MessageName" Value="msgSendIMF" />
+                    <om:Property Name="OperationName" Value="oprnIMFInterm" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Decision" OID="a1651ce6-ff5e-4163-a862-c462633df8cc" ParentLink="ServiceBody_Statement" LowerBound="109.1" HigherBound="229.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ValidateIMF" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="DecisionBranch" OID="2684f018-4ab8-40dd-95e0-6d9fbc2a2cd8" ParentLink="ReallyComplexStatement_Branch" LowerBound="110.13" HigherBound="209.1">
+                        <om:Property Name="Expression" Value="ROCustomerLibrary.ValidateIMF(msgIMF,sInterfaceName,sDownloadTargetPath,sTargetProjectID,sXProtID,sIssueFileName,sLifeToken,sSystem,sFileNames,isMsgAck,Logger)" />
+                        <om:Property Name="IsGhostBranch" Value="True" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="IsIMFValidAgainstRules" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="VariableAssignment" OID="f0dd9cd3-91e2-481b-91a4-bdaf2221c6fd" ParentLink="ComplexStatement_Statement" LowerBound="112.1" HigherBound="114.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Validation Successful&quot;);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Log" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="Construct" OID="80da62f7-e2a7-41ec-805a-51711d2eef19" ParentLink="ComplexStatement_Statement" LowerBound="114.1" HigherBound="123.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="GetValidatedIMF" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="MessageRef" OID="51b91064-ddd7-4055-b6b4-31965fbc4b1f" ParentLink="Construct_MessageRef" LowerBound="115.27" HigherBound="115.48">
+                                <om:Property Name="Ref" Value="msgIMFAfterValidation" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="MessageAssignment" OID="f8f33254-9326-48ea-8aff-333eff1cd046" ParentLink="ComplexStatement_Statement" LowerBound="117.1" HigherBound="122.1">
+                                <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Getting ValidatedIMF&quot; );&#xD;&#xA;msgIMFAfterValidation=ROCustomerLibrary.GetModifiedIMF(sXProtID,Logger);&#xD;&#xA;msgIMFAfterValidation(FILE.ReceivedFileName) = sDownloadHost + &quot;_&quot; + sXProtID +&quot;_035_&quot; + &quot;IMF_After_Validate&quot;; &#xD;&#xA;//System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;After getting ValidatedIMF&quot; );" />
+                                <om:Property Name="ReportToAnalyst" Value="False" />
+                                <om:Property Name="Name" Value="GetIMFFromIS" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="Send" OID="4ec6a12f-f9cb-463b-aa08-6304cc7712bd" ParentLink="ComplexStatement_Statement" LowerBound="123.1" HigherBound="125.1">
+                            <om:Property Name="PortName" Value="pValidatedIMF" />
+                            <om:Property Name="MessageName" Value="msgIMFAfterValidation" />
+                            <om:Property Name="OperationName" Value="oprnValidatedIMF" />
+                            <om:Property Name="OperationMessageName" Value="Request" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="sndValidatedIMF" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                        <om:Element Type="Decision" OID="e466ee16-186d-4fa7-b695-2daf48f8350a" ParentLink="ComplexStatement_Statement" LowerBound="125.1" HigherBound="208.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="ExecutionEngine" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="DecisionBranch" OID="fe241836-29ac-4046-ad04-d9f4473e96bd" ParentLink="ReallyComplexStatement_Branch" LowerBound="126.17" HigherBound="188.1">
+                                <om:Property Name="Expression" Value="ROCustomerLibrary.Execute(msgIMF,sInterfaceName, sDownloadTargetPath, sTargetProjectID, sXProtID, sIssueFileName, sSystem, sFileNames, Logger)" />
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="isExecutionSuccessful" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="VariableAssignment" OID="74377774-289d-4609-9b7e-e1ccc3037b34" ParentLink="ComplexStatement_Statement" LowerBound="128.1" HigherBound="130.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Execution Successful. Issue Inserted / Updated into CQ&quot; );" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Log" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                                <om:Element Type="Construct" OID="9ba39921-6807-485d-8602-1400a4ffc2f1" ParentLink="ComplexStatement_Statement" LowerBound="130.1" HigherBound="138.1">
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="GetUpdatedIMF" />
+                                    <om:Property Name="Signal" Value="True" />
+                                    <om:Element Type="MessageAssignment" OID="35a840cb-363d-428d-8c2d-b9d7d591b2cc" ParentLink="ComplexStatement_Statement" LowerBound="133.1" HigherBound="137.1">
+                                        <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Before getting updated IMF&quot; );&#xD;&#xA;msgUpdatedIMF=ROCustomerLibrary.GetModifiedIMF(sXProtID,Logger);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;After getting updated IMF&quot; );" />
+                                        <om:Property Name="ReportToAnalyst" Value="False" />
+                                        <om:Property Name="Name" Value="GetUpdatedIMFFromIS" />
+                                        <om:Property Name="Signal" Value="True" />
+                                    </om:Element>
+                                    <om:Element Type="MessageRef" OID="c18fe2b5-0fa4-42c1-804f-4d23c99fce69" ParentLink="Construct_MessageRef" LowerBound="131.31" HigherBound="131.44">
+                                        <om:Property Name="Ref" Value="msgUpdatedIMF" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                </om:Element>
+                                <om:Element Type="Decision" OID="b1e272b9-4898-42c0-9692-15fd80511bd4" ParentLink="ComplexStatement_Statement" LowerBound="138.1" HigherBound="187.1">
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="CheckIfUpatedIMFIsPresent" />
+                                    <om:Property Name="Signal" Value="True" />
+                                    <om:Element Type="DecisionBranch" OID="14dad765-e41c-4aca-9c39-3212f8a810da" ParentLink="ReallyComplexStatement_Branch" LowerBound="139.21" HigherBound="168.1">
+                                        <om:Property Name="Expression" Value="msgUpdatedIMF!=null" />
+                                        <om:Property Name="IsGhostBranch" Value="True" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="IsUpdatedIMFPresent" />
+                                        <om:Property Name="Signal" Value="True" />
+                                        <om:Element Type="VariableAssignment" OID="4a19586b-01c7-478f-9ca5-67ba793a772a" ParentLink="ComplexStatement_Statement" LowerBound="141.1" HigherBound="152.1">
+                                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Updated IMF obtained from Isolated Storage Successfully&quot; );&#xD;&#xA;if(!isMsgAck)&#xD;&#xA;{&#xD;&#xA;    sIssueID= ROCustomerLibrary.GetISSUEIDForBinCompare(msgUpdatedIMF,Logger);&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    sIssueID=&quot;&quot;;&#xD;&#xA;   &#xD;&#xA;}" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Log" />
+                                            <om:Property Name="Signal" Value="True" />
+                                        </om:Element>
+                                        <om:Element Type="VariableAssignment" OID="58329829-c09a-44d9-841c-6555f29a4c36" ParentLink="ComplexStatement_Statement" LowerBound="152.1" HigherBound="154.1">
+                                            <om:Property Name="Expression" Value="isSuccess = true;" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="SetIsSuccess" />
+                                            <om:Property Name="Signal" Value="False" />
+                                        </om:Element>
+                                        <om:Element Type="Construct" OID="58bb0da7-4e78-42ed-b4c0-1f68efd2a14f" ParentLink="ComplexStatement_Statement" LowerBound="154.1" HigherBound="163.1">
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="BeforeValidation_Filename" />
+                                            <om:Property Name="Signal" Value="True" />
+                                            <om:Element Type="Transform" OID="dd1ca4c7-f9cf-424b-bdc1-b25a45550128" ParentLink="ComplexStatement_Statement" LowerBound="157.1" HigherBound="159.1">
+                                                <om:Property Name="ClassName" Value="RB.ROCustomerInterface.Map.IMFCopy" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="CopyTransform" />
+                                                <om:Property Name="Signal" Value="True" />
+                                                <om:Element Type="MessagePartRef" OID="116dc646-56f2-4ada-8282-4b436d0642de" ParentLink="Transform_InputMessagePartRef" LowerBound="158.90" HigherBound="158.103">
+                                                    <om:Property Name="MessageRef" Value="msgUpdatedIMF" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="MessagePartReference_3" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                                <om:Element Type="MessagePartRef" OID="f23c7f02-2606-4310-9573-c9d3d6c5489c" ParentLink="Transform_OutputMessagePartRef" LowerBound="158.40" HigherBound="158.50">
+                                                    <om:Property Name="MessageRef" Value="msgSendIMF" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="MessagePartReference_4" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                            </om:Element>
+                                            <om:Element Type="MessageAssignment" OID="9e3feec1-65a4-4628-aee1-c047e53923cd" ParentLink="ComplexStatement_Statement" LowerBound="159.1" HigherBound="162.1">
+                                                <om:Property Name="Expression" Value="msgSendIMF = ROCustomerLibrary.PrettyXml(msgSendIMF,Logger);&#xD;&#xA;msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + &quot;_&quot; + sXProtID +&quot;_070_&quot; + &quot;IMF_Updated&quot;; " />
+                                                <om:Property Name="ReportToAnalyst" Value="False" />
+                                                <om:Property Name="Name" Value="MessageAssignment_1" />
+                                                <om:Property Name="Signal" Value="True" />
+                                            </om:Element>
+                                            <om:Element Type="MessageRef" OID="3fc988bf-db52-40a4-910f-0f05eddfe238" ParentLink="Construct_MessageRef" LowerBound="155.35" HigherBound="155.45">
+                                                <om:Property Name="Ref" Value="msgSendIMF" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Signal" Value="False" />
+                                            </om:Element>
+                                        </om:Element>
+                                        <om:Element Type="Send" OID="2ca142bd-b573-46ba-86be-8dcd2a16cac1" ParentLink="ComplexStatement_Statement" LowerBound="163.1" HigherBound="165.1">
+                                            <om:Property Name="PortName" Value="pUpdatedIMF" />
+                                            <om:Property Name="MessageName" Value="msgSendIMF" />
+                                            <om:Property Name="OperationName" Value="opnSndUpdatedIMF" />
+                                            <om:Property Name="OperationMessageName" Value="Request" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="sndUpdatedIMF" />
+                                            <om:Property Name="Signal" Value="True" />
+                                        </om:Element>
+                                        <om:Element Type="VariableAssignment" OID="0795b5a6-a5f7-4034-a118-d2c13bacca6c" ParentLink="ComplexStatement_Statement" LowerBound="165.1" HigherBound="167.1">
+                                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Execution succeeded-check for IMFRESET&quot; );" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Log" />
+                                            <om:Property Name="Signal" Value="False" />
+                                        </om:Element>
+                                    </om:Element>
+                                    <om:Element Type="DecisionBranch" OID="87a0238f-ecdd-47a1-a421-3b20eb40875b" ParentLink="ReallyComplexStatement_Branch">
+                                        <om:Property Name="IsGhostBranch" Value="True" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="Else" />
+                                        <om:Property Name="Signal" Value="False" />
+                                        <om:Element Type="VariableAssignment" OID="e6953134-02ac-4021-9a9b-4a2346f33be6" ParentLink="ComplexStatement_Statement" LowerBound="170.1" HigherBound="172.1">
+                                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Updated IMF obtained from Isolated Storage Failed&quot; );" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Log" />
+                                            <om:Property Name="Signal" Value="False" />
+                                        </om:Element>
+                                        <om:Element Type="VariableAssignment" OID="f08c20c1-7b1a-429a-be5d-fef4ab58858c" ParentLink="ComplexStatement_Statement" LowerBound="172.1" HigherBound="174.1">
+                                            <om:Property Name="Expression" Value="isSuccess = true;" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="SetIsSuccess" />
+                                            <om:Property Name="Signal" Value="False" />
+                                        </om:Element>
+                                        <om:Element Type="Construct" OID="27700e24-4a53-4550-b81f-694d68ca8ff1" ParentLink="ComplexStatement_Statement" LowerBound="174.1" HigherBound="182.1">
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="BeforeValidation_Filename" />
+                                            <om:Property Name="Signal" Value="True" />
+                                            <om:Element Type="Transform" OID="c5203fcf-315b-4ed2-8527-2bf174ee24d7" ParentLink="ComplexStatement_Statement" LowerBound="177.1" HigherBound="179.1">
+                                                <om:Property Name="ClassName" Value="RB.ROCustomerInterface.Map.IMFCopy" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="CopyTransform" />
+                                                <om:Property Name="Signal" Value="False" />
+                                                <om:Element Type="MessagePartRef" OID="50e1a8bc-fa2c-4cf6-8a34-1387c5cef9d2" ParentLink="Transform_OutputMessagePartRef" LowerBound="178.40" HigherBound="178.50">
+                                                    <om:Property Name="MessageRef" Value="msgSendIMF" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="MessagePartReference_2" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                                <om:Element Type="MessagePartRef" OID="ebc997d8-0969-479b-a661-04363ed8faea" ParentLink="Transform_InputMessagePartRef" LowerBound="178.90" HigherBound="178.96">
+                                                    <om:Property Name="MessageRef" Value="msgIMF" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="MessagePartReference_1" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                            </om:Element>
+                                            <om:Element Type="MessageAssignment" OID="87255c43-7056-4db0-a8e0-44dd1ad5e059" ParentLink="ComplexStatement_Statement" LowerBound="179.1" HigherBound="181.1">
+                                                <om:Property Name="Expression" Value="msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + &quot;_&quot; + sXProtID +&quot;_060_&quot; + &quot;IMF_Before_Update&quot;; " />
+                                                <om:Property Name="ReportToAnalyst" Value="False" />
+                                                <om:Property Name="Name" Value="MessageAssignment_1" />
+                                                <om:Property Name="Signal" Value="True" />
+                                            </om:Element>
+                                            <om:Element Type="MessageRef" OID="df04aa4a-c89d-47e0-ac84-791b81a783f7" ParentLink="Construct_MessageRef" LowerBound="175.35" HigherBound="175.45">
+                                                <om:Property Name="Ref" Value="msgSendIMF" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Signal" Value="False" />
+                                            </om:Element>
+                                        </om:Element>
+                                        <om:Element Type="Send" OID="c4b0d58e-ba23-4862-948e-0965d45f9e7c" ParentLink="ComplexStatement_Statement" LowerBound="182.1" HigherBound="184.1">
+                                            <om:Property Name="PortName" Value="pIMF" />
+                                            <om:Property Name="MessageName" Value="msgUpdatedIMF" />
+                                            <om:Property Name="OperationName" Value="opnIMF" />
+                                            <om:Property Name="OperationMessageName" Value="Request" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="sndIMF" />
+                                            <om:Property Name="Signal" Value="True" />
+                                        </om:Element>
+                                        <om:Element Type="VariableAssignment" OID="dfbea704-362a-443e-88d5-6bf068cd2130" ParentLink="ComplexStatement_Statement" LowerBound="184.1" HigherBound="186.1">
+                                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Execution succeeded-IMFUPDATED not found-check for IMFRESET&quot; );" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Log" />
+                                            <om:Property Name="Signal" Value="True" />
+                                        </om:Element>
+                                    </om:Element>
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="DecisionBranch" OID="cfd7761a-91ed-450a-a0f0-c714f51ff7d1" ParentLink="ReallyComplexStatement_Branch">
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Else" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="VariableAssignment" OID="34d9b280-ff7b-4f5e-a7cb-1eb8db3a3ef5" ParentLink="ComplexStatement_Statement" LowerBound="190.1" HigherBound="192.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Execution failed. Check log file for error messages&quot; );" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Log" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                                <om:Element Type="VariableAssignment" OID="103adba3-e85f-4a4f-a37e-faf0d8c7447b" ParentLink="ComplexStatement_Statement" LowerBound="192.1" HigherBound="194.1">
+                                    <om:Property Name="Expression" Value="isSuccess = false;" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="SetIsSuccess" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                                <om:Element Type="Construct" OID="6d97af3a-eca5-4403-988e-109a24820a41" ParentLink="ComplexStatement_Statement" LowerBound="194.1" HigherBound="203.1">
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="BeforeValidation_Filename" />
+                                    <om:Property Name="Signal" Value="True" />
+                                    <om:Element Type="Transform" OID="cb642c1e-5794-441f-bf0b-f389d6bcedf1" ParentLink="ComplexStatement_Statement" LowerBound="197.1" HigherBound="199.1">
+                                        <om:Property Name="ClassName" Value="RB.ROCustomerInterface.Map.IMFCopy" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="CopyTransform" />
+                                        <om:Property Name="Signal" Value="False" />
+                                        <om:Element Type="MessagePartRef" OID="a4b36622-26af-479c-8ef5-a19454c7db59" ParentLink="Transform_OutputMessagePartRef" LowerBound="198.36" HigherBound="198.46">
+                                            <om:Property Name="MessageRef" Value="msgSendIMF" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="MessagePartReference_2" />
+                                            <om:Property Name="Signal" Value="False" />
+                                        </om:Element>
+                                        <om:Element Type="MessagePartRef" OID="efc13ae3-ba1b-42ea-ab79-fa6c2e606399" ParentLink="Transform_InputMessagePartRef" LowerBound="198.86" HigherBound="198.92">
+                                            <om:Property Name="MessageRef" Value="msgIMF" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="MessagePartReference_1" />
+                                            <om:Property Name="Signal" Value="False" />
+                                        </om:Element>
+                                    </om:Element>
+                                    <om:Element Type="MessageAssignment" OID="210612cf-363f-4006-8cd2-bf61cf9965f5" ParentLink="ComplexStatement_Statement" LowerBound="199.1" HigherBound="202.1">
+                                        <om:Property Name="Expression" Value="msgSendIMF = ROCustomerLibrary.PrettyXml(msgSendIMF,Logger);&#xD;&#xA;msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + &quot;_&quot; + sXProtID +&quot;_050_&quot; + &quot;IMF_Execution_Failed&quot;; " />
+                                        <om:Property Name="ReportToAnalyst" Value="False" />
+                                        <om:Property Name="Name" Value="MessageAssignment_1" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                    <om:Element Type="MessageRef" OID="6439e252-15d9-4ec6-9993-2c7f6546b3b7" ParentLink="Construct_MessageRef" LowerBound="195.31" HigherBound="195.41">
+                                        <om:Property Name="Ref" Value="msgSendIMF" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                </om:Element>
+                                <om:Element Type="Send" OID="9a461c21-0e38-42c5-843d-75557e4d63c3" ParentLink="ComplexStatement_Statement" LowerBound="203.1" HigherBound="205.1">
+                                    <om:Property Name="PortName" Value="pExecutionFailed" />
+                                    <om:Property Name="MessageName" Value="msgSendIMF" />
+                                    <om:Property Name="OperationName" Value="opnSendExecutionFailed" />
+                                    <om:Property Name="OperationMessageName" Value="Request" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="sndExecutionFailed" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                                <om:Element Type="VariableAssignment" OID="1ade77d9-f849-47e7-94d3-c5ef719e1121" ParentLink="ComplexStatement_Statement" LowerBound="205.1" HigherBound="207.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Execution failed- check for IMFRESET&quot; );" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Log" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="DecisionBranch" OID="7b421b4d-58ae-41c6-a053-287d72ee5bc3" ParentLink="ReallyComplexStatement_Branch">
+                        <om:Property Name="IsGhostBranch" Value="True" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Else" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="VariableAssignment" OID="e4335819-4bf4-4e57-856d-b22a5f7ac5c5" ParentLink="ComplexStatement_Statement" LowerBound="211.1" HigherBound="213.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Validation failed. Check log file for error messages&quot; );" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Log" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="VariableAssignment" OID="5859bb8c-84c6-43c8-974b-083c0299b25d" ParentLink="ComplexStatement_Statement" LowerBound="213.1" HigherBound="215.1">
+                            <om:Property Name="Expression" Value="isSuccess = false;" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="SetIsSuccess" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                        <om:Element Type="Construct" OID="8d00343f-0060-4553-bd67-38bb06bef875" ParentLink="ComplexStatement_Statement" LowerBound="215.1" HigherBound="224.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="BeforeValidation_Filename" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="MessageRef" OID="4b1fc8d4-affd-4b43-9cc4-ba174937f2e8" ParentLink="Construct_MessageRef" LowerBound="216.27" HigherBound="216.37">
+                                <om:Property Name="Ref" Value="msgSendIMF" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="Transform" OID="7704d6ee-997c-48f3-a24f-2f507bd01820" ParentLink="ComplexStatement_Statement" LowerBound="218.1" HigherBound="220.1">
+                                <om:Property Name="ClassName" Value="RB.ROCustomerInterface.Map.IMFCopy" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="CopyTransform" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="MessagePartRef" OID="fba64c80-4f8a-4552-b4b4-70b8022b7ff6" ParentLink="Transform_OutputMessagePartRef" LowerBound="219.32" HigherBound="219.42">
+                                    <om:Property Name="MessageRef" Value="msgSendIMF" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="MessagePartReference_2" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                                <om:Element Type="MessagePartRef" OID="7eb95ad2-ee31-43f4-be29-0bdea09b989c" ParentLink="Transform_InputMessagePartRef" LowerBound="219.82" HigherBound="219.88">
+                                    <om:Property Name="MessageRef" Value="msgIMF" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="MessagePartReference_1" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="MessageAssignment" OID="16a2fb3f-15e7-47a1-b705-83fc1e477869" ParentLink="ComplexStatement_Statement" LowerBound="220.1" HigherBound="223.1">
+                                <om:Property Name="Expression" Value="msgSendIMF = ROCustomerLibrary.PrettyXml(msgSendIMF,Logger);&#xD;&#xA;msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + &quot;_&quot; + sXProtID +&quot;_040_&quot; + &quot;IMF_RulesValidation_Failed&quot;; " />
+                                <om:Property Name="ReportToAnalyst" Value="False" />
+                                <om:Property Name="Name" Value="MessageAssignment_1" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="Send" OID="8f95360d-ca6b-4187-b574-bcb8b352f62f" ParentLink="ComplexStatement_Statement" LowerBound="224.1" HigherBound="226.1">
+                            <om:Property Name="PortName" Value="pIMFValidationFailed" />
+                            <om:Property Name="MessageName" Value="msgSendIMF" />
+                            <om:Property Name="OperationName" Value="opnIMFValidationFailed" />
+                            <om:Property Name="OperationMessageName" Value="Request" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="sndIMFValidationFailed" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                        <om:Element Type="VariableAssignment" OID="bc904590-8458-42b2-a79b-2ded8bdc853c" ParentLink="ComplexStatement_Statement" LowerBound="226.1" HigherBound="228.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Validation failed-check for IMFRESET&quot; );" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Log" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="28cd2280-ecff-4f25-ac85-9b69f863c059" ParentLink="ServiceBody_Statement" LowerBound="229.1" HigherBound="244.1">
+                    <om:Property Name="Expression" Value="&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;sIssueID=&quot;+sIssueID);&#xD;&#xA;if(sIssueID != &quot;&quot;)&#xD;&#xA;{&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;GetattFilesCount starts&quot; );&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;iListOfUnimportedAtt = ROCustomerLibrary.GetUnimportedAttCount(sIssueID,Logger);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;No of UnimportedAtt files = &quot;+ iListOfUnimportedAtt.ToString());&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;iListOfUnimportedAtt=0;&#xD;&#xA;}&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="GetUnimportedAttFileCount" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="While" OID="f9a31764-db11-4451-91ce-0e3614138eb9" ParentLink="ServiceBody_Statement" LowerBound="244.1" HigherBound="268.1">
+                    <om:Property Name="Expression" Value="iListOfUnimportedAtt &gt; 0" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="LoopAttFiles" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Construct" OID="d398ae0d-78ee-4dfc-b5b7-4c2d8fdc26cb" ParentLink="ComplexStatement_Statement" LowerBound="247.1" HigherBound="262.1">
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="GetIMFForAtt" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessageRef" OID="ebbef00d-dfde-4b5e-b6bb-15bbd51626f1" ParentLink="Construct_MessageRef" LowerBound="248.27" HigherBound="248.47">
+                            <om:Property Name="Ref" Value="msgAttachmentCompare" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessageAssignment" OID="5797237e-a4d7-4523-8e5d-422174e27448" ParentLink="ComplexStatement_Statement" LowerBound="250.1" HigherBound="256.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Before getting IMF att file&quot; );&#xD;&#xA;msgAttachmentCompare = ROCustomerLibrary.GetUnImportedAttXML(sIssueID,iListOfUnimportedAtt,Logger);&#xD;&#xA;msgAttachmentCompare = ROCustomerLibrary.AddMissingparams(msgAttachmentCompare,sXProtID,&#xD;&#xA;sSystem,sDownloadTargetPath,sInterfaceName,sIssueFileName,Logger);&#xD;&#xA;&#xD;&#xA;" />
+                            <om:Property Name="ReportToAnalyst" Value="False" />
+                            <om:Property Name="Name" Value="GetIMFFromIS" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessageAssignment" OID="064bc0c6-c2b6-426f-9f47-135a1f9683ab" ParentLink="ComplexStatement_Statement" LowerBound="256.1" HigherBound="261.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot; after add param&quot; );&#xD;&#xA;sFileNameWOExtn = ROCustomerLibrary.GetFileNameWithoutExtn(sIssueFileName,Logger);&#xD;&#xA;msgAttachmentCompare(FILE.ReceivedFileName)=sXProtID+&quot;_&quot;+sIssueID+&quot;_&quot;+sFileNameWOExtn;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;aft getting att xml file&quot;);" />
+                            <om:Property Name="ReportToAnalyst" Value="False" />
+                            <om:Property Name="Name" Value="addvalues" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Send" OID="e02551d7-e0bc-4a7a-8d57-a4ef400f8402" ParentLink="ComplexStatement_Statement" LowerBound="262.1" HigherBound="264.1">
+                        <om:Property Name="PortName" Value="pAttachments" />
+                        <om:Property Name="MessageName" Value="msgAttachmentCompare" />
+                        <om:Property Name="OperationName" Value="Operation_1" />
+                        <om:Property Name="OperationMessageName" Value="Request" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="sndAttachments" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="VariableAssignment" OID="c48a8fbb-0d15-49f2-b5e7-b72311011b4b" ParentLink="ComplexStatement_Statement" LowerBound="264.1" HigherBound="267.1">
+                        <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Decrementing of iListOfRestartedFiles&quot; );&#xD;&#xA;iListOfUnimportedAtt = iListOfUnimportedAtt-1;" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Decrement Loop" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="6806fb9f-2daa-40dc-b56b-ffc74651d3d9" ParentLink="ServiceBody_Statement" LowerBound="268.1" HigherBound="280.1">
+                    <om:Property Name="Expression" Value="if(!isMsgAck)&#xD;&#xA;{&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;GetRestartedFilesCount starts&quot; );&#xD;&#xA;    iListOfRestartedFiles = ROCustomerLibrary.GetRestartedFilesCount(sXProtID);&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;No of restarted files = &quot;+iListOfRestartedFiles.ToString());&#xD;&#xA;    //System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;GetRestartedFilesCount ends&quot; );&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    iListOfRestartedFiles=0;&#xD;&#xA;}" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="GetIMFRestartedFileCount" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="While" OID="ad0e7143-d021-4d6a-a0df-b227bf17e39f" ParentLink="ServiceBody_Statement" LowerBound="280.1" HigherBound="306.1">
+                    <om:Property Name="Expression" Value="iListOfRestartedFiles &gt; 0" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="LoopRestartedFiles" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Construct" OID="76ad9a87-b1cd-4161-b60c-b71607051b33" ParentLink="ComplexStatement_Statement" LowerBound="283.1" HigherBound="291.1">
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="GetIMFAfterRestart" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessageRef" OID="071ad080-4e6a-46d9-b8e2-1e327cace491" ParentLink="Construct_MessageRef" LowerBound="284.27" HigherBound="284.42">
+                            <om:Property Name="Ref" Value="msgAfterRestart" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessageAssignment" OID="1ca13fea-0f0e-4422-9d3f-0bfef3fe0724" ParentLink="ComplexStatement_Statement" LowerBound="286.1" HigherBound="290.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Before getting IMF Restarted file&quot; );&#xD;&#xA;msgAfterRestart=ROCustomerLibrary.GetRestartedIMF(sXProtID);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;After getting Imf Restarted file&quot; );" />
+                            <om:Property Name="ReportToAnalyst" Value="False" />
+                            <om:Property Name="Name" Value="GetIMFFromIS" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Construct" OID="d6ae1b10-0973-4134-b524-feecf069e4ff" ParentLink="ComplexStatement_Statement" LowerBound="291.1" HigherBound="300.1">
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="BeforeValidation_Filename" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessageRef" OID="5d87f2e2-f9a0-44c9-a3fb-961609017010" ParentLink="Construct_MessageRef" LowerBound="292.27" HigherBound="292.37">
+                            <om:Property Name="Ref" Value="msgSendIMF" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="Transform" OID="3627fb9e-9cae-44b7-a240-8e8b95452bf6" ParentLink="ComplexStatement_Statement" LowerBound="294.1" HigherBound="296.1">
+                            <om:Property Name="ClassName" Value="RB.ROCustomerInterface.Map.IMFCopy" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="CopyTransform" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="MessagePartRef" OID="52c7fcdd-c1b8-44cb-b647-018ed695012b" ParentLink="Transform_OutputMessagePartRef" LowerBound="295.32" HigherBound="295.42">
+                                <om:Property Name="MessageRef" Value="msgSendIMF" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="MessagePartReference_8" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                            <om:Element Type="MessagePartRef" OID="3fe88e8b-43a9-44ac-90d5-efb73e8d9ca6" ParentLink="Transform_InputMessagePartRef" LowerBound="295.82" HigherBound="295.97">
+                                <om:Property Name="MessageRef" Value="msgAfterRestart" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="MessagePartReference_7" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="MessageAssignment" OID="3b7fd02c-7731-481a-a66b-14535bdbc636" ParentLink="ComplexStatement_Statement" LowerBound="296.1" HigherBound="299.1">
+                            <om:Property Name="Expression" Value="msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + &quot;_&quot; + sXProtID +&quot;_045_&quot;+ &quot;IMF_AfterRestart&quot;; &#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Send Restarted file&quot; );" />
+                            <om:Property Name="ReportToAnalyst" Value="False" />
+                            <om:Property Name="Name" Value="MessageAssignment_1" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Send" OID="d298ec25-c044-429f-a963-b6fad0f38f28" ParentLink="ComplexStatement_Statement" LowerBound="300.1" HigherBound="302.1">
+                        <om:Property Name="PortName" Value="pRestarted" />
+                        <om:Property Name="MessageName" Value="msgSendIMF" />
+                        <om:Property Name="OperationName" Value="opn_SndIMFRestarted" />
+                        <om:Property Name="OperationMessageName" Value="Request" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="sndRestart" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="VariableAssignment" OID="3dff06e7-3b0f-4633-8e3f-a7b0fc409ee5" ParentLink="ComplexStatement_Statement" LowerBound="302.1" HigherBound="305.1">
+                        <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;Decrementing of iListOfRestartedFiles&quot; );&#xD;&#xA;iListOfRestartedFiles = iListOfRestartedFiles-1;" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Decrement Loop" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="c68b9e4e-cbab-4e22-a207-c5f6b9639091" ParentLink="ServiceBody_Statement" LowerBound="306.1" HigherBound="310.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;ClearIsoStoreReset starts&quot; );&#xD;&#xA;ROCustomerLibrary.ClearIsoStoreReset(sXProtID);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE&quot;,&quot;ClearIsoStoreReset ends&quot; );" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ClearStoreAfterReset" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="f51ae4d5-248d-43f2-8011-5368481a5a60" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="63.1" HigherBound="65.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="66" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.ptIMF" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="pIMF" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="f400f81b-45ee-41d7-aa70-7466cbb8ba77" ParentLink="PortDeclaration_CLRAttribute" LowerBound="63.1" HigherBound="64.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="9146ecb9-b091-4d1a-8ccb-ac271d31e55c" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="65.1" HigherBound="67.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="5" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.prtIMFInterm" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="pIMFInterm" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="b1e29a2c-4359-4c9f-9a6e-e9b48e384fc9" ParentLink="PortDeclaration_CLRAttribute" LowerBound="65.1" HigherBound="66.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="107a6ce2-7e56-4d5d-ae62-b64007ea5cc2" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="67.1" HigherBound="69.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="15" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.PTValidatedIMF" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="pValidatedIMF" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="ad22a271-95d0-429b-843d-166fd7c2a924" ParentLink="PortDeclaration_CLRAttribute" LowerBound="67.1" HigherBound="68.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="c10e5729-d37a-4fdb-8fb2-b892eb4883ed" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="69.1" HigherBound="71.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="94" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.ptExecutionFailed" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="pExecutionFailed" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="c821fba1-43e8-43ab-800e-74429b002b3b" ParentLink="PortDeclaration_CLRAttribute" LowerBound="69.1" HigherBound="70.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="455eb6cb-4565-47e9-a358-b4888136dac6" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="71.1" HigherBound="73.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="71" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.prtIMFValidationFailed" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="pIMFValidationFailed" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="b002ace2-e9b6-4e20-99fd-689e906d1027" ParentLink="PortDeclaration_CLRAttribute" LowerBound="71.1" HigherBound="72.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="9b1e59c0-467b-4de0-9617-1d68bd1b94ad" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="73.1" HigherBound="75.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="109" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.PortType_Restarted" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="pRestarted" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="df975fde-2f51-4da4-acea-554f1f8c968e" ParentLink="PortDeclaration_CLRAttribute" LowerBound="73.1" HigherBound="74.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="1fe732da-ffc8-4b36-8612-d4c1c2e5551d" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="75.1" HigherBound="77.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="83" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.ptUpdatedIMF" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="pUpdatedIMF" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="3a6da31e-b693-4a6b-ab1f-3640a523fe1b" ParentLink="PortDeclaration_CLRAttribute" LowerBound="75.1" HigherBound="76.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="8ddaa3ba-e187-44a2-932e-2c2bca3b85f5" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="77.1" HigherBound="79.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.opnSendAttForCompare" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="pAttachments" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="LogicalBindingAttribute" OID="bc305bcc-4820-4964-b6ca-263fe09581df" ParentLink="PortDeclaration_CLRAttribute" LowerBound="77.1" HigherBound="78.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module RB.ROCustomerInterface
+{
+    internal porttype ptUpdatedIMF
+    {
+        oneway opnSndUpdatedIMF
+        {
+            Schema.RB.ASAM.RB_RO_ASAM
+        };
+    };
+    internal porttype ptIMF
+    {
+        oneway opnIMF
+        {
+            Schema.RB.ASAM.RB_RO_ASAM
+        };
+    };
+    internal porttype ptExecutionFailed
+    {
+        oneway opnSendExecutionFailed
+        {
+            Schema.RB.ASAM.RB_RO_ASAM
+        };
+    };
+    internal porttype prtIMFValidationFailed
+    {
+        oneway opnIMFValidationFailed
+        {
+            Schema.RB.ASAM.RB_RO_ASAM
+        };
+    };
+    internal porttype prtIMFInterm
+    {
+        oneway oprnIMFInterm
+        {
+            Schema.RB.ASAM.RB_RO_ASAM
+        };
+    };
+    internal porttype PTValidatedIMF
+    {
+        oneway oprnValidatedIMF
+        {
+            Schema.RB.ASAM.RB_RO_ASAM
+        };
+    };
+    internal porttype PortType_Restarted
+    {
+        oneway opn_SndIMFRestarted
+        {
+            Schema.RB.ASAM.RB_RO_ASAM
+        };
+    };
+    internal porttype opnSendAttForCompare
+    {
+        oneway Operation_1
+        {
+            Schema.AttachmentsBinaryCompare.BinaryComparison
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service IssueValidateAndExecute
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses ptIMF pIMF;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses prtIMFInterm pIMFInterm;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PTValidatedIMF pValidatedIMF;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses ptExecutionFailed pExecutionFailed;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses prtIMFValidationFailed pIMFValidationFailed;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_Restarted pRestarted;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses ptUpdatedIMF pUpdatedIMF;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses opnSendAttForCompare pAttachments;
+        message Schema.AttachmentsBinaryCompare.BinaryComparison msgSendAttachmentCompare;
+        message Schema.AttachmentsBinaryCompare.BinaryComparison msgAttachmentCompare;
+        message Schema.RB.ASAM.RB_RO_ASAM msgIMFAfterValidation;
+        message Schema.RB.ASAM.RB_RO_ASAM msgUpdatedIMF;
+        message Schema.RB.ASAM.RB_RO_ASAM msgSendIMF;
+        message Schema.RB.ASAM.RB_RO_ASAM msgAfterRestart;
+        System.String sIssueID;
+        System.Int64 iListOfRestartedFiles;
+        System.Int32 iListOfUnimportedAtt;
+        System.String sFileNameWOExtn;
+        body (RB.ROCustomerIntefaceLibrary.Logger Logger, System.String sInterfaceName, System.String sXProtID, message Schema.RB.ASAM.RB_RO_ASAM msgIMF, System.String sTargetProjectID, System.String sDownloadTargetPath, RB.ROCustomerIntefaceLibrary.BTHelper ROCustomerLibrary, ref System.Boolean isSuccess, System.String sIssueFileName, System.String sLifeToken, System.String sDownloadHost, System.String sSystem, System.String sFileNames, System.String sFirstFile, System.String sLastFile, System.Boolean isMsgAck)
+        {
+            sIssueID = "";
+            iListOfUnimportedAtt = 0;
+            sFileNameWOExtn = "";
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("ffba4d92-1f74-48a0-b9be-81b9e9928f09")]
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Validation Engine Starts" );
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("1b7f26f5-dec8-4aa7-abfd-2f9ddfa6fdc8")]
+            construct msgSendIMF
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("699e9dd3-78d1-454e-87c9-524f9c2edfc3")]
+                transform (msgSendIMF) = RB.ROCustomerInterface.Map.IMFCopy (msgIMF);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("06be15f3-7395-43a0-9a56-4ad5d2624399")]
+                msgSendIMF = ROCustomerLibrary.PrettyXml(msgSendIMF,Logger);
+                msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + "_" + sXProtID +"_030_" + "IMF_Before_Validate"; 
+                sInterfaceName = sInterfaceName;
+                    
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("2cd74589-6aac-437d-a722-40b9ab971a03")]
+            send (pIMFInterm.oprnIMFInterm, msgSendIMF);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("a1651ce6-ff5e-4163-a862-c462633df8cc")]
+            if (ROCustomerLibrary.ValidateIMF(msgIMF,sInterfaceName,sDownloadTargetPath,sTargetProjectID,sXProtID,sIssueFileName,sLifeToken,sSystem,sFileNames,isMsgAck,Logger))
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("f0dd9cd3-91e2-481b-91a4-bdaf2221c6fd")]
+                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Validation Successful");
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("80da62f7-e2a7-41ec-805a-51711d2eef19")]
+                construct msgIMFAfterValidation
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("f8f33254-9326-48ea-8aff-333eff1cd046")]
+                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Getting ValidatedIMF" );
+                    msgIMFAfterValidation=ROCustomerLibrary.GetModifiedIMF(sXProtID,Logger);
+                    msgIMFAfterValidation(FILE.ReceivedFileName) = sDownloadHost + "_" + sXProtID +"_035_" + "IMF_After_Validate"; 
+                    //System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","After getting ValidatedIMF" );
+                }
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("4ec6a12f-f9cb-463b-aa08-6304cc7712bd")]
+                send (pValidatedIMF.oprnValidatedIMF, msgIMFAfterValidation);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("e466ee16-186d-4fa7-b695-2daf48f8350a")]
+                if (ROCustomerLibrary.Execute(msgIMF,sInterfaceName, sDownloadTargetPath, sTargetProjectID, sXProtID, sIssueFileName, sSystem, sFileNames, Logger))
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("74377774-289d-4609-9b7e-e1ccc3037b34")]
+                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Execution Successful. Issue Inserted / Updated into CQ" );
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("9ba39921-6807-485d-8602-1400a4ffc2f1")]
+                    construct msgUpdatedIMF
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("35a840cb-363d-428d-8c2d-b9d7d591b2cc")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Before getting updated IMF" );
+                        msgUpdatedIMF=ROCustomerLibrary.GetModifiedIMF(sXProtID,Logger);
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","After getting updated IMF" );
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("b1e272b9-4898-42c0-9692-15fd80511bd4")]
+                    if (msgUpdatedIMF!=null)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("4a19586b-01c7-478f-9ca5-67ba793a772a")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Updated IMF obtained from Isolated Storage Successfully" );
+                        if(!isMsgAck)
+                        {
+                            sIssueID= ROCustomerLibrary.GetISSUEIDForBinCompare(msgUpdatedIMF,Logger);
+                        }
+                        else
+                        {
+                            sIssueID="";
+                           
+                        }
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("58329829-c09a-44d9-841c-6555f29a4c36")]
+                        isSuccess = true;
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("58bb0da7-4e78-42ed-b4c0-1f68efd2a14f")]
+                        construct msgSendIMF
+                        {
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("dd1ca4c7-f9cf-424b-bdc1-b25a45550128")]
+                            transform (msgSendIMF) = RB.ROCustomerInterface.Map.IMFCopy (msgUpdatedIMF);
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("9e3feec1-65a4-4628-aee1-c047e53923cd")]
+                            msgSendIMF = ROCustomerLibrary.PrettyXml(msgSendIMF,Logger);
+                            msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + "_" + sXProtID +"_070_" + "IMF_Updated"; 
+                        }
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("2ca142bd-b573-46ba-86be-8dcd2a16cac1")]
+                        send (pUpdatedIMF.opnSndUpdatedIMF, msgSendIMF);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("0795b5a6-a5f7-4034-a118-d2c13bacca6c")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Execution succeeded-check for IMFRESET" );
+                    }
+                    else 
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("e6953134-02ac-4021-9a9b-4a2346f33be6")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Updated IMF obtained from Isolated Storage Failed" );
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("f08c20c1-7b1a-429a-be5d-fef4ab58858c")]
+                        isSuccess = true;
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("27700e24-4a53-4550-b81f-694d68ca8ff1")]
+                        construct msgSendIMF
+                        {
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c5203fcf-315b-4ed2-8527-2bf174ee24d7")]
+                            transform (msgSendIMF) = RB.ROCustomerInterface.Map.IMFCopy (msgIMF);
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("87255c43-7056-4db0-a8e0-44dd1ad5e059")]
+                            msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + "_" + sXProtID +"_060_" + "IMF_Before_Update"; 
+                        }
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("c4b0d58e-ba23-4862-948e-0965d45f9e7c")]
+                        send (pIMF.opnIMF, msgUpdatedIMF);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("dfbea704-362a-443e-88d5-6bf068cd2130")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Execution succeeded-IMFUPDATED not found-check for IMFRESET" );
+                    }
+                }
+                else 
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("34d9b280-ff7b-4f5e-a7cb-1eb8db3a3ef5")]
+                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Execution failed. Check log file for error messages" );
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("103adba3-e85f-4a4f-a37e-faf0d8c7447b")]
+                    isSuccess = false;
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("6d97af3a-eca5-4403-988e-109a24820a41")]
+                    construct msgSendIMF
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("cb642c1e-5794-441f-bf0b-f389d6bcedf1")]
+                        transform (msgSendIMF) = RB.ROCustomerInterface.Map.IMFCopy (msgIMF);
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("210612cf-363f-4006-8cd2-bf61cf9965f5")]
+                        msgSendIMF = ROCustomerLibrary.PrettyXml(msgSendIMF,Logger);
+                        msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + "_" + sXProtID +"_050_" + "IMF_Execution_Failed"; 
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("9a461c21-0e38-42c5-843d-75557e4d63c3")]
+                    send (pExecutionFailed.opnSendExecutionFailed, msgSendIMF);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("1ade77d9-f849-47e7-94d3-c5ef719e1121")]
+                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Execution failed- check for IMFRESET" );
+                }
+            }
+            else 
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("e4335819-4bf4-4e57-856d-b22a5f7ac5c5")]
+                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Validation failed. Check log file for error messages" );
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("5859bb8c-84c6-43c8-974b-083c0299b25d")]
+                isSuccess = false;
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("8d00343f-0060-4553-bd67-38bb06bef875")]
+                construct msgSendIMF
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("7704d6ee-997c-48f3-a24f-2f507bd01820")]
+                    transform (msgSendIMF) = RB.ROCustomerInterface.Map.IMFCopy (msgIMF);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("16a2fb3f-15e7-47a1-b705-83fc1e477869")]
+                    msgSendIMF = ROCustomerLibrary.PrettyXml(msgSendIMF,Logger);
+                    msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + "_" + sXProtID +"_040_" + "IMF_RulesValidation_Failed"; 
+                }
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("8f95360d-ca6b-4187-b574-bcb8b352f62f")]
+                send (pIMFValidationFailed.opnIMFValidationFailed, msgSendIMF);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("bc904590-8458-42b2-a79b-2ded8bdc853c")]
+                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Validation failed-check for IMFRESET" );
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("28cd2280-ecff-4f25-ac85-9b69f863c059")]
+            
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","sIssueID="+sIssueID);
+            if(sIssueID != "")
+            {
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","GetattFilesCount starts" );
+            
+            
+            iListOfUnimportedAtt = ROCustomerLibrary.GetUnimportedAttCount(sIssueID,Logger);
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","No of UnimportedAtt files = "+ iListOfUnimportedAtt.ToString());
+            }
+            else
+            {
+            iListOfUnimportedAtt=0;
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("f9a31764-db11-4451-91ce-0e3614138eb9")]
+            while (iListOfUnimportedAtt > 0)
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("d398ae0d-78ee-4dfc-b5b7-4c2d8fdc26cb")]
+                construct msgAttachmentCompare
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("5797237e-a4d7-4523-8e5d-422174e27448")]
+                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Before getting IMF att file" );
+                    msgAttachmentCompare = ROCustomerLibrary.GetUnImportedAttXML(sIssueID,iListOfUnimportedAtt,Logger);
+                    msgAttachmentCompare = ROCustomerLibrary.AddMissingparams(msgAttachmentCompare,sXProtID,
+                    sSystem,sDownloadTargetPath,sInterfaceName,sIssueFileName,Logger);
+                    
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("064bc0c6-c2b6-426f-9f47-135a1f9683ab")]
+                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE"," after add param" );
+                    sFileNameWOExtn = ROCustomerLibrary.GetFileNameWithoutExtn(sIssueFileName,Logger);
+                    msgAttachmentCompare(FILE.ReceivedFileName)=sXProtID+"_"+sIssueID+"_"+sFileNameWOExtn;
+                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","aft getting att xml file");
+                }
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("e02551d7-e0bc-4a7a-8d57-a4ef400f8402")]
+                send (pAttachments.Operation_1, msgAttachmentCompare);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("c48a8fbb-0d15-49f2-b5e7-b72311011b4b")]
+                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Decrementing of iListOfRestartedFiles" );
+                iListOfUnimportedAtt = iListOfUnimportedAtt-1;
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("6806fb9f-2daa-40dc-b56b-ffc74651d3d9")]
+            if(!isMsgAck)
+            {
+                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","GetRestartedFilesCount starts" );
+                iListOfRestartedFiles = ROCustomerLibrary.GetRestartedFilesCount(sXProtID);
+                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","No of restarted files = "+iListOfRestartedFiles.ToString());
+                //System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","GetRestartedFilesCount ends" );
+            }
+            else
+            {
+                iListOfRestartedFiles=0;
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("ad0e7143-d021-4d6a-a0df-b227bf17e39f")]
+            while (iListOfRestartedFiles > 0)
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("76ad9a87-b1cd-4161-b60c-b71607051b33")]
+                construct msgAfterRestart
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("1ca13fea-0f0e-4422-9d3f-0bfef3fe0724")]
+                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Before getting IMF Restarted file" );
+                    msgAfterRestart=ROCustomerLibrary.GetRestartedIMF(sXProtID);
+                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","After getting Imf Restarted file" );
+                }
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("d6ae1b10-0973-4134-b524-feecf069e4ff")]
+                construct msgSendIMF
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("3627fb9e-9cae-44b7-a240-8e8b95452bf6")]
+                    transform (msgSendIMF) = RB.ROCustomerInterface.Map.IMFCopy (msgAfterRestart);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("3b7fd02c-7731-481a-a66b-14535bdbc636")]
+                    msgSendIMF(FILE.ReceivedFileName) = sDownloadHost + "_" + sXProtID +"_045_"+ "IMF_AfterRestart"; 
+                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Send Restarted file" );
+                }
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("d298ec25-c044-429f-a963-b6fad0f38f28")]
+                send (pRestarted.opn_SndIMFRestarted, msgSendIMF);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("3dff06e7-3b0f-4633-8e3f-a7b0fc409ee5")]
+                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","Decrementing of iListOfRestartedFiles" );
+                iListOfRestartedFiles = iListOfRestartedFiles-1;
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c68b9e4e-cbab-4e22-a207-c5f6b9639091")]
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","ClearIsoStoreReset starts" );
+            ROCustomerLibrary.ClearIsoStoreReset(sXProtID);
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE","ClearIsoStoreReset ends" );
+        }
+    }
+}
+

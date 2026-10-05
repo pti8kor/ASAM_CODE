@@ -1,0 +1,32 @@
+﻿{
+  "$schema": "http://json.schemastore.org/BizTalkServerApplicationSchema",
+  "BizTalkAssemblies": [
+  ],
+  "BindingsFiles": [
+    {
+      "Name": "RB.BT.ROCustomerInterface.BindingInfo",
+      "Path": "bin\\Debug\\RB.BT.ROCustomerInterface.BindingInfo.xml"
+    }
+  ],
+  "Assemblies": [
+    {
+      "Name": "RB.ROCustomerIntefaceLibrary",
+      "Path": "bin\\Debug\\RB.ROCustomerIntefaceLibrary.dll"
+
+    },
+    {
+      "Name": "RB.ROCustomerInterfacer",
+      "Path": "bin\\Debug\\RB.ROCustomerInterface.dll"
+    }
+
+  ],
+  "PreProcessingScripts": [
+  ],
+  "PostProcessingScripts": [
+  ],
+  "Files": [
+  ],
+  "DeploymentSequence": [
+    
+  ]
+}

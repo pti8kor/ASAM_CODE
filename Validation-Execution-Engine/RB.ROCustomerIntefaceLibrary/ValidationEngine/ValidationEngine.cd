@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RB.ROCustomerIntefaceLibrary.ValidatingElement">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAgACAAAgAAAgAAGAAEAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ValidationEngine\ValidatingElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RB.ROCustomerIntefaceLibrary.IMFEvaluator">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAQAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>ValidationEngine\IMFEvaluator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RB.ROCustomerIntefaceLibrary.ROEvaluator">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAQAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>ValidationEngine\ROEvaluator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RB.ROCustomerIntefaceLibrary.EvaluationResult">
+    <Position X="8.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValidationEngine\EvaluationResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RB.ROCustomerIntefaceLibrary.Factory">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="RB.ROCustomerIntefaceLibrary.IEvaluator">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAQAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>ValidationEngine\IEvaluator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="RB.ROCustomerIntefaceLibrary.EvaluationErrorType">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAQEAAAA=</HashCode>
+      <FileName>ValidationEngine\EvaluationErrorType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RB.ROCustomerIntefaceLibrary.AvailableEvaluatorTypes">
+    <Position X="6.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -1,0 +1,1143 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="0dfa1a6e-7605-4136-95f6-e285b2a1f69d" LowerBound="1.1" HigherBound="547.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="FTPIssueTransfer" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="8e0169c0-76bb-4411-b904-7a7016eeed81" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="RequestResponse_Type" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="1718239d-4ec0-4541-aadf-c1f0bcd57004" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="866c8fc0-fc2b-435a-8f3a-596e16de5f8b" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.30">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.StartImportSchema" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="3faa38c5-7973-4c0e-9c7a-06d6180898bd" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="8.32" HigherBound="8.49">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.StartImportSchema" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="aafe8e9b-d00e-43a5-8c3d-78701510067a" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_1" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="da60f275-f4bc-43e2-98ab-00dca8461651" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="6dfc3593-6614-4a2b-b56b-6d42d93bd958" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.38">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransferResultInformation" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="70e9e1b4-0690-440f-b4c3-9d9248838e6d" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_2" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="bb6cb4f5-9701-48b8-bc99-bacb1eefc562" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="cba63d7d-524b-45e3-b4d0-f837e184081f" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.38">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransferResultInformation" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="03504fe7-0c08-4117-b110-cbf9735576cc" ParentLink="Module_PortType" LowerBound="25.1" HigherBound="32.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_req" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="26053f26-646b-4464-a8de-74f7b50c2862" ParentLink="PortType_OperationDeclaration" LowerBound="27.1" HigherBound="31.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="980b589f-c4ec-4f95-9edd-dea80e11bad1" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="29.13" HigherBound="29.30">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.StartImportSchema" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="b87f5ba2-48ec-4c6c-9bbb-97cc54f2fcbc" ParentLink="Module_PortType" LowerBound="32.1" HigherBound="39.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_res" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="bec2953d-18ac-4eb8-827c-02ab37bc20cf" ParentLink="PortType_OperationDeclaration" LowerBound="34.1" HigherBound="38.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="ac1fd6fd-4334-4154-a7ab-9180b6c10295" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="36.13" HigherBound="36.30">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.StartImportSchema" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="f859c9a4-0d63-4b71-8434-7e480ea81e63" ParentLink="Module_ServiceDeclaration" LowerBound="39.1" HigherBound="546.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="FTPStartIssueImport" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="VariableDeclaration" OID="824904de-6c95-44f7-a87c-0238506eaa20" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="51.1" HigherBound="52.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Int32" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ChildNumber" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="1fe768ba-9d23-4e15-b1dd-e2984dee0e46" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="52.1" HigherBound="53.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Int32" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="LoopCounter" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="209c2d8e-8875-4648-aa70-dfcb4dc5867c" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="53.1" HigherBound="54.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="tmp_str1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="f4747392-0e7a-4c8a-9a24-7e8172a3605c" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="54.1" HigherBound="55.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="tmp_str2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="d5993880-5fae-4214-8468-e4c5222d16a2" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="55.1" HigherBound="56.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="AnalystComments" Value="contains filenames with one filename per line" />
+                <om:Property Name="Name" Value="FileNames" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="8643787e-5eb3-4245-bf33-1fde4db23c47" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="56.1" HigherBound="57.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="DLDirName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="fd1a5023-8df7-4681-ab28-f25e33fdec0b" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="57.1" HigherBound="58.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="InterfaceName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="4537edbb-025d-40f2-945b-f05ec88d0a7d" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="58.1" HigherBound="59.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="result" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="67f997a7-68b0-42f0-864f-5d8187f8988b" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="59.1" HigherBound="60.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.FTPLibrary.FTPHandler" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="FTPHandler1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="53e52ef6-2117-4482-92ed-80e250f7057f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="60.1" HigherBound="61.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="LifeToken4Files" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="9c55c59d-a667-4a22-b017-107f376f8368" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="61.1" HigherBound="62.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="LifeToken4XProt" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="286d122a-32dc-41cf-8a63-cde284910a8c" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="62.1" HigherBound="63.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="tmp_str3" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="16f9b3d4-5d17-4466-943e-185fc8bb6ba1" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="63.1" HigherBound="64.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="FileNamesCom" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="49786729-e2c6-4edd-9f98-a2c4845fbe5f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="64.1" HigherBound="65.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.FTPLibrary.retStrBool" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="retVar1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="a43e2eaa-94bf-4247-b917-6d5730371fac" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="65.1" HigherBound="66.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.FTPLibrary.retStrBool" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="retVar2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="788441af-e088-4371-8510-d6c504d7bb7b" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="66.1" HigherBound="67.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="TargetSystem" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="5abe781d-4456-4f3b-a753-8a9d4c348468" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="67.1" HigherBound="68.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.BTLoggerLibrary.ROUpdater" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROUpdater1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="518a0cd4-0c8c-44cc-9259-e8ee50a36d0f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="68.1" HigherBound="69.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.BTLoggerLibrary.Logger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROLogger" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="c6f76f68-8b04-4c65-b503-4c8807605b0c" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="69.1" HigherBound="70.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="resultCharCheck" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="aa94c656-9854-4c7b-91ae-372f3f51fe28" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="70.1" HigherBound="71.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.FTPLibrary.retStrBool" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="retVar3" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="7d885e53-0858-4b5a-b501-dd220bdfcf0e" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="71.1" HigherBound="72.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="TransferMode" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="34ffc23b-3d2b-42a2-9af0-9b62f3fe8e65" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="72.1" HigherBound="73.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.BTLoggerLibrary.BTLogger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROBTLogger" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="9afe6388-8cfb-4bd5-8d30-0434c55860d8" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="73.1" HigherBound="74.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="DLDirOut" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="9bca854e-35e1-47e6-9c25-402a5c88fb23" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="74.1" HigherBound="75.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="isMsgAck" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="ce428011-1b8b-4697-b5ca-2e15f53ee614" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="75.1" HigherBound="76.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="tmp_str4" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="bc515fe3-934f-4967-81d9-bba0980056aa" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="76.1" HigherBound="77.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="isValid" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="66b03c60-293e-445f-a21d-bbbc6905f0b8" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="77.1" HigherBound="78.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="tmp_str5" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="d1e40c3a-7745-4319-8614-d9215b5a45bb" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="78.1" HigherBound="79.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="unModifiedAIFileName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="6894c34a-1c7f-4da7-9abe-764d84809711" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="79.1" HigherBound="80.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="isattachmentValid" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="656ed494-9e14-46d8-bf15-6e50c1bafed4" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="48.1" HigherBound="49.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer.TransferResultInformation" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Message_3" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="da58c5e6-a1d2-4c49-bed8-6f4610476d8e" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="49.1" HigherBound="50.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer.StartImportSchema" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Message_1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="0bc036fd-3fd7-4002-8bb4-dfdd6764becd" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="50.1" HigherBound="51.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer.StartImportSchema" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Message_2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="2e52cf3a-cd05-4b8d-a23e-de5ad87e5053" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="bb436360-b0ac-48f7-87d8-fd2073c65120" ParentLink="ServiceBody_Statement" LowerBound="82.1" HigherBound="110.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="RR_P" />
+                    <om:Property Name="MessageName" Value="Message_1" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="66130cf7-920e-44e7-8df0-2dabfbd86f6e" ParentLink="ServiceBody_Statement" LowerBound="110.1" HigherBound="112.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Request received at &quot;+System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now));" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Log" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="c9cae778-de51-4acb-ba3f-9c3cd584daf4" ParentLink="ServiceBody_Statement" LowerBound="112.1" HigherBound="116.1">
+                    <om:Property Name="Expression" Value="ROLogger  = ROBTLogger.GetLogger(Message_1.InterfaceName,Message_1.XProtID, &quot;Import&quot;);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now) + &quot;After receiving Request&quot;,&#xD;&#xA;ROLogger);&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="SetLogger" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="521a27de-b290-4a19-a00f-89bc7d3b27d2" ParentLink="ServiceBody_Statement" LowerBound="116.1" HigherBound="205.1">
+                    <om:Property Name="Expression" Value="&#xD;&#xA;tmp_str1 = Message_1.RQ1System;&#xD;&#xA;tmp_str2 = Message_1.XProtID;&#xD;&#xA;InterfaceName = System.Convert.ToString(Message_1.InterfaceName);&#xD;&#xA;TargetSystem = System.Convert.ToString(Message_1.RQ1System);&#xD;&#xA;&#xD;&#xA;FTPHandler1 = new RB.FTPLibrary.FTPHandler(InterfaceName, TargetSystem);&#xD;&#xA;&#xD;&#xA;// Fehlerbehandlung notwendig : sind Zeichen enthalten, die nicht in Dir-Namen verwendet werden dürfen? zB &quot;\:&quot;&#xD;&#xA;// DownloadDirName : Name des Unterverzeichnisses, in das die Files kopiert werden&#xD;&#xA;&#xD;&#xA; //ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;Download directory before : &quot;, ROLogger);&#xD;&#xA;&#xD;&#xA; DLDirName = System.String.Format(&quot;{0:yyyyMMdd-HHmmss_}&quot;, System.DateTime.Now) + tmp_str1 + &quot;_&quot; + tmp_str2; &#xD;&#xA; DLDirOut = System.String.Format(&quot;{0:yyyyMMdd-HHmmss_}&quot;, System.DateTime.Now) + tmp_str1 + &quot;_&quot; + tmp_str2; &#xD;&#xA;&#xD;&#xA; TransferMode = FTPHandler1.GetTransferMode(Message_1.FTPFileNames);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : TransferMode : &quot; +TransferMode,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;if(TransferMode.ToUpper() == &quot;AUTOMATIC&quot;)&#xD;&#xA;{&#xD;&#xA;     DLDirName = FTPHandler1.GetDLDirNameForXPROTCreation(Message_1.FTPFileNames, tmp_str1, tmp_str2);&#xD;&#xA;     DLDirOut = System.String.Format(&quot;{0:yyyyMMdd-HHmmss_}&quot;, System.DateTime.Now) + tmp_str1 + &quot;_&quot; + tmp_str2;    &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA; ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : Download directory  : &quot; + DLDirName,&#xD;&#xA;ROLogger);&#xD;&#xA; &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// Example for TargetSystem : SOAP::Data-&gt;name('ftp:FTPImportRequest')-&gt;value([SOAP::Data-&gt;name('RQ1System')-&gt;value('CDG_DEV_INTEGRATION@RQ1ML'), ...&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// setup ftp interface&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;//result = System.Convert.ToBoolean(FTPHandler1.FTPHandlerValid); // access not possible because static variable&#xD;&#xA;&#xD;&#xA;// get csv-Filenames from tag:&#xD;&#xA;&#xD;&#xA;//tmp_str1 =  xpath(Message_1, &quot;string(/*[local-name()='FTPImportRequest' and namespace-uri()='http://FTPIssueTransfer.Schema1']/*[local-name()='FTPFileNames' and namespace-uri()=''])&quot;);&#xD;&#xA;//tmp_str1 = Message_1.FTPFileNames;&#xD;&#xA;tmp_str1 = FTPHandler1.GetFileNamesForXPROTCreation(Message_1.FTPFileNames);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : GetFileNamesForXPROTCreation  : &quot; + tmp_str1,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;tmp_str4 = tmp_str1;&#xD;&#xA;&#xD;&#xA;//Check for Sorting&#xD;&#xA;if(FTPHandler1.canSortFiles ==&quot;1&quot;)&#xD;&#xA;{&#xD;&#xA;    tmp_str1 = FTPHandler1.GetSortedFiles(tmp_str1);&#xD;&#xA;    ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : GetSortedFiles  : &quot; + tmp_str1,ROLogger);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;// storing the sorted files in a string.&#xD;&#xA;tmp_str5 = tmp_str1;&#xD;&#xA;&#xD;&#xA;// Initialisation&#xD;&#xA;LifeToken4XProt = &quot;In Progress&quot;;&#xD;&#xA;LifeToken4Files = ROBTLogger.InsertAllTokenStatus(tmp_str4, &quot;In Progress&quot;, &quot;import&quot;);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : LifeToken4Files  : &quot; + LifeToken4Files,ROLogger);&#xD;&#xA;&#xD;&#xA;//&gt;LifeToken4Files = RB.BTLogger.BTLogger.SetTokenStatus(LifeToken4Files, Filename, &quot;In Progress&quot;);&#xD;&#xA;//&gt;Status = RB.BTLogger.BTLogger.GetTokenStatus(LifeToken4Files, Filename);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;XProtID -&gt;&quot; + tmp_str2 +  &quot;; Download FileList -&gt; &quot; + tmp_str1,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;//ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : Download directory : &quot; + DLDirName,ROLogger);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;Biztalk : FTPFilenames raw&quot;, tmp_str1 , System.Diagnostics.EventLogEntryType.Information);&#xD;&#xA;&#xD;&#xA;FileNames = FTPHandler1.ConvertToLines(tmp_str4,&quot;,&quot;);&#xD;&#xA;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;Biztalk : FTPFilenames in Lines&quot;, FileNames , System.Diagnostics.EventLogEntryType.Information);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FileNames : &quot; + FileNames,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;ChildNumber = FTPHandler1.CountStringLines(FileNames);&#xD;&#xA;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;Biztalk : ChildNumber&quot;, System.Convert.ToString(ChildNumber), System.Diagnostics.EventLogEntryType.Information);&#xD;&#xA;&#xD;&#xA;LoopCounter = 1;&#xD;&#xA;&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="SetupDownload" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="While" OID="85e3fb3d-1160-48fe-97cc-542e6fd357a9" ParentLink="ServiceBody_Statement" LowerBound="205.1" HigherBound="344.1">
+                    <om:Property Name="Expression" Value="LoopCounter &lt;= ChildNumber" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Loop_1" />
+                    <om:Property Name="Signal" Value="False" />
+                    <om:Element Type="VariableAssignment" OID="77519480-c6ff-40bc-aace-71b2815459a5" ParentLink="ComplexStatement_Statement" LowerBound="208.1" HigherBound="343.1">
+                        <om:Property Name="Expression" Value="tmp_str1 = FTPHandler1.ReadStringLine(FileNames, LoopCounter);  // contains single file name&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;FileDownload started -&gt;&quot; + tmp_str1,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;//System.Diagnostics.EventLog.WriteEntry(&quot;Biztalk : SingleFileDownload - raw value&quot;, tmp_str1, System.Diagnostics.EventLogEntryType.Information);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;Biztalk : SingleFileDownload - single file&quot;, tmp_str1, System.Diagnostics.EventLogEntryType.Information);&#xD;&#xA;&#xD;&#xA;//verifying wether the file name is present in filterd filenames string. &#xD;&#xA;isValid = FTPHandler1.IsValid(tmp_str1, tmp_str5);&#xD;&#xA;&#xD;&#xA;result = FTPHandler1.TransferSingleFTPFile(tmp_str1, DLDirName,isValid);&#xD;&#xA;&#xD;&#xA;if (result == true)&#xD;&#xA;{&#xD;&#xA;    //not needed as value is already set:&#xD;&#xA;    //LifeToken4Files = RB.BTLogger.BTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;In Progress&quot;);&#xD;&#xA;&#xD;&#xA;    // write success log back to FTPLog&#xD;&#xA;    ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;FTPFile successfully downloaded - &quot; + tmp_str1,&#xD;&#xA;ROLogger);&#xD;&#xA;    &#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    if (isValid)&#xD;&#xA;    {&#xD;&#xA;        LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;Failure&quot;, &quot;download failed&quot;);&#xD;&#xA;        ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;Error - FTPFile not available on FTPServer - &quot; + tmp_str1,&#xD;&#xA;ROLogger);&#xD;&#xA;    }&#xD;&#xA;    else&#xD;&#xA;    {&#xD;&#xA;        LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;Failure&quot;, &quot;File Name is not valid. Please provide valid file name.&quot;);&#xD;&#xA;        ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;Error - FTPFile name is not valid. Please provide valid file name - &quot; + tmp_str1,&#xD;&#xA;ROLogger);&#xD;&#xA;    }&#xD;&#xA;    &#xD;&#xA;&#xD;&#xA;    &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if(result == true)&#xD;&#xA;{ &#xD;&#xA;    result = FTPHandler1.CheckforEmptyFTPFile(tmp_str1, DLDirName);&#xD;&#xA;    if(!result)&#xD;&#xA;    {&#xD;&#xA;        ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;FTPFile size is 0 bytes - &quot; + tmp_str1,&#xD;&#xA;        ROLogger);&#xD;&#xA;        LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;Failure&quot;, &quot;ASAM file is empty&quot;);&#xD;&#xA;&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;isattachmentValid = FTPHandler1.VerifyAttachmentNames(tmp_str1, DLDirName);&#xD;&#xA;&#xD;&#xA;if(isattachmentValid == false)&#xD;&#xA;{&#xD;&#xA;   LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;Failure&quot;, &quot;Invalid Character in the attachment name. Please provide valid attachment name.&quot;); &#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (result == true)&#xD;&#xA;{&#xD;&#xA;    // ISO check&#xD;&#xA;    retVar3  = FTPHandler1.DetectInvalidCharacter(tmp_str1, DLDirName);&#xD;&#xA;&#xD;&#xA;  //ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;DetectInvalidChar &quot;+ &quot; - &quot; + retVar3.rString,ROLogger);&#xD;&#xA;&#xD;&#xA;	tmp_str2 = retVar3.rMessage;&#xD;&#xA;&#xD;&#xA;	  ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;DetectInvalidChar &quot;+ &quot; - &quot; + tmp_str2,&#xD;&#xA;ROLogger);&#xD;&#xA;	&#xD;&#xA;    if (System.Text.RegularExpressions.Regex.IsMatch(tmp_str2,&quot;.*failure:.*&quot;))&#xD;&#xA;    {&#xD;&#xA;        // write error log back to FTPLog&#xD;&#xA;		resultCharCheck = false;&#xD;&#xA;      &#xD;&#xA;        tmp_str3 = System.Text.RegularExpressions.Regex.Replace(tmp_str2, &quot;.*failure:(.*)&quot;, &quot;$1&quot;);&#xD;&#xA;        tmp_str3 = System.Text.RegularExpressions.Regex.Replace(tmp_str3, @&quot;.*(invalid character.*)&quot;, &quot;$1&quot;, System.Text.RegularExpressions.RegexOptions.IgnoreCase);&#xD;&#xA;&#xD;&#xA;        LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;Failure&quot;, tmp_str3);&#xD;&#xA;&#xD;&#xA;       ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + tmp_str2 + &quot; - &quot; + tmp_str1,&#xD;&#xA;ROLogger);&#xD;&#xA;    }&#xD;&#xA;    else&#xD;&#xA;    {&#xD;&#xA;	&#xD;&#xA;		//reconstruct lifetoken if chars are replaced in asam file&#xD;&#xA;		 if (System.Text.RegularExpressions.Regex.IsMatch(retVar3.rString,&quot;.*Chars replaced in asam file*&quot;))&#xD;&#xA;		{&#xD;&#xA; ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;FTPFile change lifetoken&quot; ,&#xD;&#xA;ROLogger);&#xD;&#xA;			//change file name in lifetoken&#xD;&#xA;			LifeToken4Files = ROBTLogger.ChangeFileNameInToken(LifeToken4Files,tmp_str1);&#xD;&#xA; ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;FTPFile updated lifetoken - &quot; + LifeToken4Files,&#xD;&#xA;ROLogger);&#xD;&#xA;		}&#xD;&#xA;        &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;        // write success log back to FTPLog&#xD;&#xA;       ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;FTPFile successfully checked for ISO conformance - &quot; + tmp_str1,&#xD;&#xA;ROLogger);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (result == true &amp;&amp; resultCharCheck == true)&#xD;&#xA;{&#xD;&#xA;    //check if xml is validating against xsd schema&#xD;&#xA;    retVar1 = FTPHandler1.ValidateAIFileByXSD(tmp_str1, DLDirName);&#xD;&#xA;    if (retVar1.rSuccess == true)&#xD;&#xA;    {&#xD;&#xA;        // write success log back to FTPLog&#xD;&#xA;       ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;ASAM file successfully validated - &quot; + tmp_str1,&#xD;&#xA;ROLogger);&#xD;&#xA;    }&#xD;&#xA;    else&#xD;&#xA;    {&#xD;&#xA;   ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;Error from xsd validation retVar1 msg = &quot; +retVar1.rMessage + &quot; tmp_str1=&quot;+ tmp_str1,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;        // write error log back to FTPLog    &#xD;&#xA;        LifeToken4Files =ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;Failure&quot;,&quot;xsd validation of asam file failed with error: &quot;+ retVar1.rMessage);&#xD;&#xA;        //ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;Error - xsd validation of ASAM file failed - &quot; + tmp_str1, ROLogger);&#xD;&#xA;       &#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;LoopCounter = LoopCounter + 1;" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="IncrementLoopCounter" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="Construct" OID="b130cf5c-d2cc-4681-a60a-8a15afce9b26" ParentLink="ServiceBody_Statement" LowerBound="344.1" HigherBound="371.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ConstructMessage_2" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="MessageAssignment" OID="4746bd86-8b04-4382-88e7-5f5f4538954e" ParentLink="ComplexStatement_Statement" LowerBound="347.1" HigherBound="370.1">
+                        <om:Property Name="Expression" Value="LifeToken4XProt = ROBTLogger.GetOverallTokenStatus(LifeToken4Files);&#xD;&#xA;//&gt;if LifeToken4XProt = &quot;Failure&quot; ....&#xD;&#xA;&#xD;&#xA;Message_2 = Message_1;&#xD;&#xA;// BTLogger-Message only, because this line is available already in ExchangeProtocol-Log :&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;Result of xml downloads -&gt; &quot; + LifeToken4XProt,&#xD;&#xA;ROLogger);&#xD;&#xA;//ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;Exchange protocol queued for import -&gt; &quot; + Message_2.XProtID,ROLogger);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// reduce message text in XProt&#xD;&#xA;//Message_2.BTReturnMsg = ROLogText; &#xD;&#xA;Message_2.BTReturnMsg = &quot;&quot;;&#xD;&#xA;&#xD;&#xA;//ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;BTReturnMsg -&gt;&quot; +Message_2.BTReturnMsg +&quot;-&quot;,ROLogger);&#xD;&#xA;//ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;ReturnMsg Files -&gt;&quot; +Message_2.FTPFileNames +&quot;-&quot;,ROLogger);&#xD;&#xA;&#xD;&#xA;//FTPIssueTransfer_Project.PropertySchema.FileName) = Message_2.GetPropertyValue(typeof(FTPHandler.ParseFTPListStream(FTPStream)));&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Message_2 = FTPHandler1.AddDummyTagToResponse(Message_2);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;Added Dummy tag to response&quot;,ROLogger);" />
+                        <om:Property Name="ReportToAnalyst" Value="False" />
+                        <om:Property Name="Name" Value="MessageAssignment_1" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="MessageRef" OID="800fcafd-877f-4797-ad03-353fddfb9483" ParentLink="Construct_MessageRef" LowerBound="345.23" HigherBound="345.32">
+                        <om:Property Name="Ref" Value="Message_2" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="Send" OID="a34056f3-e6dd-4296-b6e0-1a69768a1ba2" ParentLink="ServiceBody_Statement" LowerBound="371.1" HigherBound="373.1">
+                    <om:Property Name="PortName" Value="RR_P" />
+                    <om:Property Name="MessageName" Value="Message_2" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="a4cf53ec-e2ab-4907-9afb-cbbbf9a3c12f" ParentLink="ServiceBody_Statement" LowerBound="373.1" HigherBound="379.1">
+                    <om:Property Name="Expression" Value="//System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;After sending Response &quot;+System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now));&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now) + &quot;After sending Response&quot;,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;LoopCounter = 1;&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="InitLoop" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="While" OID="e1ef5518-eec4-4da3-893c-24333370a024" ParentLink="ServiceBody_Statement" LowerBound="379.1" HigherBound="491.1">
+                    <om:Property Name="Expression" Value="LoopCounter &lt;= ChildNumber" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Loop_2" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="VariableAssignment" OID="611cf214-8376-48d6-b5d4-94d3cb168dca" ParentLink="ComplexStatement_Statement" LowerBound="382.1" HigherBound="490.1">
+                        <om:Property Name="Expression" Value="   //REUBK-2187&#xD;&#xA;&#xD;&#xA;tmp_str1 = FTPHandler1.ReadStringLine(FileNames, LoopCounter); // contains single file name&#xD;&#xA;&#xD;&#xA;tmp_str1 = ROBTLogger.GetFileName(LifeToken4Files,tmp_str1); //get modified asam file name based on new token&#xD;&#xA;&#xD;&#xA;if (ROBTLogger.GetTokenStatusForFile(LifeToken4Files, tmp_str1)!=&quot;Failure&quot;) //REUBK-2187 do not proceed for att download if non iso char is found&#xD;&#xA;    {&#xD;&#xA;&#xD;&#xA;	//Check if STATUS-TAG exists in config&#xD;&#xA;	retVar1 = FTPHandler1.CheckIfStatusTagExists(tmp_str1,DLDirName);&#xD;&#xA;    ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;CheckIfStatusTagExists -&gt;&quot; + retVar1.rSuccess.ToString(),&#xD;&#xA;		ROLogger);&#xD;&#xA;    ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;CheckIfStatusTagExists -&gt;&quot; + retVar1.rMessage,&#xD;&#xA;		ROLogger);&#xD;&#xA;    if(retVar1.rSuccess)&#xD;&#xA;    {&#xD;&#xA;        isMsgAck = false;&#xD;&#xA;    }&#xD;&#xA;    else&#xD;&#xA;    {&#xD;&#xA;        isMsgAck = true;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;	if(!isMsgAck)&#xD;&#xA;	{&#xD;&#xA;&#xD;&#xA;		ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;AttachmentDownload of -&gt;&quot; + tmp_str1,&#xD;&#xA;		ROLogger);&#xD;&#xA;&#xD;&#xA;        //need to use non modified ASAM file to verify attachments&#xD;&#xA;&#xD;&#xA;        //unModifiedAIFileName = tmp_str1;&#xD;&#xA;        &#xD;&#xA;        //unModifiedAIFileName = unModifiedAIFileName.Replace(&quot;_M&quot;,&quot;&quot;);&#xD;&#xA;&#xD;&#xA;        //FTPHandler1.UpdateModifiedFileUrls(tmp_str1, unModifiedAIFileName, DLDirName);&#xD;&#xA;&#xD;&#xA;		///System.Diagnostics.EventLog.WriteEntry(&quot;Biztalk : SingleFileDownload - raw value&quot;, tmp_str1, System.Diagnostics.EventLogEntryType.Warning);&#xD;&#xA;		///System.Diagnostics.EventLog.WriteEntry(&quot;Biztalk : SingleFileDownload - single file&quot;, tmp_str1, System.Diagnostics.EventLogEntryType.Warning);&#xD;&#xA;&#xD;&#xA;		//Fill list of commercial files&#xD;&#xA;		retVar1 = FTPHandler1.CheckCommercialFiles(tmp_str1, DLDirName, FileNamesCom);&#xD;&#xA;&#xD;&#xA;		ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;CheckCommercialFiles -&gt;&quot; + System.Convert.ToString(retVar1.rSuccess),&#xD;&#xA;		ROLogger);&#xD;&#xA;		if (retVar1.rSuccess == true)&#xD;&#xA;		{&#xD;&#xA;			ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;CheckCommercialFiles FileNamesCom-&gt;&quot; + retVar1.rString,&#xD;&#xA;			ROLogger);&#xD;&#xA;			FileNamesCom = System.Convert.ToString(retVar1.rString);&#xD;&#xA;&#xD;&#xA;			//Zugriff auf lokales File&#xD;&#xA;			ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;CheckCommercialFiles -call GetAttachmentNames-&gt;&quot;,&#xD;&#xA;			ROLogger);&#xD;&#xA;			retVar2 = FTPHandler1.GetAttachmentNames(tmp_str1, DLDirName,false);&#xD;&#xA;			tmp_str2 = System.Convert.ToString(retVar2.rMessage);&#xD;&#xA;			//retVar2-error not yet handled explicitly&#xD;&#xA;			&#xD;&#xA;				ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;CheckCommercialFiles - GetAttachmentNames-&gt;&quot; + tmp_str2,&#xD;&#xA;			ROLogger);&#xD;&#xA;&#xD;&#xA;			ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;Attachments queued for download -&gt;&quot; + tmp_str1,ROLogger);&#xD;&#xA;			ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;AttachmentsDownload result -&gt;&quot; + tmp_str2,ROLogger);&#xD;&#xA;&#xD;&#xA;			ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; +  &quot;ASAM file &quot;+tmp_str1 + &quot;LifeToken4Files&quot; + LifeToken4Files,ROLogger);&#xD;&#xA;			&#xD;&#xA;			if (ROBTLogger.GetTokenStatusForFile(LifeToken4Files, tmp_str1)!=&quot;Failure&quot;)&#xD;&#xA;			{&#xD;&#xA;				ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; +  &quot;ASAM file status is not failure &quot;+tmp_str1 +LifeToken4Files,ROLogger);&#xD;&#xA;				if (System.Text.RegularExpressions.Regex.IsMatch(tmp_str2,&quot;.*failure:.*&quot;))&#xD;&#xA;				{&#xD;&#xA;					//REUBK-1388&#xD;&#xA;					ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;ASAM file attachment status is failure &quot;+tmp_str2,ROLogger);&#xD;&#xA;					//tmp_str3 = System.Text.RegularExpressions.Regex.Replace(tmp_str2, &quot;.*failure:([^,]+).*&quot;, &quot;$1&quot;);&#xD;&#xA;					tmp_str3 = System.Text.RegularExpressions.Regex.Replace(tmp_str2, &quot;.*failure:([^·]+).*&quot;, &quot;$1&quot;);&#xD;&#xA;						ROBTLogger.WriteLog( System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;ASAM file attachment status is failure &quot;+tmp_str3,ROLogger);&#xD;&#xA;					LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;Failure&quot;, tmp_str3);&#xD;&#xA;				}&#xD;&#xA;				else&#xD;&#xA;				{&#xD;&#xA;					ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; +  &quot;set status to Inprogress&quot; ,ROLogger);&#xD;&#xA;					LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;In Progress&quot;,&quot;&quot;);&#xD;&#xA;				}&#xD;&#xA;			}&#xD;&#xA;			else&#xD;&#xA;			{&#xD;&#xA;			ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; +  &quot;ASAM file status is failure &quot;+ tmp_str1,ROLogger);&#xD;&#xA;			}&#xD;&#xA;		}&#xD;&#xA;		else&#xD;&#xA;		{&#xD;&#xA;		ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;CheckCommercialFiles -&gt; inside failure case&quot; ,&#xD;&#xA;		ROLogger);&#xD;&#xA;			LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;Failure&quot;, System.Convert.ToString(retVar1.rMessage));&#xD;&#xA;		}&#xD;&#xA;	}&#xD;&#xA;	else&#xD;&#xA;	{&#xD;&#xA;		ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;CheckIfStatusTagExists -&gt;&quot; + System.Convert.ToString(retVar1.rSuccess),ROLogger);&#xD;&#xA;        LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, &quot;In Progress&quot;,&quot;&quot;);&#xD;&#xA;	}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;LoopCounter = LoopCounter + 1;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Attachment DL" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="bf1ba650-ebcd-4011-a4f1-816102ae7450" ParentLink="ServiceBody_Statement" LowerBound="491.1" HigherBound="516.1">
+                    <om:Property Name="Expression" Value="&#xD;&#xA;LifeToken4XProt = ROBTLogger.GetOverallTokenStatus(LifeToken4Files);&#xD;&#xA;//&gt;if LifeToken4XProt = &quot;Failure&quot; .... not implemented&#xD;&#xA;// -&gt; better do not skip attachment upload to XProt&#xD;&#xA;&#xD;&#xA;tmp_str1 = System.Convert.ToString(Message_2.RQ1System);&#xD;&#xA;tmp_str2 = Message_2.XProtID;&#xD;&#xA;&#xD;&#xA;// upload all files to RO&#xD;&#xA;&#xD;&#xA;tmp_str3 = ROUpdater1.Attach2XProt(tmp_str1, tmp_str2, &quot;ExchangedFiles&quot;, DLDirName, FileNamesCom, ROLogger, LifeToken4Files);&#xD;&#xA;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + tmp_str3,ROLogger);&#xD;&#xA;&#xD;&#xA;if (System.Text.RegularExpressions.Regex.IsMatch(tmp_str3,&quot;.*failure:.*&quot;))&#xD;&#xA;{&#xD;&#xA;    // write error log back to FTPLog&#xD;&#xA;    &#xD;&#xA;    LifeToken4Files = ROBTLogger.SetAllTokenStatus(LifeToken4Files, &quot;Failure&quot;, &quot;FTPIssueTransfer: &quot; + tmp_str3);&#xD;&#xA;&#xD;&#xA;} &#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;Final Log update -&gt;&quot; + tmp_str1 + &quot;,&quot; + tmp_str2,&#xD;&#xA;ROLogger);&#xD;&#xA;&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Expression_1" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="Construct" OID="3bf0f9a0-76ac-4d3b-b036-f5df2330ddd1" ParentLink="ServiceBody_Statement" LowerBound="516.1" HigherBound="536.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ConstructMessage_3" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Transform" OID="59e0fdb1-320b-4263-bf9f-a9d86286c686" ParentLink="ComplexStatement_Statement" LowerBound="519.1" HigherBound="521.1">
+                        <om:Property Name="ClassName" Value="FTPIssueTransfer.Map2TransferResult" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Transform_1" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessagePartRef" OID="3f71b0c2-1eed-4469-92f5-66192a9e6881" ParentLink="Transform_InputMessagePartRef" LowerBound="520.78" HigherBound="520.87">
+                            <om:Property Name="MessageRef" Value="Message_2" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_1" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessagePartRef" OID="1b535c38-1bde-4525-af1b-e49c4af5d781" ParentLink="Transform_OutputMessagePartRef" LowerBound="520.28" HigherBound="520.37">
+                            <om:Property Name="MessageRef" Value="Message_3" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_2" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="MessageAssignment" OID="72c59a52-eab3-4403-a213-1cae5589a6d6" ParentLink="ComplexStatement_Statement" LowerBound="521.1" HigherBound="535.1">
+                        <om:Property Name="Expression" Value="//TEST&#xD;&#xA;Message_3.DownloadTargetPath = RB.FTPLibrary.GlobalConstants.FTP_LOCAL_BASE_DIR + DLDirOut + &quot;\\&quot;;&#xD;&#xA;Message_3.LifeToken4XProt = LifeToken4XProt;&#xD;&#xA;Message_3.LifeToken4Files = LifeToken4Files;&#xD;&#xA;Message_3.Mode = TransferMode;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;tmp_str1 = Message_3.RQ1System;&#xD;&#xA;tmp_str2 = tmp_str1.Substring(tmp_str1.LastIndexOf(&quot;@&quot;)+1);&#xD;&#xA;&#xD;&#xA;//msgFileName = Message_2(FILE.ReceivedFileName);&#xD;&#xA;Message_3(FILE.ReceivedFileName) = tmp_str2 + &quot;_&quot; + Message_3.XProtID + &quot;_005_FTPTransferResult_&quot;;&#xD;&#xA;" />
+                        <om:Property Name="ReportToAnalyst" Value="False" />
+                        <om:Property Name="Name" Value="MessageAssignment_2" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="MessageRef" OID="ce8e640d-51af-452e-bac8-97c6feedbe85" ParentLink="Construct_MessageRef" LowerBound="517.23" HigherBound="517.32">
+                        <om:Property Name="Ref" Value="Message_3" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="786be4f1-9fe3-428d-afa4-eec0f349d177" ParentLink="ServiceBody_Statement" LowerBound="536.1" HigherBound="540.1">
+                    <om:Property Name="Expression" Value="ROBTLogger.CloseLogger(ROLogger);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="CloseLogger" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Send" OID="5afd2eb4-24b1-4c3a-a947-8a34ec3fb290" ParentLink="ServiceBody_Statement" LowerBound="540.1" HigherBound="542.1">
+                    <om:Property Name="PortName" Value="TR_P" />
+                    <om:Property Name="MessageName" Value="Message_3" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send_2" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Send" OID="e5308ac7-af57-4a73-9cae-e19955356c4d" ParentLink="ServiceBody_Statement" LowerBound="542.1" HigherBound="544.1">
+                    <om:Property Name="PortName" Value="TR_CPY" />
+                    <om:Property Name="MessageName" Value="Message_3" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send_3" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="d5c87afd-c58a-49ac-bac2-443a9ea5456e" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="42.1" HigherBound="44.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPIssueTransfer.RequestResponse_Type" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="RR_P" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="52ba9012-6561-467b-ac6a-2a431276ded5" ParentLink="PortDeclaration_CLRAttribute" LowerBound="42.1" HigherBound="43.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="1a840fb0-f7c1-4e69-9f23-e5f88d29e61e" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="44.1" HigherBound="46.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="78" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPIssueTransfer.PortType_1" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="TR_P" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="2bba4bc9-22a3-4ec3-9eef-31ad5bf13f43" ParentLink="PortDeclaration_CLRAttribute" LowerBound="44.1" HigherBound="45.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="4bf094de-3669-41c5-8d12-f7c9a780a4ee" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="46.1" HigherBound="48.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPIssueTransfer.PortType_2" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="TR_CPY" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="LogicalBindingAttribute" OID="15e4bb1d-c81f-4c9f-ad7b-ef01496355ed" ParentLink="PortDeclaration_CLRAttribute" LowerBound="46.1" HigherBound="47.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+    <om:Element Type="PrintElement" OID="4c1d7b45-d4b1-4f24-8f74-0be395cdebc7">
+        <om:Property Name="Bottom" Value="0" />
+        <om:Property Name="FooterBottom" Value="0" />
+        <om:Property Name="FooterCenter" Value="0" />
+        <om:Property Name="FooterMargin" Value="0" />
+        <om:Property Name="FooterTop" Value="0" />
+        <om:Property Name="HeaderBottom" Value="0" />
+        <om:Property Name="HeaderCenter" Value="0" />
+        <om:Property Name="HeaderMargin" Value="0" />
+        <om:Property Name="HeaderTop" Value="0" />
+        <om:Property Name="Left" Value="79" />
+        <om:Property Name="PagesAcross" Value="0" />
+        <om:Property Name="PagesDown" Value="0" />
+        <om:Property Name="Right" Value="0" />
+        <om:Property Name="Scaling" Value="80" />
+        <om:Property Name="Top" Value="0" />
+        <om:Property Name="Orientation" Value="Portrait" />
+        <om:Property Name="Signal" Value="False" />
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module FTPIssueTransfer
+{
+    public porttype RequestResponse_Type
+    {
+        requestresponse Operation_1
+        {
+            StartImportSchema, StartImportSchema
+        };
+    };
+    internal porttype PortType_1
+    {
+        oneway Operation_1
+        {
+            TransferResultInformation
+        };
+    };
+    internal porttype PortType_2
+    {
+        oneway Operation_1
+        {
+            TransferResultInformation
+        };
+    };
+    internal porttype PortType_req
+    {
+        oneway Operation_1
+        {
+            StartImportSchema
+        };
+    };
+    internal porttype PortType_res
+    {
+        oneway Operation_1
+        {
+            StartImportSchema
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service FTPStartIssueImport
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port implements RequestResponse_Type RR_P;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_1 TR_P;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_2 TR_CPY;
+        message TransferResultInformation Message_3;
+        message StartImportSchema Message_1;
+        message StartImportSchema Message_2;
+        System.Int32 ChildNumber;
+        System.Int32 LoopCounter;
+        System.String tmp_str1;
+        System.String tmp_str2;
+        System.String FileNames;
+        System.String DLDirName;
+        System.String InterfaceName;
+        System.Boolean result;
+        RB.FTPLibrary.FTPHandler FTPHandler1;
+        System.String LifeToken4Files;
+        System.String LifeToken4XProt;
+        System.String tmp_str3;
+        System.String FileNamesCom;
+        RB.FTPLibrary.retStrBool retVar1;
+        RB.FTPLibrary.retStrBool retVar2;
+        System.String TargetSystem;
+        RB.BTLoggerLibrary.ROUpdater ROUpdater1;
+        RB.BTLoggerLibrary.Logger ROLogger;
+        System.Boolean resultCharCheck;
+        RB.FTPLibrary.retStrBool retVar3;
+        System.String TransferMode;
+        RB.BTLoggerLibrary.BTLogger ROBTLogger;
+        System.String DLDirOut;
+        System.Boolean isMsgAck;
+        System.String tmp_str4;
+        System.Boolean isValid;
+        System.String tmp_str5;
+        System.String unModifiedAIFileName;
+        System.Boolean isattachmentValid;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("bb436360-b0ac-48f7-87d8-fd2073c65120")]
+            activate receive (RR_P.Operation_1, Message_1);
+            tmp_str1 = "";
+            tmp_str2 = "";
+            FileNames = "";
+            DLDirName = "";
+            InterfaceName = "";
+            result = true;
+            FTPHandler1 = new RB.FTPLibrary.FTPHandler();
+            LifeToken4Files = "";
+            LifeToken4XProt = "";
+            tmp_str3 = "";
+            FileNamesCom = "";
+            retVar1 = new RB.FTPLibrary.retStrBool();
+            retVar2 = new RB.FTPLibrary.retStrBool();
+            TargetSystem = "";
+            ROUpdater1 = new RB.BTLoggerLibrary.ROUpdater();
+            resultCharCheck = true;
+            retVar3 = new RB.FTPLibrary.retStrBool();
+            TransferMode = "";
+            ROBTLogger = new RB.BTLoggerLibrary.BTLogger();
+            DLDirOut = "";
+            isMsgAck = true;
+            tmp_str4 = "";
+            isValid = true;
+            tmp_str5 = "";
+            unModifiedAIFileName = "";
+            isattachmentValid = true;
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("66130cf7-920e-44e7-8df0-2dabfbd86f6e")]
+            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Request received at "+System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now));
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c9cae778-de51-4acb-ba3f-9c3cd584daf4")]
+            ROLogger  = ROBTLogger.GetLogger(Message_1.InterfaceName,Message_1.XProtID, "Import");
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now) + "After receiving Request",
+            ROLogger);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("521a27de-b290-4a19-a00f-89bc7d3b27d2")]
+            
+            tmp_str1 = Message_1.RQ1System;
+            tmp_str2 = Message_1.XProtID;
+            InterfaceName = System.Convert.ToString(Message_1.InterfaceName);
+            TargetSystem = System.Convert.ToString(Message_1.RQ1System);
+            
+            FTPHandler1 = new RB.FTPLibrary.FTPHandler(InterfaceName, TargetSystem);
+            
+            // Fehlerbehandlung notwendig : sind Zeichen enthalten, die nicht in Dir-Namen verwendet werden dürfen? zB "\:"
+            // DownloadDirName : Name des Unterverzeichnisses, in das die Files kopiert werden
+            
+             //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "Download directory before : ", ROLogger);
+            
+             DLDirName = System.String.Format("{0:yyyyMMdd-HHmmss_}", System.DateTime.Now) + tmp_str1 + "_" + tmp_str2; 
+             DLDirOut = System.String.Format("{0:yyyyMMdd-HHmmss_}", System.DateTime.Now) + tmp_str1 + "_" + tmp_str2; 
+            
+             TransferMode = FTPHandler1.GetTransferMode(Message_1.FTPFileNames);
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : TransferMode : " +TransferMode,
+            ROLogger);
+            
+            if(TransferMode.ToUpper() == "AUTOMATIC")
+            {
+                 DLDirName = FTPHandler1.GetDLDirNameForXPROTCreation(Message_1.FTPFileNames, tmp_str1, tmp_str2);
+                 DLDirOut = System.String.Format("{0:yyyyMMdd-HHmmss_}", System.DateTime.Now) + tmp_str1 + "_" + tmp_str2;    
+            }
+            
+             ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : Download directory  : " + DLDirName,
+            ROLogger);
+             
+            
+            
+            // Example for TargetSystem : SOAP::Data->name('ftp:FTPImportRequest')->value([SOAP::Data->name('RQ1System')->value('CDG_DEV_INTEGRATION@RQ1ML'), ...
+            
+            
+            // setup ftp interface
+            
+            
+            //result = System.Convert.ToBoolean(FTPHandler1.FTPHandlerValid); // access not possible because static variable
+            
+            // get csv-Filenames from tag:
+            
+            //tmp_str1 =  xpath(Message_1, "string(/*[local-name()='FTPImportRequest' and namespace-uri()='http://FTPIssueTransfer.Schema1']/*[local-name()='FTPFileNames' and namespace-uri()=''])");
+            //tmp_str1 = Message_1.FTPFileNames;
+            tmp_str1 = FTPHandler1.GetFileNamesForXPROTCreation(Message_1.FTPFileNames);
+            
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : GetFileNamesForXPROTCreation  : " + tmp_str1,
+            ROLogger);
+            
+            tmp_str4 = tmp_str1;
+            
+            //Check for Sorting
+            if(FTPHandler1.canSortFiles =="1")
+            {
+                tmp_str1 = FTPHandler1.GetSortedFiles(tmp_str1);
+                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : GetSortedFiles  : " + tmp_str1,ROLogger);
+            }
+            
+            // storing the sorted files in a string.
+            tmp_str5 = tmp_str1;
+            
+            // Initialisation
+            LifeToken4XProt = "In Progress";
+            LifeToken4Files = ROBTLogger.InsertAllTokenStatus(tmp_str4, "In Progress", "import");
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : LifeToken4Files  : " + LifeToken4Files,ROLogger);
+            
+            //>LifeToken4Files = RB.BTLogger.BTLogger.SetTokenStatus(LifeToken4Files, Filename, "In Progress");
+            //>Status = RB.BTLogger.BTLogger.GetTokenStatus(LifeToken4Files, Filename);
+            
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "XProtID ->" + tmp_str2 +  "; Download FileList -> " + tmp_str1,
+            ROLogger);
+            
+            //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : Download directory : " + DLDirName,ROLogger);
+            
+            
+            System.Diagnostics.EventLog.WriteEntry("Biztalk : FTPFilenames raw", tmp_str1 , System.Diagnostics.EventLogEntryType.Information);
+            
+            FileNames = FTPHandler1.ConvertToLines(tmp_str4,",");
+            
+            System.Diagnostics.EventLog.WriteEntry("Biztalk : FTPFilenames in Lines", FileNames , System.Diagnostics.EventLogEntryType.Information);
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FileNames : " + FileNames,
+            ROLogger);
+            
+            ChildNumber = FTPHandler1.CountStringLines(FileNames);
+            
+            System.Diagnostics.EventLog.WriteEntry("Biztalk : ChildNumber", System.Convert.ToString(ChildNumber), System.Diagnostics.EventLogEntryType.Information);
+            
+            LoopCounter = 1;
+            
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("85e3fb3d-1160-48fe-97cc-542e6fd357a9")]
+            while (LoopCounter <= ChildNumber)
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("77519480-c6ff-40bc-aace-71b2815459a5")]
+                tmp_str1 = FTPHandler1.ReadStringLine(FileNames, LoopCounter);  // contains single file name
+                
+                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "FileDownload started ->" + tmp_str1,
+                ROLogger);
+                
+                //System.Diagnostics.EventLog.WriteEntry("Biztalk : SingleFileDownload - raw value", tmp_str1, System.Diagnostics.EventLogEntryType.Information);
+                System.Diagnostics.EventLog.WriteEntry("Biztalk : SingleFileDownload - single file", tmp_str1, System.Diagnostics.EventLogEntryType.Information);
+                
+                //verifying wether the file name is present in filterd filenames string. 
+                isValid = FTPHandler1.IsValid(tmp_str1, tmp_str5);
+                
+                result = FTPHandler1.TransferSingleFTPFile(tmp_str1, DLDirName,isValid);
+                
+                if (result == true)
+                {
+                    //not needed as value is already set:
+                    //LifeToken4Files = RB.BTLogger.BTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "In Progress");
+                
+                    // write success log back to FTPLog
+                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "FTPFile successfully downloaded - " + tmp_str1,
+                ROLogger);
+                    
+                
+                }
+                else
+                {
+                    if (isValid)
+                    {
+                        LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "Failure", "download failed");
+                        ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "Error - FTPFile not available on FTPServer - " + tmp_str1,
+                ROLogger);
+                    }
+                    else
+                    {
+                        LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "Failure", "File Name is not valid. Please provide valid file name.");
+                        ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "Error - FTPFile name is not valid. Please provide valid file name - " + tmp_str1,
+                ROLogger);
+                    }
+                    
+                
+                    
+                }
+                
+                if(result == true)
+                { 
+                    result = FTPHandler1.CheckforEmptyFTPFile(tmp_str1, DLDirName);
+                    if(!result)
+                    {
+                        ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "FTPFile size is 0 bytes - " + tmp_str1,
+                        ROLogger);
+                        LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "Failure", "ASAM file is empty");
+                
+                    }
+                }
+                isattachmentValid = FTPHandler1.VerifyAttachmentNames(tmp_str1, DLDirName);
+                
+                if(isattachmentValid == false)
+                {
+                   LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "Failure", "Invalid Character in the attachment name. Please provide valid attachment name."); 
+                }
+                
+                if (result == true)
+                {
+                    // ISO check
+                    retVar3  = FTPHandler1.DetectInvalidCharacter(tmp_str1, DLDirName);
+                
+                  //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "DetectInvalidChar "+ " - " + retVar3.rString,ROLogger);
+                
+                	tmp_str2 = retVar3.rMessage;
+                
+                	  ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "DetectInvalidChar "+ " - " + tmp_str2,
+                ROLogger);
+                	
+                    if (System.Text.RegularExpressions.Regex.IsMatch(tmp_str2,".*failure:.*"))
+                    {
+                        // write error log back to FTPLog
+                		resultCharCheck = false;
+                      
+                        tmp_str3 = System.Text.RegularExpressions.Regex.Replace(tmp_str2, ".*failure:(.*)", "$1");
+                        tmp_str3 = System.Text.RegularExpressions.Regex.Replace(tmp_str3, @".*(invalid character.*)", "$1", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                
+                        LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "Failure", tmp_str3);
+                
+                       ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + tmp_str2 + " - " + tmp_str1,
+                ROLogger);
+                    }
+                    else
+                    {
+                	
+                		//reconstruct lifetoken if chars are replaced in asam file
+                		 if (System.Text.RegularExpressions.Regex.IsMatch(retVar3.rString,".*Chars replaced in asam file*"))
+                		{
+                 ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "FTPFile change lifetoken" ,
+                ROLogger);
+                			//change file name in lifetoken
+                			LifeToken4Files = ROBTLogger.ChangeFileNameInToken(LifeToken4Files,tmp_str1);
+                 ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "FTPFile updated lifetoken - " + LifeToken4Files,
+                ROLogger);
+                		}
+                        
+                
+                
+                        // write success log back to FTPLog
+                       ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "FTPFile successfully checked for ISO conformance - " + tmp_str1,
+                ROLogger);
+                    }
+                }
+                
+                if (result == true && resultCharCheck == true)
+                {
+                    //check if xml is validating against xsd schema
+                    retVar1 = FTPHandler1.ValidateAIFileByXSD(tmp_str1, DLDirName);
+                    if (retVar1.rSuccess == true)
+                    {
+                        // write success log back to FTPLog
+                       ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "ASAM file successfully validated - " + tmp_str1,
+                ROLogger);
+                    }
+                    else
+                    {
+                   ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "Error from xsd validation retVar1 msg = " +retVar1.rMessage + " tmp_str1="+ tmp_str1,
+                ROLogger);
+                
+                        // write error log back to FTPLog    
+                        LifeToken4Files =ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "Failure","xsd validation of asam file failed with error: "+ retVar1.rMessage);
+                        //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "Error - xsd validation of ASAM file failed - " + tmp_str1, ROLogger);
+                       
+                    }
+                
+                }
+                
+                
+                
+                LoopCounter = LoopCounter + 1;
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("b130cf5c-d2cc-4681-a60a-8a15afce9b26")]
+            construct Message_2
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("4746bd86-8b04-4382-88e7-5f5f4538954e")]
+                LifeToken4XProt = ROBTLogger.GetOverallTokenStatus(LifeToken4Files);
+                //>if LifeToken4XProt = "Failure" ....
+                
+                Message_2 = Message_1;
+                // BTLogger-Message only, because this line is available already in ExchangeProtocol-Log :
+                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "Result of xml downloads -> " + LifeToken4XProt,
+                ROLogger);
+                //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "Exchange protocol queued for import -> " + Message_2.XProtID,ROLogger);
+                
+                
+                // reduce message text in XProt
+                //Message_2.BTReturnMsg = ROLogText; 
+                Message_2.BTReturnMsg = "";
+                
+                //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "BTReturnMsg ->" +Message_2.BTReturnMsg +"-",ROLogger);
+                //ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "ReturnMsg Files ->" +Message_2.FTPFileNames +"-",ROLogger);
+                
+                //FTPIssueTransfer_Project.PropertySchema.FileName) = Message_2.GetPropertyValue(typeof(FTPHandler.ParseFTPListStream(FTPStream)));
+                
+                
+                Message_2 = FTPHandler1.AddDummyTagToResponse(Message_2);
+                ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "Added Dummy tag to response",ROLogger);
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("a34056f3-e6dd-4296-b6e0-1a69768a1ba2")]
+            send (RR_P.Operation_1, Message_2);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("a4cf53ec-e2ab-4907-9afb-cbbbf9a3c12f")]
+            //System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","After sending Response "+System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now));
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now) + "After sending Response",
+            ROLogger);
+            
+            LoopCounter = 1;
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("e1ef5518-eec4-4da3-893c-24333370a024")]
+            while (LoopCounter <= ChildNumber)
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("611cf214-8376-48d6-b5d4-94d3cb168dca")]
+                   //REUBK-2187
+                
+                tmp_str1 = FTPHandler1.ReadStringLine(FileNames, LoopCounter); // contains single file name
+                
+                tmp_str1 = ROBTLogger.GetFileName(LifeToken4Files,tmp_str1); //get modified asam file name based on new token
+                
+                if (ROBTLogger.GetTokenStatusForFile(LifeToken4Files, tmp_str1)!="Failure") //REUBK-2187 do not proceed for att download if non iso char is found
+                    {
+                
+                	//Check if STATUS-TAG exists in config
+                	retVar1 = FTPHandler1.CheckIfStatusTagExists(tmp_str1,DLDirName);
+                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "CheckIfStatusTagExists ->" + retVar1.rSuccess.ToString(),
+                		ROLogger);
+                    ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "CheckIfStatusTagExists ->" + retVar1.rMessage,
+                		ROLogger);
+                    if(retVar1.rSuccess)
+                    {
+                        isMsgAck = false;
+                    }
+                    else
+                    {
+                        isMsgAck = true;
+                    }
+                
+                	if(!isMsgAck)
+                	{
+                
+                		ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "AttachmentDownload of ->" + tmp_str1,
+                		ROLogger);
+                
+                        //need to use non modified ASAM file to verify attachments
+                
+                        //unModifiedAIFileName = tmp_str1;
+                        
+                        //unModifiedAIFileName = unModifiedAIFileName.Replace("_M","");
+                
+                        //FTPHandler1.UpdateModifiedFileUrls(tmp_str1, unModifiedAIFileName, DLDirName);
+                
+                		///System.Diagnostics.EventLog.WriteEntry("Biztalk : SingleFileDownload - raw value", tmp_str1, System.Diagnostics.EventLogEntryType.Warning);
+                		///System.Diagnostics.EventLog.WriteEntry("Biztalk : SingleFileDownload - single file", tmp_str1, System.Diagnostics.EventLogEntryType.Warning);
+                
+                		//Fill list of commercial files
+                		retVar1 = FTPHandler1.CheckCommercialFiles(tmp_str1, DLDirName, FileNamesCom);
+                
+                		ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "CheckCommercialFiles ->" + System.Convert.ToString(retVar1.rSuccess),
+                		ROLogger);
+                		if (retVar1.rSuccess == true)
+                		{
+                			ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "CheckCommercialFiles FileNamesCom->" + retVar1.rString,
+                			ROLogger);
+                			FileNamesCom = System.Convert.ToString(retVar1.rString);
+                
+                			//Zugriff auf lokales File
+                			ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "CheckCommercialFiles -call GetAttachmentNames->",
+                			ROLogger);
+                			retVar2 = FTPHandler1.GetAttachmentNames(tmp_str1, DLDirName,false);
+                			tmp_str2 = System.Convert.ToString(retVar2.rMessage);
+                			//retVar2-error not yet handled explicitly
+                			
+                				ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "CheckCommercialFiles - GetAttachmentNames->" + tmp_str2,
+                			ROLogger);
+                
+                			ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "Attachments queued for download ->" + tmp_str1,ROLogger);
+                			ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "AttachmentsDownload result ->" + tmp_str2,ROLogger);
+                
+                			ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " +  "ASAM file "+tmp_str1 + "LifeToken4Files" + LifeToken4Files,ROLogger);
+                			
+                			if (ROBTLogger.GetTokenStatusForFile(LifeToken4Files, tmp_str1)!="Failure")
+                			{
+                				ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " +  "ASAM file status is not failure "+tmp_str1 +LifeToken4Files,ROLogger);
+                				if (System.Text.RegularExpressions.Regex.IsMatch(tmp_str2,".*failure:.*"))
+                				{
+                					//REUBK-1388
+                					ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "ASAM file attachment status is failure "+tmp_str2,ROLogger);
+                					//tmp_str3 = System.Text.RegularExpressions.Regex.Replace(tmp_str2, ".*failure:([^,]+).*", "$1");
+                					tmp_str3 = System.Text.RegularExpressions.Regex.Replace(tmp_str2, ".*failure:([^·]+).*", "$1");
+                						ROBTLogger.WriteLog( System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "ASAM file attachment status is failure "+tmp_str3,ROLogger);
+                					LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "Failure", tmp_str3);
+                				}
+                				else
+                				{
+                					ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " +  "set status to Inprogress" ,ROLogger);
+                					LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "In Progress","");
+                				}
+                			}
+                			else
+                			{
+                			ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " +  "ASAM file status is failure "+ tmp_str1,ROLogger);
+                			}
+                		}
+                		else
+                		{
+                		ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "CheckCommercialFiles -> inside failure case" ,
+                		ROLogger);
+                			LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "Failure", System.Convert.ToString(retVar1.rMessage));
+                		}
+                	}
+                	else
+                	{
+                		ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "CheckIfStatusTagExists ->" + System.Convert.ToString(retVar1.rSuccess),ROLogger);
+                        LifeToken4Files = ROBTLogger.SetTokenStatus(LifeToken4Files, tmp_str1, "In Progress","");
+                	}
+                }
+                
+                LoopCounter = LoopCounter + 1;
+                
+                
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("bf1ba650-ebcd-4011-a4f1-816102ae7450")]
+            
+            LifeToken4XProt = ROBTLogger.GetOverallTokenStatus(LifeToken4Files);
+            //>if LifeToken4XProt = "Failure" .... not implemented
+            // -> better do not skip attachment upload to XProt
+            
+            tmp_str1 = System.Convert.ToString(Message_2.RQ1System);
+            tmp_str2 = Message_2.XProtID;
+            
+            // upload all files to RO
+            
+            tmp_str3 = ROUpdater1.Attach2XProt(tmp_str1, tmp_str2, "ExchangedFiles", DLDirName, FileNamesCom, ROLogger, LifeToken4Files);
+            
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + tmp_str3,ROLogger);
+            
+            if (System.Text.RegularExpressions.Regex.IsMatch(tmp_str3,".*failure:.*"))
+            {
+                // write error log back to FTPLog
+                
+                LifeToken4Files = ROBTLogger.SetAllTokenStatus(LifeToken4Files, "Failure", "FTPIssueTransfer: " + tmp_str3);
+            
+            } 
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "Final Log update ->" + tmp_str1 + "," + tmp_str2,
+            ROLogger);
+            
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("3bf0f9a0-76ac-4d3b-b036-f5df2330ddd1")]
+            construct Message_3
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("59e0fdb1-320b-4263-bf9f-a9d86286c686")]
+                transform (Message_3) = FTPIssueTransfer.Map2TransferResult (Message_2);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("72c59a52-eab3-4403-a213-1cae5589a6d6")]
+                //TEST
+                Message_3.DownloadTargetPath = RB.FTPLibrary.GlobalConstants.FTP_LOCAL_BASE_DIR + DLDirOut + "\\";
+                Message_3.LifeToken4XProt = LifeToken4XProt;
+                Message_3.LifeToken4Files = LifeToken4Files;
+                Message_3.Mode = TransferMode;
+                
+                
+                
+                tmp_str1 = Message_3.RQ1System;
+                tmp_str2 = tmp_str1.Substring(tmp_str1.LastIndexOf("@")+1);
+                
+                //msgFileName = Message_2(FILE.ReceivedFileName);
+                Message_3(FILE.ReceivedFileName) = tmp_str2 + "_" + Message_3.XProtID + "_005_FTPTransferResult_";
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("786be4f1-9fe3-428d-afa4-eec0f349d177")]
+            ROBTLogger.CloseLogger(ROLogger);
+            
+            
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("5afd2eb4-24b1-4c3a-a947-8a34ec3fb290")]
+            send (TR_P.Operation_1, Message_3);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("e5308ac7-af57-4a73-9cae-e19955356c4d")]
+            send (TR_CPY.Operation_1, Message_3);
+        }
+    }
+}
+

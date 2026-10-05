@@ -1,0 +1,21 @@
+2/23/2026 2:51:24 PMat MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42System.Exception: Direct File Test
+at MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42
+
+2/23/2026 2:55:33 PMat MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42System.Exception: Direct File Test
+at MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42
+
+2/23/2026 3:21:10 PMat MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42System.Exception: Direct File Test
+at MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42
+
+2/23/2026 3:59:35 PMat MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42System.Exception: Direct File Test
+at MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42
+
+2/26/2026 4:05:44 PMat MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42System.Exception: Direct File Test
+at MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42
+
+2/27/2026 2:22:39 PMat MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42System.Exception: Direct File Test
+at MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42
+
+4/2/2026 3:28:58 PMat MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42System.Exception: Direct File Test
+at MyNamespace.MyClass.MyMethod() in C:\Test\File.cs:line 42
+

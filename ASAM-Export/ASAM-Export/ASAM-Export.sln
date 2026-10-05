@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33027.164
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RB.ROCustomerInterfaceExport", "RB.ROCustomerInterfaceExport\RB.ROCustomerInterfaceExport.btproj", "{4D9F8987-8029-4F3A-9E0B-89A079DA0C3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RB.ROCustomerInterfaceExportLibrary", "RB.ROCustomerInterfaceExportLibrary\RB.ROCustomerInterfaceExportLibrary.csproj", "{1DCB7880-F2D0-490E-A625-306C80ED8F6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RB.ROCustomerIntefaceLibrary.Tests", "RB.ROCustomerIntefaceLibrary.Tests\RB.ROCustomerIntefaceLibrary.Tests.csproj", "{B996ACA8-59FA-41F6-B4E8-D74D61DA39D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D9F8987-8029-4F3A-9E0B-89A079DA0C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9F8987-8029-4F3A-9E0B-89A079DA0C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9F8987-8029-4F3A-9E0B-89A079DA0C3A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4D9F8987-8029-4F3A-9E0B-89A079DA0C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9F8987-8029-4F3A-9E0B-89A079DA0C3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9F8987-8029-4F3A-9E0B-89A079DA0C3A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1DCB7880-F2D0-490E-A625-306C80ED8F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DCB7880-F2D0-490E-A625-306C80ED8F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCB7880-F2D0-490E-A625-306C80ED8F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCB7880-F2D0-490E-A625-306C80ED8F6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B996ACA8-59FA-41F6-B4E8-D74D61DA39D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B996ACA8-59FA-41F6-B4E8-D74D61DA39D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B996ACA8-59FA-41F6-B4E8-D74D61DA39D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B996ACA8-59FA-41F6-B4E8-D74D61DA39D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF2359CC-E05F-4AAD-8BC4-F16228E1EAAC}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://rngvmc0208:1188/db_bt_tfsroasaminterfaces_sql
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = RB.ROCustomerInterfaceExport\\RB.ROCustomerInterfaceExport.btproj
+		SccProjectName1 = RB.ROCustomerInterfaceExport
+		SccLocalPath1 = RB.ROCustomerInterfaceExport
+		SccProjectUniqueName2 = RB.ROCustomerInterfaceExportLibrary\\RB.ROCustomerInterfaceExportLibrary.csproj
+		SccProjectName2 = RB.ROCustomerInterfaceExportLibrary
+		SccLocalPath2 = RB.ROCustomerInterfaceExportLibrary
+		SccProjectUniqueName3 = RB.ROCustomerIntefaceLibrary.Tests\\RB.ROCustomerIntefaceLibrary.Tests.csproj
+		SccProjectName3 = RB.ROCustomerIntefaceLibrary.Tests
+		SccLocalPath3 = RB.ROCustomerIntefaceLibrary.Tests
+	EndGlobalSection
+EndGlobal

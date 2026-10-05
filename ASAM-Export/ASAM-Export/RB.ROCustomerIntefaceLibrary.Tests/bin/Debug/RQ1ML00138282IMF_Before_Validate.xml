@@ -1,0 +1,37 @@
+<ns0:EXPORT_IMF xmlns:ns0="http://RB.ROCustomerInterfaceExport.Schemas.Export_IMF.Export_IMF">
+  <ISSUE dbid="33692714">
+    <CommercialQuotationReq></CommercialQuotationReq>
+    <ExternalComment></ExternalComment>
+    <ExternalConversation>### 19.02.2026 12:24:45 RECEIVED FFM3FE ### 
+
+### 18.02.2026 07:41:28 # REQUESTED # kristine.klapprott@volkswagen.de ###
+    
+
+project_restriction: 
+critical_milestone: 
+
+      Delivery Milestone Category: pilot
+
+        ProjectID for PILOT:P2055_PL</ExternalConversation>
+    <ExternalExchangedAttach></ExternalExchangedAttach>
+    <ExternalHistory>RECEIVED - 19.02.2026 12:24:45 -  ExchangeProtocol:41519234
+
+REQUESTED - 18.02.2026 07:41:28 - ExchangeProtocol: 41519157</ExternalHistory>
+    <ExternalLastExportedDate>2026-02-23T09:13:59Z</ExternalLastExportedDate>
+    <ExternalNextState>ESTIMATED</ExternalNextState>
+    <ExternalState_Parallel1>RECEIVED</ExternalState_Parallel1>
+    <ExternalState_Parallel2></ExternalState_Parallel2>
+    <ExternalUpdateVersion></ExternalUpdateVersion>
+  </ISSUE>
+  <ISSUERELEASEMAP dbid="41519167">
+    <ExternalComment></ExternalComment>
+    <ExternalConversation></ExternalConversation>
+    <ExternalLastExportedDate>2026-02-23T09:13:59Z</ExternalLastExportedDate>
+    <ExternalNextState></ExternalNextState>
+    <ExternalState_Parallel1></ExternalState_Parallel1>
+  </ISSUERELEASEMAP>
+  <COMMERCIAL>
+    <CommercialComment>Testing</CommercialComment>
+    <CommercialConversation></CommercialConversation>
+  </COMMERCIAL>
+</ns0:EXPORT_IMF>

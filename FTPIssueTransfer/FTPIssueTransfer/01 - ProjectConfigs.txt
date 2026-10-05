@@ -1,0 +1,28 @@
+WebService Namespace = http://FTPIssueTransfer/
+
+http://localhost/FTPIssueTransfer_Proxy
+
+WebService Project Location = http://localhost/FTPIssueTransfer_Proxy = http://ABTV5093/FTPIssueTransfer_Proxy
+--> WebService Location (taken from Browser Window of WS Prj Location) = http://ABTV5093/FTPIssueTransfer_Proxy/FTPIssueTransfer_FTPStartIssueImport_RR_P.asmx
+--> WebService WSDL (taken from Browser Window of WS Location) = http://ABTV5093/FTPIssueTransfer_Proxy/FTPIssueTransfer_FTPStartIssueImport_RR_P.asmx?WSDL
+
+
+30.6.11: Added FileShift.odx to this project which is using same schema "TransferResultInformation.xsd"
+	as FTPStartIssueImport.odx. This is because no additional schema is needed in ValEx orchs herewith.
+	This does not lead to a conflict as long there is no further receive port using this schema (message).
+
+
+
+23.11.15: DAI Transmitter Webservice URI
+
+DEV:
+new : http://si0vm595.de.bosch.com:18080/daimler-transmitter/services/TransmitterServicePort?wsdl
+old : http://si-z06fy.si.de.bosch.com:8080/daimler-transmitter/services/TransmitterServicePort?wsdl
+
+ACC:
+https://si0vmc0936.de.bosch.com:8181//daimler-transmitter/services/TransmitterServicePort?wsdl
+http://si0vmc0936.de.bosch.com:8280//daimler-transmitter/services/TransmitterServicePort?wsdl
+
+
+PROD:
+http://fe0vmc1155.de.bosch.com:8080/daimler-transmitter/services/TransmitterServicePort?wsdl

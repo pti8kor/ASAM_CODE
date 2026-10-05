@@ -1,0 +1,202 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Xml;
+
+namespace RB.ROCustomerInterfaceExportLibrary
+{
+    public class Attachments
+    {
+        public void ProcessAttachments(
+            XmlDocument RQ1Extract_data,
+            string recordID,
+            string recordType,
+            string xprotID,
+            string p_system,
+            string interfaceName,
+            AsyncLogger asyncLogger)
+        {
+            // Log start
+            try
+            {
+                asyncLogger.LogInfoAsync(recordID, "ProcessAttachments Method Starts : ").GetAwaiter().GetResult();
+            }
+            catch { /* Avoid throwing from logging */ }
+
+            BTHelper btHelper = new BTHelper();
+            string stateName = btHelper.GetStateName(RQ1Extract_data, recordType);
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    // Create OSLC object to fetch config details
+                    RO_OSLC_DataInterface obj_oslc = new RO_OSLC_DataInterface(p_system, interfaceName, xprotID);
+
+                    string folderPath = GlobalConstants.ASAMFile_FolderPath + xprotID + "\\";
+
+                    // Extracting AttachmentMappings and Attachments to map and download required attachments.
+                    var attachmentMappings = RQ1Extract_data.GetElementsByTagName("AttachmentMapping");
+                    var attachments = RQ1Extract_data.GetElementsByTagName("Attachments");
+
+                    // Prepare Basic Auth header
+                    var byteArray = Encoding.ASCII.GetBytes($"{obj_oslc.CQUser}:{obj_oslc.CQPasword}");
+                    client.DefaultRequestHeaders.Authorization =
+                        new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+                    if(attachmentMappings.Count == 0)
+                    {
+                        if(!stateName.ToUpper().Contains("ESTIMATED"))
+                        {
+                            obj_oslc.UploadFilesInFolder(Path.Combine(folderPath, GlobalConstants.ExchangedFiles), xprotID, asyncLogger);
+                        }
+                        else
+                        {
+                            obj_oslc.UploadFilesInFolder(Path.Combine(folderPath, GlobalConstants.ExchangedCommercialFiles), xprotID, asyncLogger);
+                        }
+                        
+                    }
+                    else
+                    {
+                        foreach (XmlNode mapping in attachmentMappings)
+                        {
+                            // Eng_Attachment
+                            string engAttachment = mapping["Eng_Attachment"]?.InnerText.Trim();
+                            // Sales_Attachment
+                            string salesAttachment = mapping["Sales_Attachment"]?.InnerText.Trim();
+
+                            if (!string.IsNullOrEmpty(engAttachment) && !stateName.ToUpper().Contains("ESTIMATED"))
+                            {
+                                DownloadAndSaveAttachment(
+                                    client,
+                                    recordID,
+                                    attachments,
+                                    engAttachment,
+                                    Path.Combine(folderPath, GlobalConstants.ExchangedFiles),
+                                    obj_oslc,
+                                    xprotID,
+                                    asyncLogger);
+
+
+                            }
+
+                            
+                            if (stateName.ToUpper().Contains("ESTIMATED"))
+                            {
+                                if (!string.IsNullOrEmpty(salesAttachment))
+                                {
+                                    DownloadAndSaveAttachment(
+                                        client,
+                                        recordID,
+                                        attachments,
+                                        salesAttachment,
+                                        Path.Combine(folderPath, GlobalConstants.ExchangedCommercialFiles),
+                                        obj_oslc,
+                                        xprotID,
+                                        asyncLogger);
+
+
+                                }
+
+                                if (!string.IsNullOrEmpty(engAttachment))
+                                {
+                                    DownloadAndSaveAttachment(
+                                        client,
+                                        recordID,
+                                        attachments,
+                                        engAttachment,
+                                        Path.Combine(folderPath, GlobalConstants.ExchangedFiles),
+                                        obj_oslc,
+                                        xprotID,
+                                        asyncLogger);
+
+
+                                }
+                            }
+
+                        }
+                    }
+                    
+                
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                try { asyncLogger.LogExceptionAsync(recordID, ex).GetAwaiter().GetResult(); } catch { }
+            }
+        }
+
+        private static void DownloadAndSaveAttachment(
+            HttpClient client,
+            string recordID,
+            XmlNodeList attachments,
+            string fileName,
+            string targetFolder, 
+            RO_OSLC_DataInterface obj_oslc, 
+            string xprotID,
+            AsyncLogger asyncLogger)
+        {
+            try
+            {
+                asyncLogger.LogInfoAsync(recordID, "DownloadAndSaveAttachment Method Starts : ").GetAwaiter().GetResult();
+            }
+            catch { }
+
+            XmlNode matchedAttachment = attachments
+                .Cast<XmlNode>()
+                .FirstOrDefault(a =>
+                    string.Equals(a["filename"]?.InnerText.Trim(), fileName, StringComparison.OrdinalIgnoreCase));
+
+            if (matchedAttachment != null)
+            {
+                string fileUrl = matchedAttachment["link"]?.InnerText;
+                if (!string.IsNullOrEmpty(fileUrl))
+                {
+                    if (!Directory.Exists(targetFolder))
+                        Directory.CreateDirectory(targetFolder);
+
+                    string localPath = Path.Combine(targetFolder, fileName);
+
+                    try
+                    {
+                        // Block on the async HTTP call safely
+                        var fileBytes = client.GetByteArrayAsync(fileUrl).GetAwaiter().GetResult();
+                        File.WriteAllBytes(localPath, fileBytes);
+
+                        try
+                        {
+                            asyncLogger.LogInfoAsync(recordID, "Attachment Saved Successfully : " + fileName)
+                                       .GetAwaiter().GetResult();
+                        }
+                        catch { }
+
+                        // Upload after save
+                        try
+                        {
+                            obj_oslc.UploadFilesInFolder(targetFolder, xprotID, asyncLogger);
+                        }
+                        catch (Exception ex)
+                        {
+                            try { asyncLogger.LogExceptionAsync(recordID, ex).GetAwaiter().GetResult(); } catch { }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        try { asyncLogger.LogExceptionAsync(recordID, ex).GetAwaiter().GetResult(); } catch { }
+                    }
+                }
+            }
+
+            try
+            {
+                asyncLogger.LogInfoAsync(recordID, "DownloadAndSaveAttachment Method Ends : ").GetAwaiter().GetResult();
+            }
+            catch { }
+        }
+    }
+}

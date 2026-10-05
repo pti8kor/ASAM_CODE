@@ -1,0 +1,109 @@
+<!-- Validation file for RO customer interfaces
+	1. Input is the Intermediate XML file created by BizTalk
+	2. FIELD Validation -> String / Operators
+	Assumption: NODE Names in Intermediate XML file should be same as the field names in RO for respective recordtypes	
+    Possible conditions: 
+    	For Integer comparison: != , <=, >= , =
+    	For String comparison: eq , ne    	
+-->
+<RO_INTERFACE_VALIDATIONS>
+	<INTERFACE name="RB-AUDI ASAM Interface" customer="Audi">
+		<COMMON_RULES>
+			<!-- no example for common rule found! -->
+		</COMMON_RULES>	
+		<EXTERNAL_STATE_BASED_RULE name="REQUESTED">
+			<RULES name="Contact">
+				<XPATH>//ASAMISSUE_EXTRACT/RT_CONTACT/CONTACT</XPATH>
+				<IMF_RULES>
+					<IDRULE>
+						<!-- all contacts available in ASAM ISSUE file have to be taken, so no key attribute is needed -->
+						<COUNT>
+							<OPERATOR>EQ</OPERATOR>	
+							<VALUE>2</VALUE>
+						</COUNT>
+					</IDRULE>
+					<FIELDRULES>
+						<FIELDRULE>
+							<FIELDNAME>eMail</FIELDNAME>
+							<FIELDVALUE></FIELDVALUE>
+							<OPERATOR>NE</OPERATOR>
+						</FIELDRULE>
+					</FIELDRULES>
+				</IMF_RULES>	
+				<RO_RULES>
+					<IDRULE>
+						<KEY>eMail</KEY>
+						<COUNT>
+							<OPERATOR>LE</OPERATOR>	
+							<VALUE>1</VALUE>
+						</COUNT>
+					</IDRULE>				
+					<FIELDRULES>
+						<FIELDRULE>
+							<FIELDNAME></FIELDNAME>
+							<FIELDVALUE></FIELDVALUE>
+							<OPERATOR></OPERATOR>
+						</FIELDRULE>
+					</FIELDRULES>
+				</RO_RULES>
+			</RULES>
+			<RULES name="Issue">
+				<XPATH>//ASAMISSUE_EXTRACT/RT_ISSUES/ISSUE</XPATH>
+				<IMF_RULES>
+					<IDRULE>
+						<!-- all issues available in ASAM ISSUE file have to be taken, so no key attribute is needed -->
+						<COUNT>
+							<OPERATOR>=</OPERATOR>	
+							<VALUE>1</VALUE>
+						</COUNT>
+					</IDRULE>
+					<FIELDRULES>
+						<FIELDRULE>
+							<FIELDNAME>External_ID</FIELDNAME>
+							<FIELDVALUE></FIELDVALUE>
+							<OPERATOR>NE</OPERATOR>
+						</FIELDRULE>
+						<FIELDRULE>
+							<FIELDNAME>ExternalOrganisation</FIELDNAME>
+							<FIELDVALUE>Audi</FIELDVALUE>
+							<OPERATOR>EQ</OPERATOR>
+						</FIELDRULE>
+						<FIELDRULE>
+							<FIELDNAME>ExternalState_Parallel1</FIELDNAME>
+							<FIELDVALUE>Requested</FIELDVALUE>
+							<OPERATOR>EQ</OPERATOR>
+						</FIELDRULE>	
+						<FIELDRULE>
+							<FIELDNAME>Issue.ExternalDescription</FIELDNAME>
+							<FIELDVALUE></FIELDVALUE>
+							<OPERATOR>NE</OPERATOR>
+						</FIELDRULE>
+						<FIELDRULE>
+							<FIELDNAME>Issue.ExternalExchangeFormat</FIELDNAME>
+							<FIELDVALUE></FIELDVALUE>
+							<OPERATOR>NE</OPERATOR>
+						</FIELDRULE>
+					</FIELDRULES>
+				</IMF_RULES>	
+				<RO_RULES>
+					<IDRULE>
+						<KEY>External_ID</KEY>
+						<COUNT>
+							<OPERATOR>EQ</OPERATOR>	
+							<VALUE>0</VALUE>
+						</COUNT>
+					</IDRULE>			
+					<!--	template only  :
+					<FIELDRULES>
+						<FIELDRULE>
+							<FIELDNAME></FIELDNAME>
+							<FIELDVALUE></FIELDVALUE>
+							<OPERATOR></OPERATOR>
+						</FIELDRULE>
+					</FIELDRULES>
+					-->
+				</RO_RULES>
+			</RULES>			
+		</EXTERNAL_STATE_BASED_RULE>
+	</INTERFACE>
+</RO_INTERFACE_VALIDATIONS>

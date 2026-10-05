@@ -1,0 +1,69 @@
+D:\RB-ASAM-Interface_DEV\Import\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface_DEV\Import\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface_DEV\Import\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ResolveAssemblyReference.cache
+D:\RB-ASAM-Interface_DEV\Import\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface_DEV\Import\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\z_Nikhila\V1.7Ongoing\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\z_Nikhila\V1.7Ongoing\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\z_Nikhila\V1.7Ongoing\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ResolveAssemblyReference.cache
+D:\z_Nikhila\V1.7Ongoing\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\z_Nikhila\V1.7Ongoing\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\z_Nikhila\Deploy\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\z_Nikhila\Deploy\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\z_Nikhila\Deploy\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ResolveAssemblyReference.cache
+D:\z_Nikhila\Deploy\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\z_Nikhila\Deploy\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\z_Nikhila\05.10.2015_Deploy\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\z_Nikhila\05.10.2015_Deploy\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\z_Nikhila\05.10.2015_Deploy\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ResolveAssemblyReference.cache
+D:\z_Nikhila\05.10.2015_Deploy\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\z_Nikhila\05.10.2015_Deploy\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\z_Nikhila\NewChanges\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\z_Nikhila\NewChanges\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\z_Nikhila\NewChanges\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ResolveAssemblyReference.cache
+D:\z_Nikhila\NewChanges\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\z_Nikhila\NewChanges\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\z_Nikhila\Changes\NewChanges\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\z_Nikhila\Changes\NewChanges\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\z_Nikhila\Changes\NewChanges\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ResolveAssemblyReference.cache
+D:\z_Nikhila\Changes\NewChanges\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\z_Nikhila\Changes\NewChanges\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\VMA4KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\VMA4KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\VMA4KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ResolveAssemblyReference.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\VMA4KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\VMA4KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\JPR6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\JPR6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\JPR6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.csprojResolveAssemblyReference.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\JPR6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\JPR6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\Microsoft.BizTalk.Pipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\Microsoft.XLANGs.BaseTypes.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\Microsoft.XLANGs.BizTalk.Engine.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\NJA5KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\Microsoft.XLANGs.Engine.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\Microsoft.BizTalk.Pipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\Microsoft.XLANGs.BaseTypes.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\Microsoft.XLANGs.BizTalk.Engine.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\Microsoft.XLANGs.Engine.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.csprojResolveAssemblyReference.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RAC6KOR\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.csproj.CoreCompileInputs.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.csproj.AssemblyReference.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\bin\Debug\ChangeMessagePipeline.pdb
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.csproj.AssemblyReference.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.csproj.CoreCompileInputs.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\FTPIssueTransfer\ChangeMessagePipeline\obj\Debug\ChangeMessagePipeline.pdb

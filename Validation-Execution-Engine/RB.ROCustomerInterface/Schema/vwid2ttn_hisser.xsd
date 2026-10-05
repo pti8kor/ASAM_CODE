@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:tns="http://HISSER" targetNamespace="http://HISSER" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation=".\vwid2ttn_vwid2ttn_webservices_his_bosch_com.xsd" namespace="http://v2.vwid2ttn.webservices.his.bosch.com/" />
+</xs:schema>

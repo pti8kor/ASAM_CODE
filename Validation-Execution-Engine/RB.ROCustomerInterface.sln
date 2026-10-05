@@ -1,0 +1,114 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RB.ROCustomerInterfaceLibrary", "RB.ROCustomerIntefaceLibrary\RB.ROCustomerInterfaceLibrary.csproj", "{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RO_TestBed", "RO_TestBed\RO_TestBed.csproj", "{F0E4227B-33FD-48C6-B69F-D01B3AD27957}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ROValidationTest", "ROValidationTest\ROValidationTest.csproj", "{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RB.BT.ROCustomerInterface", "RB.ROCustomerInterface\RB.BT.ROCustomerInterface.btproj", "{F725D76F-5AA7-42CC-9F88-6984567122E0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6} = {8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}
+	EndProjectSection
+EndProject
+Project("{8727FEA9-91DB-4FB1-952D-E73D021F4F57}") = "BizTalkDeployServerApplication", "BizTalkDeployServerApplication\BizTalkDeployServerApplication.btaproj", "{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8A2690DF-8F83-40EA-9E06-CC2946AFD4A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Debug|Any CPU.Build.0 = Debug|x86
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Debug|x86.ActiveCfg = Debug|x86
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Debug|x86.Build.0 = Debug|x86
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Release|Any CPU.ActiveCfg = Release|x86
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Release|Mixed Platforms.Build.0 = Release|x86
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Release|x86.ActiveCfg = Release|x86
+		{F0E4227B-33FD-48C6-B69F-D01B3AD27957}.Release|x86.Build.0 = Release|x86
+		{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}.Debug|x86.ActiveCfg = Debug|x86
+		{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}.Debug|x86.Build.0 = Debug|x86
+		{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}.Release|Any CPU.ActiveCfg = Release|x86
+		{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}.Release|Mixed Platforms.Build.0 = Release|x86
+		{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}.Release|x86.ActiveCfg = Release|x86
+		{15DE3D6C-308A-41BF-8D33-FF8309A3ECD9}.Release|x86.Build.0 = Release|x86
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
+		{F725D76F-5AA7-42CC-9F88-6984567122E0}.Release|x86.ActiveCfg = Release|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Debug|x86.Build.0 = Debug|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Release|x86.ActiveCfg = Release|Any CPU
+		{9E67EDA0-C2C4-4BD3-A41D-F5B9789BE7A7}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A77EE9C2-4AF8-41D1-962C-F0C258B0F7A1}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://rngvmc0208:1188/db_bt_tfsroasaminterfaces_sql
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = RB.ROCustomerIntefaceLibrary\\RB.ROCustomerInterfaceLibrary.csproj
+		SccProjectName1 = RB.ROCustomerIntefaceLibrary
+		SccLocalPath1 = RB.ROCustomerIntefaceLibrary
+		SccProjectUniqueName2 = RO_TestBed\\RO_TestBed.csproj
+		SccProjectName2 = RO_TestBed
+		SccLocalPath2 = RO_TestBed
+		SccProjectUniqueName3 = ROValidationTest\\ROValidationTest.csproj
+		SccProjectName3 = ROValidationTest
+		SccLocalPath3 = ROValidationTest
+		SccProjectUniqueName4 = RB.ROCustomerInterface\\RB.BT.ROCustomerInterface.btproj
+		SccProjectName4 = RB.ROCustomerInterface
+		SccLocalPath4 = RB.ROCustomerInterface
+		SccProjectUniqueName5 = BizTalkDeployServerApplication\\BizTalkDeployServerApplication.btaproj
+		SccProjectName5 = BizTalkDeployServerApplication
+		SccLocalPath5 = BizTalkDeployServerApplication
+	EndGlobalSection
+EndGlobal

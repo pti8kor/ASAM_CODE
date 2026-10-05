@@ -1,0 +1,1248 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using ClearQuestOleServer;
+using System.IO;
+using System.Xml;
+using System.Xml.XPath;
+using System.Xml.Linq;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Web;
+using System.Data;
+using System.Collections;
+using System.Runtime.InteropServices;
+
+namespace RB.ROCustomerIntefaceLibrary
+{
+    public class RO_CQAPI_DataInterface : RODataInterface
+    {
+        //static readonly RODataInterface m_oThisInstance = new RO_CQAPI_DataInterface();
+        private Session roSession = new Session();
+        private TimeOutManager l_oTiemout = null;
+        private List<string> l_oIgnoreList = new List<string> { "DBID", "ID", "EXTERNALLASTEXPORTEDDATE", "ISSUETAGS", "OCCURANCE" };
+        //private List<string> l_oHTMLcharacters = new List<string> { "&", "≥", "≤" }; 
+        private List<string> l_oHTMLcharacters = new List<string> { "&" }; //REUBK-2945
+
+        private List<int> l_oTruncIds = new List<int>();
+        Logger objlogger = null;
+        public XDocument CharMappingXMLFile { get; set; }
+
+        string sExchangeFormat;
+        string sAttachmentpath;
+        string sExchangeProtocolId;
+        ArrayList filesToDelete = new ArrayList();
+
+        List<IMFROCommonAttachments> l_oCommonAttachments = new List<IMFROCommonAttachments>(); //REUBK-2136
+
+        public RO_CQAPI_DataInterface(string p_sExchangeFormat, string p_sExchangeProtocolId, string p_sSystem, string attpath, Logger l_ologger) :
+            base(p_sSystem, p_sExchangeFormat, l_ologger)
+        {
+            l_oTiemout = new TimeOutManager(p_sExchangeFormat, p_sExchangeProtocolId, p_sSystem, l_ologger);
+            sExchangeFormat = p_sExchangeFormat;
+            sAttachmentpath = attpath;
+            sExchangeProtocolId = p_sExchangeProtocolId;           
+            objlogger = l_ologger;
+        }
+
+
+        //"ExternalNextState","ExternalReview","Priority","State"
+        public bool LoggedIn
+        {
+            get;
+            set;
+        }
+
+        public override IQueryResult Query(QueryParameters p_oQueryParameters,bool bMultipleRecordChanges=false, XElement xROIDRule=null, string ExchangeProtocl = null)
+        {
+            if (!LoggedIn) LoginToRequestOne();
+
+            throw new NotImplementedException();
+        }
+
+        public override List<object> Query(QueryParameters p_oQueryParameters, bool bMultipleRecords)
+        {
+            if (!LoggedIn) LoginToRequestOne();
+
+            throw new NotImplementedException();
+        }
+
+        public override object LockRecord(QueryParameters p_oQueryParameters, bool bLock)
+        {
+            objlogger.LogInfo("Inside LockRecord", GlobalConstants.LOGGERLEVEL1);
+
+            if (!LoggedIn) LoginToRequestOne();
+            //objlogger.LogInfo("Successfully logged in");
+            string sDBID = string.Empty;
+            IOAdEntity l_oEntity = null;
+
+            if (p_oQueryParameters.IsComplex)
+            {
+                l_oEntity = p_oQueryParameters.GetRawComplex()[GlobalConstants.ENTITYOBJECT] as IOAdEntity;
+                objlogger.LogInfo("get entity obj for complex", GlobalConstants.LOGGERLEVEL1);
+            }
+            else
+            {
+                //objlogger.LogInfo("in else part--");
+                string sEntity = p_oQueryParameters[GlobalConstants.ENTITY];
+                objlogger.LogInfo("sEntity==" + sEntity, GlobalConstants.LOGGERLEVEL1);
+                try
+                {
+                    //objlogger.LogInfo("get dbid");
+                    sDBID = p_oQueryParameters[GlobalConstants.DBID];
+                    objlogger.LogInfo("DBID:" + sDBID, GlobalConstants.LOGGERLEVEL1);
+                }
+                catch
+                {
+                    throw new SystemException("DBID is missing to lock the record");
+                }
+
+                if (sDBID != string.Empty)
+                {
+                    //objlogger.LogInfo("DBID is not empty");
+
+                    for (int intCount = 1; intCount <= 4; intCount++)
+                    {
+                        try
+                        {
+                            objlogger.LogInfo("ClearQuest:LoadEntityByDbId Attempt==" + intCount.ToString(), GlobalConstants.LOGGERLEVEL1);
+                            //05/05/2012 call loadentitybydbid to get updated values - as in ftphandler
+                            l_oEntity = roSession.LoadEntityByDbId(sEntity, int.Parse(sDBID.Trim()));
+                            objlogger.LogInfo("after calling LoadEntityByDbId", GlobalConstants.LOGGERLEVEL1);
+                            break;
+
+                        }
+                        catch (System.Runtime.InteropServices.COMException ComExp)
+                        {
+                            objlogger.LogInfo("ClearQuest:LoadEntityByDbId Inside CatchBlock==" + intCount.ToString(), GlobalConstants.LOGGERLEVEL1);
+                           // objlogger.LogInfo("introduce waittime"); //19/3/2012
+                            //commented for delay reduction
+                            //TimeSpan tmspan = new TimeSpan(0, 0, 10);
+                            TimeSpan tmspan = new TimeSpan(0, 0, 5);
+                            Thread.Sleep(tmspan);
+                            objlogger.LogInfo("after waittime", GlobalConstants.LOGGERLEVEL1);
+                            if (intCount > 3)
+                            {
+                                objlogger.LogInfo("ClearQuest::LoadEntityByDbId Failed", GlobalConstants.LOGGERLEVEL1);
+
+                                throw ComExp; 
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    throw new SystemException("DBID is empty to lock the record");
+                }
+
+               
+            }
+            if (bLock)
+            {
+                objlogger.LogInfo("calling EditEntity", GlobalConstants.LOGGERLEVEL1);
+                l_oTiemout.StartMeasuringTimeOut();
+
+                for (int intCount = 1; intCount <= 4; intCount++)
+                {
+                    try
+                    {
+                        roSession.EditEntity(l_oEntity, "Modify");
+                        break;                          
+                    }
+                    catch (System.Runtime.InteropServices.COMException ComExp)
+                    {
+                        objlogger.LogInfo("ClearQuest:EditEntity Inside CatchBlock==" + intCount.ToString(), GlobalConstants.LOGGERLEVEL1);
+                        TimeSpan tmspan = new TimeSpan(0, 0, 5);
+                        Thread.Sleep(tmspan);
+                        objlogger.LogInfo("after waittime", GlobalConstants.LOGGERLEVEL1);
+                        if (intCount > 3)
+                        {
+                            objlogger.LogInfo("ClearQuest::EditEntity Failed", GlobalConstants.LOGGERLEVEL1);
+                            throw new LockRecordException();
+                        }                       
+                    }
+                }
+           
+                l_oTiemout.CancelTimeOut();
+                objlogger.LogInfo("end of  EditEntity", GlobalConstants.LOGGERLEVEL1);
+            }
+
+            return l_oEntity;
+        }
+
+        public override IQueryResult Insert(QueryParameters p_oQueryParameters)
+        {
+            try
+            {
+                if (!LoggedIn) LoginToRequestOne();
+
+                string sEntity = p_oQueryParameters[GlobalConstants.ENTITY];
+
+                IOAdEntity l_oEntity = roSession.BuildEntity(sEntity);
+
+                foreach (var oParam in p_oQueryParameters.GetRaw())
+                {
+
+                    if (ValidField(oParam.Key, l_oEntity))
+                    {
+                        //   Utilities.objLogger.LogInfo("GetFieldRequiredness for - " + oParam.Key);
+                        //   int r = l_oEntity.GetFieldRequiredness(oParam.Key);
+                        //  Utilities.objLogger.LogInfo("retrun value for Requiredness - " + r.ToString());
+                        //  if (r == 3) throw new Exception("The following field is readonly and cannot be updated -" +
+                        //             oParam.Key);
+
+                        // l_oEntity.SetFieldRequirednessForCurrentAction(oParam.Key, 2);
+
+                        switch (l_oEntity.GetFieldType(oParam.Key))
+                        {
+                            case 5:
+                                {
+                                    l_oEntity.AddFieldValue(oParam.Key, oParam.Value);
+                                    break;
+
+                                }
+                            case 7:
+                                {
+                                    UpdateAttachment(oParam.Key, l_oEntity, p_oQueryParameters);
+                                    break;
+                                }
+                            default:
+                                {
+                                    //object sObject = FormatFieldValue(oParam.Key, oParam.Value);
+
+                                    object sObject = oParam.Value;
+
+                                    objlogger.LogInfo("out of formatFiledvalue method");
+                                    if (sObject != null)
+                                    {
+                                        objlogger.LogInfo("format field value is not null and next method is fieldRequiredness");
+                                        int r = l_oEntity.GetFieldRequiredness(oParam.Key);
+                                        objlogger.LogInfo("out of fieldRequiredness method and r=" + r.ToString());
+                                        if (r == 3)
+                                        {
+                                            objlogger.LogInfo("FieldRequiredness for - " + oParam.Key + " is readonly hence will be ignored", GlobalConstants.LOGGERLEVEL1);
+                                        }
+                                        l_oEntity.SetFieldValue(oParam.Key, sObject);
+                                        objlogger.LogInfo("After setting the field value");
+                                    }
+                                    break;
+                                }
+                        }
+
+                    }
+                }
+
+                
+                l_oTiemout.StartMeasuringTimeOut();
+                objlogger.LogInfo("RQ1 validate InTime: " + DateTime.Now.ToString());
+                string sError = l_oEntity.Validate();
+                objlogger.LogInfo("RQ1 validate outTime: " + DateTime.Now.ToString());
+                l_oTiemout.CancelTimeOut();
+                objlogger.LogInfo(DateTime.Now.ToString());
+
+
+                if (sError != null && sError.Length != 0) throw new Exception(sError);
+
+               
+                l_oTiemout.StartMeasuringTimeOut();
+                objlogger.LogInfo("RQ1 Commit InTime: " + DateTime.Now.ToString());
+                sError = l_oEntity.Commit();
+                objlogger.LogInfo("RQ1 commit outTime: " + DateTime.Now.ToString());
+                l_oTiemout.CancelTimeOut();
+                if (sError != null && sError.Length != 0) throw new Exception(sError);
+
+                CQAPI_QueryResult l_oResult = new CQAPI_QueryResult();
+                objlogger.LogInfo("RQ1 reload and setraw InTime: " + DateTime.Now.ToString());
+                l_oEntity.Reload();
+                l_oResult.SetRaw(l_oEntity);
+                objlogger.LogInfo("RQ1 reload and setraw outTime: " + DateTime.Now.ToString());
+
+                l_oResult.QuerySuccess = true;
+                AttachmentCleanup(p_oQueryParameters);
+                return l_oResult;
+            }
+            catch (Exception e)
+            {
+                objlogger.LogInfo("Error duing buildentity " + e.Message, GlobalConstants.LOGGERLEVEL1);
+                throw;
+            }
+
+           // return null;
+        }
+
+        public override IQueryResult Update(QueryParameters p_oQueryParamaters)
+        {
+            try
+            {
+                if (!LoggedIn) LoginToRequestOne();
+                string sDBID = string.Empty;
+                string sID = string.Empty;
+                IOAdEntity l_oEntity = null;
+
+                //objlogger.LogInfo("Getting entity object from collection");
+                l_oEntity = p_oQueryParamaters.GetRawComplex()[GlobalConstants.ENTITYOBJECT] as IOAdEntity;
+
+                if (l_oEntity != null) objlogger.LogInfo("Succeddfully got the entity object", GlobalConstants.LOGGERLEVEL1);
+
+                
+
+                if (!l_oEntity.IsEditable())
+                {
+                    objlogger.LogInfo("Entity is not editable right now", GlobalConstants.LOGGERLEVEL1);
+                    l_oTiemout.StartMeasuringTimeOut();
+                    roSession.EditEntity(l_oEntity, "Modify");
+                    l_oTiemout.CancelTimeOut();
+                    objlogger.LogInfo("Entity Locked again", GlobalConstants.LOGGERLEVEL1);
+                }
+
+                foreach (var oParam in p_oQueryParamaters.GetRaw())
+                {
+                    if (ValidField(oParam.Key, l_oEntity))
+                    {
+                        //   Utilities.objLogger.LogInfo("GetFieldRequiredness for - " + oParam.Key);
+                        //   int r =l_oEntity.GetFieldRequiredness(oParam.Key);
+                        //   Utilities.objLogger.LogInfo("retrun value for Requiredness - " + r.ToString());
+                        //   if (r == 3) throw new Exception("The following field is readonly and cannot be updated - " +
+                        //                oParam.Key);
+                        // l_oEntity.SetFieldRequirednessForCurrentAction(oParam.Key, 2);
+
+                        int i = l_oEntity.GetFieldType(oParam.Key);
+                       //objlogger.LogInfo("insie update - GetFieldType key=" + oParam.Key + "val=" + i.ToString());
+                        //if (i == 5 || i == 8 || i == 11)
+                        //{
+                        //    string sname = l_oEntity.GetEntityDefName();
+                        //}
+
+                        #region UpdateSelection
+                        switch (i)
+                        {
+                            case 7:
+                                {
+                                    UpdateAttachment(oParam.Key, l_oEntity, p_oQueryParamaters);
+                                    break;
+                                }
+                            default:
+                                {
+                                    string sDelimiter = " ";
+                                    //if (i != 5 && i != 7 && i != 8 && i != 11) //7=Attachments,5=References, 8=ID and 11=DBID no update
+                                    if (i != 7 && i != 8 && i != 11) //REUBK 1412 - Update of refernces reqd 
+                                    {
+                                        object sObject = FormatFieldValue(oParam.Key, oParam.Value);
+
+                                        objlogger.LogInfo("out of formatFiledvalue method");
+
+                                        if (sObject != null)
+                                        {
+                                            objlogger.LogInfo("format field value is not null and next method is fieldRequiredness");
+
+                                            int r = l_oEntity.GetFieldRequiredness(oParam.Key);
+                                            //objlogger.LogInfo("insie update - FieldRequiredness key=" + oParam.Key + "val=" + oParam.Value + "r=" + r.ToString());
+                                            objlogger.LogInfo("out of fieldRequiredness method and r=" + r.ToString() );
+                                            if (r == 3)
+                                            {
+                                                objlogger.LogInfo("insie update - FieldRequiredness for - " + oParam.Key + " is readonly hence will be ignored", GlobalConstants.LOGGERLEVEL1);
+                                            }
+
+                                            if (p_oQueryParamaters.IsAppendField(oParam.Key))
+                                            {
+                                                string sValueCurrent = l_oEntity.GetFieldStringValue(oParam.Key);
+                                                if (sValueCurrent != null)
+                                                {
+                                                    
+                                                    sValueCurrent.Trim(sDelimiter.ToArray());
+                                                }
+                                                string sNewValue = sObject +
+                                                    System.Environment.NewLine +
+                                                    System.Environment.NewLine + sValueCurrent;
+                                                objlogger.LogInfo("Before setting the field value");
+                                                sNewValue = sNewValue.Replace("&amp;", "&"); //& has been handeled after format method
+                                                l_oEntity.SetFieldValue(oParam.Key, sNewValue);
+                                                objlogger.LogInfo("After setting the field value");
+                                            }
+                                            else if (p_oQueryParamaters.IsMergeField(oParam.Key))
+                                            {
+                                                objlogger.LogInfo("Merge Field" + oParam.Key, GlobalConstants.LOGGERLEVEL1);
+                                                objlogger.LogInfo("get the field value");
+                                                string sValueCurrent = l_oEntity.GetFieldStringValue(oParam.Key);
+                                                //string severity_value = l_oEntity.GetFieldStringValue("Severity");
+                                                //foreach (IOAdFieldInfo oField in l_oEntity.GetAllFieldValues())
+                                                //{
+                                                //    try
+                                                //    {
+                                                //        //added for delay reduction
+                                                //        string sFieldName = oField.GetName().ToUpper();
+                                                //        if (sFieldName == "SEVERITY")
+                                                //        {
+                                                //            string sdield = oField.GetName();
+                                                //            string valsd = oField.GetValue();
+                                                //        }
+                                                //    }
+                                                //    catch(Exception ex)
+                                                //    {
+
+                                                //    }
+                                                //}
+
+                                                        //Handles only DAIMLER's SWRQ - Merging Issue's Description field values
+                                                        if (oParam.Key == "DESCRIPTION")
+                                                {
+                                                    try
+                                                    {
+                                                        int startDescriptionTagPosition = sValueCurrent.IndexOf("<OEM-DESCRIPTION");
+                                                        int endDescriptionTagPosition = sValueCurrent.IndexOf("</OEM-DESCRIPTION>");
+                                                        if (startDescriptionTagPosition != -1 && endDescriptionTagPosition != -1)
+                                                        {
+                                                            objlogger.LogInfo("OEM-DESCRIPTION tag found", GlobalConstants.LOGGERLEVEL1);
+                                                            //18 - Length of "</OEM-DESCRIPTION>" string.
+                                                            string descTagContent = sValueCurrent.Substring(startDescriptionTagPosition,
+                                                                endDescriptionTagPosition - startDescriptionTagPosition + 18);
+                                                            //Replace the tag area and contents with new values
+                                                            string newValue = sValueCurrent.Replace(descTagContent, sObject.ToString());
+                                                            objlogger.LogInfo("Before setting the field value");
+                                                            newValue = newValue.Replace("&amp;", "&"); //& has been handeled after format method
+                                                            l_oEntity.SetFieldValue(oParam.Key, newValue);
+                                                            objlogger.LogInfo("After setting the field value");
+                                                        }
+                                                        else
+                                                        {
+                                                            objlogger.LogInfo("OEM-DESCRIPTION tag not found,replacing the desc field with new values", GlobalConstants.LOGGERLEVEL1);
+                                                            //Replace the whole description field value with new value.
+                                                            objlogger.LogInfo("Before setting the field value");
+                                                            l_oEntity.SetFieldValue(oParam.Key, sObject.ToString().Replace("&amp;", "&"));
+                                                            objlogger.LogInfo("After setting the field value");
+                                                        }
+                                                    }
+                                                    catch(Exception ex)
+                                                    {
+                                                        objlogger.LogException("Exception while merging description field values");
+                                                        objlogger.LogException(ex);
+                                                        throw;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (sValueCurrent != null) sValueCurrent = sValueCurrent.Trim(sDelimiter.ToArray());
+                                                    // objlogger.LogInfo("Current Value " + sValueCurrent);
+                                                    //if(oParam.Key == "TAGS")
+                                                    //{
+                                                        
+                                                    //    if (severity_value == "Medium")
+                                                    //    {
+                                                    //        if(sValueCurrent.Contains("<Severity_ChangeComment></Severity_ChangeComment>"))
+                                                    //        {
+                                                    //            //Removing Unnecessary Severity Tag from Issue Tags section
+                                                    //            string pattern = "<Severity_ChangeComment>.*?</Severity_ChangeComment>";
+                                                    //            sValueCurrent = Regex.Replace(sValueCurrent, pattern, "");
+                                                    //        }
+                                                            
+                                                    //    }
+                                                    //}
+                                                    string sNewValue = MergeContents(sValueCurrent, sObject.ToString());
+                                                    // objlogger.LogInfo("New Value " + sNewValue);
+                                                    objlogger.LogInfo("Before setting the field value");
+                                                    if (sNewValue != null) l_oEntity.SetFieldValue(oParam.Key, sNewValue);
+                                                    objlogger.LogInfo("After setting the field value");
+                                                }
+                                            }
+                                            //REUBK-1881
+                                            //else if ((p_oQueryParamaters.IsIgnoreField(oParam.Key)) || (p_oQueryParamaters.IsInitField(oParam.Key)))
+                                            //{
+                                            //    Utilities.objLogger.LogInfo("Ignore/Init" + oParam.Key);
+                                            //    // do not consider for updation if action type is ignore or init
+                                            //}
+                                            else
+                                            {
+                                                objlogger.LogInfo("Before setting the field value");
+                                                sObject = oParam.Value;
+                                                l_oEntity.SetFieldValue(oParam.Key, sObject);
+                                                objlogger.LogInfo("After setting the field value");
+                                            }
+
+                                        }
+                                    }
+                                    break;
+                                }
+                        }
+                        #endregion
+
+                    }
+                }
+
+                l_oTiemout.StartMeasuringTimeOut();
+                objlogger.LogInfo("RQ1 Commit InTime: " + DateTime.Now.ToString());
+                string sError = l_oEntity.Validate();
+                objlogger.LogInfo("RQ1 Commit OutTime: " + DateTime.Now.ToString());
+                l_oTiemout.CancelTimeOut();
+                if (sError != null && sError.Length != 0) throw new Exception(sError);
+
+                l_oTiemout.StartMeasuringTimeOut();
+                objlogger.LogInfo("RQ1 Commit InTime: " + DateTime.Now.ToString());
+                sError = l_oEntity.Commit();
+                objlogger.LogInfo("RQ1 Commit OutTime: " + DateTime.Now.ToString());
+                l_oTiemout.CancelTimeOut();
+
+                if (sError != null && sError.Length != 0) throw new Exception(sError);
+
+                CQAPI_QueryResult l_oResult = new CQAPI_QueryResult();
+                objlogger.LogInfo("RQ1 reload and setraw inTime: " + DateTime.Now.ToString());
+                l_oEntity.Reload();
+                l_oResult.SetRaw(l_oEntity);
+                objlogger.LogInfo("RQ1 reload and setraw outTime: " + DateTime.Now.ToString());
+
+                l_oResult.QuerySuccess = true;
+
+                AttachmentCleanup(p_oQueryParamaters);
+                return l_oResult;
+            }
+            catch (Exception e)
+            {
+                objlogger.LogException(e);
+                throw;
+            }
+        }
+
+        private string MergeContents(string sCurrentValue, string sProposedValue)
+        {
+            if (sCurrentValue == null) sCurrentValue = string.Empty;
+            if (sProposedValue == null) sProposedValue = string.Empty;
+            objlogger.LogInfo("Starting Merge Current=" + sCurrentValue
+                + System.Environment.NewLine + System.Environment.NewLine + " Proposed value =" + sProposedValue, GlobalConstants.LOGGERLEVEL1);
+
+            string sReturnValue = null;
+            try
+            {
+                sCurrentValue = Regex.Replace(sCurrentValue, @"<DATE(.*?)</>", "");
+                sProposedValue = Regex.Replace(sProposedValue, @"<DATE(.*?)</>", "");
+
+                objlogger.LogInfo("After Formatting Current=" + sCurrentValue
+                + System.Environment.NewLine + System.Environment.NewLine + " Proposed value =" + sProposedValue, GlobalConstants.LOGGERLEVEL1);
+
+                StringBuilder l_oBuilderCurrent = new StringBuilder();
+                l_oBuilderCurrent.Append("<Root>");
+                l_oBuilderCurrent.Append(sCurrentValue);
+                l_oBuilderCurrent.Append("</Root>");
+
+                StringBuilder l_oBuilderProposed = new StringBuilder();
+                l_oBuilderProposed.Append("<Root>");
+                l_oBuilderProposed.Append(sProposedValue);
+                l_oBuilderProposed.Append("</Root>");
+
+                objlogger.LogInfo("After Adding Root Current=" + l_oBuilderCurrent.ToString()
+                + System.Environment.NewLine + System.Environment.NewLine + " Proposed value =" + l_oBuilderProposed.ToString(), GlobalConstants.LOGGERLEVEL1);
+
+                sCurrentValue = l_oBuilderCurrent.ToString().Replace((char)0xA0, ' ');
+                string pattern = @"&(?!amp;)";
+
+                if (Regex.IsMatch(sCurrentValue, pattern))
+                {
+                    sCurrentValue = sCurrentValue.Replace("&","&amp;"); //& has been handeled after format method
+                }
+
+                XDocument doc1;
+                using (TextReader tr1 = new StringReader(sCurrentValue))
+                {
+                    doc1 = XDocument.Load(tr1);
+                }
+
+                objlogger.LogInfo("Loaded Current", GlobalConstants.LOGGERLEVEL1);
+
+                sProposedValue = l_oBuilderProposed.ToString();
+
+                XDocument doc2;
+                using (TextReader tr2 = new StringReader(sProposedValue))
+                {
+                    doc2 = XDocument.Load(tr2);
+                }
+
+                objlogger.LogInfo("Loaded Proposed", GlobalConstants.LOGGERLEVEL1);
+
+                foreach (XElement oIMFElement in doc2.Root.Elements())
+                {
+                    objlogger.LogInfo("Processing " + oIMFElement.Name, GlobalConstants.LOGGERLEVEL1);
+
+                    XElement oROElement = null;
+
+                    try
+                    {
+                        oROElement = doc1.Root.Elements().Where(n => n.Name == oIMFElement.Name).Single();
+                        objlogger.LogInfo("RO Element Found ", GlobalConstants.LOGGERLEVEL1);
+                    }
+                    catch { }
+
+                    if (oROElement != null)
+                    {
+                        objlogger.LogInfo("Element Replaced", GlobalConstants.LOGGERLEVEL1);
+                        XNode oNextNode = oROElement.NextNode;
+                        oROElement.Remove();
+
+                        if (oNextNode != null)
+                        {
+                            oNextNode.AddBeforeSelf(oIMFElement);
+                        }
+                        else
+                        {
+                            doc1.Root.Add(oIMFElement);
+                        }
+                    }
+                    else if (oROElement == null)
+                    {
+                        objlogger.LogInfo("Node Added " + oIMFElement.Name, GlobalConstants.LOGGERLEVEL1);
+                        doc1.Root.Add(oIMFElement);
+                    }
+                }
+
+                StringBuilder sbReturnValue = new StringBuilder();
+                foreach (XElement oElement in doc1.Root.Elements())
+                {
+                    sbReturnValue.Append(oElement.ToString());
+                    sbReturnValue.Append(System.Environment.NewLine);
+                }
+                sReturnValue = sbReturnValue.ToString();
+
+                sReturnValue = sReturnValue.Replace("&amp;", "&"); //& has been handeled after format method
+
+            }
+            catch (Exception e)
+            {
+                objlogger.LogException("Exception in merging data" + e.Message);
+                //REUBK-1868:
+                //remove ',' from exp msg to avoild line breaks in log field:
+                //replace xtra spaces linefeeds and blank ''
+                //string serrormsg = Regex.Replace(e.Message, @"['|,]", @"");
+                string serrormsg = Regex.Replace(e.Message, @"['|]", @""); //REUBK-1388 comma included in exp msg
+                throw new Exception("Exception in merging data for Issue Release Map - External Tags field " + serrormsg);
+            }
+
+            objlogger.LogInfo("Return value after Merge" + sReturnValue, GlobalConstants.LOGGERLEVEL1);
+            return sReturnValue;
+        }
+
+        private void AttachmentCleanup(QueryParameters oQueryParamenters)
+        {
+            try
+            {
+
+                if (oQueryParamenters.GetRawComplex().ContainsKey("ATTACHMENTS"))
+                {
+                    //    List<ROAttachment> l_oROAttachments = oQueryParamenters.GetRawComplex()["ATTACHMENTS"] as List<ROAttachment>;
+
+                    //    foreach (ROAttachment l_oROAttachment in l_oROAttachments)
+                    //    {
+                    //        //if (l_oROAttachment.NAME.Contains('~'))
+                    //        //{
+                    //        //    File.Delete(l_oROAttachment.NAME);
+
+                    //        //}
+
+                    //        //REUBK-1859:
+                    //        //delete att with ~ after insert/update from transferred files folder
+                    //        if (l_oROAttachment.NAME.Contains('~'))
+                    //        {
+                    //            objlogger.LogInfo("deleting attachment" + l_oROAttachment.NAME);
+                    //            objlogger.LogInfo("path to del" + l_oROAttachment.FULLPATH);
+                    //            File.Delete(l_oROAttachment.FULLPATH);
+                    //            // Directory.Delete(l_oROAttachment.DUMMYPATH, true);
+                    //            objlogger.LogInfo("deletion completed");
+                    //        }
+                    //    }
+                    objlogger.LogInfo("inside AttachmentCleanup", GlobalConstants.LOGGERLEVEL1);
+                    foreach (string dPathName in filesToDelete)
+                    {
+                        objlogger.LogInfo("deleting attachment" + dPathName, GlobalConstants.LOGGERLEVEL1);
+                        System.IO.File.Delete(dPathName);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                objlogger.LogInfo("Error during attachment cleanup", GlobalConstants.LOGGERLEVEL1);
+                objlogger.LogException(e);
+            }
+        }
+
+        public override IQueryResult Delete(QueryParameters p_oQueryParameters)
+        {
+            if (!LoggedIn) LoginToRequestOne();
+
+            throw new NotImplementedException();
+        }
+
+        private object FormatFieldValue(string sFieldName, object oValue)
+        {
+            try
+            {                
+                // contains("DATE") changed to fieldname - as DATA appears in other fields e.g EXTERNALUPDATEVERSION
+                if (sFieldName.ToUpper().Contains("EXTERNALLASTIMPORTEDDATEE"))  
+                {
+                    if (oValue != null && oValue.ToString() != string.Empty)
+                    {
+                        return DateTime.Parse(oValue.ToString());
+                    }
+                }
+                string sDelimiter = " ";
+                if (oValue != null)
+                {
+                    oValue = oValue.ToString().Trim(sDelimiter.ToArray());
+                    oValue = HTMLEncode(Convert.ToString(oValue)); //REUBK-1600   //commenting this line for Task 809479 [1753]         
+                    return oValue;
+                }
+            }
+            catch{}
+
+            return null;
+        }
+
+        private object HTMLEncode(string sInput) //REUBK-1600
+        {
+            string strConfigFilePath = string.Empty;
+            List<string> lstHTMlChars = new List<string>();
+
+            try
+            {
+                objlogger.LogInfo("inside  HTMLEncode" + sInput, GlobalConstants.LOGGERLEVEL1);
+                foreach (string strSymbol in l_oHTMLcharacters)
+                {
+                    string pattern = @"&(?!amp;)";
+
+                    if (Regex.IsMatch(sInput, pattern))
+                    {
+                        objlogger.LogInfo("html spl char found - to be replaced", GlobalConstants.LOGGERLEVEL2);
+                        char[] charArray = HttpUtility.HtmlEncode(strSymbol).ToCharArray();
+                        StringBuilder encodedValue = new StringBuilder();
+                        foreach (char c in charArray)
+                        {
+                            if ((int)c > 127) // above normal ASCII   
+                            {
+                                encodedValue.Append("&#" + (int)c + ";");
+                            }
+                            else
+                            {
+                                encodedValue.Append(c);
+                            }
+                        }
+                        objlogger.LogInfo("Replace  html spl char found", GlobalConstants.LOGGERLEVEL2);
+                        sInput = sInput.Replace(strSymbol, encodedValue.ToString());
+                    }
+                }
+
+
+
+                //load char mapping file
+                //strConfigFilePath = Utilities.LoadItemFromBizTalkAppConfig(sExchangeFormat + GlobalConstants.INTERFACE_CONFIG_PATTERN);
+                //ROConfigurationManager rConfigMgr = new ROConfigurationManager(strConfigFilePath, objlogger);
+                //XDocument l_oConfig = rConfigMgr.LoadConfigurationXML(sExchangeFormat);
+                //if (l_oConfig == null)
+                //{
+                //    //exception handling
+                //    objlogger.LogInfo("HTMLEncode: Error Interface config file not loaded / not found for char mapping");
+                //}
+                //else
+                //{
+                //    string strCharMappingFilePath = rConfigMgr.ConfigurationXML.Root.XPathSelectElement(ConfigurationFileTags.CHARMAPPING_FILE_XPATH).Value.ToString();
+                //    objlogger.LogInfo("HTMLEncode: strCharMappingFilePath: " + strCharMappingFilePath);
+
+                //    string strUseMappingTable = rConfigMgr.ConfigurationXML.Root.XPathSelectElement(ConfigurationFileTags.CHARMAPPING_FILE_XPATH)
+                //                                          .Attribute(ConfigurationFileTags.CHARACTERMAPPING_USAGE_ATTRIBUTE).Value;
+
+                //    //if strUseMappingTable = 1, then proceed with the validation of the IMF
+                //    //if strUseMappingTable <> 1, then skip validation and return true always
+
+                //    objlogger.LogInfo("HTMLEncode: Check for ValidationWarning strUseIMFFile: " + strUseMappingTable);
+                //    if (strUseMappingTable == "1")
+                //    {
+                //        objlogger.LogInfo("HTMLEncode: call LoadXMLDocument");
+                //        CharMappingXMLFile = Utilities.LoadXMLDocument(strCharMappingFilePath);
+                //        objlogger.LogInfo("HTMLEncode: aftr LoadXMLDocument");
+
+                //        if (CharMappingXMLFile != null)
+                //        {
+
+                //            objlogger.LogInfo("HTMLEncode: load lstHTMlChars");
+                //            lstHTMlChars = CharMappingXMLFile.Root.Elements(ConfigurationFileTags.CHARACTERMAPPING_MAPPING).Select(n => n.Element(ConfigurationFileTags.CHARACTERMAPPING_NCRCODE).Value).ToList<string>();
+                //            objlogger.LogInfo("HTMLEncode: after load lstHTMlChars");
+                //            foreach (string sChar in lstHTMlChars)
+                //            {
+                //                objlogger.LogInfo("inside list" + sChar);
+                //                if (sInput.Contains(sChar))
+                //                {
+                //                    bMappingReqd = true;
+                //                    break;
+                //                }
+                //            }
+                //            if (bMappingReqd)
+                //            {
+                //                objlogger.LogInfo("HTMLEncode: CHAR MAPPING TABLE REQD - sInput before charmapping=" + sInput);
+                //                IEnumerable<XElement> xMappings = CharMappingXMLFile.Root.Elements(ConfigurationFileTags.CHARACTERMAPPING_MAPPING);
+                //                foreach (XElement xMapping in xMappings)
+                //                {
+                //                    if (sInput.Contains(xMapping.Element(ConfigurationFileTags.CHARACTERMAPPING_NCRCODE).Value))
+                //                    {
+                //                        sInput = sInput.Replace(xMapping.Element(ConfigurationFileTags.CHARACTERMAPPING_NCRCODE).Value, xMapping.Element(ConfigurationFileTags.CHARACTERMAPPING_ISOCHAR).Value);
+                //                    }
+                //                }
+                //                objlogger.LogInfo("HTMLEncode: sInput after charmapping=" + sInput);
+                //            }
+
+                //        }
+                //    }
+                //    else
+                //    {
+                //        objlogger.LogInfo("HTMLEncode: CharacterMapping set to No --- No mapping table involved: " + strUseMappingTable);
+                //    }
+
+                //}
+                objlogger.LogInfo("end- HTMLEncode", GlobalConstants.LOGGERLEVEL1);
+            }
+            catch (Exception e)
+            {
+                objlogger.LogInfo("Error during HTMLEncode " + e.Message, GlobalConstants.LOGGERLEVEL1);
+            }
+            return (object)sInput;
+        }
+
+     
+        private void UpdateAttachment(string sFieldName, IOAdEntity l_oEntity, QueryParameters oQueryParamenters)
+        {
+            try
+            {
+                objlogger.LogInfo("Updting attachments starts", GlobalConstants.LOGGERLEVEL1);
+
+                IOAdAttachmentFields l_oAttachmentsFields = l_oEntity.AttachmentFields;
+                IOAdAttachmentField l_oAttachmentField = null;
+
+                string sissueid = l_oEntity.GetFieldStringValue(IMFFileTags.ID);
+                //objlogger.LogInfo("sissueid=" + sissueid);
+               
+
+                for (int i = 0; i < l_oAttachmentsFields.Count; i++)
+                {
+                    IOAdAttachmentField l_oAttac = l_oAttachmentsFields.item(i);
+
+                    if (l_oAttac.fieldname.ToUpper() == sFieldName)
+                    {
+                        l_oAttachmentField = l_oAttac;
+                        break;
+                    }
+                }
+
+                if (l_oAttachmentField == null) return;
+
+                //objlogger.LogInfo("Got the attachment field");
+
+                IOAdAttachments l_oAttachments = l_oAttachmentField.Attachments;
+
+                List<ExecROAttachment> l_oROAttachmentsAll = oQueryParamenters.GetRawComplex()[sFieldName.ToUpper()] as List<ExecROAttachment>;
+
+
+
+                List<ExecROAttachment> l_oAttachmentsForDescChange = l_oROAttachmentsAll.Where(n => n.DESCCHANGEONLY == true).ToList<ExecROAttachment>();
+                List<ExecROAttachment> l_oROAttachments = l_oROAttachmentsAll.Where(n => n.DESCCHANGEONLY == false).ToList<ExecROAttachment>();
+
+                objlogger.LogInfo("count - att for desc change =" + l_oAttachmentsForDescChange.Count, GlobalConstants.LOGGERLEVEL1);
+                objlogger.LogInfo("count - l_oROAttachments =" + l_oROAttachments.Count, GlobalConstants.LOGGERLEVEL1);
+                objlogger.LogInfo("count - l_oAttachments =" + l_oAttachments.Count.ToString(), GlobalConstants.LOGGERLEVEL1);
+
+
+                foreach (ExecROAttachment l_oROAttachment in l_oAttachmentsForDescChange)
+                {                    
+
+                    for (int iAttCount = 0; iAttCount < l_oAttachments.Count; iAttCount++)
+                    {                        
+                        IOAdAttachment att = l_oAttachments.item(iAttCount);                      
+
+                        if (att.filename == l_oROAttachment.NAME && att.FileSize.ToString() == l_oROAttachment.FILESIZE)
+                        {
+                            objlogger.LogInfo("change desc for ===> name=" + att.filename + "size=" + att.FileSize.ToString(), GlobalConstants.LOGGERLEVEL1);
+                            att.Description = l_oROAttachment.DESCRIPTION;
+                        }
+                    }
+                }
+
+                foreach (ExecROAttachment l_oROAttachment in l_oROAttachments)
+                {
+                    string strname = l_oROAttachment.FULLNAME;
+                    string strnewname = l_oROAttachment.NAME;
+                    objlogger.LogInfo("Processing attachment name= " + strname + "-fulname= " + strname, GlobalConstants.LOGGERLEVEL1);
+                    //objlogger.LogInfo("Processing attachment fulname= " + strname);
+                   // objlogger.LogInfo("sAttachmentpath= " + sAttachmentpath);
+
+                    if (!(File.Exists(string.Concat(sAttachmentpath, @"\", strnewname)))) //REUBK-2121
+                    {
+                        objlogger.LogInfo("trunc file not ther - copy", GlobalConstants.LOGGERLEVEL1);
+                        File.Copy(string.Concat(sAttachmentpath, @"\", strname), string.Concat(sAttachmentpath, @"\", strnewname));
+                        filesToDelete.Add(string.Concat(sAttachmentpath, @"\", strnewname));
+                    }
+
+                    //l_oROAttachment.FULLPATH = sAttachmentpath + "\\" + strnewname;
+                    l_oROAttachment.FULLPATH = sAttachmentpath + strnewname;
+
+                    objlogger.LogInfo("Adding attachment final-->" + l_oROAttachment.FULLPATH, GlobalConstants.LOGGERLEVEL1);
+                    l_oAttachments.Add(l_oROAttachment.FULLPATH, l_oROAttachment.DESCRIPTION);
+                }
+                
+            }
+            catch (Exception e)
+            {
+                objlogger.LogInfo("Error duing Attachments " + e.Message, GlobalConstants.LOGGERLEVEL1);
+            }
+
+        }
+
+        private void LoadTruncCountList(IOAdAttachments p_oAttachments)
+        {
+            string[] arrnames = new string[2];
+
+            string filebody, fileExtender;
+            int ivalue = 0;
+
+            try
+            {
+                objlogger.LogInfo("inside LoadTruncCountList: num of att in ro " + p_oAttachments.Count.ToString(), GlobalConstants.LOGGERLEVEL1);
+                for (int i = 0; i < p_oAttachments.Count; i++)
+                {
+                    IOAdAttachment l_oAttachment = p_oAttachments.item(i);
+                    objlogger.LogInfo("From RO File Name = " + l_oAttachment.filename, GlobalConstants.LOGGERLEVEL1);
+                    //if (l_oAttachment.filename.Contains('~') && l_oAttachment.filename.Length >= 50)
+                    if (l_oAttachment.filename.Contains('~') && l_oAttachment.filename.Length >= GlobalConstants.MAX_ATTNAMELENGTH)
+                    {
+                        objlogger.LogInfo("inside ~ att", GlobalConstants.LOGGERLEVEL2);
+                        filebody = System.Text.RegularExpressions.Regex.Replace(l_oAttachment.filename, "(.+)\\.\\w*?$", "$1");
+                        fileExtender = System.Text.RegularExpressions.Regex.Replace(l_oAttachment.filename, ".+(\\.\\w*?)$", "$1");
+
+                        arrnames = filebody.Split('~');
+                        objlogger.LogInfo("arrnames-" + arrnames[0] + ":" + arrnames[1], GlobalConstants.LOGGERLEVEL2);
+                        //take out only inetger value in arrnames[1]                     
+                        bool canConvert = int.TryParse(arrnames[1], out ivalue); //check string after ~ is an integer
+
+                        if (canConvert == true)
+                        {
+                            objlogger.LogInfo("arrnames[1 is a valid int=add to truncids", GlobalConstants.LOGGERLEVEL2);
+                            l_oTruncIds.Add(ivalue);
+                        }
+                        else
+                        {
+                            objlogger.LogInfo("arrnames[1 is not a valid int", GlobalConstants.LOGGERLEVEL2);
+                        }
+                    }
+                }
+
+                objlogger.LogInfo("truncids list count" + l_oTruncIds.Count.ToString(), GlobalConstants.LOGGERLEVEL1);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
+        private int GetNextAvailableTruncCount()
+        {
+            objlogger.LogInfo("inside GetNextAvaialbleTruncCount:" + l_oTruncIds.Count.ToString(), GlobalConstants.LOGGERLEVEL1);
+            int iavailablecount = 1;
+            //objlogger.LogInfo("l_oTruncIds Count" + l_oTruncIds.Count.ToString());
+            if (l_oTruncIds.Count > 0)
+            {
+                iavailablecount = Enumerable.Range(1, Int32.MaxValue).Except(l_oTruncIds).First();
+            }
+            objlogger.LogInfo("inside GetNextAvaialbleTruncCount-ret value=" + iavailablecount.ToString(), GlobalConstants.LOGGERLEVEL1);
+            return iavailablecount;
+        }
+        private int GetMaxAttTruncCount(IOAdAttachments p_oAttachments)
+        {
+            int icount = 0;
+            string[] arrnames = new string[2];
+            List<int> truncids = new List<int>();
+            string filebody, fileExtender;
+            int ivalue = 0;
+
+            try
+            {
+                objlogger.LogInfo("inside GetMaxAttTruncCount: num of att in ro " + p_oAttachments.Count.ToString(), GlobalConstants.LOGGERLEVEL1);
+                //objlogger.LogInfo("num of att in ro " + p_oAttachments.Count.ToString());
+                for (int i = 0; i < p_oAttachments.Count; i++)
+                {
+                    IOAdAttachment l_oAttachment = p_oAttachments.item(i);
+                    objlogger.LogInfo("From RO File Name = " + l_oAttachment.filename, GlobalConstants.LOGGERLEVEL1);
+                   // if (l_oAttachment.filename.Contains('~') && l_oAttachment.filename.Length >= 50)
+                    if (l_oAttachment.filename.Contains('~') && l_oAttachment.filename.Length >= GlobalConstants.MAX_ATTNAMELENGTH)
+                    {
+                        objlogger.LogInfo("inside ~ att", GlobalConstants.LOGGERLEVEL2);
+                        filebody = System.Text.RegularExpressions.Regex.Replace(l_oAttachment.filename, "(.+)\\.\\w*?$", "$1");
+                        fileExtender = System.Text.RegularExpressions.Regex.Replace(l_oAttachment.filename, ".+(\\.\\w*?)$", "$1");
+
+
+                        arrnames = filebody.Split('~');
+                        objlogger.LogInfo("arrnames" + arrnames[0] + ":" + arrnames[1], GlobalConstants.LOGGERLEVEL2);
+                        //take out only inetger value in arrnames[1]
+                        if (arrnames[1].Length <= 3)
+                        {
+                            objlogger.LogInfo("add to list", GlobalConstants.LOGGERLEVEL2);
+                            bool canConvert = int.TryParse(arrnames[1], out ivalue); //check string after ~ is an integer
+
+                            if (canConvert == true)
+                            {
+                                objlogger.LogInfo("arrnames[1 is a valid int=add to truncids", GlobalConstants.LOGGERLEVEL2);
+                                truncids.Add(ivalue);
+
+                            }
+                            else
+                            {
+                                objlogger.LogInfo("arrnames[1 is not a valid int", GlobalConstants.LOGGERLEVEL2);
+                            }
+
+                        }
+                    }
+                }
+
+                objlogger.LogInfo("truncids list count" + truncids.Count.ToString(), GlobalConstants.LOGGERLEVEL1);
+                if (truncids.Count > 0)
+                {
+                    icount = truncids.Max();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            //objlogger.LogInfo("return GetMaxAttTruncCount" + icount.ToString());
+            return icount;
+        }
+        private bool ExistingAttachment(IOAdAttachments p_oAttachments, ROAttachment oROAttachment)
+        {
+            objlogger.LogInfo("Check Existing attach", GlobalConstants.LOGGERLEVEL1);
+            FileInfo l_oInfo = new FileInfo(oROAttachment.FULLPATH);
+            string sName = oROAttachment.NAME;
+            string sfullname = oROAttachment.FULLNAME;
+
+            objlogger.LogInfo("att full path " + oROAttachment.FULLPATH, GlobalConstants.LOGGERLEVEL1);
+            objlogger.LogInfo("Checking File Name = " + sName + "-File Size = " + l_oInfo.Length, GlobalConstants.LOGGERLEVEL1);
+            //objlogger.LogInfo("Checking File Size = " + l_oInfo.Length);
+
+            for (int i = 0; i < p_oAttachments.Count; i++)
+            {
+                IOAdAttachment l_oAttachment = p_oAttachments.item(i);
+
+                objlogger.LogInfo("RO File Name = " + l_oAttachment.filename + "-File Size = " + l_oAttachment.FileSize, GlobalConstants.LOGGERLEVEL1);
+                //objlogger.LogInfo("From RO File Size = " + l_oAttachment.FileSize);
+
+                if (l_oAttachment.filename == sName &&
+                    l_oAttachment.FileSize == l_oInfo.Length)
+                {
+                    objlogger.LogInfo("Match found, no update of this attachment", GlobalConstants.LOGGERLEVEL1);
+
+                    IMFROCommonAttachments objcommonatt = new IMFROCommonAttachments();
+                    objcommonatt.IMFATTNAME = sfullname;
+                    //objcommonatt.IMFTRUNCATTNAME = sName;
+                    objcommonatt.IMFATTFILESIZE = l_oInfo.Length.ToString();
+                    objcommonatt.ROATTNAME = l_oAttachment.filename;
+                    objcommonatt.ROATTFILESIZE = l_oAttachment.FileSize.ToString();
+                    objcommonatt.ROATTDESCRIPTION = l_oAttachment.Description;
+
+                    l_oCommonAttachments.Add(objcommonatt);
+
+                    return true;
+                }
+            }
+
+
+            objlogger.LogInfo("NO Match found, Proceeding for update", GlobalConstants.LOGGERLEVEL1);
+            return false;
+        }
+
+        public override int RecordCount(QueryParameters p_oQueryParameters)
+        {
+            if (!LoggedIn) LoginToRequestOne();
+
+            throw new NotImplementedException();
+        }
+
+        public override bool RecordEditable(QueryParameters p_oQueryParameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool ValidField(string sFieldName, IOAdEntity l_oEntity)
+        {
+            var oFieldNames = l_oEntity.GetFieldNames();
+
+            foreach (string sROFieldName in oFieldNames)
+            {
+                if (sROFieldName.ToUpper() == sFieldName.ToUpper()
+                    && (sROFieldName.ToUpper() != GlobalConstants.DBID
+                    || sROFieldName.ToUpper() != GlobalConstants.ID))
+                {
+
+                    foreach (string sfield in l_oIgnoreList)
+                    {
+                        if (sfield.ToUpper() == sROFieldName.ToUpper())
+                            return false;
+                    }
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool LoginToRequestOne()
+        {
+            //objlogger.LogInfo("ClearQuest::LoginToRequestOne - Starts");
+
+
+            this.CQUser = this.CQUser ?? "";
+            this.CQPasword = this.CQPasword ?? "";
+            this.CQRepo = this.CQRepo ?? "";
+            this.CQDB = this.CQDB ?? "";
+
+            objlogger.LogInfo("ClearQuest::LoginToRequestOne - CQUser:"
+                + CQUser + " CQDB:" + CQDB + " CQRepo:" + CQRepo, GlobalConstants.LOGGERLEVEL1);
+
+            bool isLoggedOn = true;
+
+
+            if (string.IsNullOrWhiteSpace(this.CQUser)
+                || (string.IsNullOrWhiteSpace(this.CQRepo)) || (string.IsNullOrWhiteSpace(this.CQDB)))
+            {
+                throw new CQLoginExcption();
+
+            }
+            else
+            {
+                for (int intCount = 1; intCount <= 4; intCount++)
+                {
+                    try
+                    {
+                        //objlogger.LogInfo("ClearQuest:UserLogon Attempt==" + intCount.ToString());
+                        roSession.UserLogon(this.CQUser, this.CQPasword, this.CQDB, GlobalConstants.CQ_AD_PRIVATE_SESSION, this.CQRepo);
+                        break;
+
+                    }
+                    catch (System.Runtime.InteropServices.COMException ComExp)
+                    {
+                        objlogger.LogInfo("ClearQuest:UserLogon Inside CatchBlock==" + intCount.ToString(), GlobalConstants.LOGGERLEVEL1);
+                        if (intCount > 3)
+                        {
+                            objlogger.LogInfo("ClearQuest::LoginToRequestOne Failed", GlobalConstants.LOGGERLEVEL1);
+                            isLoggedOn = false;
+                            throw ComExp;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                }
+                LoggedIn = true;
+                objlogger.LogInfo("ClearQuest::LoginToRequestOne - Login Successful", GlobalConstants.LOGGERLEVEL1);
+            }
+
+            //objlogger.LogInfo("ClearQuest::LoginToRequestOne - ends");
+            return isLoggedOn;
+        }
+
+        public override IQueryResult Query(string sQuery)
+        {
+            if (!LoggedIn) LoginToRequestOne();
+
+            throw new NotImplementedException();
+        }
+
+        public override XDocument QueryAttachments(string sQuery)
+        {
+            if (!LoggedIn) LoginToRequestOne();
+
+            throw new NotImplementedException();
+        }
+
+        public override string Query(QueryParameters p_oQueryParameters, string sElement, string sAttribute)
+        {
+            if (!LoggedIn) LoginToRequestOne();
+
+            throw new NotImplementedException();
+        }
+
+        public override void Close()
+        {
+            try
+            {
+                if (roSession != null)
+                {
+                    roSession.SignOff();
+                    LoggedIn = false;
+                    Marshal.ReleaseComObject(roSession);
+                    roSession = null;
+                }
+            }
+            catch (Exception e)
+            {
+                objlogger.LogException(e);
+            }
+        }
+
+
+        public override string GetInitialVal(string sExchangeProtocolId)
+        {
+            objlogger.LogInfo("inside GetInitialVal--", GlobalConstants.LOGGERLEVEL1);
+            string sInitialValue = "";
+            int XPROTID = Convert.ToInt32(sExchangeProtocolId);
+            ClearQuestOleServer.IOAdEntity oEntity;
+            ClearQuestOleServer.IOAdEntity oTestEntity;
+            bool entityValid = false;
+            int GERetries = 0;
+            do
+            {
+                try
+                {
+                    if (!LoggedIn) LoginToRequestOne();
+                    oTestEntity = roSession.LoadEntityByDbId("ExchangeProtocol", XPROTID);
+                    entityValid = true;
+                    oTestEntity = null;
+                    //cqTestEntity.Revert(); --> this is not needed as we did not edit testentity
+                }
+                catch (Exception e2)
+                {
+                    //commented for delay reduction
+                    //System.Threading.Thread.Sleep(5000);
+                    System.Threading.Thread.Sleep(3000);
+                    objlogger.LogException("GetInitialVal  LoadEntity failed for " + sExchangeProtocolId);
+                    //just continue
+
+                }
+                GERetries++;
+            }
+            while ((entityValid == false) && (GERetries < 5)); //REUBK-1786
+            try
+            {
+                //objlogger.LogInfo("get entity");
+                oEntity = roSession.LoadEntityByDbId("ExchangeProtocol", XPROTID);
+                sInitialValue = oEntity.GetFieldStringValue("Log");
+                objlogger.LogInfo("sInitialValue-" + sInitialValue, GlobalConstants.LOGGERLEVEL1);
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogInfo("GetInitialVal  LoadEntity failed after retry " + ex.Message, GlobalConstants.LOGGERLEVEL1);
+            }
+
+
+
+
+            return sInitialValue;
+
+        }
+
+
+        #region tbr REUBK 1915
+        //public static RODataInterface GetCurrentInstance()
+        //{
+        //    return null;
+        //}
+        #endregion
+    }
+}

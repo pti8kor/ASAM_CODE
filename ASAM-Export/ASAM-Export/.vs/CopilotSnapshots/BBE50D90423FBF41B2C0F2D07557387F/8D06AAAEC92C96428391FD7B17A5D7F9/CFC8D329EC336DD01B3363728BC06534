@@ -1,0 +1,1650 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+using System.Xml;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Xml.Xsl;
+using System.Reflection;
+using Saxon.Api;
+using System.Net.Http;
+
+namespace RB.ROCustomerInterfaceExportLibrary
+{
+    [Serializable]
+    public class BTHelper
+    {
+
+        #region Logger
+
+        public string GetConfigPathForLogger(string sExchangeFormat, string sXPROT)
+        {
+            string configPath = BizTalkConfigParams.ROASAMLOGGER;
+            string strdatetime = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            strdatetime = strdatetime.Replace('/', '.'); // '/' not acc in file name
+            strdatetime = strdatetime.Replace(':', '.'); //:not acc in file name
+            string sPath = strdatetime + "_" + sExchangeFormat + "_" + sXPROT + ".txt";
+            configPath = configPath + "\\" + sXPROT+ "\\" + sPath;
+            return configPath;
+        }
+
+        public string GetConfigPathForFolderCreation(string sExchangeFormat, string sXPROT)
+        {
+            string configPath = BizTalkConfigParams.ROASAMLOGGER;
+            string sPath = sXPROT;
+            configPath = configPath + sPath;
+            return configPath;
+        }
+
+        public string GetConfigpathForAsyncLogger()
+        {
+            string configPath = string.Empty;
+
+            return configPath = BizTalkConfigParams.ROASAMLOGGER;
+        }
+
+
+        public void SetLoggingMode(string sExchangeFormat, Logger objlogger)
+        {
+
+            try
+            {
+                string strConfigFilePath = BizTalkConfigParams.EX_RO_INTERFACE_CONFIG;
+                ROConfigurationManager rConfigMgr = new ROConfigurationManager(strConfigFilePath, objlogger);
+                XDocument l_oConfig = rConfigMgr.LoadConfigurationXML();
+
+                string sLogLevel = string.Empty;
+
+                foreach (XElement xe in l_oConfig.Root.Element(ConfigurationFileTags.INTERFACE_SETTINGS).Element("LOGGER_SETTINGS").Elements("LOGGINGLEVEL").Where(e => e.Attribute("ENABLE").Value == "TRUE"))
+                {
+                    sLogLevel = xe.Attribute("LEVEL").Value;
+                }
+
+                objlogger.LogInfo("Setting Log Level value", GlobalConstants.LOGGERLEVEL1);
+                switch (sLogLevel)
+                {
+                    case "1":
+                        objlogger.iLogLevel = GlobalConstants.LOGGERLEVEL1;
+                        break;
+
+                    case "2":
+                        objlogger.iLogLevel = GlobalConstants.LOGGERLEVEL2;
+                        break;
+
+                    case "3":
+                        objlogger.iLogLevel = GlobalConstants.LOGGERLEVEL3;
+                        break;
+
+                    default:
+                        objlogger.LogException("Please enable atleast one Logger level");
+                        break;
+                }
+                objlogger.LogInfo("Log Level Value: " + objlogger.iLogLevel, GlobalConstants.LOGGERLEVEL1);
+
+
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex);
+            }
+
+        }
+
+
+        #endregion
+       
+
+        #region Updation of RQ1 Records
+        public bool UpdateRecords(XmlDocument XIMF, string recordData, string xprotID, string p_system, string sExchangeFormat, AsyncLogger async_objLogger, LifeTokenManager tokenManager)
+        {
+            string RecordID = string.Empty;
+            string RecordType = string.Empty;
+            string queryParam = string.Empty;
+
+            bool result = false;
+
+            XmlDocument xDoc = new XmlDocument();
+
+            XElement root = null;
+
+            if (!string.IsNullOrEmpty(recordData))
+            {
+                var recordDetails = recordData.Split(':');
+                RecordID = recordDetails[0].Trim();
+                RecordType = recordDetails[1].Trim();
+            }
+
+            async_objLogger.LogInfoAsync(RecordID, "UpdateRecords Started : ");
+
+            try
+            {
+                if (RecordType.ToUpper() == "ISSUE")
+                {
+                    // Fetch dbid from IMF for updating Issue
+                    XDocument xIssuedoc = null;
+                    using (var nodeReader = new XmlNodeReader(XIMF))
+                    {
+                        nodeReader.MoveToContent();
+                        xIssuedoc = XDocument.Load(nodeReader);
+                    }
+
+                    string dbid = string.Empty;
+                    dbid = xIssuedoc.Root.Element(IMFFileTags.Issue).Attribute("dbid").Value;
+
+                    //execute Issue entry point methods
+                    async_objLogger.LogInfoAsync(RecordID, "Started Executing Update Issue Entry Point Methods: ");
+
+                    RO_OSLC_DataInterface obj = new RO_OSLC_DataInterface(p_system, sExchangeFormat, RecordID, async_objLogger);
+
+
+                    queryParam = dbid;
+                    var queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.UpdateIssue, queryParam, async_objLogger);
+
+                    async_objLogger.LogInfoAsync(RecordID, "Query Created Succesfully.");
+
+                    var queryResult = obj.InvokeUrl4UpdateOperation(RecordID, queryurl, XIMF, RecordType, async_objLogger);
+
+                    async_objLogger.LogInfoAsync(RecordID, queryResult);
+                    async_objLogger.LogInfoAsync(RecordID, "Record Updated Succesfully.");
+
+                    result = true;
+                }
+            
+                else if(RecordType.ToUpper() == "ISSUERELEASEMAP")
+                {
+                    // Fetch dbid from IMF for updating ISSUERELEASEMAP
+                    XDocument xIRMDoc = null;
+                    using (var nodeReader = new XmlNodeReader(XIMF))
+                    {
+                        nodeReader.MoveToContent();
+                        xIRMDoc = XDocument.Load(nodeReader);
+                    }
+
+                    string dbid = string.Empty;
+                    dbid = xIRMDoc.Root.Element(IMFFileTags.Irmap).Attribute("dbid").Value;
+
+                    //execute Issue entry point methods
+                    async_objLogger.LogInfoAsync(RecordID, "Started Executing Update ISSUERELEASEMAP Entry Point Methods: ");
+
+                    RO_OSLC_DataInterface obj = new RO_OSLC_DataInterface(p_system, sExchangeFormat, RecordID, async_objLogger);
+
+
+                    queryParam = dbid;
+                    var queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.UpdateIssueReleaseMap, queryParam, async_objLogger);
+
+                    async_objLogger.LogInfoAsync(RecordID, "Query Created Succesfully.");
+
+                    var queryResult = obj.InvokeUrl4UpdateOperation(RecordID, queryurl, XIMF, RecordType, async_objLogger);
+
+
+                    //execute Issue entry point methods
+                    async_objLogger.LogInfoAsync(RecordID, "Started Executing Update Issue for IRM Entry Point Methods: ");
+
+                    queryParam = xIRMDoc.Root.Element(IMFFileTags.Issue).Attribute("dbid").Value; ;
+                    queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.updateIssue_IRM, queryParam, async_objLogger);
+
+                    async_objLogger.LogInfoAsync(RecordID, "Query Created Succesfully.");
+
+                    queryResult = obj.InvokeUrl4UpdateOperation(RecordID, queryurl, XIMF, "issue", async_objLogger);
+
+                    async_objLogger.LogInfoAsync(RecordID, queryResult);
+                    async_objLogger.LogInfoAsync(RecordID, "Record Updated Succesfully.");
+
+                    result = true;
+
+                }
+            }
+
+
+
+            catch(Exception ex)
+            {
+                async_objLogger.LogInfoAsync(RecordID, "Record Updated Failed.");
+                async_objLogger.LogInfoAsync(RecordID, ex.Message);
+                tokenManager.UpdateFailure(RecordID, ex.Message);
+            }
+
+            return result;
+            
+        }
+
+        public string UpdateExchangeProtocol(string xprotID, string p_system, string interfaceName, string lifeToken4Files, string xprotStatus)
+        {
+            string result = String.Empty;
+
+            string queryParam = xprotID;
+
+            lifeToken4Files = lifeToken4Files.Replace(" |||| ", Environment.NewLine);
+
+            RO_OSLC_DataInterface obj = new RO_OSLC_DataInterface(p_system, interfaceName, xprotID);
+
+            var queryurl = obj.CreateQuery("xprot", xprotID, GlobalConstants.QueryMethods.UpdateXprot, queryParam);
+
+            var queryResult = obj.InvokeUrl4UpdateXport(xprotID, queryurl, lifeToken4Files, xprotStatus);
+
+            return result;
+        }
+
+        
+
+        #endregion
+
+        #region Validate & Execute Orchestration's methods
+
+
+
+
+        /// <summary>
+        /// Create ASAM file
+        /// </summary>
+        /// <param name="RQ1Extract_data"></param>
+        /// <param name="XprotID"></param>
+        /// <param name="sExchangeFormat"></param>
+        /// <param name="async_objLogger"></param>
+        /// <returns></returns>
+
+        public string CreateASAMFile(XmlDocument RQ1Extract_data, string recordData,  string XprotID,string sSystem,string sExchangeFormat, AsyncLogger async_objLogger, LifeTokenManager tokenManager)
+        {
+            string RecordID = string.Empty;
+            string RecordType = string.Empty;
+            string queryParam = string.Empty;
+
+            bool result = false;
+
+            XmlDocument xDoc = new XmlDocument();
+
+            XElement root = null;
+
+            if (!string.IsNullOrEmpty(recordData))
+            {
+                var recordDetails = recordData.Split(':');
+                RecordID = recordDetails[0].Trim();
+                RecordType = recordDetails[1].Trim();
+            }
+
+
+            async_objLogger.LogInfoAsync(RecordID, "Create ASAM File Method Started: ");
+
+            string transformedXml = string.Empty;
+            string asamFileName = string.Empty;
+
+            string folderPath = GlobalConstants.ASAMFile_FolderPath + XprotID + "\\";
+
+
+
+            try
+            {
+                //Get StateName
+                string stateName = GetStateName(RQ1Extract_data, RecordType);
+
+                if (stateName.ToUpper().Contains("ESTIMATED"))
+                {
+                    folderPath = folderPath + "ExchangedCommercialFiles" + "\\";
+                }
+
+                else
+                {
+                    folderPath = folderPath + "ExchangedFiles" + "\\";
+                }
+
+                string transition_file = sExchangeFormat + "_" + stateName + ".xsl";
+                
+
+
+
+                async_objLogger.LogInfoAsync(RecordID, "Transforming RQ1 Data to ASAM Data for " + stateName);
+
+                // Load the XSLT from file path
+                string xsltPath = string.Empty;
+
+                if (sExchangeFormat.Contains("BMW"))
+                {
+                    xsltPath = XsltConfig.xslFilePath + sExchangeFormat + "\\" + RecordType.ToUpper() + "\\" + transition_file;
+                }
+                else
+                {
+                    xsltPath = XsltConfig.xslFilePath + sExchangeFormat + "\\" + transition_file;
+                }
+
+                // Create Saxon processor and compiler
+                Processor processor = new Processor();
+                XsltCompiler compiler = processor.NewXsltCompiler();
+
+                // Compile the XSLT from file path
+                XsltExecutable executable = compiler.Compile(new Uri(xsltPath));
+
+                // Load the input XML from XmlDocument into a stream, transform, and get result
+                using (MemoryStream inputStream = new MemoryStream(Encoding.UTF8.GetBytes(RQ1Extract_data.OuterXml)))
+                using (XmlReader xmlReader = XmlReader.Create(inputStream))
+                {
+                    // Prepare input
+                    XdmNode input = processor.NewDocumentBuilder().Build(xmlReader);
+
+                    // Load the transformer
+                    XsltTransformer transformer = executable.Load();
+                    transformer.InitialContextNode = input;
+
+                    // Prepare the output writer
+                    using (StringWriter outputWriter = new StringWriter())
+                    {
+                        Serializer serializer = processor.NewSerializer(outputWriter);
+                        serializer.SetOutputProperty(Serializer.INDENT, "yes");
+
+                        // Run the transformation
+                        transformer.Run(serializer);
+
+                        // Get transformed result
+                        transformedXml = outputWriter.ToString();
+                    }
+                }
+
+                async_objLogger.LogInfoAsync(RecordID, "Transformed Xml generated");
+
+
+                //save the tansformed ASAM file
+
+                // Ensure folder exists
+                Directory.CreateDirectory(folderPath);
+
+                // Generate a unique ASAM file name
+                asamFileName = ExtractFileNameFromXml(transformedXml);
+
+                string fullPath = Path.Combine(folderPath, asamFileName);
+
+                File.WriteAllText(fullPath, transformedXml);
+
+                async_objLogger.LogInfoAsync(RecordID, "ASAM File Name : " + asamFileName);
+
+                async_objLogger.LogInfoAsync(RecordID, "Attachment Process Started");
+                //process the attachments after creating the ASAM File
+
+                Attachments attch = new Attachments();
+
+                attch.ProcessAttachments(RQ1Extract_data, RecordID, RecordType, XprotID, sSystem, sExchangeFormat, async_objLogger);
+
+
+                tokenManager.UpdateSuccess(RecordID);
+
+
+            }
+            catch (Exception ex)
+            {
+                async_objLogger.LogExceptionAsync(RecordID, ex);
+                tokenManager.UpdateFailure(RecordID, ex.Message);
+            }
+
+            return asamFileName;
+        }
+
+       
+
+
+        
+        /// <summary>
+        /// Create Rq1 data extract file
+        /// </summary>
+        /// <param name="recordData"></param>
+        /// <param name="xprotID"></param>
+        /// <param name="p_system"></param>
+        /// <param name="sExchangeFormat"></param>
+        /// <param name="async_objLogger"></param>
+        /// <returns></returns>
+        public XmlDocument CreateRQ1DataExtractFile(string recordData, string xprotID, string p_system, string sExchangeFormat, AsyncLogger async_objLogger, LifeTokenManager tokenManager)
+        {
+            string RecordID = string.Empty;
+            string RecordType = string.Empty;
+            string queryParam = string.Empty;
+            string queryurl = string.Empty;
+            string queryResult = string.Empty;
+
+            XDocument inputXml = null;
+            XmlDocument xDoc = new XmlDocument();
+            XElement root = null;
+
+            
+
+            if (!string.IsNullOrEmpty(recordData))
+            {
+                var recordDetails = recordData.Split(':');
+                RecordID = recordDetails[0].Trim();
+                RecordType = recordDetails[1].Trim();
+            }
+
+            RO_OSLC_DataInterface obj = new RO_OSLC_DataInterface(p_system, sExchangeFormat, RecordID, async_objLogger);
+
+            try
+            {
+                async_objLogger.LogInfoAsync(RecordID, "CreateRQ1DataExtractFile Started : ");
+
+                string data = string.Empty;
+
+                // Attribute templates for different record types
+                var recordTemplates = new Dictionary<string, List<string>>
+                {
+                    { "users", new List<string> {   "dbid",
+                                                    "email",
+                                                    "fullname",
+                                                    "login_name",
+                                                    "phone" } },
+
+                    { "Contact", new List<string> { "dbid",
+                                                    "eMail",
+                                                    "Department",
+                                                    "FirstName",
+                                                    "LastName",
+                                                    "PhoneNumbers" } },
+
+                    { "Issue", new List<string> {  "dbid",
+                                                    "id",
+                                                    "Assignee",
+                                                    "Attachments",
+                                                    "CommercialAssignee",
+                                                    "Domain",
+                                                    "ExternalAssignee",
+                                                    "ExternalComment",
+                                                    "ExternalConversation",
+                                                    "ExternalExchangedAttach",
+                                                    "ExternalExchangeWorkflow",
+                                                    "ExternalHistory",
+                                                    "ExternalNextState",
+                                                    "ExternalOrganisation",
+                                                    "ExternalState_Parallel1",
+                                                    "ExternalSubmitter",
+                                                    "ExternalTitle",
+                                                    "External_ID",
+                                                    "hasAttachmentMappings",
+                                                    "hasMappedReleases",
+                                                    "hasCommercialData",
+                                                    "OEMProposalAdopted",
+                                                    "Tags",
+                                                    "Type",
+                                                    "ExternalState_Parallel2",
+                                                    "ExternalUpdateVersion"} },
+
+                    { "Release", new List<string> { "dbid",
+                                                    "id",
+                                                    "belongsToProject",
+                                                    "ExternalTitle",
+                                                    "External_ID",
+                                                    "PlannedDate"} },
+
+                    { "Project", new List<string> { "dbid",
+                                                    "id",
+                                                    "ExternalDescription",
+                                                    "External_ID"} },
+
+                    { "IssueReleaseMap", new List<string> { "dbid",
+                                                            "id",
+                                                            "Assignee",
+                                                            "ExternalComment",
+                                                            "ExternalConversation",
+                                                            "ExternalNextState",
+                                                            "External_ID","hasMappedIssue","hasMappedRelease","MappingToDerivatives","isPilot",
+                                                            "ExternalState_Parallel1","LifeCycleState","Tags","Scope"} },
+
+                    {"AttachmentMapping", new List<string> { "dbid",
+                                                             "Attribute",
+                                                             "ExportState",
+                                                             "Eng_Attachment",
+                                                             "Sales_Attachment"} },
+
+
+
+                    {"Commercial", new List<string> {       "dbid",
+                                                             "CommercialAmount",
+                                                             "CommercialAmountDetails",
+                                                             "CommercialAmountUnit",
+                                                             "CommercialAttachments",
+                                                             "CommercialComment",
+                                                             "CommercialConversation",
+                                                             "CommercialTags"} },
+                };
+
+                
+
+                if (RecordType.ToUpper() == "ISSUE")
+                {
+                    
+
+                    //execute Issue entry point methods
+                    async_objLogger.LogInfoAsync(RecordID, "Started Executing Issue Entry Point Methods: ");
+
+
+                    #region Issue
+                    //execute getIssueById
+                    queryParam = RecordID;
+                    queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.getIssueByIdForIssueEntrypoint, queryParam, async_objLogger);
+
+                    queryResult = obj.InvokeUrl4ReadOperation(RecordID, queryurl, async_objLogger);
+
+
+                    // Load the input XML
+                    inputXml = XDocument.Parse(queryResult);
+
+                    async_objLogger.LogInfoAsync(RecordID, "method ProcessRecordsDynamically started : ");
+
+                    // Process records dynamically and generate  XML Element
+                    root = ProcessRecordsDynamically(inputXml, recordTemplates, root);
+                    #endregion
+
+                    #region Release
+                    //fetch release details
+                    var releaseIds = root.Descendants("IssueReleaseMaps").Descendants("hasMappedRelease")
+                              .Select(x =>
+                              {
+                                  string url = x.Value.Trim();
+                                  // Split by '-' and take last part
+                                  string id = url.Split('-').Last();
+                                  return id;
+                              })
+                              .ToList();
+
+                    
+                    foreach (var id in releaseIds)
+                    {
+                        queryParam = id;
+
+                        queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.getReleaseByDBId, queryParam, async_objLogger);
+                        queryResult = obj.InvokeUrl4ReadOperation(RecordID, queryurl, async_objLogger);
+                        // Load the input XML
+                        inputXml = XDocument.Parse(queryResult);
+
+                        // Process records dynamically and generate  XML Element
+                        root = ProcessRecordsDynamically(inputXml, recordTemplates, root);
+                    }
+
+                    #endregion
+
+                    #region Project
+                    //fetch project details
+                    var projectIds = root.Descendants("Releases").Descendants("belongsToProject")
+                              .Select(x =>
+                              {
+                                  string url = x.Value.Trim();
+                                  // Split by '-' and take last part
+                                  string id = url.Split('-').Last();
+                                  return id;
+                              })
+                              .ToList();
+
+                    foreach (var id in projectIds)
+                    {
+                        queryParam = id;
+
+                        queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.getProjectByDbId, queryParam, async_objLogger);
+                        queryResult = obj.InvokeUrl4ReadOperation(RecordID, queryurl, async_objLogger);
+                        // Load the input XML
+                        inputXml = XDocument.Parse(queryResult);
+
+                        // Process records dynamically and generate  XML Element
+                        root = ProcessRecordsDynamically(inputXml, recordTemplates, root);
+                    }
+
+                    //Converting Xelement into XmlDocument 
+                    using (var reader = root.CreateReader())
+                    {
+                        xDoc.Load(reader);
+                    }
+
+                    xDoc = FormatXmlDocument(xDoc);
+
+                    #endregion
+
+                    XElement finAtchmtElement = null;
+                    XElement techAtchmtElement = null;
+
+                    #region attachments
+                    //fetching Technical attahments
+                    string IssueDBId = ExtractDbid(xDoc.InnerXml.ToString(), RecordType);
+                    if (!String.IsNullOrEmpty(IssueDBId))
+                    {
+                        queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.getIssueAttachments, IssueDBId, async_objLogger);
+                        techAtchmtElement = obj.FetchTechnicalAttachments(RecordID, IssueDBId, queryurl, async_objLogger);
+                    }
+
+                    //Fetch Financial attachments
+
+                    string commercialDbid = ExtractDbid(xDoc.InnerXml.ToString(), "Commercial");
+
+                    if(!String.IsNullOrEmpty(commercialDbid))
+                    {
+                        queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.getIssueCommercialAttachments, commercialDbid, async_objLogger);
+                         finAtchmtElement = obj.FetchFinancialAttachments(RecordID, commercialDbid, queryurl, async_objLogger);
+                    }
+
+
+                    // Combine under a new single root
+                    XElement mergedAttchs = new XElement("Attachmentss",
+                        techAtchmtElement.Elements("Attachments"),
+                        finAtchmtElement.Elements("Attachments")
+                    );
+
+                    #endregion
+
+                    // Convert XElement to XmlNode
+                    XmlDocument tempDoc = new XmlDocument();
+                    tempDoc.LoadXml(mergedAttchs.ToString());
+                    XmlNode importedNode = xDoc.ImportNode(tempDoc.DocumentElement, true);
+
+                    // Append to main XmlDocument
+                    xDoc.DocumentElement.AppendChild(importedNode);
+
+                }
+                else if (RecordType.ToUpper() == "ISSUERELEASEMAP")
+                {
+
+                    //execute IRM entry point methods
+                    async_objLogger.LogInfoAsync(RecordID, "Started Executing IRM Entry Point Methods: ");
+
+                    #region IRM
+
+                    //execute getIssueReleaseMapByRQ1Id
+                    queryParam = RecordID;
+                    queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.getIssueReleaseMapByRQ1Id, queryParam, async_objLogger);
+
+                    queryResult = obj.InvokeUrl4ReadOperation(RecordID, queryurl, async_objLogger);
+
+
+                    // Load the input XML
+                    inputXml = XDocument.Parse(queryResult);
+
+                    async_objLogger.LogInfoAsync(RecordID, "method ProcessRecordsDynamically started : ");
+
+                    // Process records dynamically and generate  XML Element
+                    root = ProcessRecordsDynamically(inputXml, recordTemplates, root);
+
+                    #endregion
+
+                    //Fetch details of Issue For Entry Point IRM
+                    #region Issue
+                    var hasMappedIssueElement = root.Descendants("hasMappedIssue").FirstOrDefault();
+
+                    string dbid = null;
+
+                    if (hasMappedIssueElement != null && !string.IsNullOrWhiteSpace(hasMappedIssueElement.Value))
+                    {
+                        string hasMappedIssueUrl = hasMappedIssueElement.Value.Trim();
+
+                        // Defensive check: only split if URL contains '-'
+                        if (hasMappedIssueUrl.Contains("-"))
+                        {
+                            dbid = hasMappedIssueUrl.Split('-').Last();
+                        }
+                    }
+
+                    queryParam = dbid;
+                    queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.getIssueByDBId, queryParam, async_objLogger);
+
+                    queryResult = obj.InvokeUrl4ReadOperation(RecordID, queryurl, async_objLogger);
+
+
+                    // Load the input XML
+                    inputXml = XDocument.Parse(queryResult);
+
+                    async_objLogger.LogInfoAsync(RecordID, "method ProcessRecordsDynamically started : ");
+
+                    // Process records dynamically and generate  XML Element
+                    root = ProcessRecordsDynamically(inputXml, recordTemplates, root);
+                    #endregion
+
+
+                    //Fetch details of Release For Entry Point IRM
+                    #region Release
+                    var hasMappedReleaseElement = root.Descendants("hasMappedRelease").FirstOrDefault();
+
+                   
+                    if (hasMappedReleaseElement != null && !string.IsNullOrWhiteSpace(hasMappedReleaseElement.Value))
+                    {
+                        string hasMappedReleaseUrl = hasMappedReleaseElement.Value.Trim();
+
+                        // Defensive check: only split if URL contains '-'
+                        if (hasMappedReleaseUrl.Contains("-"))
+                        {
+                            dbid = hasMappedReleaseUrl.Split('-').Last();
+                        }
+                    }
+
+                    queryParam = dbid;
+                    queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.getReleaseByDBId, queryParam, async_objLogger);
+
+                    queryResult = obj.InvokeUrl4ReadOperation(RecordID, queryurl, async_objLogger);
+
+
+                    // Load the input XML
+                    inputXml = XDocument.Parse(queryResult);
+
+                    async_objLogger.LogInfoAsync(RecordID, "method ProcessRecordsDynamically started : ");
+
+                    // Process records dynamically and generate  XML Element
+                    root = ProcessRecordsDynamically(inputXml, recordTemplates, root);
+
+                    #endregion
+
+                    #region Project
+                    //fetch project details
+                    var projectIds = root.Descendants("Releases").Descendants("belongsToProject")
+                              .Select(x =>
+                              {
+                                  string url = x.Value.Trim();
+                                  // Split by '-' and take last part
+                                  string id = url.Split('-').Last();
+                                  return id;
+                              })
+                              .ToList();
+
+                    foreach (var id in projectIds)
+                    {
+                        queryParam = id;
+
+                        queryurl = obj.CreateQuery(RecordType, RecordID, GlobalConstants.QueryMethods.getProjectByDbId, queryParam, async_objLogger);
+                        queryResult = obj.InvokeUrl4ReadOperation(RecordID, queryurl, async_objLogger);
+                        // Load the input XML
+                        inputXml = XDocument.Parse(queryResult);
+
+                        // Process records dynamically and generate  XML Element
+                        root = ProcessRecordsDynamically(inputXml, recordTemplates, root);
+                    }
+                    #endregion
+
+                    //Converting Xelement into XmlDocument 
+                    using (var reader = root.CreateReader())
+                    {
+                        xDoc.Load(reader);
+                    }
+
+                    xDoc = FormatXmlDocument(xDoc);
+
+                }
+
+            }
+
+
+
+            catch (Exception ex)
+            {
+                async_objLogger.LogExceptionAsync(RecordID, ex);
+                tokenManager.UpdateFailure(RecordID, ex.Message);
+
+            }
+
+            return xDoc;
+
+        }
+
+
+
+        /// <summary>
+        /// This help process the data dynamically that has been fetched in CreateRQ1Etract method
+        /// </summary>
+        /// <param name="inputXml"></param>
+        /// <param name="recordTemplates"></param>
+        /// <returns></returns>
+
+        static XElement ProcessRecordsDynamically(XDocument inputXml, Dictionary<string, List<string>> recordTemplates, XElement root)
+        {
+            if (root == null)
+            {
+                root = new XElement("RQ1_EXTRACT",
+                    new XAttribute("CreationDate", DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")));
+            }
+
+            XNamespace oslcCmNs = "http://open-services.net/ns/cm#";
+            XNamespace dctermsNs = "http://purl.org/dc/terms/";
+            XNamespace cqNs = "http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/";
+
+            foreach (var recordType in recordTemplates.Keys)
+            {
+                var records = inputXml.Descendants(oslcCmNs + "ChangeRequest")
+                    .Where(cr => cr.Element(dctermsNs + "type")?.Value.ToLower() == recordType.ToLower())
+                    .Select(cr => new
+                    {
+                        RecordType = cr.Element(dctermsNs + "type")?.Value ?? "Unknown",
+                        Attributes = recordTemplates[recordType].ToDictionary(
+                            attr => attr,
+                            attr =>
+                            {
+                                object result = null;
+                                var element = cr.Element(cqNs + attr);
+
+                                if (recordType.ToLower() == "issue")
+                                {
+                                    if ((attr.Contains("Assignee") || attr.Contains("hasCommercialData") || attr.Contains("Submitter")) && element != null)
+                                    {
+                                        var dbidElement = element.Element(oslcCmNs + "ChangeRequest")?.Element(cqNs + "dbid");
+                                        return dbidElement?.Value ?? "";
+                                    }
+
+                                    if (attr.Contains("hasAttachmentMappings"))
+                                    {
+                                        var mappings = cr.Elements(cqNs + "hasAttachmentMappings")
+                                            .Elements(oslcCmNs + "ChangeRequest")
+                                            .Select(crElem => crElem.Element(cqNs + "dbid")?.Value ?? string.Empty)
+                                            .Where(val => !string.IsNullOrEmpty(val))
+                                            .Distinct()
+                                            .ToList();
+
+                                        result = new XElement("hasAttachmentMappings",
+                                            mappings.Select(id => new XElement("dbid", id)));
+                                        return result;
+                                    }
+
+                                    if (attr.Contains("hasMappedReleases"))
+                                    {
+                                        var mappings = cr.Elements(cqNs + "hasMappedReleases")
+                                            .Elements(oslcCmNs + "ChangeRequest")
+                                            .Select(crElem => crElem.Element(cqNs + "dbid")?.Value ?? string.Empty)
+                                            .Where(val => !string.IsNullOrEmpty(val))
+                                            .Distinct()
+                                            .ToList();
+
+                                        result = new XElement("hasMappedReleases",
+                                            mappings.Select(id => new XElement("dbid", id)));
+                                        return result;
+                                    }
+                                }
+
+                                if (recordType.ToLower() == "issuereleasemap")
+                                {
+                                    if (attr.Contains("Assignee") && element != null)
+                                    {
+                                        var dbidElement = element.Element(oslcCmNs + "ChangeRequest")?.Element(cqNs + "dbid");
+                                        return dbidElement?.Value ?? "";
+                                    }
+                                }
+
+                                if (recordType.ToLower() == "release")
+                                {
+                                    if (attr.Contains("belongsToProject") && element != null)
+                                    {
+                                        var resourceAttr = element.Attribute(XName.Get("resource", "http://www.w3.org/1999/02/22-rdf-syntax-ns#"));
+                                        return resourceAttr?.Value ?? "";
+                                    }
+                                }
+
+                                if ((attr.Contains("Attachments") || attr.Contains("hasMappedIssue") || attr.Contains("hasMappedRelease")) && element != null)
+                                {
+                                    var resourceAttr = element.Attribute(XName.Get("resource", "http://www.w3.org/1999/02/22-rdf-syntax-ns#"));
+                                    return resourceAttr?.Value ?? "";
+                                }
+
+                                return element?.Value ?? "";
+                            })
+                    });
+
+                string containerName = recordType + "s";
+                var recordTypeElement = root.Element(containerName);
+                if (recordTypeElement == null)
+                {
+                    recordTypeElement = new XElement(containerName);
+                    root.Add(recordTypeElement);
+                }
+
+                foreach (var record in records)
+                {
+                    string dbidValue = record.Attributes.ContainsKey("dbid")
+                        ? record.Attributes["dbid"]?.ToString() ?? ""
+                        : "";
+
+                    // ✅ Skip if a record with the same dbid already exists
+                    bool alreadyExists = recordTypeElement.Elements(recordType)
+                        .Any(x => (string)x.Attribute("dbid") == dbidValue);
+
+                    if (alreadyExists)
+                        continue;
+
+                    XElement recordElement = new XElement(recordType,
+                        new XAttribute("recordtype", record.RecordType),
+                        new XAttribute("dbid", dbidValue)
+                    );
+
+                    foreach (var attr in record.Attributes)
+                    {
+                        if (attr.Value is XElement elementValue)
+                        {
+                            recordElement.Add(elementValue);
+                        }
+                        else
+                        {
+                            recordElement.Add(new XElement(attr.Key, attr.Value?.ToString() ?? ""));
+                        }
+                    }
+
+                    recordTypeElement.Add(recordElement);
+                }
+            }
+
+            return root;
+        }
+
+
+
+
+        public XmlDocument UpdateIMFAfterValidation(XmlDocument RQ1Extract_data, XmlDocument XIMF, string recordData, string Exchnageprotocol, LifeTokenManager tokenManager)
+        {
+            string RecordID = string.Empty;
+            string RecordType = string.Empty;
+
+            if (!string.IsNullOrEmpty(recordData))
+            {
+                var recordDetails = recordData.Split(':');
+                RecordID = recordDetails[0].Trim();
+                RecordType = recordDetails[1].Trim();
+            }
+
+            XDocument xIssuedoc = null;
+            string strHistory = string.Empty;
+            string strENS = string.Empty;
+            string strESP1 = string.Empty;
+            string strExternalConv = string.Empty;
+            string strExternalExchangedAttach = string.Empty;
+
+            using (var nodeReader = new XmlNodeReader(XIMF))
+            {
+                nodeReader.MoveToContent();
+                xIssuedoc = XDocument.Load(nodeReader);
+            }
+            //objlogger.LogInfo("SetDefaultValues : after getting xdoc");
+
+            
+
+            if (RecordType.ToUpper() == "ISSUE")
+            {
+                try
+                {  
+
+                    //get field values to update in IMF
+                    //ExternalHistory
+                    strHistory = xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                             .Element(IMFFileTags.ExternalHistory).Value.ToString().Trim();
+                    //ExternalNextState
+                    strENS = xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                             .Element(IMFFileTags.ExternalNextState).Value.ToString().Trim();
+
+                    //ExternalConversation
+                    strExternalConv = xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                            .Element(IMFFileTags.ExternalConversation).Value.ToString().Trim();
+
+                    //ExternalExchangedAttach
+                    strExternalExchangedAttach = xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                            .Element(IMFFileTags.ExternalExchangedAttach).Value.ToString().Trim();
+
+                    //ExternalStateParallel1
+                    strESP1 = xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                            .Element(IMFFileTags.ExternalState_Parallel1).Value.ToString().Trim();
+
+
+
+                    //find attachment mappings in RQ1 Extract to update in the ExternalExchnagedAttachments filed
+                    XmlNodeList mappingNodes = RQ1Extract_data.SelectNodes("//AttachmentMapping");
+                    StringBuilder sb = new StringBuilder();
+                    foreach (XmlNode mapping in mappingNodes)
+                    {
+                        string attribute = mapping.SelectSingleNode("Attribute")?.InnerText ?? "";
+                        string exportState = mapping.SelectSingleNode("ExportState")?.InnerText ?? "";
+
+                        string attachment = string.Empty;
+                        if (attribute.ToLower().Contains("technical"))
+                        {
+                            attachment = mapping.SelectSingleNode("Eng_Attachment")?.InnerText ?? "";
+                        }
+                        else
+                        {
+                            attachment = mapping.SelectSingleNode("Sales_Attachment")?.InnerText ?? "";
+                        }
+                         
+
+                        string formattedTime = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
+
+                        if(!strExternalExchangedAttach.Contains(exportState) && !strExternalExchangedAttach.Contains(attachment))
+                        {
+                            sb.AppendLine($"### {exportState} {formattedTime} ### {attachment} \n ");
+                        }
+
+                        
+                    }
+
+                    //ExternalUpdateVersion for BMW Export
+                    string workflow = string.Empty;
+                    string version = string.Empty;
+                    XmlNode node = RQ1Extract_data.SelectSingleNode("/RQ1_EXTRACT/Issues/Issue/ExternalExchangeWorkflow");
+                    if (node != null)
+                    {
+                        workflow = node.InnerText;
+                    }
+                    version = xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                            .Element(IMFFileTags.ExternalUpdateVersion).Value.ToString().Trim();
+
+                    strHistory = strENS + " - " + GetFormattedDateTime() + " -  ExchangeProtocol:" + Exchnageprotocol + "\n" + "\n" + strHistory;
+
+                    strExternalConv = "### " + GetFormattedDateTime() + " " + strENS + " FFM3FE ### \n" + "\n" + strExternalConv;
+
+
+                    //updating fields in IMF
+
+                    //AUDI
+                    if (workflow.Contains("VAG"))
+                    {
+                        if (strENS.Contains("SPECIFIED") || strENS.Contains("CLOSED"))
+                        {
+                            xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                                .Element(IMFFileTags.ExternalState_Parallel2).Value = strENS;
+
+                        }
+                        else if (strENS.ToLower() == "info-update")
+                        {
+                            xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                                .Element(IMFFileTags.ExternalState_Parallel1).Value = strESP1;
+                        }
+
+                        else
+                        {
+                            xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                                .Element(IMFFileTags.ExternalState_Parallel1).Value = strENS;
+                        }
+
+                        if(strENS.ToUpper() == "ESTIMATED")
+                        {
+                            xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                               .Element(IMFFileTags.CommercialQuotationReq).Value = "Quoted";
+                        }
+                    }
+                    //BMW
+                    else if(workflow.Contains("BMW"))
+                    {
+                        
+                        // External State and External Update Version update
+                        if (strENS.ToLower() == "info-update")
+                        {
+                            version = IncrementVersion(version);
+
+                            xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                                 .Element(IMFFileTags.ExternalUpdateVersion).Value = version;
+                            xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                                .Element(IMFFileTags.ExternalState_Parallel1).Value = strESP1;
+                        }
+
+                        else
+                        {
+                            xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                                .Element(IMFFileTags.ExternalState_Parallel1).Value = strENS;
+                        }
+                    }
+                    
+                    xIssuedoc.Root.Element(IMFFileTags.Issue).Element(IMFFileTags.ExternalNextState).Value = "";
+                    xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                            .Element(IMFFileTags.ExternalConversation).Value = strExternalConv;
+                    xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                             .Element(IMFFileTags.ExternalHistory).Value = strHistory;
+                    
+                    xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                             .Element(IMFFileTags.ExternalExchangedAttach).Value = sb.ToString() + "\n" + "\n" + strExternalExchangedAttach;
+
+                    xIssuedoc.Root.Element(IMFFileTags.IRMAP)
+                                                             .Element(IMFFileTags.ExternalLastExportedDate).Value = "";
+
+
+
+
+                    using (var xmlReader = xIssuedoc.CreateReader())
+                    {
+                        XIMF.Load(xmlReader);
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    tokenManager.UpdateFailure(RecordID, ex.Message);
+                }
+            }
+
+            else if (RecordType.ToUpper() == "ISSUERELEASEMAP")
+            {
+                try
+                {
+                    //ExternalHistory of Issue
+                    strHistory = xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                             .Element(IMFFileTags.ExternalHistory).Value.ToString().Trim();
+                    //ExternalHistory of IRMAP
+                    //string strHistoryIrmap = xIssuedoc.Root.Element(IMFFileTags.IRMAP)
+                    //.Element(IMFFileTags.ExternalHistory).Value.ToString().Trim();
+
+                    //ExternalNextState
+                    strENS = xIssuedoc.Root.Element(IMFFileTags.IRMAP)
+                                                             .Element(IMFFileTags.ExternalNextState).Value.ToString().Trim();
+
+
+                    strHistory = strENS + " - " + GetFormattedDateTime() + " -  ExchangeProtocol:" + Exchnageprotocol + "\n" + "\n" + strHistory;
+
+                    //strHistoryIrmap = strENS + " - " + GetFormattedDateTime() + " -  ExchangeProtocol:" + Exchnageprotocol + "\n" + "\n" + strHistoryIrmap;
+
+                    
+
+                    //ExternalConversation
+                    strExternalConv = xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                            .Element(IMFFileTags.ExternalConversation).Value.ToString().Trim();
+
+                    strExternalConv = "### " + GetFormattedDateTime() + " " + strENS + " FFM3FE ### \n" + "\n" + strExternalConv;
+
+
+                    // set IRM fields in IMF
+                    xIssuedoc.Root.Element(IMFFileTags.IRMAP).Element(IMFFileTags.ExternalNextState).Value = "";
+                    xIssuedoc.Root.Element(IMFFileTags.IRMAP)
+                                                            .Element(IMFFileTags.ExternalConversation).Value = strExternalConv;
+                    xIssuedoc.Root.Element(IMFFileTags.IRMAP)
+                                                            .Element(IMFFileTags.ExternalState_Parallel1).Value = strENS;
+
+                    //Set Issue fields in IMF
+                    xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                             .Element(IMFFileTags.ExternalHistory).Value = strHistory;
+                    xIssuedoc.Root.Element(IMFFileTags.Issue)
+                                                             .Element(IMFFileTags.ExternalLastExportedDate).Value = "";
+
+
+                    using (var xmlReader = xIssuedoc.CreateReader())
+                    {
+                        XIMF.Load(xmlReader);
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    tokenManager.UpdateFailure(RecordID, ex.Message);
+                }
+            }
+
+
+            return XIMF;
+
+        }
+
+        public string ChangeLifeToken4Xprot(string lifeToken4Files, string xprotStatus)
+        {
+            try
+            {
+                if (lifeToken4Files.Contains("Failure") && lifeToken4Files.Contains("Success"))
+                {
+                    xprotStatus = "Incomplete";
+                }
+
+                else if (lifeToken4Files.Contains("Failure"))
+                {
+                    xprotStatus = "Failure";
+                }
+
+                else if (lifeToken4Files.Contains("Success"))
+                {
+                    xprotStatus = "Success";
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+            }
+
+            return xprotStatus;
+        }
+
+        /// <summary>
+        /// Validates the Rq1 extract data 
+        /// </summary>
+        /// <param name="xmLDoc"></param>
+        /// <param name="recordData"></param>
+        /// <param name="objlogger"></param>
+        /// <returns></returns>
+        public bool ValidateRQ1ExtractFile(XmlDocument RQ1Extract_data, string recordData, AsyncLogger async_objLogger, LifeTokenManager tokenManager)
+        {
+            string RecordID = string.Empty;
+            string RecordType = string.Empty;
+
+            if (!string.IsNullOrEmpty(recordData))
+            {
+                var recordDetails = recordData.Split(':');
+                RecordID = recordDetails[0].Trim();
+                RecordType = recordDetails[1].Trim();
+            }
+
+            bool is_MappedDerivative = ValidateMappingDerivatives(RQ1Extract_data, recordData, async_objLogger);
+
+            async_objLogger.LogInfoAsync(RecordID, "BTHelper::ValidateRQ1ExtractFile:Starts");
+
+            try
+            {
+                var xslt = new XslCompiledTransform();
+                xslt.Load(XsltConfig.Audi_Validator);
+
+                using (var writer = new StringWriter())
+                using (var reader = new XmlNodeReader(RQ1Extract_data))
+                {
+                    xslt.Transform(reader, null, writer);
+                    string result = writer.ToString();
+                    return result.Contains("Validation Successful.") && is_MappedDerivative;
+                }
+            }
+            catch (XsltException ex)
+            {
+                tokenManager.UpdateFailure(RecordID, ex.Message);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                tokenManager.UpdateFailure(RecordID, ex.Message);
+                return true;
+            }
+
+        }
+
+        public int GetRecordsCount(string LifeToken4Files, Logger objlogger)
+        {
+            int recordsCount = 0;
+            objlogger.LogInfo("GetReordsCount Started : ");
+
+            try
+            {
+                string[] recordsArray = LifeToken4Files.Split(new string[] { "||||||" }, StringSplitOptions.RemoveEmptyEntries);
+
+
+                List<string> recordsList = recordsArray.Select(record => record.Trim()).Where(record => !string.IsNullOrEmpty(record)).ToList();
+
+
+                recordsCount = recordsList.Count;
+
+                objlogger.LogInfo("Total Records Count : " + recordsCount.ToString());
+
+            }
+
+            catch (Exception ex)
+            {
+                objlogger.LogInfo("Exception Occured in GetRecordsCount method");
+                objlogger.LogException(ex);
+            }
+
+            objlogger.LogInfo("GetReordsCount Ended : ");
+            return recordsCount;
+        }
+
+
+        public int GetBatchCount(int recordsCount, Logger objLogger)
+        {
+            objLogger.LogInfo("GetBatchCount Started : ");
+            int batchCount = 0;
+
+            try
+            {
+                batchCount = (recordsCount + GlobalConstants.BatchSize - 1) / GlobalConstants.BatchSize;
+
+                objLogger.LogInfo("Batch Size : " + batchCount.ToString());
+            }
+
+            catch (Exception ex)
+            {
+                objLogger.LogInfo("Exception Occured in GetBatchCount method");
+                objLogger.LogException(ex);
+            }
+
+            return batchCount;
+        }
+
+        public  string GetEachRecordFromBatch(string recordNames,  int parallelAction)
+        {
+           
+
+            string recordName = string.Empty;
+           
+            string[] recordsArray = recordNames.Split(new string[] { "||||" }, StringSplitOptions.RemoveEmptyEntries);
+
+            int batchSize = recordsArray.Count();
+
+            if(batchSize >= parallelAction)
+            {
+                recordName = recordsArray[parallelAction - 1].Trim();
+            }
+
+            
+            return recordName;
+            
+        }
+
+       public string GetRecordID(string recordNames)
+        {
+            string recordId = string.Empty;
+            try
+            {
+                string[] record_parts = recordNames.Split(new string[] { "::" }, StringSplitOptions.None);
+
+                if(record_parts[0].ToLower().Contains("issue") || record_parts[0].ToLower().Contains("issuereleasemap"))
+                {
+                    recordId = record_parts[0].Trim();
+                }  
+            }
+            
+            catch(Exception Ex)
+            {
+
+            }
+
+            return recordId;
+        }
+        
+
+        public  string GetRecordNamesFromBatch(string LifeToken4Files, int batchNumber, Logger objLogger)
+        {
+            objLogger.LogInfo("GetRecordNamesFromBatch Started : ");
+            string recordNames = string.Empty;
+            
+            
+            try
+            {
+                
+                string[] recordsArray = LifeToken4Files.Split(new string[] { "||||" }, StringSplitOptions.RemoveEmptyEntries);
+
+                // Calculate the starting index of the batch
+                int startIndex = (batchNumber - 1) * GlobalConstants.BatchSize;
+
+                // Ensure the startIndex is within bounds
+                if (startIndex >= recordsArray.Length)
+                {
+                    throw new ArgumentOutOfRangeException("The batch number exceeds the total number of records.");
+                }
+                else
+                {
+                    int endIndex = Math.Min(startIndex + GlobalConstants.BatchSize, recordsArray.Length);
+
+                    // Fetch the records in the range of the batch
+                    string[] batchRecords = recordsArray.Skip(startIndex).Take(endIndex - startIndex).ToArray();
+
+                    recordNames = string.Join(" |||| ", batchRecords).Trim();
+
+                    objLogger.LogInfo("Record Names : " + recordNames);
+                }
+ 
+            }
+
+            catch(Exception ex)
+            {
+                objLogger.LogException(ex);
+            }
+
+            objLogger.LogInfo("GetRecordNamesFromBatch Ended : ");
+            return recordNames;
+        }
+
+        public string GetLifeTokenByRecordId(string recordId, string lifeTokens)
+        {
+            if (string.IsNullOrWhiteSpace(recordId) || string.IsNullOrWhiteSpace(lifeTokens))
+                return null;
+
+            var tokens = lifeTokens
+                .Split(new string[] { "||||" }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(t => t.Trim());
+
+            // Find the token that starts with the recordId
+            return tokens.FirstOrDefault(t => t.StartsWith(recordId, StringComparison.OrdinalIgnoreCase));
+        }
+
+        #endregion
+
+        #region miscellineous
+
+        /// <summary>
+        /// Indents the Xml with linebreaks
+        /// </summary>
+        /// <param name="xmLDoc"></param>
+        /// <param name="objlogger"></param>
+        /// <returns></returns>
+        public XmlDocument PrettyXml(XmlDocument xmLDoc, string recordData, AsyncLogger async_objLogger, LifeTokenManager tokenManager)
+        {
+            string RecordID = string.Empty;
+            string RecordType = string.Empty;
+
+            if (!string.IsNullOrEmpty(recordData))
+            {
+                var recordDetails = recordData.Split(':');
+                RecordID = recordDetails[0].Trim();
+                RecordType = recordDetails[1].Trim();
+            }
+            try
+            {
+                async_objLogger.LogInfoAsync(RecordID, "BTHelper::PrettyXml:Starts");
+
+                StringBuilder stringBuilder = new StringBuilder();
+                XmlWriterSettings settings = new XmlWriterSettings
+                {
+                    Indent = true,
+                    OmitXmlDeclaration = true
+                };
+                using (XmlWriter writer = XmlWriter.Create(stringBuilder, settings))
+                {
+                    xmLDoc.Save(writer);
+                }
+                xmLDoc.LoadXml(stringBuilder.ToString());
+                async_objLogger.LogInfoAsync(RecordID, "BTHelper::PrettyXml:Ends");
+                return xmLDoc;
+            }
+            catch (Exception ex)
+            {
+                async_objLogger.LogExceptionAsync(RecordID, ex);
+                tokenManager.UpdateFailure(RecordID, ex.Message);
+                return xmLDoc;
+            }
+        }
+
+        static XmlDocument FormatXmlDocument(XmlDocument xmlDoc)
+        {
+            XmlDocument formattedDoc = new XmlDocument();
+            using (MemoryStream ms = new MemoryStream())
+            {
+                XmlWriterSettings settings = new XmlWriterSettings
+                {
+                    Indent = true,               // Enable indentation
+                    IndentChars = "  ",          // Use two spaces for indentation
+                    NewLineChars = "\n",         // Use newline for formatting
+                    NewLineHandling = NewLineHandling.Replace
+                };
+
+                using (XmlWriter writer = XmlWriter.Create(ms, settings))
+                {
+                    xmlDoc.Save(writer);
+                }
+
+                ms.Position = 0; // Reset stream position
+                formattedDoc.Load(ms); // Load formatted XML into new XmlDocument
+            }
+            return formattedDoc;
+        }
+
+        static string GetFormattedDateTime()
+        {
+            return DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
+        }
+
+        public string GetStateName(XmlDocument RQ1Extract_data, string RecordType)
+        {
+            string stateName = string.Empty;
+
+            try
+            {
+                XmlNode externalNextStateNode = null;
+                if (RecordType.ToUpper() == "ISSUE")
+                {
+                     externalNextStateNode = RQ1Extract_data.SelectSingleNode("//Issue/ExternalNextState");
+                }
+                else
+                {
+                    
+                        externalNextStateNode = RQ1Extract_data.SelectSingleNode("//IssueReleaseMap/ExternalNextState");
+
+                    
+                }
+                
+
+                
+                stateName = externalNextStateNode.InnerText;
+                
+                
+
+            }
+
+            catch (Exception ex)
+            {
+
+            }
+
+            return stateName;
+        }
+
+        public static string ExtractDbid(string xmlString, string tagName)
+        {
+            XDocument doc = XDocument.Parse(xmlString);
+
+            // Dynamically find elements by tag name
+            var dbid = doc.Descendants(tagName)
+                      .FirstOrDefault()?.Attribute("dbid")?.Value;
+
+            return dbid;
+        }
+
+
+        public static string ExtractFileNameFromXml(string xmlContent)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xmlContent);
+
+            string ns = doc.DocumentElement.NamespaceURI;
+
+            // Add the namespace manager
+            XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
+            nsmgr.AddNamespace("iss", ns);
+
+            // Select the top-level SHORT-NAME
+            XmlNode shortNameNode = doc.SelectSingleNode("/iss:MSR-ISSUE/iss:SHORT-NAME", nsmgr);
+
+            return shortNameNode?.InnerText ?? "DefaultFileName.xml";
+        }
+
+        public static string IncrementVersion(string input)
+        {
+            // Match pattern like RB01 at the end of the string
+            var match = Regex.Match(input, @"(RB)(\d+)$");
+
+            if (match.Success)
+            {
+                string prefix = match.Groups[1].Value;  // "RB"
+                int number = int.Parse(match.Groups[2].Value);  // 1
+                number++;  // increment
+                string newSuffix = prefix + number.ToString("D2");  // Keep two digits
+                return Regex.Replace(input, @"(RB\d+)$", newSuffix);
+            }
+
+            return input; // Return unchanged if no match
+        }
+
+        public bool ValidateMappingDerivatives(XmlDocument RQ1Extract_data, string recordData, AsyncLogger async_objLogger)
+        {
+            string RecordID = string.Empty;
+            string RecordType = string.Empty;
+
+            if (!string.IsNullOrEmpty(recordData))
+            {
+                var recordDetails = recordData.Split(':');
+                RecordID = recordDetails[0].Trim();
+                RecordType = recordDetails[1].Trim();
+            }
+
+            async_objLogger.LogInfoAsync(RecordID, "BTHelper::ValidateMappingDerivatives:Starts");
+            try
+            {
+                if (RQ1Extract_data == null)
+                    throw new ArgumentNullException(nameof(RQ1Extract_data));
+
+                // Get Issue node
+                XmlNode issueNode = RQ1Extract_data.SelectSingleNode("//RQ1_EXTRACT/Issues/Issue");
+                if (issueNode == null)
+                    return true; // No issue → no validation needed
+
+                string workflow = issueNode.SelectSingleNode("ExternalExchangeWorkflow")?.InnerText?.Trim();
+                string nextState = issueNode.SelectSingleNode("ExternalNextState")?.InnerText?.Trim();
+
+                if (workflow != "FAE" ||
+                    !(nextState == "ESTIMATED_PILOT" || nextState == "ESTIMATED_AFFECTED"))
+                {
+                    return true; // Skip validation
+                }
+
+                XmlNode mappingNode = RQ1Extract_data.SelectSingleNode("//RQ1_EXTRACT/IssueReleaseMaps/IssueReleaseMap/MappingToDerivatives");
+                if (mappingNode == null || string.IsNullOrWhiteSpace(mappingNode.InnerText))
+                {
+                    return true;
+                }
+
+                string mappingText = mappingNode.InnerText.Trim();
+
+                var regex = new Regex(@"\[\w\]\s*(\S+)");
+                var mappingCodes = regex.Matches(mappingText)
+                                        .Cast<Match>()
+                                        .Select(m => m.Groups[1].Value.Trim())
+                                        .ToList();
+
+                if (mappingCodes.Count == 0)
+                {
+                    return true;
+                }
+
+                XmlNode projectNode = RQ1Extract_data.SelectSingleNode("//RQ1_EXTRACT/Projects/Project/ExternalDescription");
+                if (projectNode == null)
+                {
+                    return false;
+                }
+
+                string projectDescription = projectNode.InnerXml;
+
+                var siRegex = new Regex(@"SI\s*=\s*""([^""]+)""");
+                var projectCodes = siRegex.Matches(projectDescription)
+                                          .Cast<Match>()
+                                          .Select(m => m.Groups[1].Value.Trim())
+                                          .ToList();
+
+                foreach (var code in mappingCodes)
+                {
+                    if (!projectCodes.Contains(code))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            catch(Exception ex)
+            {
+                return false;
+            }
+            
+        }
+
+        public bool VerifyTokenOfRecord(string recordID, LifeTokenManager tokenManager)
+        {
+           
+            string lifetoken = tokenManager.GetLifeToken(recordID);
+
+            if (lifetoken.Contains("Failure"))
+            {
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+
+
+        #endregion
+
+
+
+}
+
+

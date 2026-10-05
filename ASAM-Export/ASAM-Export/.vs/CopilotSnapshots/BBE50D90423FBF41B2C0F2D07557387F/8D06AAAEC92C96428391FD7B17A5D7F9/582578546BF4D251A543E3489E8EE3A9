@@ -1,0 +1,585 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
+
+namespace RB.ROCustomerInterfaceExportLibrary
+{
+    public class RO_OSLC_DataInterface : RODataInterface
+    {
+        private string sExchangeFormat;
+        private AsyncLogger async_objlogger;
+        private Logger obj_ologger;
+        public string recordID = string.Empty;
+        
+
+        public RO_OSLC_DataInterface(string p_System, string p_sExchangeFormat, string RecordID, AsyncLogger async_ologger = null)
+            : base(p_System, p_sExchangeFormat, RecordID, async_ologger)
+        {
+            sExchangeFormat = p_sExchangeFormat;
+            async_objlogger = async_ologger;
+            recordID = RecordID;
+
+        }
+
+        public XElement FetchTechnicalAttachments(string recordID, string dbid, string url, AsyncLogger async_objlogger)
+        {
+            XElement attachmentsRoot = new XElement("Attachmentss");
+            using (HttpClient client = new HttpClient())
+            {
+                // Set Authorization header
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", "RkZNM0ZFOkRvTm90VXNlNEFueVRlc3Rpbmdz");
+
+                // Set Accept header
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("*/*"));
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(url).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string atomXmlString = response.Content.ReadAsStringAsync().Result;
+
+                        XNamespace atomNs = "http://www.w3.org/2005/Atom";
+                        XNamespace cqNs = "http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/";
+
+                        XDocument inputDoc = XDocument.Parse(atomXmlString);
+                       
+
+                        var entries = inputDoc.Descendants(atomNs + "entry").ToList();
+
+                        foreach (var entry in entries)
+                        {
+                            var filename = entry
+                                .Element(atomNs + "content")?
+                                .Element(cqNs + "attachment")?
+                                .Element(cqNs + "filename")?.Value;
+
+                            var fileLink = entry
+                                .Element(atomNs + "id")?.Value;
+
+                            if (!string.IsNullOrEmpty(filename))
+                            {
+                                XElement attachmentElem = new XElement("Attachments",
+                                    new XAttribute("recordtype", "Attachments"),
+                                    new XAttribute("dbid", dbid),
+                                    new XElement("entity_dbid", dbid),
+                                    new XElement("filename", filename),
+                                    new XElement("type", "Technical"),
+                                    new XElement("link", fileLink)
+                                );
+
+                                attachmentsRoot.Add(attachmentElem);
+                            }
+                        }                       
+
+                    }
+                    else
+                    {                       
+                        string errorContent = response.Content.ReadAsStringAsync().Result;                        
+                    }
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+            }
+
+            return attachmentsRoot;
+        }
+
+
+        public XElement FetchFinancialAttachments(string recordID, string dbid, string url, AsyncLogger async_objlogger)
+        {
+            XElement attachmentsRoot = new XElement("Attachmentss");
+            using (HttpClient client = new HttpClient())
+            {
+                // Set Authorization header
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", "RkZNM0ZFOkRvTm90VXNlNEFueVRlc3Rpbmdz");
+
+                // Set Accept header
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("*/*"));
+
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(url).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string atomXmlString = response.Content.ReadAsStringAsync().Result;
+
+                        XNamespace atomNs = "http://www.w3.org/2005/Atom";
+                        XNamespace cqNs = "http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/";
+
+                        XDocument inputDoc = XDocument.Parse(atomXmlString);
+
+
+                        var entries = inputDoc.Descendants(atomNs + "entry").ToList();
+
+                        foreach (var entry in entries)
+                        {
+                            var filename = entry
+                                .Element(atomNs + "content")?
+                                .Element(cqNs + "attachment")?
+                                .Element(cqNs + "filename")?.Value;
+
+                            var fileLink = entry
+                                .Element(atomNs + "id")?.Value;
+
+                            if (!string.IsNullOrEmpty(filename))
+                            {
+                                XElement attachmentElem = new XElement("Attachments",
+                                    new XAttribute("recordtype", "Attachments"),
+                                    new XAttribute("dbid", dbid),
+                                    new XElement("entity_dbid", dbid),
+                                    new XElement("filename", filename),
+                                    new XElement("type", "Financial"),
+                                    new XElement("link", fileLink)
+                                );
+
+                                attachmentsRoot.Add(attachmentElem);
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        string errorContent = response.Content.ReadAsStringAsync().Result;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+            return attachmentsRoot;
+        }
+
+
+        public void UploadFilesInFolder(string folderPath, string xprotID, AsyncLogger async_objlogger)
+        {
+            async_objlogger.LogInfoAsync(recordID, "UploadFilesInFolder Method Starts : ");
+
+            string url = string.Empty;
+
+            XElement xQueryNode = null;
+
+            // Querying the Node of the Configuration file to get the details of Update Attachment 2 Xprot.
+            if(folderPath.Contains("Commercial"))
+            {
+                xQueryNode = InterfaceConfigFile.Descendants("QUERY")
+                                .FirstOrDefault(q => (string)q.Element("NAME") == GlobalConstants.QueryMethods.uploadCommercialFiles);
+
+            }
+            else
+            {
+                xQueryNode = InterfaceConfigFile.Descendants("QUERY")
+                                                .FirstOrDefault(q => (string)q.Element("NAME") == GlobalConstants.QueryMethods.uploadExchangedFiles);
+            }
+
+            url = xQueryNode.Element("baseurl").Value;
+            url = url.Replace("recorddbid", xprotID);
+
+            if (!Directory.Exists(folderPath))
+            {
+                async_objlogger.LogInfoAsync(recordID, folderPath + " Doesn't Exist.");
+                return;
+            }
+
+            foreach (var filePath in Directory.GetFiles(folderPath))
+            {
+                try
+                {
+                    using (var client = new HttpClient())
+                    using (var request = new HttpRequestMessage(HttpMethod.Post, url))
+                    {
+                        // Correct Authorization header
+                        var byteArray = Encoding.ASCII.GetBytes($"{CQUser}:{CQPasword}");
+                        request.Headers.Authorization =
+                            new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+                        // Multipart content - wrap file stream in using to avoid leak on failure
+                        var content = new MultipartFormDataContent();
+                        var fileStream = File.OpenRead(filePath);
+                        content.Add(new StreamContent(fileStream), "attachment", Path.GetFileName(filePath));
+                        request.Content = content;
+
+                        // Blocking call (sync)
+                        var response = client.SendAsync(request).GetAwaiter().GetResult();
+                        response.EnsureSuccessStatusCode();
+
+                        async_objlogger.LogInfoAsync(recordID, "File Uploaded to Xprot Successfully");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    async_objlogger.LogInfoAsync(recordID, "Exception at UploadFilesInFolder");
+                    async_objlogger.LogExceptionAsync(recordID, ex);
+                }
+            }
+        }
+
+        public string InvokeUrl4ReadOperation(string recordID, string sUrlToInvoke, AsyncLogger async_objlogger)
+        {
+            async_objlogger.LogInfoAsync(recordID, "ClearQuest::InvokeURL : Starts with URL:\n" + sUrlToInvoke);
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    // Create the Basic Authentication header
+                    var byteArray = Encoding.ASCII.GetBytes($"{CQUser}:{CQPasword}");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+                    string sRequesterInfo = "toolname=" + CQToolName + ";toolversion=" + CQToolVersion + ";user=" + "bt9rsi";
+
+                    // Set request headers
+                    client.DefaultRequestHeaders.Add("OSLC-Core-Version", "2.0");
+                    client.DefaultRequestHeaders.Add("x-requester", sRequesterInfo);
+
+                    // Send the GET request synchronously
+                    HttpResponseMessage response = client.GetAsync(sUrlToInvoke).Result;
+
+                    // Ensure the response status is successful
+                    response.EnsureSuccessStatusCode();
+
+                    async_objlogger.LogInfoAsync(recordID, "ClearQuest::InvokeURL : ends");
+
+                    // Read and return the response content
+                    return response.Content.ReadAsStringAsync().Result;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions and propagate them
+                throw new Exception($"Error while invoking URL: {ex.Message}", ex);
+            }
+        }
+
+
+        public string InvokeUrl4UpdateOperation(string recordID, string sUrlToInvoke, XmlDocument XIMF, string recordType, AsyncLogger async_objlogger)
+        {
+            async_objlogger.LogInfoAsync(recordID, "ClearQuest::InvokeURL : Starts with URL:\n" + sUrlToInvoke);
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    // Create the Basic Authentication header
+                    var byteArray = Encoding.ASCII.GetBytes($"{CQUser}:{CQPasword}");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+                    string sRequesterInfo = "toolname=" + CQToolName + ";toolversion=" + CQToolVersion + ";user=" + "bt9rsi";
+
+                    // Set request headers
+                    client.DefaultRequestHeaders.Add("OSLC-Core-Version", "2.0");
+                    client.DefaultRequestHeaders.Add("x-requester", sRequesterInfo);
+
+                    string xmlBody = GenerateBody(XIMF, sUrlToInvoke, recordType);
+
+                    sUrlToInvoke = ReBuildUrlFromBody(sUrlToInvoke, xmlBody);
+
+                    HttpContent content = new StringContent(xmlBody, Encoding.UTF8, "application/xml");
+
+                    // Send the PUT request synchronously
+                    HttpResponseMessage response = client.PutAsync(sUrlToInvoke, content).Result;
+
+                    // Ensure the response status is successful
+                    response.EnsureSuccessStatusCode();
+
+                    async_objlogger.LogInfoAsync(recordID, response.Content.ReadAsStringAsync().Result);
+
+                    async_objlogger.LogInfoAsync(recordID, "ClearQuest::InvokeURL : ends");
+
+                    // Read and return the response content
+                    return response.Content.ReadAsStringAsync().Result;
+                }
+            }
+            catch (Exception ex)
+            {
+                async_objlogger.LogExceptionAsync(recordId, ex);
+                async_objlogger.LogInfoAsync(recordID, "RQ1 Updation Failed due to an exception.");
+                // Re-throw with context
+                throw new Exception($"Error while invoking URL: {ex.Message}", ex);
+            }
+        }
+
+        public string GenerateBody(XmlDocument XIMF, string url, string recordType)
+        {
+            string xmlbody = string.Empty;
+
+            Match match = Regex.Match(url, @"^([^?]+)");
+            url = match.Success ? match.Groups[1].Value : string.Empty;
+
+            try
+            {
+                string dcTermsType = null;
+                string xpathSelector = null;
+
+                if (recordType.ToUpper() == "ISSUE")
+                {
+                    dcTermsType = "Issue";
+                    xpathSelector = "//ISSUE";
+                }
+                else if (recordType.ToUpper() == "ISSUERELEASEMAP")
+                {
+                    dcTermsType = "Issuereleasemap";
+                    xpathSelector = "//ISSUERELEASEMAP";
+                }
+
+                if (dcTermsType != null)
+                {
+                    XmlNamespaceManager nsManager = new XmlNamespaceManager(XIMF.NameTable);
+                    nsManager.AddNamespace("ns0", "http://RB.ROCustomerInterfaceExport.Schemas.Export_IMF.Export_IMF");
+
+                    XmlNode targetNode = XIMF.SelectSingleNode(xpathSelector, nsManager);
+
+                    if (targetNode != null)
+                    {
+                        StringBuilder rdfXml = new StringBuilder();
+                        rdfXml.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
+                        rdfXml.AppendLine("<rdf:RDF ");
+                        rdfXml.AppendLine("         xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"");
+                        rdfXml.AppendLine("         xmlns:oslc=\"http://open-services.net/ns/core#\"");
+                        rdfXml.AppendLine("         xmlns:dcterms=\"http://purl.org/dc/terms/\"");
+                        rdfXml.AppendLine("         xmlns:cq=\"http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/\"");
+                        rdfXml.AppendLine("         xmlns:oslc_cm=\"http://open-services.net/ns/cm#\"");
+                        rdfXml.AppendLine("         xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\">");
+                        rdfXml.AppendLine("    <oslc_cm:ChangeRequest rdf:about=\"https://your-url-here\">");
+                        rdfXml.AppendLine($"        <dcterms:type>{dcTermsType}</dcterms:type>");
+                        rdfXml.AppendLine("        <cq:OperationMode rdf:ID=\"OperationMode\">ASAM-EXPORT</cq:OperationMode>");
+                        rdfXml.AppendLine("        <cq:OperationContext rdf:ID=\"OperationContext\">EDES</cq:OperationContext>");
+
+                        // Dynamically add all child elements
+                        foreach (XmlNode child in targetNode.ChildNodes)
+                        {
+                            string tagName = child.Name;
+                            string tagValue = child.InnerText.Trim();
+
+                            // Only add non-empty values to the RDF output
+                            if (!string.IsNullOrEmpty(tagValue))
+                            {
+                                rdfXml.AppendLine($"        <cq:{tagName} rdf:ID=\"{tagName}\">{tagValue}</cq:{tagName}>");
+                            }
+                        }
+
+                        rdfXml.AppendLine("    </oslc_cm:ChangeRequest>");
+                        rdfXml.AppendLine("    <rdf:Statement rdf:about=\"#OperationMode\">");
+                        rdfXml.AppendLine("        <cq:fieldOrder>79</cq:fieldOrder>");
+                        rdfXml.AppendLine("    </rdf:Statement>");
+                        rdfXml.AppendLine("    <rdf:Statement rdf:about=\"#OperationContext\">");
+                        rdfXml.AppendLine("        <cq:fieldOrder>78</cq:fieldOrder>");
+                        rdfXml.AppendLine("    </rdf:Statement>");
+                        rdfXml.AppendLine("</rdf:RDF>");
+
+                        xmlbody = rdfXml.ToString();
+                        xmlbody = xmlbody.Replace("https://your-url-here", url);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle as needed; currently matches original silent-catch behavior
+            }
+
+            return xmlbody;
+        }
+
+        
+
+        public static string ReBuildUrlFromBody(string originalUrl, string rdfBody)
+        {
+            string MandatoryField = "ExternalNextState";
+
+            if (string.IsNullOrWhiteSpace(originalUrl))
+                throw new ArgumentException("URL cannot be null or empty");
+
+            if (string.IsNullOrWhiteSpace(rdfBody))
+                throw new ArgumentException("Body cannot be null or empty");
+
+            // Parse RDF body
+            var doc = XDocument.Parse(rdfBody);
+
+            XNamespace cqNs = "http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/";
+            XNamespace oslcCmNs = "http://open-services.net/ns/cm#";
+
+            // Extract cq fields from ChangeRequest
+            var cqFields = doc
+                .Descendants(oslcCmNs + "ChangeRequest")
+                .Elements()
+                .Where(e => e.Name.Namespace == cqNs)
+                .Select(e => e.Name.LocalName)
+                .Distinct()
+                .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+            // Always keep ExternalNextState
+            cqFields.Add(MandatoryField);
+
+            // Build oslc.properties
+            string properties = string.Join(",",
+                cqFields
+                    .OrderBy(f => f)
+                    .Select(f => WebUtility.UrlEncode($"cq:{f}")));
+
+            // Strip existing oslc.properties
+            var urlParts = originalUrl.Split('&')
+                .Where(p => !p.StartsWith("oslc.properties=", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            // Ensure rcm.action=modify exists
+            if (!urlParts.Any(p => p.StartsWith("rcm.action=", StringComparison.OrdinalIgnoreCase)))
+                urlParts.Add("rcm.action=modify");
+
+            // Add final oslc.properties
+            urlParts.Add($"oslc.properties={properties}");
+
+            return string.Join("&", urlParts);
+        }
+
+        public string InvokeUrl4UpdateXport(string recordID, string sUrlToInvoke, string xprotLog, string xprotStatus, AsyncLogger async_objlogger = null)
+        {
+           
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    // Create the Basic Authentication header
+                    var byteArray = Encoding.ASCII.GetBytes($"{CQUser}:{CQPasword}");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+                    string sRequesterInfo = "toolname=" + CQToolName + ";toolversion=" + CQToolVersion + ";user=" + "bt9rsi";
+
+                    // Set request headers
+                    client.DefaultRequestHeaders.Add("OSLC-Core-Version", "2.0");
+                    client.DefaultRequestHeaders.Add("x-requester", sRequesterInfo);
+
+                    string xmlBody = GlobalConstants.QueryBody.XprotBody;
+                    string cleanedUrl = sUrlToInvoke.Split('?')[0];
+
+                    xmlBody = xmlBody.Replace("XprotLog", xprotLog);
+                    xmlBody = xmlBody.Replace("XprotStatus", xprotStatus);
+                    xmlBody = xmlBody.Replace("url", cleanedUrl);
+
+                    
+
+                    HttpContent content = new StringContent(xmlBody, Encoding.UTF8, "application/xml");
+
+                    // Send the PUT request synchronously
+                    HttpResponseMessage response = client.PutAsync(sUrlToInvoke, content).Result;
+
+                    // Ensure the response status is successful
+                    response.EnsureSuccessStatusCode();
+
+                    // Read and return the response content
+                    return response.Content.ReadAsStringAsync().Result;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions and propagate them
+                throw new Exception($"Error while invoking URL: {ex.Message}", ex);
+                
+            }
+        }
+
+        public string CreateQuery(string recordType, string recordID,  string queryname, string queryparam, AsyncLogger objLogger = null)
+        {
+            if(objLogger != null)
+            {
+                objLogger.LogInfoAsync(recordID, "CreateQuery Started : ");
+                objLogger.LogInfoAsync(recordID, "CreateQuery For : " + queryname);
+            }
+
+            string oQuery = string.Empty;
+
+            try
+            {
+                string upperRecordType = recordType.ToUpper();
+
+                // ISSUE, ISSUERELEASEMAP, and XPROT all follow the same pattern — find query node, build URL
+                XElement xQueryNode = InterfaceConfigFile.Descendants("QUERY")
+                        .FirstOrDefault(q => (string)q.Element("NAME") == queryname);
+
+                if (xQueryNode == null)
+                {
+                    throw new Exception($"Query with name {queryname} not found.");
+                }
+
+                if (objLogger != null)
+                {
+                    objLogger.LogInfoAsync(recordID, "CreateQuery  : Query Node found");
+                }
+
+                string baseUrl = xQueryNode.Element("baseurl").Value;
+                string type = xQueryNode.Element("type").Value;
+
+                if (type == "READ" && (upperRecordType == "ISSUE" || upperRecordType == "ISSUERELEASEMAP"))
+                {
+                    var attributes = xQueryNode.Element("attributes")?.Elements("attribute")
+                        .Select(attr => Uri.EscapeDataString(attr.Value)).ToList();
+
+                    if (attributes == null || !attributes.Any())
+                    {
+                        baseUrl = baseUrl.Replace("recorddbid", queryparam);
+                        oQuery = baseUrl;
+                    }
+                    else
+                    {
+                        string attributeString = "oslc.properties=" + string.Join(",", attributes);
+                        string whereString = "oslc.where=" + xQueryNode.Element("where").Value;
+                        whereString = whereString.Replace("Did", queryparam);
+                        oQuery = baseUrl + "&" + whereString + "&" + attributeString;
+                    }
+
+                    if (objLogger != null)
+                    {
+                        objLogger.LogInfoAsync(recordID, "CreateQuery query generated : " + oQuery);
+                    }
+                }
+                else if (type == "UPDATE")
+                {
+                    var attributes = xQueryNode.Element("attributes")?.Elements("attribute")
+                        .Select(attr => Uri.EscapeDataString(attr.Value)).ToList();
+
+                    if (attributes == null || !attributes.Any())
+                    {
+                        throw new Exception($"No attributes found for query {queryname}.");
+                    }
+
+                    string attributeString = string.Join(",", attributes);
+                    baseUrl = baseUrl.Replace("recorddbid", queryparam);
+                    baseUrl = baseUrl.Replace("%3A", ":");
+                    attributeString = "oslc.properties=" + attributeString;
+                    oQuery = baseUrl + "?rcm.action=modify&" + attributeString;
+
+                    if (objLogger != null)
+                    {
+                        objLogger.LogInfoAsync(recordID, "CreateQuery query generated : " + oQuery);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (objLogger != null)
+                {
+                    objLogger.LogInfoAsync(recordID, "CreateQuery Execution failed with the exception : " + ex.Message);
+                }
+            }
+
+            return oQuery;
+        }
+
+        
+        
+    }
+}

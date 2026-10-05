@@ -1,0 +1,9 @@
+
+WebService Namespace = http://DBMapper/
+
+WebService Project Location = http://localhost/DBMapper_Proxy = http://SI0VM521/DBMapper_Proxy
+
+--> WebService Location = http://si0vm521/DBMapper_Proxy/DBMapper_Orchestration_1_Port_1.asmx
+--> WebService WSDL = http://si0vm521/DBMapper_Proxy/DBMapper_Orchestration_1_Port_1.asmx?WSDL
+
+http://localhost/DBMapper_Proxy/DBMapper_Orchestration_1_Port_1.asmx

@@ -1,0 +1,319 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="5c233086-13a0-4180-82c0-e36415ccf12d" LowerBound="1.1" HigherBound="86.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="RB.ROCustomerInterface" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="b2802929-ed81-4f96-8b61-dc21a3fd4948" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_FTPTransferResultUpdate" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="1f16580e-e316-4c51-9da3-16dae0c6dadd" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="bb825459-0c80-436d-b564-241628f295e4" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.54">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterface.Schema.Transfer.TransferResultInformation" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="a6a7207d-d5b0-481c-a046-c9872e443264" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_sndRestartXPROT" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="d1974322-8779-4e49-b39c-e581f85865ee" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="b81d3ec7-b0cf-45bc-9be3-c880eed1fc27" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.54">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterface.Schema.Transfer.TransferResultInformation" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="875a7a71-dee0-426b-8123-d1dd1db698c9" ParentLink="Module_ServiceDeclaration" LowerBound="18.1" HigherBound="85.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="Orchestration_1" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="VariableDeclaration" OID="08e563fc-5d06-4728-9baf-40794eb864c0" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="27.1" HigherBound="28.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sExchangeProtocolID" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="8de8338b-da45-433f-aa9f-eaaefedc635b" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="28.1" HigherBound="29.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.ROCustomerIntefaceLibrary.Logger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROLogger" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="2e4b3f8c-943e-4122-8b2a-31dc697bc412" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="29.1" HigherBound="30.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.ROCustomerIntefaceLibrary.BTHelper" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROCustomerLibrary" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="e74726b6-7a8d-4e5a-9ef2-dc4612328a84" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="30.1" HigherBound="31.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sConfigPath" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="7709d001-7642-46a1-9aca-63f998d81938" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="31.1" HigherBound="32.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sInterfaceName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="9319d5bf-7300-43c1-951c-49ab2212adba" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="32.1" HigherBound="33.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sXPROTInitalLog" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="109ccf88-e4de-4467-ae72-ebaeee940853" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="33.1" HigherBound="34.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sSystem" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="3debca76-7ecb-4d93-8565-4d0f2e4309a7" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="25.1" HigherBound="26.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.Schema.Transfer.TransferResultInformation" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgFTPResultUpdate" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="7cfab076-3868-4b42-93e7-eb4ef406ff91" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="26.1" HigherBound="27.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.Schema.Transfer.TransferResultInformation" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgFTPResultUpdateNew" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="adb8210a-d22a-4a4e-8de2-b99beb1aba8f" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="a07477f7-c804-40bf-accb-d159bdf5cbfe" ParentLink="ServiceBody_Statement" LowerBound="36.1" HigherBound="44.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="FTPTransferResultUpdate" />
+                    <om:Property Name="MessageName" Value="msgFTPResultUpdate" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="4b3d501b-77a7-454a-b1b7-1a319c058cfa" ParentLink="ServiceBody_Statement" LowerBound="44.1" HigherBound="46.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;XPROT-Restart starts&quot; );" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Log" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="316f4bf7-2070-4d01-bbac-e75a28a25bed" ParentLink="ServiceBody_Statement" LowerBound="46.1" HigherBound="54.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;Setting Variables starts&quot; );&#xD;&#xA;&#xD;&#xA;sInterfaceName = msgFTPResultUpdate.InterfaceName;&#xD;&#xA;sExchangeProtocolID = msgFTPResultUpdate.XProtID;&#xD;&#xA;sSystem = msgFTPResultUpdate.RQ1System;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;Interface name =&quot;+ sInterfaceName);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;Setting Variables ends&quot; );" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="SetVariables" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="3720ec74-62c2-4450-a4f3-5ed827fd977f" ParentLink="ServiceBody_Statement" LowerBound="54.1" HigherBound="58.1">
+                    <om:Property Name="Expression" Value="sConfigPath = ROCustomerLibrary.GetConfigPathForLogger(sInterfaceName,sExchangeProtocolID);&#xD;&#xA;ROLogger = new RB.ROCustomerIntefaceLibrary.Logger(sConfigPath);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;sConfigPath=&quot;+sConfigPath);&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="setConfigPathForLogger" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="4b07f997-0458-44bc-9a71-b107dd9c8f7e" ParentLink="ServiceBody_Statement" LowerBound="58.1" HigherBound="65.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;Setting the ExchangeProtocol Id starts&quot;);&#xD;&#xA;&#xD;&#xA;//Set the value in internal store for accessing in MAP&#xD;&#xA;ROCustomerLibrary.AddXProtForLogger(sExchangeProtocolID,ROLogger);&#xD;&#xA;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;Setting the ExchangeProtocol Id ends&quot;);" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="SetExchange ProtocolIDForLogger" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="f8aa4494-f1c9-47cb-9e64-add526f6d62f" ParentLink="ServiceBody_Statement" LowerBound="65.1" HigherBound="69.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;callUnlockRecord&quot;);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;sSystem=&quot;+sSystem);&#xD;&#xA;ROCustomerLibrary.UnlockRecord(sExchangeProtocolID,sInterfaceName,sSystem,ROLogger);" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="UnlockXPROT" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="58d04e54-46eb-4a84-90b0-f40de64787b4" ParentLink="ServiceBody_Statement" LowerBound="69.1" HigherBound="73.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;UpdateXPROTLog&quot;);&#xD;&#xA;sXPROTInitalLog = ROCustomerLibrary.GetInitialValueofXprot(sExchangeProtocolID,sInterfaceName,sSystem,ROLogger);&#xD;&#xA;ROCustomerLibrary.UpdateXPROTLog(sExchangeProtocolID,sXPROTInitalLog,sInterfaceName,sSystem,ROLogger);" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="SetXPROTLog" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Construct" OID="c45c3655-b69b-4ab7-b07e-4bcc5e0c7421" ParentLink="ServiceBody_Statement" LowerBound="73.1" HigherBound="81.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ConstructMessage_1" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="MessageAssignment" OID="569b93a2-119b-44e7-b322-849d88d1cc62" ParentLink="ComplexStatement_Statement" LowerBound="76.1" HigherBound="80.1">
+                        <om:Property Name="Expression" Value="msgFTPResultUpdateNew = msgFTPResultUpdate;&#xD;&#xA;//msgFTPResultUpdateNew = ROCustomerLibrary.SetNewLifeTokenForTransferResult(msgFTPResultUpdateNew,ROLogger);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE-RestartXPROT&quot;,&quot;send to valin&quot;);" />
+                        <om:Property Name="ReportToAnalyst" Value="False" />
+                        <om:Property Name="Name" Value="MessageAssignment_1" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                    <om:Element Type="MessageRef" OID="74b2ab8c-0de4-4c5e-804b-2d72a48f47d9" ParentLink="Construct_MessageRef" LowerBound="74.23" HigherBound="74.44">
+                        <om:Property Name="Ref" Value="msgFTPResultUpdateNew" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="Send" OID="dadc21d3-6d42-4565-aa9c-60186d397f22" ParentLink="ServiceBody_Statement" LowerBound="81.1" HigherBound="83.1">
+                    <om:Property Name="PortName" Value="sndXPROTRestart" />
+                    <om:Property Name="MessageName" Value="msgFTPResultUpdate" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="b7a65c89-b4fa-4e83-9646-54ba8eb3a434" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="21.1" HigherBound="23.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.PortType_FTPTransferResultUpdate" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="FTPTransferResultUpdate" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="17c447ea-e86d-4112-9d78-ec9466a250ca" ParentLink="PortDeclaration_CLRAttribute" LowerBound="21.1" HigherBound="22.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="980a7c36-126c-4091-afdc-c4308f0d5cdc" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="23.1" HigherBound="25.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterface.PortType_sndRestartXPROT" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sndXPROTRestart" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="cab21e3c-2031-4c11-a2e3-6184a400b97e" ParentLink="PortDeclaration_CLRAttribute" LowerBound="23.1" HigherBound="24.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module RB.ROCustomerInterface
+{
+    internal porttype PortType_FTPTransferResultUpdate
+    {
+        oneway Operation_1
+        {
+            Schema.Transfer.TransferResultInformation
+        };
+    };
+    internal porttype PortType_sndRestartXPROT
+    {
+        oneway Operation_1
+        {
+            Schema.Transfer.TransferResultInformation
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service Orchestration_1
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port implements PortType_FTPTransferResultUpdate FTPTransferResultUpdate;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_sndRestartXPROT sndXPROTRestart;
+        message Schema.Transfer.TransferResultInformation msgFTPResultUpdate;
+        message Schema.Transfer.TransferResultInformation msgFTPResultUpdateNew;
+        System.String sExchangeProtocolID;
+        RB.ROCustomerIntefaceLibrary.Logger ROLogger;
+        RB.ROCustomerIntefaceLibrary.BTHelper ROCustomerLibrary;
+        System.String sConfigPath;
+        System.String sInterfaceName;
+        System.String sXPROTInitalLog;
+        System.String sSystem;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("a07477f7-c804-40bf-accb-d159bdf5cbfe")]
+            activate receive (FTPTransferResultUpdate.Operation_1, msgFTPResultUpdate);
+            sExchangeProtocolID = "";
+            ROCustomerLibrary = new RB.ROCustomerIntefaceLibrary.BTHelper();
+            sConfigPath = "";
+            sInterfaceName = "";
+            sXPROTInitalLog = "";
+            sSystem = "";
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("4b3d501b-77a7-454a-b1b7-1a319c058cfa")]
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","XPROT-Restart starts" );
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("316f4bf7-2070-4d01-bbac-e75a28a25bed")]
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","Setting Variables starts" );
+            
+            sInterfaceName = msgFTPResultUpdate.InterfaceName;
+            sExchangeProtocolID = msgFTPResultUpdate.XProtID;
+            sSystem = msgFTPResultUpdate.RQ1System;
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","Interface name ="+ sInterfaceName);
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","Setting Variables ends" );
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("3720ec74-62c2-4450-a4f3-5ed827fd977f")]
+            sConfigPath = ROCustomerLibrary.GetConfigPathForLogger(sInterfaceName,sExchangeProtocolID);
+            ROLogger = new RB.ROCustomerIntefaceLibrary.Logger(sConfigPath);
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","sConfigPath="+sConfigPath);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("4b07f997-0458-44bc-9a71-b107dd9c8f7e")]
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","Setting the ExchangeProtocol Id starts");
+            
+            //Set the value in internal store for accessing in MAP
+            ROCustomerLibrary.AddXProtForLogger(sExchangeProtocolID,ROLogger);
+            
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","Setting the ExchangeProtocol Id ends");
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("f8aa4494-f1c9-47cb-9e64-add526f6d62f")]
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","callUnlockRecord");
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","sSystem="+sSystem);
+            ROCustomerLibrary.UnlockRecord(sExchangeProtocolID,sInterfaceName,sSystem,ROLogger);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("58d04e54-46eb-4a84-90b0-f40de64787b4")]
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","UpdateXPROTLog");
+            sXPROTInitalLog = ROCustomerLibrary.GetInitialValueofXprot(sExchangeProtocolID,sInterfaceName,sSystem,ROLogger);
+            ROCustomerLibrary.UpdateXPROTLog(sExchangeProtocolID,sXPROTInitalLog,sInterfaceName,sSystem,ROLogger);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c45c3655-b69b-4ab7-b07e-4bcc5e0c7421")]
+            construct msgFTPResultUpdateNew
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("569b93a2-119b-44e7-b322-849d88d1cc62")]
+                msgFTPResultUpdateNew = msgFTPResultUpdate;
+                //msgFTPResultUpdateNew = ROCustomerLibrary.SetNewLifeTokenForTransferResult(msgFTPResultUpdateNew,ROLogger);
+                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE-RestartXPROT","send to valin");
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("dadc21d3-6d42-4565-aa9c-60186d397f22")]
+            send (sndXPROTRestart.Operation_1, msgFTPResultUpdate);
+        }
+    }
+}
+

@@ -1,0 +1,52 @@
+<ns0:Root xmlns:ns0="http://schemas.microsoft.com/BizTalk/2003/aggschema">
+  <InputMessagePart_0>
+    <ns1:VWPartnumberMappings xmlns:ns1="http://DBMapper.Schema">
+      <Mapping>
+        <CUSTTN>CUSTTN_0</CUSTTN>
+        <RBTTN>RBTTN_0</RBTTN>
+        <RBRELTYPE>RBRELTYPE_0</RBRELTYPE>
+        <RBSGBEZ>RBSGBEZ_0</RBSGBEZ>
+        <Resultstatus>Resultstatus_0</Resultstatus>
+        <Resultmessage>Resultmessage_0</Resultmessage>
+      </Mapping>
+      <Mapping>
+        <CUSTTN>CUSTTN_1</CUSTTN>
+        <RBTTN>RBTTN_1</RBTTN>
+        <RBRELTYPE>RBRELTYPE_1</RBRELTYPE>
+        <RBSGBEZ>RBSGBEZ_1</RBSGBEZ>
+        <Resultstatus>Resultstatus_1</Resultstatus>
+        <Resultmessage>Resultmessage_1</Resultmessage>
+      </Mapping>
+    </ns1:VWPartnumberMappings>
+  </InputMessagePart_0>
+  <InputMessagePart_1>
+    <ns2:SelectResponse xmlns:ns2="http://schemas.microsoft.com/Sql/2008/05/TableOp/dbo/VW2RBMapping">
+      <ns2:SelectResult>
+        <ns3:VW2RBMapping xmlns:ns3="http://schemas.microsoft.com/Sql/2008/05/Types/Tables/dbo">
+          <ns3:CUST_TN>CUSTTN_0</ns3:CUST_TN>
+          <ns3:RB_TTN>RB_TTN0.1</ns3:RB_TTN>
+          <ns3:RB_RELTYPE>MUSTER</ns3:RB_RELTYPE>
+          <ns3:RB_SGBEZ>RB_SGBEZ.1</ns3:RB_SGBEZ>
+        </ns3:VW2RBMapping>
+        <ns3:VW2RBMapping xmlns:ns3="http://schemas.microsoft.com/Sql/2008/05/Types/Tables/dbo">
+          <ns3:CUST_TN>CUSTTN_0</ns3:CUST_TN>
+          <ns3:RB_TTN>RB_TTN0.2</ns3:RB_TTN>
+          <ns3:RB_RELTYPE>MUSTER</ns3:RB_RELTYPE>
+          <ns3:RB_SGBEZ>RB_SGBEZ.2</ns3:RB_SGBEZ>
+        </ns3:VW2RBMapping>
+        <ns3:VW2RBMapping xmlns:ns3="http://schemas.microsoft.com/Sql/2008/05/Types/Tables/dbo">
+          <ns3:CUST_TN>CUST_TNCUST_TNCUST_TNCUST_TNCUST_TNCUST_TNCUST_TNC</ns3:CUST_TN>
+          <ns3:RB_TTN>RB_TTNRB_TTNRB_TTNRB_TTNRB_TTNRB_TTNRB_TTNRB_TTNRB</ns3:RB_TTN>
+          <ns3:RB_RELTYPE>RB_RELTYPERB_RELTYPERB_RELTYPERB_RELTYPERB_RELTYPE</ns3:RB_RELTYPE>
+          <ns3:RB_SGBEZ>RB_SGBEZRB_SGBEZRB_SGBEZRB_SGBEZRB_SGBEZRB_SGBEZRB</ns3:RB_SGBEZ>
+        </ns3:VW2RBMapping>
+        <ns3:VW2RBMapping xmlns:ns3="http://schemas.microsoft.com/Sql/2008/05/Types/Tables/dbo">
+          <ns3:CUST_TN>CUST_TNCUST_TNCUST_TNCUST_TNCUST_TNCUST_TNCUST_TNC</ns3:CUST_TN>
+          <ns3:RB_TTN>RB_TTNRB_TTNRB_TTNRB_TTNRB_TTNRB_TTNRB_TTNRB_TTNRB</ns3:RB_TTN>
+          <ns3:RB_RELTYPE>RB_RELTYPERB_RELTYPERB_RELTYPERB_RELTYPERB_RELTYPE</ns3:RB_RELTYPE>
+          <ns3:RB_SGBEZ>RB_SGBEZRB_SGBEZRB_SGBEZRB_SGBEZRB_SGBEZRB_SGBEZRB</ns3:RB_SGBEZ>
+        </ns3:VW2RBMapping>
+      </ns2:SelectResult>
+    </ns2:SelectResponse>
+  </InputMessagePart_1>
+</ns0:Root>

@@ -1,0 +1,23 @@
+
+After gaccing, following files need to be modified in order show up this behaviour in WCF-Adapter configuration:
+
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+
+
+  <system.serviceModel>
+    <extensions>
+      <behaviorExtensions>
+        <add name="HTTPHeaderExtension.HISHeaderCorrection" type="HTTPHeaderExtension.ExtendedHTTPHeaderBehaviorElement, Bosch.Adapters.Behaviors, Version=1.0.0.0, Culture=neutral, PublicKeyToken=84a9d77fe8620687"/>
+		...
+
+
+Explanation:
+		
+HTTPHeaderExtension.HISHeaderCorrection : "HTTPHeaderExtension" -> namespace, definied in classlibrary source file
+										  "HISHeaderCorrection" -> behaviour name which appears in WCF behaviour config tab, can be defined freely
+
+HTTPHeaderExtension.ExtendedHTTPHeaderBehaviorElement : "ExtendedHTTPHeaderBehaviorElement" -> class name of behaviourelement derivation, s. source file
+
+Bosch.Adapters.Behaviors : name of assembly in gac, defined in project props of Solution
+

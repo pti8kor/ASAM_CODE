@@ -1,0 +1,8 @@
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\FTPGetNames Project\FTPGetNames Project\bin\Debug\FTPGetNames.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\FTPGetNames Project\FTPGetNames Project\bin\Debug\FTPGetNames.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\FTPGetNames Project\FTPGetNames Project\bin\Debug\BTLogger.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\FTPGetNames Project\FTPGetNames Project\bin\Debug\FTPLibrary.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\FTPGetNames Project\FTPGetNames Project\obj\Debug\FTPGetNames Project.btproj.CoreCompileInputs.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\FTPGetNames Project\FTPGetNames Project\obj\Debug\FTPGetNames Project.btproj.CopyComplete
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\FTPGetNames Project\FTPGetNames Project\obj\Debug\FTPGetNames.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\FTPGetNames Project\FTPGetNames Project\obj\Debug\FTPGetNames.pdb

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.bosch.com/edexas/asam/transmitter/services" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="TransmitterService" targetNamespace="http://www.bosch.com/edexas/asam/transmitter/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.bosch.com/edexas/asam/transmitter/services" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="transmitterRequest" type="tns:transmitterRequest" />
+      <xs:element name="transmitterResponse" type="tns:transmitterResponse" />
+      <xs:complexType name="transmitterRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="transferBinary" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="transferData" type="xs:string" />
+          <xs:element minOccurs="0" name="transferFile" type="xs:string" />
+          <xs:element minOccurs="0" name="transferType" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="transmitterResponse">
+        <xs:sequence>
+          <xs:element name="failure" type="xs:boolean" />
+          <xs:element minOccurs="0" name="result" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="transferType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MESSAGE_ACKNOWLEDGE" />
+          <xs:enumeration value="SUPPLIER_DATA" />
+          <xs:enumeration value="TEST" />
+          <xs:enumeration value="STATE" />
+          <xs:enumeration value="DEFAULT" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="startTransmit">
+    <wsdl:part name="transmitterRequest" element="tns:transmitterRequest" />
+  </wsdl:message>
+  <wsdl:message name="startTransmitResponse">
+    <wsdl:part name="transmitterResponse" element="tns:transmitterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TransmitterServiceInterface">
+    <wsdl:operation name="startTransmit">
+      <wsdl:input name="startTransmit" message="tns:startTransmit" />
+      <wsdl:output name="startTransmitResponse" message="tns:startTransmitResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransmitterServiceSoapBinding" type="tns:TransmitterServiceInterface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="startTransmit">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="startTransmit">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="startTransmitResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransmitterService">
+    <wsdl:port name="TransmitterServicePort" binding="tns:TransmitterServiceSoapBinding">
+      <soap:address location="http://si0vm595.de.bosch.com:18080/daimler-transmitter/services/TransmitterServicePort" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

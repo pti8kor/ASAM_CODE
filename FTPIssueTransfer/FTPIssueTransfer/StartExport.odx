@@ -1,0 +1,416 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="42e86bf1-8d3c-4e7c-af83-93c2d4ea247b" LowerBound="1.1" HigherBound="102.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="FTPRecordTransfer" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="88467b86-e524-474e-a899-9a876f213d94" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_5" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="6fb207c2-8583-45f5-8b44-69b8ed5b9710" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="bcbbff8a-012d-4f72-ad7a-d5b5f50155db" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.48">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.StartExportRequest" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="750ac202-3659-4f2d-9972-b9dd584ddda4" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="8.50" HigherBound="8.85">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.StartExportRequest" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="173aac82-a82a-4247-856e-29375bef8410" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_1" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="cb414096-3fa8-4d72-b89b-b97a49470289" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="ee26b25b-9d93-40b1-92a4-860b22ea2c65" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.55">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransferResultInformation" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="e9e55d4c-ffdd-4ed9-b337-1b72e5bbe79f" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_2" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="b3b98fd6-0958-4013-8bc2-5fdc687bc883" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="f2ebd582-c807-4899-a21d-451df1eb5dce" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.55">
+                    <om:Property Name="Ref" Value="FTPIssueTransfer.TransferResultInformation" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="0934b618-932b-4eba-aca4-75910dc20650" ParentLink="Module_ServiceDeclaration" LowerBound="25.1" HigherBound="101.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="StartExport" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="VariableDeclaration" OID="d4f0f204-4d7a-4726-a28a-cac703e7be0f" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="36.1" HigherBound="37.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.BTLoggerLibrary.Logger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROLogger" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="23274daa-6e6f-457c-aec7-1a9a4adfb9d2" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="37.1" HigherBound="38.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.BTLoggerLibrary.BTLogger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ROBTLogger" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="66c8a2d3-a94b-4f04-8f47-8b107b9a7ed0" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="38.1" HigherBound="39.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="InterfaceName" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="0a97a69b-5f53-4526-a728-0e2056b23f22" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="39.1" HigherBound="40.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="TargetSystem" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="d754a1f9-a5b2-410d-a21c-6e2899af46ee" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="40.1" HigherBound="41.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="LifeToken4XProt" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="cdb1f755-913e-4136-ac1d-5a3052c9b81a" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="41.1" HigherBound="42.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="LifeToken4Files" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="af2481aa-dcbd-4d06-924d-174b1a2fc486" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="42.1" HigherBound="43.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="tmp_str1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="18a625ee-b795-4ecc-8e72-9f41c36b96fd" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="43.1" HigherBound="44.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="type" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="097770df-5550-4aac-b8c1-24e65910236d" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="44.1" HigherBound="45.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="tmp_str2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="09262db5-d33b-4b9d-b9d7-5678c32e3c7f" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="34.1" HigherBound="35.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer.StartExportRequest" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Message_1" />
+                <om:Property Name="Signal" Value="False" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="00ee2a15-4e0e-4cc4-9a1e-1ab2b03ba673" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="35.1" HigherBound="36.1">
+                <om:Property Name="Type" Value="FTPIssueTransfer.TransferResultInformation" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="ExportTransferResultInfo_msg" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="f0b98ed3-8924-4b12-85e9-667742498b70" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="9b724ee7-8871-406f-a917-e57da6b74875" ParentLink="ServiceBody_Statement" LowerBound="47.1" HigherBound="57.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="EX_P" />
+                    <om:Property Name="MessageName" Value="Message_1" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="4c9b7088-c102-4682-b0d9-c1abe0329dc4" ParentLink="ServiceBody_Statement" LowerBound="57.1" HigherBound="59.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;FTPIssueTransfer&quot;,&quot;Export Request received at &quot;+System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now));" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Log" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="3a782c69-63c5-4ad5-a0b1-ef864c78eb6d" ParentLink="ServiceBody_Statement" LowerBound="59.1" HigherBound="64.1">
+                    <om:Property Name="Expression" Value="type = &quot;Export&quot;;&#xD;&#xA;ROLogger  = ROBTLogger.GetLogger(Message_1.InterfaceName,Message_1.XProtID, type);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmssffffff - }&quot;, System.DateTime.Now) + &quot;After receiving Request&quot;,&#xD;&#xA;ROLogger);&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="SetLogger" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="f65acc89-027c-413f-9cfd-423df052e7d9" ParentLink="ServiceBody_Statement" LowerBound="64.1" HigherBound="76.1">
+                    <om:Property Name="Expression" Value="InterfaceName = System.Convert.ToString(Message_1.InterfaceName);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer :InterfaceName  : &quot; + InterfaceName,ROLogger);&#xD;&#xA;TargetSystem = System.Convert.ToString(Message_1.RQ1System);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer :TargetSystem  : &quot; + TargetSystem,ROLogger);&#xD;&#xA;LifeToken4XProt = &quot;In Progress&quot;;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer :LifeToken4Xprot  : &quot; + LifeToken4XProt,ROLogger);&#xD;&#xA;tmp_str1 = Message_1.FTPFileNames;&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer :RecordNames  : &quot; + tmp_str1,ROLogger);&#xD;&#xA;LifeToken4Files = ROBTLogger.InsertAllTokenStatus(tmp_str1, &quot;In Progress&quot;,type);&#xD;&#xA;ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : LifeToken4Files  : &quot; + LifeToken4Files,ROLogger);&#xD;&#xA;&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Expression_1" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="Send" OID="d13b7454-2dd6-4a63-adb2-d227eabb12ad" ParentLink="ServiceBody_Statement" LowerBound="76.1" HigherBound="78.1">
+                    <om:Property Name="PortName" Value="EX_P" />
+                    <om:Property Name="MessageName" Value="Message_1" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Construct" OID="46d54810-a7f7-45e8-8aa7-96dc41058398" ParentLink="ServiceBody_Statement" LowerBound="78.1" HigherBound="92.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ConstructMessage_1" />
+                    <om:Property Name="Signal" Value="False" />
+                    <om:Element Type="Transform" OID="56d01bc4-ae98-484f-a485-7052fe894da9" ParentLink="ComplexStatement_Statement" LowerBound="81.1" HigherBound="83.1">
+                        <om:Property Name="ClassName" Value="FTPIssueTransfer.Map2TransferResultExp" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Transform_1" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessagePartRef" OID="8d6a1e29-13f5-43d6-9d74-2144d3070b26" ParentLink="Transform_InputMessagePartRef" LowerBound="82.100" HigherBound="82.109">
+                            <om:Property Name="MessageRef" Value="Message_1" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_1" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessagePartRef" OID="3b59feeb-47ba-4b29-a87b-466297936bb2" ParentLink="Transform_OutputMessagePartRef" LowerBound="82.28" HigherBound="82.56">
+                            <om:Property Name="MessageRef" Value="ExportTransferResultInfo_msg" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_2" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="MessageAssignment" OID="55bb3a4e-6ba0-44c4-99ff-346d9b5a861b" ParentLink="ComplexStatement_Statement" LowerBound="83.1" HigherBound="91.1">
+                        <om:Property Name="Expression" Value="ExportTransferResultInfo_msg.LifeToken4XProt = LifeToken4XProt;&#xD;&#xA;ExportTransferResultInfo_msg.LifeToken4Files = LifeToken4Files;&#xD;&#xA;&#xD;&#xA;tmp_str1 = ExportTransferResultInfo_msg.RQ1System;&#xD;&#xA;tmp_str2 = tmp_str1.Substring(tmp_str1.LastIndexOf(&quot;@&quot;)+1);&#xD;&#xA;&#xD;&#xA;ExportTransferResultInfo_msg(FILE.ReceivedFileName) = tmp_str2 + &quot;_&quot; + ExportTransferResultInfo_msg.XProtID + &quot;_005_FTPTransferResult_&quot;;&#xD;&#xA;" />
+                        <om:Property Name="ReportToAnalyst" Value="False" />
+                        <om:Property Name="Name" Value="MessageAssignment_1" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                    <om:Element Type="MessageRef" OID="afb8a5be-3266-4761-bd08-611053860b53" ParentLink="Construct_MessageRef" LowerBound="79.23" HigherBound="79.51">
+                        <om:Property Name="Ref" Value="ExportTransferResultInfo_msg" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="Send" OID="0c926a80-42d7-4a15-ace2-ddb528e04ccc" ParentLink="ServiceBody_Statement" LowerBound="92.1" HigherBound="94.1">
+                    <om:Property Name="PortName" Value="EX_R" />
+                    <om:Property Name="MessageName" Value="ExportTransferResultInfo_msg" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send_2" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Send" OID="176c0997-2b05-41f7-9e38-6eab8ab32673" ParentLink="ServiceBody_Statement" LowerBound="94.1" HigherBound="96.1">
+                    <om:Property Name="PortName" Value="EX_R_CPY" />
+                    <om:Property Name="MessageName" Value="ExportTransferResultInfo_msg" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Send_3" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="69c11ac5-e61d-4ecb-9e4a-36964d75b382" ParentLink="ServiceBody_Statement" LowerBound="96.1" HigherBound="99.1">
+                    <om:Property Name="Expression" Value="ROBTLogger.WriteLog(System.String.Format(&quot;{0:yyyyMMdd-HHmmss - }&quot;, System.DateTime.Now) + &quot;FTPIssueTransfer : &quot; + &quot;Export Transfer Result Information file is successfully generated&quot;,ROLogger);&#xD;&#xA;ROBTLogger.CloseLogger(ROLogger);" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Close-Logger" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="c8e907a8-3165-4f8d-b7ab-8618ace7d1b5" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="28.1" HigherBound="30.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPRecordTransfer.PortType_5" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="EX_P" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="40964519-e266-4a9e-b8f6-96fc03a02a6c" ParentLink="PortDeclaration_CLRAttribute" LowerBound="28.1" HigherBound="29.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="d15bc405-633e-424f-9f09-babc95f1c891" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="30.1" HigherBound="32.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="30" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPRecordTransfer.PortType_1" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="EX_R" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="c296e5e0-9e5a-4d06-b791-fdb8ca4b42a5" ParentLink="PortDeclaration_CLRAttribute" LowerBound="30.1" HigherBound="31.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="287e913a-6892-409f-93ad-f89bdd89b426" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="32.1" HigherBound="34.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="FTPRecordTransfer.PortType_2" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="EX_R_CPY" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="2e968c1e-4a3e-42cb-889f-7a89564fc6aa" ParentLink="PortDeclaration_CLRAttribute" LowerBound="32.1" HigherBound="33.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module FTPRecordTransfer
+{
+    public porttype PortType_5
+    {
+        requestresponse Operation_1
+        {
+            FTPIssueTransfer.StartExportRequest, FTPIssueTransfer.StartExportRequest
+        };
+    };
+    public porttype PortType_1
+    {
+        oneway Operation_1
+        {
+            FTPIssueTransfer.TransferResultInformation
+        };
+    };
+    public porttype PortType_2
+    {
+        oneway Operation_1
+        {
+            FTPIssueTransfer.TransferResultInformation
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service StartExport
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port implements PortType_5 EX_P;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_1 EX_R;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses PortType_2 EX_R_CPY;
+        message FTPIssueTransfer.StartExportRequest Message_1;
+        message FTPIssueTransfer.TransferResultInformation ExportTransferResultInfo_msg;
+        RB.BTLoggerLibrary.Logger ROLogger;
+        RB.BTLoggerLibrary.BTLogger ROBTLogger;
+        System.String InterfaceName;
+        System.String TargetSystem;
+        System.String LifeToken4XProt;
+        System.String LifeToken4Files;
+        System.String tmp_str1;
+        System.String type;
+        System.String tmp_str2;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("9b724ee7-8871-406f-a917-e57da6b74875")]
+            activate receive (EX_P.Operation_1, Message_1);
+            ROBTLogger = new RB.BTLoggerLibrary.BTLogger();
+            InterfaceName = "";
+            TargetSystem = "";
+            LifeToken4XProt = "";
+            LifeToken4Files = "";
+            tmp_str1 = "";
+            type = "";
+            tmp_str2 = "";
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("4c9b7088-c102-4682-b0d9-c1abe0329dc4")]
+            System.Diagnostics.EventLog.WriteEntry("FTPIssueTransfer","Export Request received at "+System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now));
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("3a782c69-63c5-4ad5-a0b1-ef864c78eb6d")]
+            type = "Export";
+            ROLogger  = ROBTLogger.GetLogger(Message_1.InterfaceName,Message_1.XProtID, type);
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmssffffff - }", System.DateTime.Now) + "After receiving Request",
+            ROLogger);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("f65acc89-027c-413f-9cfd-423df052e7d9")]
+            InterfaceName = System.Convert.ToString(Message_1.InterfaceName);
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer :InterfaceName  : " + InterfaceName,ROLogger);
+            TargetSystem = System.Convert.ToString(Message_1.RQ1System);
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer :TargetSystem  : " + TargetSystem,ROLogger);
+            LifeToken4XProt = "In Progress";
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer :LifeToken4Xprot  : " + LifeToken4XProt,ROLogger);
+            tmp_str1 = Message_1.FTPFileNames;
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer :RecordNames  : " + tmp_str1,ROLogger);
+            LifeToken4Files = ROBTLogger.InsertAllTokenStatus(tmp_str1, "In Progress",type);
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : LifeToken4Files  : " + LifeToken4Files,ROLogger);
+            
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("d13b7454-2dd6-4a63-adb2-d227eabb12ad")]
+            send (EX_P.Operation_1, Message_1);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("46d54810-a7f7-45e8-8aa7-96dc41058398")]
+            construct ExportTransferResultInfo_msg
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("56d01bc4-ae98-484f-a485-7052fe894da9")]
+                transform (ExportTransferResultInfo_msg) = FTPIssueTransfer.Map2TransferResultExp (Message_1);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("55bb3a4e-6ba0-44c4-99ff-346d9b5a861b")]
+                ExportTransferResultInfo_msg.LifeToken4XProt = LifeToken4XProt;
+                ExportTransferResultInfo_msg.LifeToken4Files = LifeToken4Files;
+                
+                tmp_str1 = ExportTransferResultInfo_msg.RQ1System;
+                tmp_str2 = tmp_str1.Substring(tmp_str1.LastIndexOf("@")+1);
+                
+                ExportTransferResultInfo_msg(FILE.ReceivedFileName) = tmp_str2 + "_" + ExportTransferResultInfo_msg.XProtID + "_005_FTPTransferResult_";
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("0c926a80-42d7-4a15-ace2-ddb528e04ccc")]
+            send (EX_R.Operation_1, ExportTransferResultInfo_msg);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("176c0997-2b05-41f7-9e38-6eab8ab32673")]
+            send (EX_R_CPY.Operation_1, ExportTransferResultInfo_msg);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("69c11ac5-e61d-4ecb-9e4a-36964d75b382")]
+            ROBTLogger.WriteLog(System.String.Format("{0:yyyyMMdd-HHmmss - }", System.DateTime.Now) + "FTPIssueTransfer : " + "Export Transfer Result Information file is successfully generated",ROLogger);
+            ROBTLogger.CloseLogger(ROLogger);
+        }
+    }
+}
+

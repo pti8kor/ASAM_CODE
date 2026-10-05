@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://vwid2ttn.webservices.his.bosch.com/" xmlns:wssutil="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="vwid2ttn" targetNamespace="http://vwid2ttn.webservices.his.bosch.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:UsingPolicy wssutil:Required="true" />
+  <wsp1_2:Policy wssutil:Id="Wssp1.2-2007-Https-BasicAuth.xml">
+    <ns1:TransportBinding xmlns:ns1="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+      <wsp1_2:Policy>
+        <ns1:TransportToken>
+          <wsp1_2:Policy>
+            <ns1:HttpsToken>
+              <wsp1_2:Policy>
+                <ns1:HttpBasicAuthentication />
+              </wsp1_2:Policy>
+            </ns1:HttpsToken>
+          </wsp1_2:Policy>
+        </ns1:TransportToken>
+        <ns1:AlgorithmSuite>
+          <wsp1_2:Policy>
+            <ns1:Basic256 />
+          </wsp1_2:Policy>
+        </ns1:AlgorithmSuite>
+        <ns1:Layout>
+          <wsp1_2:Policy>
+            <ns1:Lax />
+          </wsp1_2:Policy>
+        </ns1:Layout>
+        <ns1:IncludeTimestamp />
+      </wsp1_2:Policy>
+    </ns1:TransportBinding>
+  </wsp1_2:Policy>
+  <types>
+    <xsd:schema targetNamespace="http://HISSER">
+      <xsd:import schemaLocation="https://wi0dgs02.emea.bosch.com:7503/hiswebservices/vwid2ttn?xsd=1" namespace="http://vwid2ttn.webservices.his.bosch.com/" />
+    </xsd:schema>
+  </types>
+  <message name="vwId2ttnTest">
+    <part name="KTNLIST" element="tns:KTNLIST" />
+  </message>
+  <message name="vwId2ttnTestResponse">
+    <part name="vwId2ttnTestResponse" element="tns:vwId2ttnTestResponse" />
+  </message>
+  <message name="vwId2ttn">
+    <part name="vwId2ttn" element="tns:vwId2ttn" />
+  </message>
+  <message name="vwId2ttnResponse">
+    <part name="vwId2ttnResponse" element="tns:vwId2ttnResponse" />
+  </message>
+  <message name="InternalErrorFault">
+    <part name="fault" element="tns:InternalErrorFault" />
+  </message>
+  <portType name="Vwid2ttnBean">
+    <operation name="vwId2ttnTest">
+      <input wsam:Action="http://vwid2ttn.webservices.his.bosch.com/Vwid2ttnBean/vwId2ttnTestRequest" message="tns:vwId2ttnTest" />
+      <output wsam:Action="http://vwid2ttn.webservices.his.bosch.com/Vwid2ttnBean/vwId2ttnTestResponse" message="tns:vwId2ttnTestResponse" />
+    </operation>
+    <operation name="vwId2ttn">
+      <input wsam:Action="http://vwid2ttn.webservices.his.bosch.com/Vwid2ttnBean/vwId2ttnRequest" message="tns:vwId2ttn" />
+      <output wsam:Action="http://vwid2ttn.webservices.his.bosch.com/Vwid2ttnBean/vwId2ttnResponse" message="tns:vwId2ttnResponse" />
+      <fault wsam:Action="http://vwid2ttn.webservices.his.bosch.com/Vwid2ttnBean/vwId2ttn/Fault/InternalErrorFault" name="InternalErrorFault" message="tns:InternalErrorFault" />
+    </operation>
+  </portType>
+  <binding name="Vwid2ttnBeanPortBinding" type="tns:Vwid2ttnBean">
+    <wsp:PolicyReference URI="#Wssp1.2-2007-Https-BasicAuth.xml" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="vwId2ttnTest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="vwId2ttn">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="InternalErrorFault">
+        <soap:fault use="literal" name="InternalErrorFault" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="vwid2ttn">
+    <port name="Vwid2ttnBeanPort" binding="tns:Vwid2ttnBeanPortBinding">
+      <soap:address location="https://wi0dgs02.emea.bosch.com:7503/hiswebservices/vwid2ttn" />
+    </port>
+  </service>
+</definitions>

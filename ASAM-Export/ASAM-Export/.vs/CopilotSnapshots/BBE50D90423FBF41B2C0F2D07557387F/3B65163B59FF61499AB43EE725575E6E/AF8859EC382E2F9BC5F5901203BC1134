@@ -1,0 +1,446 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
+
+namespace RB.ROCustomerInterfaceExportLibrary
+{
+    public class RO_OSLC_DataInterface : RODataInterface
+    {
+        private string sExchangeFormat;
+        private AsyncLogger async_objlogger;
+        private Logger obj_ologger;
+        public string recordID = string.Empty;
+
+        private readonly IHttpService _httpService;
+        private readonly IFileSystem _fileSystem;
+
+        /// <summary>
+        /// Full constructor with dependency injection for testability.
+        /// </summary>
+        public RO_OSLC_DataInterface(string p_System, string p_sExchangeFormat, string RecordID,
+            AsyncLogger async_ologger = null, IHttpService httpService = null,
+            IConfigProvider configProvider = null, IFileSystem fileSystem = null)
+            : base(p_System, p_sExchangeFormat, RecordID, async_ologger, configProvider)
+        {
+            sExchangeFormat = p_sExchangeFormat;
+            async_objlogger = async_ologger;
+            recordID = RecordID;
+            _httpService = httpService ?? new DefaultHttpService();
+            _fileSystem = fileSystem ?? new DefaultFileSystem();
+        }
+
+        public XElement FetchTechnicalAttachments(string recordID, string dbid, string url, AsyncLogger async_objlogger)
+        {
+            return FetchAttachments(recordID, dbid, url, "Technical", async_objlogger);
+        }
+
+
+        public XElement FetchFinancialAttachments(string recordID, string dbid, string url, AsyncLogger async_objlogger)
+        {
+            return FetchAttachments(recordID, dbid, url, "Financial", async_objlogger);
+        }
+
+        /// <summary>
+        /// Shared implementation for fetching attachments (Technical or Financial).
+        /// </summary>
+        private XElement FetchAttachments(string recordID, string dbid, string url, string attachmentType, AsyncLogger async_objlogger)
+        {
+            XElement attachmentsRoot = new XElement("Attachmentss");
+
+            try
+            {
+                var headers = new Dictionary<string, string>
+                {
+                    { "Authorization", "Basic RkZNM0ZFOkRvTm90VXNlNEFueVRlc3Rpbmdz" },
+                    { "Accept", "*/*" }
+                };
+
+                string atomXmlString = _httpService.Get(url, headers);
+
+                XNamespace atomNs = "http://www.w3.org/2005/Atom";
+                XNamespace cqNs = "http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/";
+
+                XDocument inputDoc = XDocument.Parse(atomXmlString);
+
+                var entries = inputDoc.Descendants(atomNs + "entry").ToList();
+
+                foreach (var entry in entries)
+                {
+                    var filename = entry
+                        .Element(atomNs + "content")?
+                        .Element(cqNs + "attachment")?
+                        .Element(cqNs + "filename")?.Value;
+
+                    var fileLink = entry
+                        .Element(atomNs + "id")?.Value;
+
+                    if (!string.IsNullOrEmpty(filename))
+                    {
+                        XElement attachmentElem = new XElement("Attachments",
+                            new XAttribute("recordtype", "Attachments"),
+                            new XAttribute("dbid", dbid),
+                            new XElement("entity_dbid", dbid),
+                            new XElement("filename", filename),
+                            new XElement("type", attachmentType),
+                            new XElement("link", fileLink)
+                        );
+
+                        attachmentsRoot.Add(attachmentElem);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                async_objlogger?.LogExceptionAsync(recordID, ex);
+            }
+
+            return attachmentsRoot;
+        }
+
+
+        public void UploadFilesInFolder(string folderPath, string xprotID, AsyncLogger async_objlogger)
+        {
+            async_objlogger.LogInfoAsync(recordID, "UploadFilesInFolder Method Starts : ");
+
+            string url = string.Empty;
+
+            XElement xQueryNode = null;
+
+            // Querying the Node of the Configuration file to get the details of Update Attachment 2 Xprot.
+            if(folderPath.Contains("Commercial"))
+            {
+                xQueryNode = InterfaceConfigFile.Descendants("QUERY")
+                                .FirstOrDefault(q => (string)q.Element("NAME") == GlobalConstants.QueryMethods.uploadCommercialFiles);
+            }
+            else
+            {
+                xQueryNode = InterfaceConfigFile.Descendants("QUERY")
+                                                .FirstOrDefault(q => (string)q.Element("NAME") == GlobalConstants.QueryMethods.uploadExchangedFiles);
+            }
+
+            url = xQueryNode.Element("baseurl").Value;
+            url = url.Replace("recorddbid", xprotID);
+
+            if (!_fileSystem.DirectoryExists(folderPath))
+            {
+                async_objlogger.LogInfoAsync(recordID, folderPath + " Doesn't Exist.");
+                return;
+            }
+
+            foreach (var filePath in _fileSystem.GetFiles(folderPath))
+            {
+                try
+                {
+                    var byteArray = Encoding.ASCII.GetBytes($"{CQUser}:{CQPasword}");
+                    var headers = new Dictionary<string, string>
+                    {
+                        { "Authorization", "Basic " + Convert.ToBase64String(byteArray) }
+                    };
+
+                    _httpService.PostMultipart(url, filePath, headers);
+                    async_objlogger.LogInfoAsync(recordID, "File Uploaded to Xprot Successfully");
+                }
+                catch (Exception ex)
+                {
+                    async_objlogger.LogInfoAsync(recordID, "Exception at UploadFilesInFolder");
+                    async_objlogger.LogExceptionAsync(recordID, ex);
+                }
+            }
+        }
+
+        public string InvokeUrl4ReadOperation(string recordID, string sUrlToInvoke, AsyncLogger async_objlogger)
+        {
+            async_objlogger.LogInfoAsync(recordID, "ClearQuest::InvokeURL : Starts with URL:\n" + sUrlToInvoke);
+            try
+            {
+                var headers = BuildAuthHeaders();
+                string result = _httpService.Get(sUrlToInvoke, headers);
+                async_objlogger.LogInfoAsync(recordID, "ClearQuest::InvokeURL : ends");
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error while invoking URL: {ex.Message}", ex);
+            }
+        }
+
+
+        public string InvokeUrl4UpdateOperation(string recordID, string sUrlToInvoke, XmlDocument XIMF, string recordType, AsyncLogger async_objlogger)
+        {
+            async_objlogger.LogInfoAsync(recordID, "ClearQuest::InvokeURL : Starts with URL:\n" + sUrlToInvoke);
+            try
+            {
+                string xmlBody = GenerateBody(XIMF, sUrlToInvoke, recordType);
+                sUrlToInvoke = ReBuildUrlFromBody(sUrlToInvoke, xmlBody);
+
+                var headers = BuildAuthHeaders();
+                string result = _httpService.Put(sUrlToInvoke, xmlBody, "application/xml", headers);
+
+                async_objlogger.LogInfoAsync(recordID, result);
+                async_objlogger.LogInfoAsync(recordID, "ClearQuest::InvokeURL : ends");
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                async_objlogger.LogExceptionAsync(recordId, ex);
+                async_objlogger.LogInfoAsync(recordID, "RQ1 Updation Failed due to an exception.");
+                throw new Exception($"Error while invoking URL: {ex.Message}", ex);
+            }
+        }
+
+        public string GenerateBody(XmlDocument XIMF, string url, string recordType)
+        {
+            string xmlbody = string.Empty;
+
+            Match match = Regex.Match(url, @"^([^?]+)");
+            url = match.Success ? match.Groups[1].Value : string.Empty;
+
+            try
+            {
+                string dcTermsType = null;
+                string xpathSelector = null;
+
+                if (recordType.ToUpper() == "ISSUE")
+                {
+                    dcTermsType = "Issue";
+                    xpathSelector = "//ISSUE";
+                }
+                else if (recordType.ToUpper() == "ISSUERELEASEMAP")
+                {
+                    dcTermsType = "Issuereleasemap";
+                    xpathSelector = "//ISSUERELEASEMAP";
+                }
+
+                if (dcTermsType != null)
+                {
+                    XmlNamespaceManager nsManager = new XmlNamespaceManager(XIMF.NameTable);
+                    nsManager.AddNamespace("ns0", "http://RB.ROCustomerInterfaceExport.Schemas.Export_IMF.Export_IMF");
+
+                    XmlNode targetNode = XIMF.SelectSingleNode(xpathSelector, nsManager);
+
+                    if (targetNode != null)
+                    {
+                        StringBuilder rdfXml = new StringBuilder();
+                        rdfXml.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
+                        rdfXml.AppendLine("<rdf:RDF ");
+                        rdfXml.AppendLine("         xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"");
+                        rdfXml.AppendLine("         xmlns:oslc=\"http://open-services.net/ns/core#\"");
+                        rdfXml.AppendLine("         xmlns:dcterms=\"http://purl.org/dc/terms/\"");
+                        rdfXml.AppendLine("         xmlns:cq=\"http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/\"");
+                        rdfXml.AppendLine("         xmlns:oslc_cm=\"http://open-services.net/ns/cm#\"");
+                        rdfXml.AppendLine("         xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\">");
+                        rdfXml.AppendLine("    <oslc_cm:ChangeRequest rdf:about=\"https://your-url-here\">");
+                        rdfXml.AppendLine($"        <dcterms:type>{dcTermsType}</dcterms:type>");
+                        rdfXml.AppendLine("        <cq:OperationMode rdf:ID=\"OperationMode\">ASAM-EXPORT</cq:OperationMode>");
+                        rdfXml.AppendLine("        <cq:OperationContext rdf:ID=\"OperationContext\">EDES</cq:OperationContext>");
+
+                        foreach (XmlNode child in targetNode.ChildNodes)
+                        {
+                            string tagName = child.Name;
+                            string tagValue = child.InnerText.Trim();
+
+                            if (!string.IsNullOrEmpty(tagValue))
+                            {
+                                rdfXml.AppendLine($"        <cq:{tagName} rdf:ID=\"{tagName}\">{tagValue}</cq:{tagName}>");
+                            }
+                        }
+
+                        rdfXml.AppendLine("    </oslc_cm:ChangeRequest>");
+                        rdfXml.AppendLine("    <rdf:Statement rdf:about=\"#OperationMode\">");
+                        rdfXml.AppendLine("        <cq:fieldOrder>79</cq:fieldOrder>");
+                        rdfXml.AppendLine("    </rdf:Statement>");
+                        rdfXml.AppendLine("    <rdf:Statement rdf:about=\"#OperationContext\">");
+                        rdfXml.AppendLine("        <cq:fieldOrder>78</cq:fieldOrder>");
+                        rdfXml.AppendLine("    </rdf:Statement>");
+                        rdfXml.AppendLine("</rdf:RDF>");
+
+                        xmlbody = rdfXml.ToString();
+                        xmlbody = xmlbody.Replace("https://your-url-here", url);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle as needed; currently matches original silent-catch behavior
+            }
+
+            return xmlbody;
+        }
+
+        
+
+        public static string ReBuildUrlFromBody(string originalUrl, string rdfBody)
+        {
+            string MandatoryField = "ExternalNextState";
+
+            if (string.IsNullOrWhiteSpace(originalUrl))
+                throw new ArgumentException("URL cannot be null or empty");
+
+            if (string.IsNullOrWhiteSpace(rdfBody))
+                throw new ArgumentException("Body cannot be null or empty");
+
+            var doc = XDocument.Parse(rdfBody);
+
+            XNamespace cqNs = "http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/";
+            XNamespace oslcCmNs = "http://open-services.net/ns/cm#";
+
+            var cqFields = doc
+                .Descendants(oslcCmNs + "ChangeRequest")
+                .Elements()
+                .Where(e => e.Name.Namespace == cqNs)
+                .Select(e => e.Name.LocalName)
+                .Distinct()
+                .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+            cqFields.Add(MandatoryField);
+
+            string properties = string.Join(",",
+                cqFields
+                    .OrderBy(f => f)
+                    .Select(f => WebUtility.UrlEncode($"cq:{f}")));
+
+            var urlParts = originalUrl.Split('&')
+                .Where(p => !p.StartsWith("oslc.properties=", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            if (!urlParts.Any(p => p.StartsWith("rcm.action=", StringComparison.OrdinalIgnoreCase)))
+                urlParts.Add("rcm.action=modify");
+
+            urlParts.Add($"oslc.properties={properties}");
+
+            return string.Join("&", urlParts);
+        }
+
+        public string InvokeUrl4UpdateXport(string recordID, string sUrlToInvoke, string xprotLog, string xprotStatus, AsyncLogger async_objlogger = null)
+        {
+            try
+            {
+                string xmlBody = GlobalConstants.QueryBody.XprotBody;
+                string cleanedUrl = sUrlToInvoke.Split('?')[0];
+
+                xmlBody = xmlBody.Replace("XprotLog", xprotLog);
+                xmlBody = xmlBody.Replace("XprotStatus", xprotStatus);
+                xmlBody = xmlBody.Replace("url", cleanedUrl);
+
+                var headers = BuildAuthHeaders();
+                return _httpService.Put(sUrlToInvoke, xmlBody, "application/xml", headers);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error while invoking URL: {ex.Message}", ex);
+            }
+        }
+
+        public string CreateQuery(string recordType, string recordID,  string queryname, string queryparam, AsyncLogger objLogger = null)
+        {
+            if(objLogger != null)
+            {
+                objLogger.LogInfoAsync(recordID, "CreateQuery Started : ");
+                objLogger.LogInfoAsync(recordID, "CreateQuery For : " + queryname);
+            }
+
+            string oQuery = string.Empty;
+
+            try
+            {
+                string upperRecordType = recordType.ToUpper();
+
+                XElement xQueryNode = InterfaceConfigFile.Descendants("QUERY")
+                        .FirstOrDefault(q => (string)q.Element("NAME") == queryname);
+
+                if (xQueryNode == null)
+                {
+                    throw new Exception($"Query with name {queryname} not found.");
+                }
+
+                if (objLogger != null)
+                {
+                    objLogger.LogInfoAsync(recordID, "CreateQuery  : Query Node found");
+                }
+
+                string baseUrl = xQueryNode.Element("baseurl").Value;
+                string type = xQueryNode.Element("type").Value;
+
+                if (type == "READ" && (upperRecordType == "ISSUE" || upperRecordType == "ISSUERELEASEMAP"))
+                {
+                    var attributes = xQueryNode.Element("attributes")?.Elements("attribute")
+                        .Select(attr => Uri.EscapeDataString(attr.Value)).ToList();
+
+                    if (attributes == null || !attributes.Any())
+                    {
+                        baseUrl = baseUrl.Replace("recorddbid", queryparam);
+                        oQuery = baseUrl;
+                    }
+                    else
+                    {
+                        string attributeString = "oslc.properties=" + string.Join(",", attributes);
+                        string whereString = "oslc.where=" + xQueryNode.Element("where").Value;
+                        whereString = whereString.Replace("Did", queryparam);
+                        oQuery = baseUrl + "&" + whereString + "&" + attributeString;
+                    }
+
+                    if (objLogger != null)
+                    {
+                        objLogger.LogInfoAsync(recordID, "CreateQuery query generated : " + oQuery);
+                    }
+                }
+                else if (type == "UPDATE")
+                {
+                    var attributes = xQueryNode.Element("attributes")?.Elements("attribute")
+                        .Select(attr => Uri.EscapeDataString(attr.Value)).ToList();
+
+                    if (attributes == null || !attributes.Any())
+                    {
+                        throw new Exception($"No attributes found for query {queryname}.");
+                    }
+
+                    string attributeString = string.Join(",", attributes);
+                    baseUrl = baseUrl.Replace("recorddbid", queryparam);
+                    baseUrl = baseUrl.Replace("%3A", ":");
+                    attributeString = "oslc.properties=" + attributeString;
+                    oQuery = baseUrl + "?rcm.action=modify&" + attributeString;
+
+                    if (objLogger != null)
+                    {
+                        objLogger.LogInfoAsync(recordID, "CreateQuery query generated : " + oQuery);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (objLogger != null)
+                {
+                    objLogger.LogInfoAsync(recordID, "CreateQuery Execution failed with the exception : " + ex.Message);
+                }
+            }
+
+            return oQuery;
+        }
+
+        /// <summary>
+        /// Builds the standard authentication and OSLC headers dictionary used by HTTP calls.
+        /// </summary>
+        private Dictionary<string, string> BuildAuthHeaders()
+        {
+            var byteArray = Encoding.ASCII.GetBytes($"{CQUser}:{CQPasword}");
+            string sRequesterInfo = "toolname=" + CQToolName + ";toolversion=" + CQToolVersion + ";user=bt9rsi";
+
+            return new Dictionary<string, string>
+            {
+                { "Authorization", "Basic " + Convert.ToBase64String(byteArray) },
+                { "OSLC-Core-Version", "2.0" },
+                { "x-requester", sRequesterInfo }
+            };
+        }
+    }
+}

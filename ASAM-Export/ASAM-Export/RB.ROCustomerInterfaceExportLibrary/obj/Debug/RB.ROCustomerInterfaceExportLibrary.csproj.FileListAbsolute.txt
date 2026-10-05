@@ -1,0 +1,52 @@
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\RB.ROCustomerInterfaceExportLibrary.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\RB.ROCustomerInterfaceExportLibrary.pdb
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Charsets.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Core.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Localedata.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Text.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Util.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.XML.API.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.Runtime.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\saxon-he-10.9.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\saxon-he-api-10.9.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\saxon-he-api-10.9.xml
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.csproj.CoreCompileInputs.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.csproj.CopyComplete
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.pdb
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.csproj.AssemblyReference.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\RB.ROCustomerInterfaceExportLibrary.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\RB.ROCustomerInterfaceExportLibrary.pdb
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Charsets.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Core.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Localedata.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Text.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Util.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.XML.API.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.Runtime.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\saxon-he-10.9.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\saxon-he-api-10.9.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\saxon-he-api-10.9.xml
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.csproj.CoreCompileInputs.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.csproj.CopyComplete
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.pdb
+D:\ASAM-IF-IMPORT\Import\960 - Sources\SI0VM07516\FFM3FE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.csproj.AssemblyReference.cache
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\RB.ROCustomerInterfaceExportLibrary.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\RB.ROCustomerInterfaceExportLibrary.pdb
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Charsets.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Core.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Localedata.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Text.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Util.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.XML.API.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.Runtime.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\saxon-he-10.9.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\saxon-he-api-10.9.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\IKVM.OpenJDK.Security.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\bin\Debug\saxon-he-api-10.9.xml
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.csproj.AssemblyReference.cache
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.csproj.CoreCompileInputs.cache
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCus.B8A31A86.Up2Date
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.dll
+D:\ASAM_CODE\BTImportSoftware\ASAM-Export\ASAM-Export\RB.ROCustomerInterfaceExportLibrary\obj\Debug\RB.ROCustomerInterfaceExportLibrary.pdb

@@ -1,0 +1,13 @@
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\bin\Debug\Binding.xml
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\bin\Debug\BizTalkServerInventory.json
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\bin\Debug\BizTalkDeployServerApplication.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\bin\Debug\IKVM.OpenJDK.XML.API.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\bin\Debug\IKVM.OpenJDK.Core.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\bin\Debug\IKVM.Runtime.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\bin\Debug\IKVM.OpenJDK.Text.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\bin\Debug\IKVM.OpenJDK.Util.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\obj\Debug\BizTalkDeployServerApplication.btaproj.AssemblyReference.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\obj\Debug\BizTalkDeployServerApplication.btaproj.CoreCompileInputs.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\obj\Debug\BizTalkDeployServerApplication.btaproj.CopyComplete
+D:\RB-ASAM-Interface\Import\960 - Sources\RBAdmin_App2\Validation-Execution-Engine\BizTalkDeployServerApplication\obj\Debug\BizTalkDeployServerApplication.dll
+D:\ASAM_CODE\BTImportSoftware\Validation-Execution-Engine\BizTalkDeployServerApplication\obj\Debug\BizTalkDeployServerApplication.dll

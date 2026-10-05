@@ -1,0 +1,778 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Xml;
+using System.Xml.Linq;
+using Moq;
+using RB.ROCustomerInterfaceExportLibrary;
+using Xunit;
+
+namespace RB.ROCustomerIntefaceLibrary.Tests
+{
+    /// <summary>
+    /// Comprehensive unit tests for RO_OSLC_DataInterface covering all methods
+    /// using mocked IHttpService, IConfigProvider, and IFileSystem.
+    /// </summary>
+    public class RO_OSLC_DataInterfaceTests
+    {
+        #region Test Helpers
+
+        /// <summary>
+        /// Builds a fake config XDocument that the RODataInterface constructor can parse.
+        /// </summary>
+        private static XDocument BuildFakeConfig()
+        {
+            // Encrypt a known password with passphrase "RO" so DecryptString works
+            string encryptedPassword = Encryption.EncryptString("TestPass", "RO");
+
+            return XDocument.Parse($@"
+                <CONFIGURATIONS>
+                    <REQUESTONE>
+                        <CQ>
+                            <SERVERS>
+                                <SERVER KEY=""TESTSYS"">
+                                    <LDAPUSER>testuser</LDAPUSER>
+                                    <PASSWORD>{encryptedPassword}</PASSWORD>
+                                    <DB>TESTDB</DB>
+                                    <SCHEMAREPO>TESTREPO</SCHEMAREPO>
+                                    <CQWEB>http://test</CQWEB>
+                                    <CQWEB_FORMAT>xml</CQWEB_FORMAT>
+                                    <OSLC_CORE_VERSION>2.0</OSLC_CORE_VERSION>
+                                    <OSLCSERVER>http://oslc</OSLCSERVER>
+                                    <TOOLNAME>TestTool</TOOLNAME>
+                                    <TOOLVERSION>1.0</TOOLVERSION>
+                                    <TOOLTESTING>true</TOOLTESTING>
+                                </SERVER>
+                            </SERVERS>
+                        </CQ>
+                        <QUERIES>
+                            <QUERY>
+                                <NAME>getIssueById</NAME>
+                                <baseurl>http://server/issue?rcm.type=Issue</baseurl>
+                                <type>READ</type>
+                                <attributes>
+                                    <attribute>cq:id</attribute>
+                                    <attribute>cq:dbid</attribute>
+                                </attributes>
+                                <where>cq:id=Did</where>
+                            </QUERY>
+                            <QUERY>
+                                <NAME>getIssueByDBId</NAME>
+                                <baseurl>http://server/record/recorddbid</baseurl>
+                                <type>READ</type>
+                            </QUERY>
+                            <QUERY>
+                                <NAME>updateIssue</NAME>
+                                <baseurl>http://server/record/recorddbid</baseurl>
+                                <type>UPDATE</type>
+                                <attributes>
+                                    <attribute>cq:ExternalNextState</attribute>
+                                    <attribute>cq:ExternalHistory</attribute>
+                                </attributes>
+                            </QUERY>
+                            <QUERY>
+                                <NAME>updateExchangeProtocol</NAME>
+                                <baseurl>http://server/record/recorddbid</baseurl>
+                                <type>UPDATE</type>
+                                <attributes>
+                                    <attribute>cq:Log</attribute>
+                                    <attribute>cq:Status</attribute>
+                                </attributes>
+                            </QUERY>
+                            <QUERY>
+                                <NAME>uploadExchangedFiles</NAME>
+                                <baseurl>http://server/upload/recorddbid</baseurl>
+                                <type>UPLOAD</type>
+                            </QUERY>
+                            <QUERY>
+                                <NAME>uploadCommercialFiles</NAME>
+                                <baseurl>http://server/upload-commercial/recorddbid</baseurl>
+                                <type>UPLOAD</type>
+                            </QUERY>
+                            <QUERY>
+                                <NAME>getIssueAttachments</NAME>
+                                <baseurl>http://server/attachments/recorddbid</baseurl>
+                                <type>READ</type>
+                            </QUERY>
+                        </QUERIES>
+                    </REQUESTONE>
+                </CONFIGURATIONS>");
+        }
+
+        private static Mock<IConfigProvider> CreateMockConfig()
+        {
+            var mock = new Mock<IConfigProvider>();
+            mock.Setup(c => c.LoadConfigurationXML(It.IsAny<string>()))
+                .Returns(BuildFakeConfig());
+            return mock;
+        }
+
+        private static AsyncLogger CreateTempLogger()
+        {
+            string dir = Path.Combine(Path.GetTempPath(), "OslcTests_" + Guid.NewGuid().ToString("N"));
+            Directory.CreateDirectory(dir);
+            return new AsyncLogger(dir, "test");
+        }
+
+        /// <summary>
+        /// Creates a fully initialized RO_OSLC_DataInterface with mocked dependencies.
+        /// </summary>
+        private static RO_OSLC_DataInterface CreateTestableInterface(
+            Mock<IHttpService> httpMock = null,
+            Mock<IFileSystem> fsMock = null)
+        {
+            var configMock = CreateMockConfig();
+            return new RO_OSLC_DataInterface(
+                "TESTSYS", "RO-ASAM-AUDI", "REC1",
+                null,
+                httpMock?.Object ?? new Mock<IHttpService>().Object,
+                configMock.Object,
+                fsMock?.Object ?? new Mock<IFileSystem>().Object);
+        }
+
+        #endregion
+
+        #region Constructor / Config Loading
+
+        [Fact]
+        public void Constructor_WithMockedConfig_LoadsCQProperties()
+        {
+            var obj = CreateTestableInterface();
+
+            Assert.Equal("testuser", obj.CQUser);
+            Assert.Equal("TestPass", obj.CQPasword);
+            Assert.Equal("TESTDB", obj.CQDB);
+            Assert.Equal("TESTREPO", obj.CQRepo);
+            Assert.Equal("http://test", obj.CQWebURL);
+            Assert.Equal("TestTool", obj.CQToolName);
+            Assert.Equal("1.0", obj.CQToolVersion);
+        }
+
+        [Fact]
+        public void Constructor_NullConfig_SetsPropertiesToNull()
+        {
+            var configMock = new Mock<IConfigProvider>();
+            configMock.Setup(c => c.LoadConfigurationXML(It.IsAny<string>())).Returns((XDocument)null);
+
+            var obj = new RO_OSLC_DataInterface("BAD", "FMT", "REC", null, null, configMock.Object, null);
+
+            // Config was null, so CQ properties should not be set
+            Assert.Null(obj.CQUser);
+            Assert.Null(obj.InterfaceConfigFile);
+        }
+
+        #endregion
+
+        #region InvokeUrl4ReadOperation
+
+        [Fact]
+        public void InvokeUrl4ReadOperation_ReturnsHttpGetResponse()
+        {
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Get(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Returns("<response>data</response>");
+
+            var obj = CreateTestableInterface(httpMock);
+            var logger = CreateTempLogger();
+
+            string result = obj.InvokeUrl4ReadOperation("REC1", "http://server/resource", logger);
+
+            Assert.Equal("<response>data</response>", result);
+            httpMock.Verify(h => h.Get("http://server/resource", It.IsAny<Dictionary<string, string>>()), Times.Once);
+        }
+
+        [Fact]
+        public void InvokeUrl4ReadOperation_HttpFails_ThrowsWithContext()
+        {
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Get(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Throws(new Exception("network error"));
+
+            var obj = CreateTestableInterface(httpMock);
+            var logger = CreateTempLogger();
+
+            var ex = Assert.Throws<Exception>(() =>
+                obj.InvokeUrl4ReadOperation("REC1", "http://server/resource", logger));
+            Assert.Contains("Error while invoking URL", ex.Message);
+            Assert.Contains("network error", ex.Message);
+        }
+
+        #endregion
+
+        #region InvokeUrl4UpdateOperation
+
+        [Fact]
+        public void InvokeUrl4UpdateOperation_SendsPutWithGeneratedBody()
+        {
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Put(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Returns("<ok/>");
+
+            var obj = CreateTestableInterface(httpMock);
+            var logger = CreateTempLogger();
+
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF><ISSUE><ExternalNextState>SPECIFIED</ExternalNextState></ISSUE></EXPORT_IMF>");
+
+            string result = obj.InvokeUrl4UpdateOperation("REC1", "http://server/record/123?rcm.action=modify", ximf, "ISSUE", logger);
+
+            Assert.Equal("<ok/>", result);
+            httpMock.Verify(h => h.Put(
+                It.Is<string>(u => u.Contains("rcm.action=modify")),
+                It.Is<string>(b => b.Contains("SPECIFIED")),
+                "application/xml",
+                It.IsAny<Dictionary<string, string>>()), Times.Once);
+        }
+
+        [Fact]
+        public void InvokeUrl4UpdateOperation_HttpFails_LogsAndThrows()
+        {
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Put(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Throws(new Exception("put failed"));
+
+            var obj = CreateTestableInterface(httpMock);
+            var logger = CreateTempLogger();
+
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF><ISSUE><F1>V</F1></ISSUE></EXPORT_IMF>");
+
+            var ex = Assert.Throws<Exception>(() =>
+                obj.InvokeUrl4UpdateOperation("REC1", "http://server/record/123?rcm.action=modify", ximf, "ISSUE", logger));
+            Assert.Contains("Error while invoking URL", ex.Message);
+        }
+
+        #endregion
+
+        #region InvokeUrl4UpdateXport
+
+        [Fact]
+        public void InvokeUrl4UpdateXport_SendsPutWithReplacedBody()
+        {
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Put(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Returns("<ok/>");
+
+            var obj = CreateTestableInterface(httpMock);
+
+            string result = obj.InvokeUrl4UpdateXport("REC1", "http://server/xprot?param=1", "my log text", "Success");
+
+            Assert.Equal("<ok/>", result);
+            httpMock.Verify(h => h.Put(
+                "http://server/xprot?param=1",
+                It.Is<string>(b => b.Contains("my log text") && b.Contains("Success")),
+                "application/xml",
+                It.IsAny<Dictionary<string, string>>()), Times.Once);
+        }
+
+        [Fact]
+        public void InvokeUrl4UpdateXport_HttpFails_Throws()
+        {
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Put(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Throws(new Exception("xport error"));
+
+            var obj = CreateTestableInterface(httpMock);
+
+            var ex = Assert.Throws<Exception>(() =>
+                obj.InvokeUrl4UpdateXport("REC1", "http://server/xprot", "log", "Failure"));
+            Assert.Contains("Error while invoking URL", ex.Message);
+        }
+
+        #endregion
+
+        #region FetchTechnicalAttachments / FetchFinancialAttachments
+
+        private const string AtomXml = @"<?xml version='1.0'?>
+            <feed xmlns='http://www.w3.org/2005/Atom'>
+                <entry>
+                    <id>http://server/attach/1</id>
+                    <content>
+                        <attachment xmlns='http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/'>
+                            <filename>doc.pdf</filename>
+                        </attachment>
+                    </content>
+                </entry>
+                <entry>
+                    <id>http://server/attach/2</id>
+                    <content>
+                        <attachment xmlns='http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/'>
+                            <filename>spec.xml</filename>
+                        </attachment>
+                    </content>
+                </entry>
+            </feed>";
+
+        [Fact]
+        public void FetchTechnicalAttachments_ParsesAtomFeed_ReturnsTechnicalType()
+        {
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Get(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Returns(AtomXml);
+
+            var obj = CreateTestableInterface(httpMock);
+            var logger = CreateTempLogger();
+
+            XElement result = obj.FetchTechnicalAttachments("REC1", "DB123", "http://server/attachments", logger);
+
+            Assert.Equal("Attachmentss", result.Name.LocalName);
+            var attachments = result.Elements("Attachments");
+            Assert.Equal(2, System.Linq.Enumerable.Count(attachments));
+
+            foreach (var att in attachments)
+            {
+                Assert.Equal("Technical", att.Element("type")?.Value);
+                Assert.Equal("DB123", att.Attribute("dbid")?.Value);
+            }
+        }
+
+        [Fact]
+        public void FetchFinancialAttachments_ParsesAtomFeed_ReturnsFinancialType()
+        {
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Get(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Returns(AtomXml);
+
+            var obj = CreateTestableInterface(httpMock);
+            var logger = CreateTempLogger();
+
+            XElement result = obj.FetchFinancialAttachments("REC1", "DB456", "http://server/attachments", logger);
+
+            var attachments = result.Elements("Attachments");
+            Assert.Equal(2, System.Linq.Enumerable.Count(attachments));
+
+            foreach (var att in attachments)
+            {
+                Assert.Equal("Financial", att.Element("type")?.Value);
+            }
+        }
+
+        [Fact]
+        public void FetchTechnicalAttachments_EmptyFeed_ReturnsEmptyRoot()
+        {
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Get(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Returns("<feed xmlns='http://www.w3.org/2005/Atom'></feed>");
+
+            var obj = CreateTestableInterface(httpMock);
+            var logger = CreateTempLogger();
+
+            XElement result = obj.FetchTechnicalAttachments("REC1", "DB1", "http://server/att", logger);
+
+            Assert.Equal("Attachmentss", result.Name.LocalName);
+            Assert.Empty(result.Elements());
+        }
+
+        [Fact]
+        public void FetchTechnicalAttachments_HttpFails_ReturnsEmptyRoot()
+        {
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Get(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Throws(new Exception("network error"));
+
+            var obj = CreateTestableInterface(httpMock);
+            var logger = CreateTempLogger();
+
+            XElement result = obj.FetchTechnicalAttachments("REC1", "DB1", "http://server/att", logger);
+
+            Assert.Equal("Attachmentss", result.Name.LocalName);
+            Assert.Empty(result.Elements());
+        }
+
+        [Fact]
+        public void FetchTechnicalAttachments_EntryWithNoFilename_IsSkipped()
+        {
+            string feedXml = @"<?xml version='1.0'?>
+                <feed xmlns='http://www.w3.org/2005/Atom'>
+                    <entry>
+                        <id>http://server/attach/1</id>
+                        <content>
+                            <attachment xmlns='http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/'>
+                                <filename></filename>
+                            </attachment>
+                        </content>
+                    </entry>
+                </feed>";
+
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.Get(It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()))
+                    .Returns(feedXml);
+
+            var obj = CreateTestableInterface(httpMock);
+            var logger = CreateTempLogger();
+
+            XElement result = obj.FetchTechnicalAttachments("REC1", "DB1", "http://server", logger);
+            Assert.Empty(result.Elements());
+        }
+
+        #endregion
+
+        #region UploadFilesInFolder
+
+        [Fact]
+        public void UploadFilesInFolder_DirectoryNotExists_LogsAndReturns()
+        {
+            var fsMock = new Mock<IFileSystem>();
+            fsMock.Setup(f => f.DirectoryExists(It.IsAny<string>())).Returns(false);
+
+            var httpMock = new Mock<IHttpService>();
+            var obj = CreateTestableInterface(httpMock, fsMock);
+            var logger = CreateTempLogger();
+
+            obj.UploadFilesInFolder("C:\\nonexistent\\ExchangedFiles", "XP1", logger);
+
+            // Should never call PostMultipart since directory doesn't exist
+            httpMock.Verify(h => h.PostMultipart(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()), Times.Never);
+        }
+
+        [Fact]
+        public void UploadFilesInFolder_WithFiles_CallsPostMultipartForEach()
+        {
+            var fsMock = new Mock<IFileSystem>();
+            fsMock.Setup(f => f.DirectoryExists(It.IsAny<string>())).Returns(true);
+            fsMock.Setup(f => f.GetFiles(It.IsAny<string>())).Returns(new[] { "C:\\folder\\file1.pdf", "C:\\folder\\file2.xml" });
+
+            var httpMock = new Mock<IHttpService>();
+            var obj = CreateTestableInterface(httpMock, fsMock);
+            var logger = CreateTempLogger();
+
+            obj.UploadFilesInFolder("C:\\folder\\ExchangedFiles", "XP1", logger);
+
+            httpMock.Verify(h => h.PostMultipart(
+                It.Is<string>(u => u.Contains("XP1")),
+                It.IsAny<string>(),
+                It.IsAny<Dictionary<string, string>>()), Times.Exactly(2));
+        }
+
+        [Fact]
+        public void UploadFilesInFolder_CommercialPath_UsesCommercialQuery()
+        {
+            var fsMock = new Mock<IFileSystem>();
+            fsMock.Setup(f => f.DirectoryExists(It.IsAny<string>())).Returns(true);
+            fsMock.Setup(f => f.GetFiles(It.IsAny<string>())).Returns(new[] { "C:\\folder\\file.pdf" });
+
+            var httpMock = new Mock<IHttpService>();
+            var obj = CreateTestableInterface(httpMock, fsMock);
+            var logger = CreateTempLogger();
+
+            obj.UploadFilesInFolder("C:\\folder\\Commercial\\files", "XP1", logger);
+
+            httpMock.Verify(h => h.PostMultipart(
+                It.Is<string>(u => u.Contains("upload-commercial")),
+                It.IsAny<string>(),
+                It.IsAny<Dictionary<string, string>>()), Times.Once);
+        }
+
+        [Fact]
+        public void UploadFilesInFolder_UploadFails_LogsExceptionAndContinues()
+        {
+            var fsMock = new Mock<IFileSystem>();
+            fsMock.Setup(f => f.DirectoryExists(It.IsAny<string>())).Returns(true);
+            fsMock.Setup(f => f.GetFiles(It.IsAny<string>())).Returns(new[] { "C:\\f1.pdf", "C:\\f2.pdf" });
+
+            var httpMock = new Mock<IHttpService>();
+            httpMock.Setup(h => h.PostMultipart(It.IsAny<string>(), "C:\\f1.pdf", It.IsAny<Dictionary<string, string>>()))
+                    .Throws(new Exception("upload error"));
+
+            var obj = CreateTestableInterface(httpMock, fsMock);
+            var logger = CreateTempLogger();
+
+            // Should not throw — exception is caught internally
+            obj.UploadFilesInFolder("C:\\folder\\ExchangedFiles", "XP1", logger);
+
+            // Both files should have been attempted
+            httpMock.Verify(h => h.PostMultipart(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<Dictionary<string, string>>()), Times.Exactly(2));
+        }
+
+        #endregion
+
+        #region CreateQuery
+
+        [Fact]
+        public void CreateQuery_ReadIssue_WithAttributes_BuildsWhereAndPropertyUrl()
+        {
+            var obj = CreateTestableInterface();
+            var logger = CreateTempLogger();
+
+            string query = obj.CreateQuery("ISSUE", "REC1", "getIssueById", "RQ1ML001", logger);
+
+            Assert.Contains("oslc.where=", query);
+            Assert.Contains("RQ1ML001", query);
+            Assert.Contains("oslc.properties=", query);
+        }
+
+        [Fact]
+        public void CreateQuery_ReadIssue_NoAttributes_ReplacesRecordDbid()
+        {
+            var obj = CreateTestableInterface();
+            var logger = CreateTempLogger();
+
+            string query = obj.CreateQuery("ISSUE", "REC1", "getIssueByDBId", "55555", logger);
+
+            Assert.Contains("55555", query);
+            Assert.DoesNotContain("recorddbid", query);
+        }
+
+        [Fact]
+        public void CreateQuery_UpdateType_BuildsModifyUrl()
+        {
+            var obj = CreateTestableInterface();
+            var logger = CreateTempLogger();
+
+            string query = obj.CreateQuery("ISSUE", "REC1", "updateIssue", "DB999", logger);
+
+            Assert.Contains("rcm.action=modify", query);
+            Assert.Contains("oslc.properties=", query);
+            Assert.Contains("DB999", query);
+        }
+
+        [Fact]
+        public void CreateQuery_QueryNotFound_ReturnsEmpty()
+        {
+            var obj = CreateTestableInterface();
+            var logger = CreateTempLogger();
+
+            string query = obj.CreateQuery("ISSUE", "REC1", "nonExistentQuery", "param", logger);
+
+            Assert.Equal(string.Empty, query);
+        }
+
+        [Fact]
+        public void CreateQuery_NullLogger_DoesNotThrow()
+        {
+            var obj = CreateTestableInterface();
+
+            string query = obj.CreateQuery("ISSUE", "REC1", "getIssueByDBId", "55555", null);
+
+            Assert.Contains("55555", query);
+        }
+
+        #endregion
+
+        #region GenerateBody
+
+        [Fact]
+        public void GenerateBody_IssueType_ProducesRdfWithIssueFields()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF>
+                              <ISSUE>
+                                  <ExternalNextState>SPECIFIED</ExternalNextState>
+                                  <ExternalHistory>some history</ExternalHistory>
+                              </ISSUE>
+                           </EXPORT_IMF>");
+
+            var obj = CreateTestableInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource?param=1", "ISSUE");
+
+            Assert.Contains("<dcterms:type>Issue</dcterms:type>", result);
+            Assert.Contains("ExternalNextState", result);
+            Assert.Contains("SPECIFIED", result);
+            Assert.Contains("ExternalHistory", result);
+            Assert.Contains("http://server/resource", result);
+        }
+
+        [Fact]
+        public void GenerateBody_IssueReleaseMapType_ProducesRdfWithIrmFields()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF>
+                              <ISSUERELEASEMAP>
+                                  <ExternalNextState>ACCEPTED</ExternalNextState>
+                                  <ExternalConversation>conv</ExternalConversation>
+                              </ISSUERELEASEMAP>
+                           </EXPORT_IMF>");
+
+            var obj = CreateTestableInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource?param=1", "ISSUERELEASEMAP");
+
+            Assert.Contains("<dcterms:type>Issuereleasemap</dcterms:type>", result);
+            Assert.Contains("ExternalNextState", result);
+            Assert.Contains("ACCEPTED", result);
+        }
+
+        [Fact]
+        public void GenerateBody_UnknownType_ReturnsEmpty()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml("<Root/>");
+
+            var obj = CreateTestableInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource", "UNKNOWN");
+            Assert.Equal(string.Empty, result);
+        }
+
+        [Fact]
+        public void GenerateBody_NoMatchingNode_ReturnsEmpty()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml("<Root><OTHER>x</OTHER></Root>");
+
+            var obj = CreateTestableInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource", "ISSUE");
+            Assert.Equal(string.Empty, result);
+        }
+
+        [Fact]
+        public void GenerateBody_EmptyChildValues_AreExcluded()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF>
+                              <ISSUE>
+                                  <ExternalNextState></ExternalNextState>
+                                  <ExternalHistory>has value</ExternalHistory>
+                              </ISSUE>
+                           </EXPORT_IMF>");
+
+            var obj = CreateTestableInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource", "ISSUE");
+
+            Assert.DoesNotContain("ExternalNextState", result);
+            Assert.Contains("ExternalHistory", result);
+        }
+
+        [Fact]
+        public void GenerateBody_UrlQueryParamsStripped_OnlyBaseUrlUsed()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF><ISSUE><F1>V</F1></ISSUE></EXPORT_IMF>");
+
+            var obj = CreateTestableInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource?param=1&other=2", "ISSUE");
+
+            Assert.Contains("http://server/resource", result);
+            Assert.DoesNotContain("param=1", result);
+        }
+
+        [Fact]
+        public void GenerateBody_ContainsOperationModeAndContext()
+        {
+            XmlDocument ximf = new XmlDocument();
+            ximf.LoadXml(@"<EXPORT_IMF><ISSUE><F1>V</F1></ISSUE></EXPORT_IMF>");
+
+            var obj = CreateTestableInterface();
+
+            string result = obj.GenerateBody(ximf, "http://server/resource", "ISSUE");
+
+            Assert.Contains("ASAM-EXPORT", result);
+            Assert.Contains("EDES", result);
+            Assert.Contains("fieldOrder", result);
+        }
+
+        #endregion
+
+        #region ReBuildUrlFromBody
+
+        [Fact]
+        public void ReBuildUrlFromBody_AddsOslcPropertiesFromBody()
+        {
+            string url = "http://server/resource?rcm.action=modify&oslc.properties=cq%3AOld";
+            string body = @"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""no""?>
+                <rdf:RDF xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
+                         xmlns:cq=""http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/""
+                         xmlns:oslc_cm=""http://open-services.net/ns/cm#"">
+                    <oslc_cm:ChangeRequest rdf:about=""http://server/resource"">
+                        <cq:FieldA>ValueA</cq:FieldA>
+                        <cq:FieldB>ValueB</cq:FieldB>
+                    </oslc_cm:ChangeRequest>
+                </rdf:RDF>";
+
+            string result = RO_OSLC_DataInterface.ReBuildUrlFromBody(url, body);
+
+            Assert.Contains("ExternalNextState", WebUtility.UrlDecode(result));
+            Assert.Contains("FieldA", WebUtility.UrlDecode(result));
+            Assert.Contains("FieldB", WebUtility.UrlDecode(result));
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_StripsExistingOslcProperties()
+        {
+            string url = "http://server/resource?rcm.action=modify&oslc.properties=cq%3AOldField";
+            string body = @"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""no""?>
+                <rdf:RDF xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
+                         xmlns:cq=""http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/""
+                         xmlns:oslc_cm=""http://open-services.net/ns/cm#"">
+                    <oslc_cm:ChangeRequest rdf:about=""http://server/resource"">
+                        <cq:NewField>Val</cq:NewField>
+                    </oslc_cm:ChangeRequest>
+                </rdf:RDF>";
+
+            string result = RO_OSLC_DataInterface.ReBuildUrlFromBody(url, body);
+
+            string decoded = WebUtility.UrlDecode(result);
+            Assert.DoesNotContain("OldField", decoded);
+            Assert.Contains("NewField", decoded);
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_AddsRcmActionIfMissing()
+        {
+            string url = "http://server/resource?oslc.properties=cq%3AOld";
+            string body = @"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""no""?>
+                <rdf:RDF xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
+                         xmlns:cq=""http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/""
+                         xmlns:oslc_cm=""http://open-services.net/ns/cm#"">
+                    <oslc_cm:ChangeRequest rdf:about=""http://server/resource"">
+                        <cq:F1>V1</cq:F1>
+                    </oslc_cm:ChangeRequest>
+                </rdf:RDF>";
+
+            string result = RO_OSLC_DataInterface.ReBuildUrlFromBody(url, body);
+            Assert.Contains("rcm.action=modify", result);
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_AlwaysIncludesExternalNextState()
+        {
+            string url = "http://server/resource?rcm.action=modify";
+            string body = @"<?xml version=""1.0"" encoding=""UTF-8"" standalone=""no""?>
+                <rdf:RDF xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
+                         xmlns:cq=""http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/""
+                         xmlns:oslc_cm=""http://open-services.net/ns/cm#"">
+                    <oslc_cm:ChangeRequest rdf:about=""http://server/resource"">
+                        <cq:SomeField>Val</cq:SomeField>
+                    </oslc_cm:ChangeRequest>
+                </rdf:RDF>";
+
+            string result = RO_OSLC_DataInterface.ReBuildUrlFromBody(url, body);
+            Assert.Contains("ExternalNextState", WebUtility.UrlDecode(result));
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_NullUrl_Throws()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                RO_OSLC_DataInterface.ReBuildUrlFromBody(null, "<rdf:RDF/>"));
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_NullBody_Throws()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                RO_OSLC_DataInterface.ReBuildUrlFromBody("http://x", null));
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_EmptyUrl_Throws()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                RO_OSLC_DataInterface.ReBuildUrlFromBody("  ", "<rdf:RDF/>"));
+        }
+
+        [Fact]
+        public void ReBuildUrlFromBody_EmptyBody_Throws()
+        {
+            Assert.Throws<ArgumentException>(() =>
+                RO_OSLC_DataInterface.ReBuildUrlFromBody("http://x", "  "));
+        }
+
+        #endregion
+    }
+}

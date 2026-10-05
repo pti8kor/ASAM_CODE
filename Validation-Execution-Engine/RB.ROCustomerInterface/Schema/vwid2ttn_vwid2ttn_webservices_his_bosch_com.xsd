@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:ns0="http://v2.vwid2ttn.webservices.his.bosch.com/" targetNamespace="http://v2.vwid2ttn.webservices.his.bosch.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="vwAsamMappingEntry">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="RBTTN" type="xsd:string" />
+      <xsd:element minOccurs="0" name="RBTYPE" type="xsd:string" />
+      <xsd:element minOccurs="0" name="RBSGBZ" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vwAsamMappingInput">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="KTNARG" type="ns0:vwAsamMappingInputKtn" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InternalErrorFault">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="message" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vwAsamMappingInputKtn">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="KTN" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vwAsamMappingOutputKtnList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="VwAsamMappingOutputKtn" type="ns0:vwAsamMappingOutputKtn" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="vwAsamMappingOutputKtn">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="KTN" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="mapping" type="ns0:vwAsamMappingEntry" />
+      <xsd:element minOccurs="0" name="resultStatus" type="xsd:string" />
+      <xsd:element minOccurs="0" name="resultMessage" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="InternalErrorFault" type="ns0:InternalErrorFault" />
+  <xsd:element name="vwId2ttnResponse" type="ns0:vwAsamMappingOutputKtnList" />
+  <xsd:element name="vwId2ttnTestResponse" type="ns0:vwAsamMappingOutputKtnList" />
+  <xsd:element name="vwId2ttn" type="ns0:vwAsamMappingInput" />
+  <xsd:element name="KTNLIST" type="ns0:vwAsamMappingInput" />
+</xsd:schema>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Hotspots>
+  <Hotspot>
+    <Assembly>RB.ROCustomerInterfaceExportLibrary</Assembly>
+    <Class>RB.ROCustomerInterfaceExportLibrary.BTHelper</Class>
+    <MethodName>ProcessRecordsDynamically(...)</MethodName>
+    <ShortName />
+    <Line>809</Line>
+    <FileIndex>0</FileIndex>
+    <Metrics>
+      <Metric>
+        <Name>Cyclomatic complexity</Name>
+        <Exceeded>true</Exceeded>
+        <Value>46</Value>
+      </Metric>
+    </Metrics>
+  </Hotspot>
+  <Hotspot>
+    <Assembly>RB.ROCustomerInterfaceExportLibrary</Assembly>
+    <Class>RB.ROCustomerInterfaceExportLibrary.BTHelper</Class>
+    <MethodName>UpdateIMFAfterValidation(...)</MethodName>
+    <ShortName />
+    <Line>1051</Line>
+    <FileIndex>0</FileIndex>
+    <Metrics>
+      <Metric>
+        <Name>Cyclomatic complexity</Name>
+        <Exceeded>true</Exceeded>
+        <Value>46</Value>
+      </Metric>
+    </Metrics>
+  </Hotspot>
+  <Hotspot>
+    <Assembly>RB.ROCustomerInterfaceExportLibrary</Assembly>
+    <Class>RB.ROCustomerInterfaceExportLibrary.BTHelper</Class>
+    <MethodName>CreateRQ1DataExtractFile(...)</MethodName>
+    <ShortName />
+    <Line>497</Line>
+    <FileIndex>0</FileIndex>
+    <Metrics>
+      <Metric>
+        <Name>Cyclomatic complexity</Name>
+        <Exceeded>true</Exceeded>
+        <Value>42</Value>
+      </Metric>
+    </Metrics>
+  </Hotspot>
+  <Hotspot>
+    <Assembly>RB.ROCustomerInterfaceExportLibrary</Assembly>
+    <Class>RB.ROCustomerInterfaceExportLibrary.BTHelper</Class>
+    <MethodName>ValidateMappingDerivatives(...)</MethodName>
+    <ShortName />
+    <Line>1689</Line>
+    <FileIndex>0</FileIndex>
+    <Metrics>
+      <Metric>
+        <Name>Cyclomatic complexity</Name>
+        <Exceeded>true</Exceeded>
+        <Value>36</Value>
+      </Metric>
+    </Metrics>
+  </Hotspot>
+  <Hotspot>
+    <Assembly>RB.ROCustomerInterfaceExportLibrary</Assembly>
+    <Class>RB.ROCustomerInterfaceExportLibrary.RO_OSLC_DataInterface</Class>
+    <MethodName>CreateQuery(...)</MethodName>
+    <ShortName />
+    <Line>439</Line>
+    <FileIndex>0</FileIndex>
+    <Metrics>
+      <Metric>
+        <Name>Cyclomatic complexity</Name>
+        <Exceeded>true</Exceeded>
+        <Value>36</Value>
+      </Metric>
+    </Metrics>
+  </Hotspot>
+</Hotspots>

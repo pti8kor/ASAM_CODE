@@ -1,0 +1,24 @@
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\bin\Debug\BTLogger.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\bin\Debug\BTLogger.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\Interop.ClearQuestOleServer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.csproj.ResolveComReference.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.csproj.CoreCompileInputs.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\BT9RSI\960 - BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.csproj.AssemblyReference.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\bin\Debug\BTLogger.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\bin\Debug\BTLogger.pdb
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.csproj.AssemblyReference.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\Interop.ClearQuestOleServer.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.csproj.ResolveComReference.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.csproj.CoreCompileInputs.cache
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.dll
+D:\RB-ASAM-Interface\Import\960 - Sources\WorkSpace\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.pdb
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\bin\Debug\BTLogger.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\bin\Debug\BTLogger.pdb
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.csproj.AssemblyReference.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\Interop.ClearQuestOleServer.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.csproj.ResolveComReference.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.csproj.CoreCompileInputs.cache
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.dll
+D:\ASAM-IF-IMPORT\Import\960 - Sources\PTI8KOR\BTImportSoftware\BTLoggerLibrary\BTLoggerLibrary\obj\Debug\BTLogger.pdb

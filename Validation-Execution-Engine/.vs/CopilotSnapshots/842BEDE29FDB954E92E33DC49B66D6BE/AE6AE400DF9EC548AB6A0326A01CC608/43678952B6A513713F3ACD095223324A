@@ -1,0 +1,1196 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml.Linq;
+using System.Xml.XPath;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Xml;
+//using Microsoft.Http;
+
+namespace RB.ROCustomerIntefaceLibrary
+{
+    public class RO_OSLC_DataInterface : RODataInterface
+    {
+        public CookieContainer l_oSessionCookie = new CookieContainer();
+
+        StringBuilder sQuery = null;
+
+        public XNamespace nsoslc = XNamespace.Get("http://open-services.net/xmlns/cm/1.0/"); //OSLC XML Namespace
+        public XNamespace nsFeed = XNamespace.Get("http://www.w3.org/1999/02/22-rdf-syntax-ns#"); //FEED XML Namespace
+        public XNamespace nsAtom = XNamespace.Get("http://www.w3.org/2005/Atom"); //ATOM FEED Namespace 
+        public XNamespace nsDC = XNamespace.Get("http://purl.org/dc/terms/"); // DC NameSpace   
+        public XNamespace nsresults = XNamespace.Get("http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/");        
+
+        public string sExchangeFormat;
+        Logger objlogger = null;
+        #region DataInterface
+
+        public RO_OSLC_DataInterface(string p_System, string p_sExchangeFormat, Logger l_ologger)
+            : base(p_System, p_sExchangeFormat, l_ologger)
+        {
+            sExchangeFormat = p_sExchangeFormat;
+            objlogger = l_ologger;
+
+        }
+
+        public override IQueryResult Query(QueryParameters p_oQueryParameters, bool bLoopQueryResults = false, XElement xROIDRule = null, string ExchangeProtocol = null)
+        {
+
+            objlogger.LogInfo("OSLC Query : starts", GlobalConstants.LOGGERLEVEL1);
+
+            OSLC_QueryResult l_oQueryResult = new OSLC_QueryResult();
+            try
+            {
+                sQuery = null;
+
+                if (!p_oQueryParameters.IsComplex)
+                {
+                    foreach (var l_oParameter in p_oQueryParameters.GetRaw())
+                    {
+                        if (l_oParameter.Key != GlobalConstants.RECORDTYPE)
+                            BuildQuery(l_oParameter.Key, l_oParameter.Value, null);
+                        else
+                            BuildQuery(l_oParameter.Key, null, l_oParameter.Value);
+                    }
+
+                    objlogger.LogInfo("OSLC Query as follows :" + sQuery.ToString(), GlobalConstants.LOGGERLEVEL1);
+
+                    XDocument xDoc = ExecuteOSLCQuery(sQuery.ToString(), false);
+
+                    l_oQueryResult.SetRaw(xDoc);
+                }
+                else
+                {
+                    XDocument xDoc = p_oQueryParameters.GetRawComplex()
+                                     .Where(n => n.Key == OSLCComplexType.MAINRECORD)
+                                     .Select(n => n.Value).Single() as XDocument;
+
+
+                    if (xDoc == null) return null;
+
+                    objlogger.LogInfo("xdoc:" + xDoc.ToString(), GlobalConstants.LOGGERLEVEL2);
+                    //objlogger.LogInfo(xDoc.ToString());
+                    XDocument xResponse = GetLinkedRecord(xDoc,bLoopQueryResults,xROIDRule);
+
+                    if (xResponse != null) //REUBK-3603
+                    {
+                        WriteRQ1IntoXMl(xResponse, ExchangeProtocol);
+                        objlogger.LogInfo("Set raw", GlobalConstants.LOGGERLEVEL2);
+                        l_oQueryResult.SetRaw(xResponse);
+
+                    }
+
+                    //REUBK-3603
+                    if (bLoopQueryResults)
+                    {
+                        //objlogger.LogInfo("Calling GetAllLinkedRecordDbids");
+                        l_oQueryResult.ReturnedDbids = GetAllLinkedRecordDbids(xDoc, xROIDRule);
+                    }
+                }
+            }
+            catch (System.Net.WebException exp)
+            {
+                objlogger.LogException(exp, "OSLC Query WebException");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex, "OSLC Query");
+                throw;
+            }
+
+            //objlogger.LogInfo("OSLC Query : ends");
+
+            l_oQueryResult.DataInterface = this;
+            objlogger.LogInfo("OSLC Query : ends - checking rec count : " + l_oQueryResult.RecordCount, GlobalConstants.LOGGERLEVEL1);
+            return l_oQueryResult;
+        }
+
+        public override string Query(QueryParameters p_oQueryParameters, string sElement, string sATTR)
+        {
+
+            //objlogger.LogInfo("OSLC Query : starts -- for linkd rec attrubute");
+
+            OSLC_QueryResult l_oQueryResult = new OSLC_QueryResult();
+            XDocument xResponse = new XDocument();
+            string sReturn = string.Empty;
+
+            try
+            {
+
+                sQuery = null;
+
+                if (!p_oQueryParameters.IsComplex)
+                {
+                    objlogger.LogInfo("OSLC Query : starts -- for linkd rec attrubute--not iscomplex", GlobalConstants.LOGGERLEVEL1);
+                    foreach (var l_oParameter in p_oQueryParameters.GetRaw())
+                    {
+                        if (l_oParameter.Key != GlobalConstants.RECORDTYPE)
+                            BuildQuery(l_oParameter.Key, l_oParameter.Value, null);
+                        else
+                            BuildQuery(l_oParameter.Key, null, l_oParameter.Value);
+                    }
+
+                    objlogger.LogInfo("OSLC Query as follows :" + sQuery.ToString(), GlobalConstants.LOGGERLEVEL1);
+
+                    xResponse = ExecuteOSLCQuery(sQuery.ToString(), false);
+
+                    //l_oQueryResult.SetRaw(xDoc);
+                }
+                else
+                {
+                    objlogger.LogInfo("OSLC Query : starts -- for linkd rec attrubute--complex", GlobalConstants.LOGGERLEVEL1);
+
+                    XDocument xDoc = p_oQueryParameters.GetRawComplex()
+                                     .Where(n => n.Key == OSLCComplexType.MAINRECORD)
+                                     .Select(n => n.Value).Single() as XDocument;
+
+
+                    if (xDoc == null) return null;
+
+
+                    xResponse = GetLinkedRecord(xDoc);
+
+                    //l_oQueryResult.SetRaw(xResponse);
+                }
+                //commented for delay reduction
+                //objlogger.LogInfo("OSLC Query : starts -- for linkd rec attrubute--complex-xResponse" + xResponse.ToString());
+                //objlogger.LogInfo("OSLC Query : starts -- for linkd rec attrubute--complex-xResponse");
+                if (xResponse != null)
+                {
+                    sReturn = GetLinkedRecordValue(xResponse, sElement, sATTR);
+                }
+
+
+            }
+            catch (System.Net.WebException exp)
+            {
+                objlogger.LogException(exp, "OSLC Query WebException");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex, "OSLC Query");
+                throw;
+            }
+
+
+
+            objlogger.LogInfo("OSLC Query : ends", GlobalConstants.LOGGERLEVEL1);
+
+            //l_oQueryResult.DataInterface = this;
+            return sReturn;
+        }
+
+        public override List<object> Query(QueryParameters p_oQueryParameters, bool bMultipleRecords)
+        {
+            List<object> l_oQueryResults = new List<object>();
+
+            try
+            {
+                XDocument xDoc = p_oQueryParameters.GetRawComplex()
+                                        .Where(n => n.Key == OSLCComplexType.ALLRECORDS)
+                                        .Select(n => n.Value).Single() as XDocument;
+
+                if (xDoc == null) return null;
+                objlogger.LogInfo("See xdoc content for multiple records:" + xDoc.ToString(), GlobalConstants.LOGGERLEVEL1);
+                //objlogger.LogInfo(xDoc.ToString());
+                List <XDocument> l_xResponse = GetAllLinkedRecords(xDoc);
+                if (l_xResponse != null) 
+                {
+                    foreach (XDocument xResponse in l_xResponse)
+                    {
+                        objlogger.LogInfo("Set raw", GlobalConstants.LOGGERLEVEL1);
+                        OSLC_QueryResult l_oQueryResult = new OSLC_QueryResult();
+                        l_oQueryResult.SetRaw(xResponse);
+                        l_oQueryResult.DataInterface = this;
+                        l_oQueryResults.Add(l_oQueryResult);
+                    }
+                }
+            }
+            catch (System.Net.WebException exp)
+            {
+                objlogger.LogException(exp, "OSLC Query WebException");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex, "OSLC Query");
+                throw;
+            }
+            objlogger.LogInfo("OSLC Query : ends", GlobalConstants.LOGGERLEVEL1);
+
+            return l_oQueryResults;
+        }
+
+        public override IQueryResult Query(string sQuery)
+        {
+            objlogger.LogInfo("OSLC Query : starts " + sQuery.ToString(), GlobalConstants.LOGGERLEVEL1);
+
+            OSLC_QueryResult l_oQueryResult = new OSLC_QueryResult();
+            try
+            {
+                //objlogger.LogInfo("OSLC Query as follows :" + sQuery.ToString());
+                XDocument xDoc = ExecuteOSLCQuery(sQuery, false);
+                l_oQueryResult.SetRaw(xDoc);
+
+            }
+            catch (System.Net.WebException exp)
+            {
+                objlogger.LogException(exp, "OSLC Query WebException");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex, "OSLC Query");
+                throw;
+            }
+
+            objlogger.LogInfo("OSLC Query : ends", GlobalConstants.LOGGERLEVEL1);
+
+            l_oQueryResult.DataInterface = this;
+            return l_oQueryResult;
+        }
+
+        public IQueryResult QueryRecord(string sQuery)
+        {
+            objlogger.LogInfo("OSLC Query : starts " + sQuery.ToString(), GlobalConstants.LOGGERLEVEL1);
+
+            OSLC_QueryResult l_oQueryResult = new OSLC_QueryResult();
+            try
+            {
+               // objlogger.LogInfo("OSLC Query as follows :" + sQuery.ToString());
+                XDocument xDoc = ExecuteOSLCQuery(sQuery, true);
+                l_oQueryResult.SetRaw(xDoc);
+
+            }
+            catch (System.Net.WebException exp)
+            {
+                objlogger.LogException(exp, "OSLC Query WebException");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex, "OSLC Query");
+                throw;
+            }
+
+            objlogger.LogInfo("OSLC Query : ends", GlobalConstants.LOGGERLEVEL1);
+
+            l_oQueryResult.DataInterface = this;
+            return l_oQueryResult;
+        }
+
+        public override XDocument QueryAttachments(string sQuery)
+        {
+            objlogger.LogInfo("OSLC QueryAttachments starts " + sQuery.ToString(), GlobalConstants.LOGGERLEVEL1);
+            XDocument xDoc = null;
+            OSLC_QueryResult l_oQueryResult = new OSLC_QueryResult();
+            try
+            {
+               // objlogger.LogInfo("OSLC Query as follows :" + sQuery.ToString());
+                xDoc = ExecuteOSLCQuery(sQuery, false);
+            }
+            catch (System.Net.WebException exp)
+            {
+                objlogger.LogException(exp, "OSLC Query WebException");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex, "OSLC Query");
+                throw;
+            }
+
+            objlogger.LogInfo("OSLC QueryAttachments ends", GlobalConstants.LOGGERLEVEL1);
+
+
+            return xDoc;
+        }
+
+
+        public override IQueryResult Insert(QueryParameters p_oQueryParameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IQueryResult Update(QueryParameters p_oQueryParamaters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IQueryResult Delete(QueryParameters p_oQueryParameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int RecordCount(QueryParameters p_oQueryParameters)
+        {
+            if (p_oQueryParameters.IsComplex)
+            {
+                object xObject = p_oQueryParameters.GetRawComplex()
+                                .Select(n => n.Value);
+                XDocument xDoc = xObject as XDocument;
+
+                return GetRecordCount(xDoc);
+            }
+            else
+            {
+                throw new System.Exception("Query parameter is not xDoc for evaluation");
+            }
+        }
+
+        public override bool RecordEditable(QueryParameters p_oQueryParameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string GetInitialVal(string sinput)
+        {
+            throw new NotImplementedException();
+        }
+        # endregion
+
+        # region SupportFunctions
+
+        public XDocument InvokeURL(string sUrlToInvoke)
+        {
+            objlogger.LogInfo("ClearQuest::InvokeURL : Starts with URL:\n" +
+                sUrlToInvoke, GlobalConstants.LOGGERLEVEL1);
+            XDocument xDoc = null;
+            try
+            {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+                       | SecurityProtocolType.Tls11
+                       | SecurityProtocolType.Tls12
+                       | SecurityProtocolType.Ssl3;
+                HttpWebRequest httpWebReq = WebRequest.Create(sUrlToInvoke) as HttpWebRequest;
+                httpWebReq.Credentials = new NetworkCredential(CQUser, CQPasword);
+                httpWebReq.CookieContainer = l_oSessionCookie;
+                string sRequesterInfo = "toolname=" + CQToolName + ";toolversion=" + CQToolVersion + ";user=" + "bt9rsi";
+                if (!string.IsNullOrEmpty(CQToolTesting) && CQToolTesting.ToUpper() == "TRUE")
+                {
+                    sRequesterInfo = sRequesterInfo + ";toolTesting=" + CQToolTesting;
+                }
+                // WI 282232 - Extend OSLC Requests with additional Header for access control of RQ1
+                httpWebReq.Headers.Add("OSLC-Core-Version", "1.0");
+                httpWebReq.Headers.Add("x-requester", sRequesterInfo);
+                
+                using (HttpWebResponse resp = httpWebReq.GetResponse() as HttpWebResponse)
+                {
+                    using (StreamReader reader = new StreamReader(resp.GetResponseStream()))
+                    {
+                        xDoc = XDocument.Load(reader);
+                    }
+
+                    try
+                    {
+                        //Handling for  oslc result count > oslc max page size
+                        XElement xLinkNext = xDoc.Root.Elements(XName.Get("link", nsAtom.ToString())).Where(s => s.Attribute("rel").Value == "next").Single();
+                        if (xLinkNext != null)
+                        {
+                            string nextUrl = xLinkNext.Attribute("href").Value;
+                            XDocument xNext = InvokeURL(nextUrl);
+                            foreach (XElement xe in xNext.Root.Elements(XName.Get("entry", nsAtom.ToString())))
+                                xDoc.Root.Add(xe);
+                        }
+                    }
+                    catch (Exception)
+                    { }
+                }
+
+            }
+            catch (System.Net.WebException exp)
+            {
+                objlogger.LogException(exp, "ClearQuest::InvokeURLWebException");
+                // xDoc = XDocument.Load(GlobalConstants.OSLC_DUMMY_XML); REUBK-1610
+                throw;
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex, "ClearQuest::InvokeURLException");
+                //Set dummy XML
+                // xDoc = XDocument.Load(GlobalConstants.OSLC_DUMMY_XML);
+                throw;
+            }
+            objlogger.LogInfo("ClearQuest::InvokeURL : ends", GlobalConstants.LOGGERLEVEL1);
+            objlogger.LogInfo("ClearQuest::InvokeURL ends :" + xDoc.ToString(), GlobalConstants.LOGGERLEVEL2);
+
+            
+
+            return xDoc;
+        }
+
+        /// <summary>
+        /// Method to Save (Issue, Release, IRMAP) Target values Before Execution -- This implementaion is because of implementation of hiding  data in RQ1
+        /// </summary>
+        /// <param name="xdoc"></param>
+        /// <param name="Excahange_Protocol"></param>
+        public void WriteRQ1IntoXMl(XDocument xdoc, string Excahange_Protocol)
+        {
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.OmitXmlDeclaration = true;
+            settings.Indent = true;
+
+            string destionationPath = @"D:\ASAM-IF-IMPORT\Import\050 - BTMessages\";
+
+            try
+            {
+                if(!String.IsNullOrEmpty(Excahange_Protocol))
+                {
+                    if (((System.Xml.Linq.XElement)((System.Xml.Linq.XContainer)xdoc.FirstNode).FirstNode).Value.ToString().ToLower() == "release")
+                    {
+                        string releaseID = string.Empty;
+                        foreach (XNode node in xdoc.Root.Nodes())
+                        {
+                            if (node.ToString().Contains("dc:title"))
+                            {
+                                releaseID = ((System.Xml.Linq.XElement)node).Value;
+                                break;
+                            }
+
+                        }
+
+                        using (var stream = File.Create(destionationPath + "RQONE_" + Excahange_Protocol + "_" + releaseID + "_038_ReleaseTargetValues_Before_Execution.xml"))
+                        {
+
+                            using (var writer = XmlWriter.Create(stream, settings))
+                            {
+                                xdoc.Save(writer);
+                                objlogger.LogInfo("Release Target Values Saved Successfully Before Execution");
+                            }
+                        }
+
+                    }
+
+                    else if (((System.Xml.Linq.XElement)((System.Xml.Linq.XContainer)xdoc.FirstNode).FirstNode).Value.ToString().ToLower() == "issue")
+                    {
+                        string issueID = string.Empty;
+                        foreach (XNode node in xdoc.Root.Nodes())
+                        {
+                            if (node.ToString().Contains("dc:title"))
+                            {
+                                issueID = ((System.Xml.Linq.XElement)node).Value;
+                                break;
+                            }
+
+                        }
+                        using (var stream = File.Create(destionationPath + "RQONE_"+Excahange_Protocol + "_" + issueID + "_038_IssueTargetValues_Before_Execution.xml"))
+                        {
+
+                            using (var writer = XmlWriter.Create(stream, settings))
+                            {
+                                xdoc.Save(writer);
+                                objlogger.LogInfo("Issue Target Values Saved Successfully Before Execution");
+                            }
+                        }
+
+                    }
+
+                    else if (((System.Xml.Linq.XElement)((System.Xml.Linq.XContainer)xdoc.FirstNode).FirstNode).Value.ToString().ToLower() == "issuereleasemap")
+                    {
+                        string issuereleasemapID = string.Empty;
+                        foreach (XNode node in xdoc.Root.Nodes())
+                        {
+                            if (node.ToString().Contains("dc:title"))
+                            {
+                                issuereleasemapID = ((System.Xml.Linq.XElement)node).Value;
+                                break;
+                            }
+
+                        }
+                        using (var stream = File.Create(destionationPath + "RQONE_" + Excahange_Protocol + "_" + issuereleasemapID + "_038_IssuereleasemapTargetValues_Before_Execution.xml"))
+                        {
+
+                            using (var writer = XmlWriter.Create(stream, settings))
+                            {
+                                xdoc.Save(writer);
+                                objlogger.LogInfo("IssueReleaseMap Target Values Saved Successfully Before Execution");
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                objlogger.LogInfo("Error in saving RQ1 Data File = " + ex.Message);
+            }
+        }
+
+        public override void Close()
+        {
+            objlogger.LogInfo("Closing of OSLC Session", GlobalConstants.LOGGERLEVEL1);
+           /* HttpClient l_oClient = new HttpClient(CQOSLCServer);
+           l_oClient.TransportSettings.Credentials = new NetworkCredential(CQUser, CQPasword);
+           l_oClient.TransportSettings.Cookies = l_oSessionCookie;
+           l_oClient.Delete("/cqweb/oslc/session/"); */
+
+           string sRequesterInfo = "toolname=" + CQToolName + ";toolversion=" + CQToolVersion + ";user=" + CQUser;
+           if (!string.IsNullOrEmpty(CQToolTesting) && CQToolTesting.ToUpper() == "TRUE")
+           {
+               sRequesterInfo = sRequesterInfo + ";toolTesting=" + CQToolTesting;
+           }
+
+            var baseAddress = new Uri(CQOSLCServer);
+            var cookieContainer = new CookieContainer();
+            var credentials = new NetworkCredential(CQUser, CQPasword);
+            using (var handler = new HttpClientHandler() { Credentials = credentials, CookieContainer = cookieContainer })
+            using (var client = new HttpClient(handler) { BaseAddress = baseAddress })
+            {
+                client.DefaultRequestHeaders.Add("x-requester", sRequesterInfo);
+                client.DeleteAsync("/cqweb/oslc/session/");               
+            }
+
+            objlogger.LogInfo("Closing of OSLC session done", GlobalConstants.LOGGERLEVEL1);
+        }
+
+        //private bool EvaluateCondition(string sValue, string sOperand2, GlobalConstants.Operation operation )
+        //{
+        //    bool bResult = false;
+
+        //    switch (operation)
+        //    {
+        //        case GlobalConstants.Operation.EQ:
+        //            if (sValue == sOperand2)
+        //            {
+        //                bResult = true;
+        //            }
+        //            break;
+        //        case GlobalConstants.Operation.NE:
+        //            if (sValue != sOperand2)
+        //            {
+        //                bResult = true;
+        //            }
+        //            break;
+        //        case GlobalConstants.Operation.IN:
+        //            if (sValue.Contains(sOperand2))
+        //            {
+        //                bResult = true;
+        //            }
+        //            break;
+        //        default:
+        //            objlogger.LogInfo("No operation performed");
+        //            break;
+        //    }
+
+        //    return bResult;
+        //}
+
+        public XDocument GetLinkedRecord(XDocument xDocFeed, bool bLoopQueryResults = false, XElement xROIDRule = null)
+        {
+            XDocument xFromCQ = null;
+            XElement xFilter = null, xFilterCondition =null;
+            bool bLevel1 = false, bLevel2 = false, bFinal=false;
+            string strURL = "", sLev1Operand1 = string.Empty, sLev1Operand2 = string.Empty, sLev2Operand1 = string.Empty, sLev2Operand2 = string.Empty;
+            GlobalConstants.Operation Lev1operation = new GlobalConstants.Operation();
+            GlobalConstants.Operation Lev2operation = new GlobalConstants.Operation();
+
+            XElement xLink = xDocFeed.Descendants(nsoslc + "totalCount").Single();
+            objlogger.LogInfo("Inside GetLinkedRecord: totalCount=" + xLink.Value, GlobalConstants.LOGGERLEVEL1);
+
+            if (bLoopQueryResults==true & xROIDRule!=null)
+            {
+                //objlogger.LogInfo("Get FILTER elements");
+                if (xROIDRule.Element(RulesFileTags.OPTCONDITION).Element(RulesFileTags.VIOLATIONHANDLER).Element(RulesFileTags.STRUCTURECHANGE).Element(RulesFileTags.FILTER) != null)
+                {
+                    //objlogger.LogInfo("Get FILTER elements");
+                    xFilter = xROIDRule.Element(RulesFileTags.OPTCONDITION).Element(RulesFileTags.VIOLATIONHANDLER).Element(RulesFileTags.STRUCTURECHANGE).Element(RulesFileTags.FILTER).Element(RulesFileTags.MUSTCONDITION);
+                    sLev1Operand1 = xFilter.Element(RulesFileTags.OPERAND1).Value;
+                    sLev1Operand2 = xFilter.Element(RulesFileTags.OPERAND2).Value;
+                    Lev1operation =
+                        (GlobalConstants.Operation)Enum.Parse(typeof(GlobalConstants.Operation),
+                        xFilter.Element(RulesFileTags.OPERATOR).Value, true);
+
+                    objlogger.LogInfo("sLev1Operand1:" + sLev1Operand1 + " sLev1Operand2:" + sLev1Operand2 + " Lev1operation:" + Lev1operation.ToString(), GlobalConstants.LOGGERLEVEL2);
+
+                    if(xFilter.Element(RulesFileTags.AND)!=null)
+                    {
+                        xFilterCondition = xFilter.Element(RulesFileTags.AND);
+                    }
+                    else if(xFilter.Element(RulesFileTags.OR)!=null)
+                    {
+                        xFilterCondition = xFilter.Element(RulesFileTags.OR);
+                    }
+                    else { }
+
+                    if (xFilterCondition != null)
+                    {
+                        sLev2Operand1 = xFilter.Element(RulesFileTags.AND).Element(RulesFileTags.OPERAND1).Value;
+                        sLev2Operand2 = xFilter.Element(RulesFileTags.AND).Element(RulesFileTags.OPERAND2).Value;
+                        Lev2operation =
+                            (GlobalConstants.Operation)Enum.Parse(typeof(GlobalConstants.Operation),
+                            xFilter.Element(RulesFileTags.AND).Element(RulesFileTags.OPERATOR).Value, true);
+
+                        objlogger.LogInfo("sLev2Operand1:" + sLev2Operand1 + " sLev2Operand2:" + sLev2Operand2 + " Lev2operation:" + Lev2operation.ToString(), GlobalConstants.LOGGERLEVEL2);
+                    }
+                    
+                }
+            }
+
+            if (Convert.ToInt16(xLink.Value.ToString()) == 1)
+            {
+                //GetEvaluator IssueDBID
+                var Entry = xDocFeed.Element(nsAtom + "feed").Element(nsAtom + "entry");
+                if (Entry != null)
+                {
+                    var Link = Entry.Element(nsAtom + "link");
+                    if (Link != null)
+                    {
+                        strURL = Link.Attribute("href").Value;
+                        strURL = strURL + "?rcm.contentType=application/xml";
+                        strURL = strURL.Replace(":12080", "");
+                    }
+                    else
+                    {
+                        strURL = "";
+                    }
+                }
+                else
+                {
+                    strURL = "";
+                }
+
+                if (String.IsNullOrWhiteSpace(strURL)
+                    == false)
+                {
+                    xFromCQ = InvokeURL(strURL);
+
+                    //REUBK-3603
+                    if (bLoopQueryResults == true)
+                    {
+                        string sLev1Value = string.Empty, sLev2Value = string.Empty;
+
+                        //objlogger.LogInfo("Checking for ExternalID");
+                        foreach (XElement xProperty in xFromCQ.Root.Elements())
+                        {
+
+                            string sAttr = xProperty.Name.ToString();
+                            sAttr = sAttr.Replace("{", "");
+                            sAttr = sAttr.Replace("}", "");
+                            sAttr = sAttr.Replace("http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/", "");
+                            if (sAttr.ToUpper() == sLev1Operand1.Replace("$RO.",""))
+                            {
+                                if (!string.IsNullOrEmpty(xProperty.Value))
+                                {
+                                    sLev1Value = xProperty.Value.ToString();
+                                }
+                                else
+                                {
+                                    if (xProperty.HasAttributes)
+                                    {
+                                        //Reference field - sValue is link of record
+                                        sLev1Value = xProperty.FirstAttribute.Value;
+                                    }
+                                }
+
+                                objlogger.LogInfo("sLev1Value = " + sLev1Value, GlobalConstants.LOGGERLEVEL2);
+                            }
+                            else if (sAttr.ToUpper() == sLev2Operand1.Replace("$RO.", ""))
+                            {
+                                if (!string.IsNullOrEmpty(xProperty.Value))
+                                {
+                                    sLev2Value = xProperty.Value.ToString();
+                                }
+                                else
+                                {
+                                    if (xProperty.HasAttributes)
+                                    {
+                                        //Reference field - sValue is link of record
+                                        sLev2Value = xProperty.FirstAttribute.Value;
+                                    }
+                                }
+
+                                objlogger.LogInfo("sLev2Value = " + sLev2Value, GlobalConstants.LOGGERLEVEL2);
+                            }
+                            else { }
+                        }
+
+                       bLevel1 = Utilities.PerformOperation(sLev1Value, sLev1Operand2, Lev1operation,false,string.Empty);
+                       objlogger.LogInfo("bLevel1 = " + bLevel1.ToString(), GlobalConstants.LOGGERLEVEL2);
+                       if (xFilterCondition != null)
+                       {
+                           bLevel2 = Utilities.PerformOperation(sLev2Value, sLev2Operand2, Lev2operation, false, string.Empty);
+                           objlogger.LogInfo("bLevel2 = " + bLevel2.ToString(), GlobalConstants.LOGGERLEVEL2);
+                           if(xFilterCondition.Value == RulesFileTags.AND)
+                           {
+                               bFinal = (bLevel1 & bLevel2);
+                           }
+                           else
+                           {
+                               if(xFilterCondition.Value == RulesFileTags.OR)
+                               {
+                                   bFinal = (bLevel1 || bLevel2);
+                               }
+                           }
+                       }
+                       else
+                       { bFinal = bLevel1; }
+
+                       //objlogger.LogInfo("bFinal = " + bFinal.ToString());
+                       if (bFinal)
+                       {
+                           xFromCQ = null;
+                           //objlogger.LogInfo("Setting xFromCQ to null");
+                       }
+                               
+                    }
+                }
+                else
+                { xFromCQ = null; }
+            }
+            else if (Convert.ToInt16(xLink.Value.ToString()) > 1)
+            {
+                XDocument xResponse = null;
+                //int iMainRecCount = 0;
+                var Entries = xDocFeed.Element(nsAtom + "feed").Elements(nsAtom + "entry");
+                foreach (var Entry in Entries)
+                {
+                    if (Entry != null)
+                    {
+                        var Link = Entry.Element(nsAtom + "link");
+                        if (Link != null)
+                        {
+                            strURL = Link.Attribute("href").Value;
+                            strURL = strURL + "?rcm.contentType=application/xml";
+                            strURL = strURL.Replace(":12080", "");
+                        }
+                        else
+                        {
+                            strURL = "";
+                        }
+                    }
+                    else
+                    {
+                        strURL = "";
+                    }
+
+                    if (String.IsNullOrWhiteSpace(strURL)
+                        == false)
+                    {
+                        xResponse = InvokeURL(strURL);
+                         //REUBK-3603
+                        if (bLoopQueryResults == true)
+                        {
+                            string sLev1Value = string.Empty, sLev2Value = string.Empty;
+                            objlogger.LogInfo("Checking for ExternalID", GlobalConstants.LOGGERLEVEL2);
+                            foreach (XElement xProperty in xResponse.Root.Elements())
+                            {
+                                string sAttr = xProperty.Name.ToString();
+                                sAttr = sAttr.Replace("{", "");
+                                sAttr = sAttr.Replace("}", "");
+                                sAttr = sAttr.Replace("http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/", "");
+                                if (sAttr.ToUpper() == sLev1Operand1.Replace("$RO.", ""))
+                                {
+                                    if (!string.IsNullOrEmpty(xProperty.Value))
+                                    {
+                                        sLev1Value = xProperty.Value.ToString();
+                                    }
+                                    else
+                                    {
+                                        if (xProperty.HasAttributes)
+                                        {
+                                            //Reference field - sValue is link of record
+                                            sLev1Value = xProperty.FirstAttribute.Value;
+                                        }
+                                    }
+
+                                    objlogger.LogInfo("sLev1Value = " + sLev1Value, GlobalConstants.LOGGERLEVEL2);
+                                }
+                                else if (sAttr.ToUpper() == sLev2Operand1.Replace("$RO.", ""))
+                                {
+                                    if (!string.IsNullOrEmpty(xProperty.Value))
+                                    {
+                                        sLev2Value = xProperty.Value.ToString();
+                                    }
+                                    else
+                                    {
+                                        if (xProperty.HasAttributes)
+                                        {
+                                            //Reference field - sValue is link of record
+                                            sLev2Value = xProperty.FirstAttribute.Value;
+                                        }
+                                    }
+
+                                    objlogger.LogInfo("sLev2Value = " + sLev2Value, GlobalConstants.LOGGERLEVEL2);
+                                }
+                                else { }
+                            }
+                            bLevel1 = Utilities.PerformOperation(sLev1Value, sLev1Operand2, Lev1operation, false, string.Empty);
+                            objlogger.LogInfo("bLevel1 = " + bLevel1.ToString(), GlobalConstants.LOGGERLEVEL2);
+                            if (xFilterCondition != null)
+                            {
+                                bLevel2 = Utilities.PerformOperation(sLev2Value, sLev2Operand2, Lev2operation, false, string.Empty);
+                                objlogger.LogInfo("bLevel2 = " + bLevel2.ToString(), GlobalConstants.LOGGERLEVEL2);
+                                if (xFilterCondition.Value == RulesFileTags.AND)
+                                {
+                                    bFinal = (bLevel1 & bLevel2);
+                                }
+                                else
+                                {
+                                    if (xFilterCondition.Value == RulesFileTags.OR)
+                                    {
+                                        bFinal = (bLevel1 || bLevel2);
+                                    }
+                                }
+                            }
+                            else
+                            { bFinal = bLevel1; }
+                            objlogger.LogInfo("bFinal = " + bFinal.ToString(), GlobalConstants.LOGGERLEVEL1);
+                            if (!bFinal)
+                            {
+                                xFromCQ = xResponse;
+                                //objlogger.LogInfo("Setting xFromCQ to xResponse");
+                                //commented for delay reduction
+                                //objlogger.LogInfo(xFromCQ.ToString());
+                            }
+                        }
+                    }
+                    else
+                    { xResponse = null; }
+                }
+            }
+            else
+            { xFromCQ = null; }
+
+            return xFromCQ;
+        }
+
+        public string GetLinkedRecordValue(XDocument xdoc,string sElement, string sAttribute)
+        {
+            objlogger.LogInfo("GetLinkedRecordValue: sElement = " + sElement + "sAttribute=" + sAttribute, GlobalConstants.LOGGERLEVEL1);
+            string sReturn = string.Empty;
+
+            try
+            {
+                XElement xElement = xdoc.Descendants(nsresults + sElement).Single();
+                if (xElement != null)
+                {
+                    XAttribute xATTR = xElement.Attributes().Where(n => n.Name.ToString().Contains(sAttribute)).Single();
+                    sReturn = xATTR.Value;
+                }
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex);
+            }
+            return sReturn;
+
+
+        }
+
+        public List<int> GetAllLinkedRecordDbids(XDocument xDocFeed, XElement xROIDRule)
+        {
+            List<int> l_Dbids = new List<int>();
+            XDocument xFromCQ = null;
+            XElement xFilter = null, xFilterCondition = null;
+            bool bLevel1 = false, bLevel2 = false, bFinal = false;
+            string strURL = string.Empty, sLev1Operand1 = string.Empty, sLev1Operand2 = string.Empty, sLev2Operand1 = string.Empty, sLev2Operand2 = string.Empty;
+            GlobalConstants.Operation Lev1operation = new GlobalConstants.Operation();
+            GlobalConstants.Operation Lev2operation = new GlobalConstants.Operation();
+
+            XElement xLink = xDocFeed.Descendants(nsoslc + "totalCount").Single();
+            objlogger.LogInfo("Inside GetAllLinkedRecordDbids: totalCount=" + xLink.Value, GlobalConstants.LOGGERLEVEL1);
+            //objlogger.LogInfo("xDocFeed :" + xDocFeed.ToString());
+
+            //objlogger.LogInfo("Get FILTER elements");
+            if (xROIDRule.Element(RulesFileTags.OPTCONDITION).Element(RulesFileTags.VIOLATIONHANDLER).Element(RulesFileTags.STRUCTURECHANGE).Element(RulesFileTags.FILTER) != null)
+            {
+                //objlogger.LogInfo("Get FILTER elements");
+                xFilter = xROIDRule.Element(RulesFileTags.OPTCONDITION).Element(RulesFileTags.VIOLATIONHANDLER).Element(RulesFileTags.STRUCTURECHANGE).Element(RulesFileTags.FILTER).Element(RulesFileTags.MUSTCONDITION);
+                sLev1Operand1 = xFilter.Element(RulesFileTags.OPERAND1).Value;
+                sLev1Operand2 = xFilter.Element(RulesFileTags.OPERAND2).Value;
+                Lev1operation =
+                    (GlobalConstants.Operation)Enum.Parse(typeof(GlobalConstants.Operation),
+                    xFilter.Element(RulesFileTags.OPERATOR).Value, true);
+
+                objlogger.LogInfo("sLev1Operand1:" + sLev1Operand1 + " sLev1Operand2:" + sLev1Operand2 + " Lev1operation:" + Lev1operation.ToString(), GlobalConstants.LOGGERLEVEL2);
+
+                if (xFilter.Element(RulesFileTags.AND) != null)
+                {
+                    xFilterCondition = xFilter.Element(RulesFileTags.AND);
+                }
+                else if (xFilter.Element(RulesFileTags.OR) != null)
+                {
+                    xFilterCondition = xFilter.Element(RulesFileTags.OR);
+                }
+                else { }
+
+                if (xFilterCondition != null)
+                {
+                    sLev2Operand1 = xFilter.Element(RulesFileTags.AND).Element(RulesFileTags.OPERAND1).Value;
+                    sLev2Operand2 = xFilter.Element(RulesFileTags.AND).Element(RulesFileTags.OPERAND2).Value;
+                    Lev2operation =
+                        (GlobalConstants.Operation)Enum.Parse(typeof(GlobalConstants.Operation),
+                        xFilter.Element(RulesFileTags.AND).Element(RulesFileTags.OPERATOR).Value, true);
+
+                    objlogger.LogInfo("sLev2Operand1:" + sLev2Operand1 + " sLev2Operand2:" + sLev2Operand2 + " Lev2operation:" + Lev2operation.ToString(), GlobalConstants.LOGGERLEVEL2);
+                }
+
+            }    
+
+            if (Convert.ToInt16(xLink.Value.ToString()) > 0)
+            {
+                //Get list if all Issue DBIDs 
+                var Entries = xDocFeed.Element(nsAtom + "feed").Elements(nsAtom + "entry");
+                foreach (var Entry in Entries)
+                {
+                    if (Entry != null)
+                    {
+                        var Link = Entry.Element(nsAtom + "link");
+                        if (Link != null)
+                        {
+                            strURL = Link.Attribute("href").Value;
+                            strURL = strURL + "?rcm.contentType=application/xml";
+                            strURL = strURL.Replace(":12080", "");
+                        }
+                        else
+                        {
+                            strURL = "";
+                        }
+                    }
+                    else
+                    {
+                        strURL = "";
+                    }
+
+                    if (String.IsNullOrWhiteSpace(strURL)
+                        == false)
+                    {
+                        xFromCQ = InvokeURL(strURL);
+                        //commented for delay reduction
+                        //objlogger.LogInfo("xFromCQ = " + xFromCQ.ToString());
+                        string sLev1Value = string.Empty, sLev2Value = string.Empty, sDbid = string.Empty;
+                        //objlogger.LogInfo("Checking for ExternalID and Dbid");
+                        foreach (XElement xProperty in xFromCQ.Root.Elements())
+                        {
+                            string sAttr = xProperty.Name.ToString();
+                            sAttr = sAttr.Replace("{", "");
+                            sAttr = sAttr.Replace("}", "");
+                            sAttr = sAttr.Replace("http://www.ibm.com/xmlns/prod/rational/clearquest/1.0/", "");
+                            if (sAttr.ToUpper() == sLev1Operand1.Replace("$RO.", ""))
+                            {
+                                if (!string.IsNullOrEmpty(xProperty.Value))
+                                {
+                                    sLev1Value = xProperty.Value.ToString();
+                                }
+                                else
+                                {
+                                    if (xProperty.HasAttributes)
+                                    {
+                                        //Reference field - sValue is link of record
+                                        sLev1Value = xProperty.FirstAttribute.Value;
+                                    }
+                                }
+
+                                objlogger.LogInfo("sLev1Value = " + sLev1Value, GlobalConstants.LOGGERLEVEL2);
+                            }
+                            else if (sAttr.ToUpper() == sLev2Operand1.Replace("$RO.", ""))
+                            {
+                                if (!string.IsNullOrEmpty(xProperty.Value))
+                                {
+                                    sLev2Value = xProperty.Value.ToString();
+                                }
+                                else
+                                {
+                                    if (xProperty.HasAttributes)
+                                    {
+                                        //Reference field - sValue is link of record
+                                        sLev2Value = xProperty.FirstAttribute.Value;
+                                    }
+                                }
+
+                                objlogger.LogInfo("sLev2Value = " + sLev2Value, GlobalConstants.LOGGERLEVEL2);
+                            }
+                            else if (sAttr.ToUpper() == GlobalConstants.DBID)
+                            {
+                                sDbid = xProperty.Value.ToString();
+                                objlogger.LogInfo("sDbid = " + sDbid, GlobalConstants.LOGGERLEVEL1);
+                            }
+                            else { }
+
+                        }
+
+                        bLevel1 = Utilities.PerformOperation(sLev1Value, sLev1Operand2, Lev1operation,false,string.Empty);
+                        objlogger.LogInfo("bLevel1 = " + bLevel1.ToString(), GlobalConstants.LOGGERLEVEL2);
+                        if (xFilterCondition != null)
+                        {
+                            bLevel2 = Utilities.PerformOperation(sLev2Value, sLev2Operand2, Lev2operation,false,string.Empty);
+                            objlogger.LogInfo("bLevel2 = " + bLevel2.ToString(), GlobalConstants.LOGGERLEVEL2);
+                            if (xFilterCondition.Value == RulesFileTags.AND)
+                            {
+                                bFinal = (bLevel1 & bLevel2);
+                            }
+                            else
+                            {
+                                if (xFilterCondition.Value == RulesFileTags.OR)
+                                {
+                                    bFinal = (bLevel1 || bLevel2);
+                                }
+                            }
+                        }
+                        else
+                        { bFinal = bLevel1; }
+                        //objlogger.LogInfo("bFinal = " + bFinal.ToString());
+                        if (bFinal)
+                        {
+                            try
+                            {
+                                //objlogger.LogInfo("Adding dbid to list = " + sDbid);
+                                l_Dbids.Add(Convert.ToInt32(sDbid));
+                                //objlogger.LogInfo("Added dbid to list = " + sDbid);
+                            }
+                            catch { objlogger.LogInfo("Error adding dbid to list", GlobalConstants.LOGGERLEVEL1); }
+                        }                       
+
+                    }
+                }
+            }
+            return l_Dbids;
+        }
+
+        public List<XDocument> GetAllLinkedRecords(XDocument xDocFeed)
+        {
+            List<XDocument> xFromCQ = new List<XDocument>();
+            string strURL = string.Empty;
+
+            XElement xLink = xDocFeed.Descendants(nsoslc + "totalCount").Single();
+            objlogger.LogInfo("Inside GetAllLinkedRecords: totalCount=" + xLink.Value, GlobalConstants.LOGGERLEVEL1);
+         
+            if (Convert.ToInt16(xLink.Value.ToString()) > 0)
+            {
+                XDocument xResponse = null;
+                var Entries = xDocFeed.Element(nsAtom + "feed").Elements(nsAtom + "entry");
+                foreach (var Entry in Entries)
+                {
+                    if (Entry != null)
+                    {
+                        var Link = Entry.Element(nsAtom + "link");
+                        if (Link != null)
+                        {
+                            strURL = Link.Attribute("href").Value;
+                            strURL = strURL + "?rcm.contentType=application/xml";
+                            strURL = strURL.Replace(":12080", "");
+                        }
+                        else
+                        {
+                            strURL = "";
+                        }
+                    }
+                    else
+                    {
+                        strURL = "";
+                    }
+
+                    if (String.IsNullOrWhiteSpace(strURL)
+                        == false)
+                    {
+                        xResponse = InvokeURL(strURL);
+                       // objlogger.LogInfo("After InvokeURL");
+                        if(xResponse != null)
+                        {
+                            xFromCQ.Add(xResponse);
+                            //objlogger.LogInfo("Inside GetAllLinkedRecords: xResponse=" + xResponse.ToString());
+                            //objlogger.LogInfo("Inside GetAllLinkedRecords: After getting xResponse");
+                        }
+                    }
+                    else
+                    { xResponse = null; }
+                }
+            }
+            else
+            { xFromCQ = null; }
+
+            return xFromCQ;
+        }
+        
+        
+        public XDocument ExecuteOSLCQuery(string sQuery, bool bRecordQuery)
+        {
+            XDocument xResultFromCQ = null;
+
+            try
+            {
+                string sURL = string.Empty;
+
+                if (!bRecordQuery)
+                {
+                    sURL = CQWebURL + "?" + sQuery + "&" + CQWebRecordFormat;
+                }
+                else
+                {
+
+                    sURL = sQuery + "?" + CQWebRecordFormat;
+                    sURL = sURL.Replace(":12080", "");
+                }
+                //objlogger.LogInfo("ExecuteOSLCQuery::URL : " + sURL);
+                xResultFromCQ = InvokeURL(sURL);
+                //Process the RSS FEED 
+            }
+            catch (System.Net.WebException exp) //REUBK-1610
+            {
+                objlogger.LogException(exp, "ExecuteOSLCQuery::WebException");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                objlogger.LogException(ex, "ExecuteOSLCQuery::InvokeURLException");
+                throw;
+            }
+            return xResultFromCQ;
+        }
+
+        public int GetRecordCount(XDocument xResponseFromCQ)
+        {
+            if (xResponseFromCQ != null)
+            {
+                XElement xLink = xResponseFromCQ.Descendants(nsoslc + "totalCount").Single();
+
+                return Convert.ToInt16(xLink.Value.ToString());
+            }
+            else
+            {
+                throw new Exception("Parameter type not Xdoc to get count");
+            }
+        }
+
+        public void BuildQuery(string sKey, string sValue, string roRecType)
+        {
+
+            if (sQuery == null)
+            {
+                sQuery = new StringBuilder();
+                sQuery.Append("oslc_cm.query=");
+
+                sQuery.Append(sKey);
+                sQuery.Append("=");
+                sQuery.Append("\"");
+                sQuery.Append(sValue);
+                sQuery.Append("\"");
+            }
+            else if (roRecType == null)
+            {
+                sQuery.Append(" and ");
+                sQuery.Append(sKey);
+                sQuery.Append("=");
+                sQuery.Append("\"");
+                sQuery.Append(sValue);
+                sQuery.Append("\"");
+            }
+            else
+            {
+                sQuery.Append("&rcm.type=" + roRecType);
+            }
+
+        }
+
+        # endregion
+    }
+}

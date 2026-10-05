@@ -1,0 +1,1419 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="12ab6a39-3a16-4c9c-9b5a-a23095d59ecb" LowerBound="1.1" HigherBound="401.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="RB.ROCustomerInterfaceExport" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="ServiceDeclaration" OID="b7d42f5e-798f-4152-90b4-4a2fdf233e06" ParentLink="Module_ServiceDeclaration" LowerBound="32.1" HigherBound="400.1">
+            <om:Property Name="InitializedTransactionType" Value="True" />
+            <om:Property Name="IsInvokable" Value="True" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="ValidateandExecute" />
+            <om:Property Name="Signal" Value="True" />
+            <om:Element Type="VariableDeclaration" OID="e7ed9b88-5754-495f-98dd-5a5477793b6a" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="45.1" HigherBound="46.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sRecordNamesOfBatch" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="a8bdafa8-080c-4226-989b-aa6007a093c7" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="46.1" HigherBound="47.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="record_1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="8ea2f399-66f7-48e1-8db3-7270ffaa4b7d" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="47.1" HigherBound="48.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="record_2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="a442afc3-17dd-40db-893e-23939ba84557" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="48.1" HigherBound="49.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="record_3" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="c1e938dc-8499-417c-a36a-1bac8961fd91" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="49.1" HigherBound="50.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="record_4" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="e1980afd-1174-455a-a811-a3a937b79bf5" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="50.1" HigherBound="51.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="record_5" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="2086fb86-6219-4b78-853e-f1b0163d7c26" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="51.1" HigherBound="52.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sConfigPath" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="7a9e0e8b-d3e4-4e89-a673-b92f56a49e8d" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="52.1" HigherBound="53.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.AsyncLogger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="async_logger1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="49d7b42b-ac9d-47e8-900d-669d959eca6e" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="53.1" HigherBound="54.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.AsyncLogger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="async_logger2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="d55e3f19-294b-4d46-af5a-4404fd7ef249" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="54.1" HigherBound="55.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.AsyncLogger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="async_logger3" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="fe7085b3-9fab-4e92-9e36-b8a200ba4d39" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="55.1" HigherBound="56.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.AsyncLogger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="async_logger4" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="bd84760f-4825-4671-bdcb-f562aa6d11e5" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="56.1" HigherBound="57.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.AsyncLogger" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="async_logger5" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="2ca0c831-b044-4c97-9026-b71e063ec8b8" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="57.1" HigherBound="58.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.BTHelper" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="objBTHelper_1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="685023a7-7d49-4170-97f9-e7893e99be24" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="58.1" HigherBound="59.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.BTHelper" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="objBTHelper_2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="9577827f-11c4-4d3b-b409-c6ecde04048a" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="59.1" HigherBound="60.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.BTHelper" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="objBTHelper_3" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="135951be-aeff-4da4-8724-dd15a89b7de4" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="60.1" HigherBound="61.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.BTHelper" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="objBTHelper_4" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="a54be348-9b1a-416c-a977-9083881fbda2" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="61.1" HigherBound="62.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.BTHelper" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="objBTHelper_5" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="b694b4ce-b63f-44b3-82c6-bc6b423369d4" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="62.1" HigherBound="63.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sRecord_id1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="52e85ad4-50ae-431b-9805-922aa6d660f8" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="63.1" HigherBound="64.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="is_validate" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="7261eacb-708f-4e78-a5ae-b6b415da2fa3" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="64.1" HigherBound="65.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="isUpdated" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="8d8b1dd6-0efe-46ad-a6e3-09d384861b21" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="65.1" HigherBound="66.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="asam_file" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="6f1c0b4f-3192-4d6d-8ef9-d756f78acd19" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="66.1" HigherBound="67.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="LifeTokenofFile1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="27c3e7bc-53b4-42db-b252-57180b5ea254" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="67.1" HigherBound="68.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="sRecord_id2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="d25778c2-5c78-4e99-a1f9-cfadba270d2d" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="68.1" HigherBound="69.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="LifeTokenofFile2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="0cedcc15-c157-4a99-986c-603fbc707b0b" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="69.1" HigherBound="70.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="is_validate2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="c9728d24-d01f-400b-b1ac-cc02fadad181" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="70.1" HigherBound="71.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="isUpdated_2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="39d5060f-af48-48f4-8816-c5c0ed871228" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="71.1" HigherBound="72.1">
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.String" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="asam_file2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="3ae679b2-278c-4b64-8870-1c35f5df3fec" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="72.1" HigherBound="73.1">
+                <om:Property Name="UseDefaultConstructor" Value="True" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.LifeTokenManager" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="manager" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="1da49645-6f7e-4782-8a32-bb3d2acc83ba" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="73.1" HigherBound="74.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="isException1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="7e9ff5e1-bf7e-47f0-96bf-6fb923bbcfbf" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="74.1" HigherBound="75.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="verifyLock_2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="VariableDeclaration" OID="2c7531a9-a5a7-4acb-ab61-66f0907994f4" ParentLink="ServiceDeclaration_VariableDeclaration" LowerBound="75.1" HigherBound="76.1">
+                <om:Property Name="InitialValue" Value="true" />
+                <om:Property Name="UseDefaultConstructor" Value="False" />
+                <om:Property Name="Type" Value="System.Boolean" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="verifyLock_1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="410c2f5c-7d68-41a6-91e5-bc891f4d0e1f" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="41.1" HigherBound="42.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExport.Schemas.Export_IMF.Export_IMF" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="EXPORT_IMF2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="6b1eafa0-961a-44e2-9c67-5183d84f6710" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="42.1" HigherBound="43.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExport.Schemas.RO_Extract.RQ1Extract" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="RQ1Extract2" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="603e8028-7771-48fa-a0ad-9cb4279c59a6" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="43.1" HigherBound="44.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExport.Schemas.RO_Extract.RQ1Extract" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="RQ1Extract1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="72797549-dc2a-4f8e-94d9-c5416c676bd5" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="44.1" HigherBound="45.1">
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExport.Schemas.Export_IMF.Export_IMF" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="EXPORT_IMF1" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="139d7fce-aaf8-433e-a1c6-946b5be34e86" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="VariableDeclaration" OID="4e9db563-1443-43c6-aca5-b30e9f46477d" ParentLink="ServiceBody_Declaration" LowerBound="76.15" HigherBound="76.66">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.Logger" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ROLogger" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="6f50310d-14a2-4e64-8b78-b0b6592c8ab9" ParentLink="ServiceBody_Declaration" LowerBound="76.68" HigherBound="76.91">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.Int32" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="batchCount" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="707de4f2-c864-4972-b82a-74f3e06ca54a" ParentLink="ServiceBody_Declaration" LowerBound="76.93" HigherBound="76.126">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="Ref" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="LifeToken4Files" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="c5385aba-cb34-4822-a72f-da9eb598f9dd" ParentLink="ServiceBody_Declaration" LowerBound="76.128" HigherBound="76.150">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sXprotID" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="9a947478-109b-4536-9aa7-996153b40122" ParentLink="ServiceBody_Declaration" LowerBound="76.152" HigherBound="76.220">
+                    <om:Property Name="UseDefaultConstructor" Value="True" />
+                    <om:Property Name="Type" Value="RB.ROCustomerInterfaceExportLibrary.BTHelper" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ROCustomerExportLibrary" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="f3c77cea-e641-4870-83ad-25a1d2303fde" ParentLink="ServiceBody_Declaration" LowerBound="76.222" HigherBound="76.243">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sSystem" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="92d11d30-a481-4539-8279-7bb84d65c424" ParentLink="ServiceBody_Declaration" LowerBound="76.245" HigherBound="76.273">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.String" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="sInterfaceName" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableDeclaration" OID="c76d25b5-4d88-4955-a955-c82a0390ebbf" ParentLink="ServiceBody_Declaration" LowerBound="76.275" HigherBound="76.297">
+                    <om:Property Name="UseDefaultConstructor" Value="False" />
+                    <om:Property Name="Type" Value="System.Int32" />
+                    <om:Property Name="ParamDirection" Value="In" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="loopIndex" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="47680ca8-7462-4ce0-806e-b554fa2a313d" ParentLink="ServiceBody_Statement" LowerBound="104.1" HigherBound="116.1">
+                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Validate and Execute Orchestration Starts : &quot; );&#xD;&#xA;&#xD;&#xA;sRecordNamesOfBatch = ROCustomerExportLibrary.GetRecordNamesFromBatch(LifeToken4Files, loopIndex, ROLogger);&#xD;&#xA;&#xD;&#xA;manager =  new RB.ROCustomerInterfaceExportLibrary.LifeTokenManager();&#xD;&#xA;manager.Initialize(LifeToken4Files);&#xD;&#xA;&#xD;&#xA;//creating an instance for AsyncLogger&#xD;&#xA;sConfigPath = ROCustomerExportLibrary.GetConfigPathForFolderCreation(sInterfaceName,sXprotID);&#xD;&#xA;&#xD;&#xA;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Expression_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Parallel" OID="694c0094-e1be-4247-a834-8533f95d0657" ParentLink="ServiceBody_Statement" LowerBound="116.1" HigherBound="396.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="ParallelActions_1" />
+                    <om:Property Name="Signal" Value="False" />
+                    <om:Element Type="ParallelBranch" OID="4015c60b-f47e-492a-8430-90f192230074" ParentLink="ReallyComplexStatement_Branch" LowerBound="121.1" HigherBound="225.1">
+                        <om:Property Name="IsGhostBranch" Value="True" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="ParallelBranch_1" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="VariableAssignment" OID="fb51336c-2f3b-46a9-9035-c182832e597d" ParentLink="ComplexStatement_Statement" LowerBound="121.1" HigherBound="131.1">
+                            <om:Property Name="Expression" Value="async_logger1 = new RB.ROCustomerInterfaceExportLibrary.AsyncLogger(sConfigPath, sXprotID);&#xD;&#xA;&#xD;&#xA;record_1 = objBTHelper_1.GetEachRecordFromBatch(sRecordNamesOfBatch, 1);&#xD;&#xA;&#xD;&#xA;record_1 = objBTHelper_1.GetRecordID(record_1);&#xD;&#xA;&#xD;&#xA;async_logger1.LogInfoAsync(record_1, &quot;Log Set&quot;);&#xD;&#xA;&#xD;&#xA;verifyLock_1 = objBTHelper_1.VerifyStageLock(record_1, sXprotID);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Set Variables_1" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                        <om:Element Type="Decision" OID="aec60798-fe0d-480d-ae1e-bc207b431ef6" ParentLink="ComplexStatement_Statement" LowerBound="131.1" HigherBound="225.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Decide_1" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="DecisionBranch" OID="593b51c2-6dee-40e9-a3f0-09966376eac4" ParentLink="ReallyComplexStatement_Branch" LowerBound="132.21" HigherBound="216.1">
+                                <om:Property Name="Expression" Value="record_1 != System.String.Empty &amp;&amp; verifyLock_1 == true" />
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Rule_1" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="VariableAssignment" OID="87116fbe-e79c-40f3-ac85-cdf84cb9bc48" ParentLink="ComplexStatement_Statement" LowerBound="134.1" HigherBound="152.1">
+                                    <om:Property Name="Expression" Value="&#xD;&#xA;construct RQ1Extract1&#xD;&#xA; {&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Processing the records : &quot; + record_1);&#xD;&#xA;&#xD;&#xA;    RQ1Extract1 = objBTHelper_1.CreateRQ1DataExtractFile(record_1, sXprotID, sSystem, sInterfaceName, async_logger1, manager);&#xD;&#xA;&#xD;&#xA;    RQ1Extract1 = objBTHelper_1.PrettyXml(RQ1Extract1, record_1, async_logger1, manager);&#xD;&#xA;&#xD;&#xA;    sRecord_id1 = record_1.Substring(0, record_1.IndexOf(&quot;:&quot;));&#xD;&#xA;    RQ1Extract1(FILE.ReceivedFileName) = sSystem + &quot;_&quot; + sXprotID +&quot;_030_&quot; + sRecord_id1 +&quot;_RQ1_Extract&quot;; &#xD;&#xA;&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;RQ1 Extract File Created = &quot; + RQ1Extract1(FILE.ReceivedFileName));&#xD;&#xA;  &#xD;&#xA; }&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Construct_RQ1Extract" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                                <om:Element Type="Decision" OID="af580bb1-f3e0-4320-9963-f6e0881cc173" ParentLink="ComplexStatement_Statement" LowerBound="152.1" HigherBound="215.1">
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Decide_8" />
+                                    <om:Property Name="Signal" Value="False" />
+                                    <om:Element Type="DecisionBranch" OID="0517544a-616f-434c-addb-64d1d59a993c" ParentLink="ReallyComplexStatement_Branch" LowerBound="153.25" HigherBound="215.1">
+                                        <om:Property Name="Expression" Value="!objBTHelper_1.VerifyTokenOfRecord(sRecord_id1,manager)" />
+                                        <om:Property Name="IsGhostBranch" Value="True" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="Rule_1" />
+                                        <om:Property Name="Signal" Value="False" />
+                                        <om:Element Type="Send" OID="13f8ef49-e877-4239-85d7-9b867c352588" ParentLink="ComplexStatement_Statement" LowerBound="155.1" HigherBound="157.1">
+                                            <om:Property Name="PortName" Value="snd_RQ1Extract" />
+                                            <om:Property Name="MessageName" Value="RQ1Extract1" />
+                                            <om:Property Name="OperationName" Value="Operation_1" />
+                                            <om:Property Name="OperationMessageName" Value="Request" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Send_RQ1Extract1" />
+                                            <om:Property Name="Signal" Value="True" />
+                                        </om:Element>
+                                        <om:Element Type="Construct" OID="821e0a49-7957-46dc-9825-2717d6e1a4a3" ParentLink="ComplexStatement_Statement" LowerBound="157.1" HigherBound="167.1">
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="ConstructIMF1" />
+                                            <om:Property Name="Signal" Value="True" />
+                                            <om:Element Type="MessageRef" OID="b7e55966-b89e-40c5-b999-ecda8deee087" ParentLink="Construct_MessageRef" LowerBound="158.39" HigherBound="158.50">
+                                                <om:Property Name="Ref" Value="EXPORT_IMF1" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Signal" Value="False" />
+                                            </om:Element>
+                                            <om:Element Type="Transform" OID="a3f5386c-da17-46f4-9767-757e1ac5c08a" ParentLink="ComplexStatement_Statement" LowerBound="160.1" HigherBound="162.1">
+                                                <om:Property Name="ClassName" Value="RB.ROCustomerInterfaceExport.CreateIMF" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="Transform_1" />
+                                                <om:Property Name="Signal" Value="True" />
+                                                <om:Element Type="MessagePartRef" OID="ae1d69af-3cb5-4cd1-aefb-4cefdc377034" ParentLink="Transform_OutputMessagePartRef" LowerBound="161.44" HigherBound="161.55">
+                                                    <om:Property Name="MessageRef" Value="EXPORT_IMF1" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="MessagePartReference_2" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                                <om:Element Type="MessagePartRef" OID="8e145ef9-da54-483c-ba24-52a612df2d40" ParentLink="Transform_InputMessagePartRef" LowerBound="161.99" HigherBound="161.110">
+                                                    <om:Property Name="MessageRef" Value="RQ1Extract1" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="MessagePartReference_1" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                            </om:Element>
+                                            <om:Element Type="MessageAssignment" OID="72e0b467-75dc-4b04-a1a0-df12b8d6741c" ParentLink="ComplexStatement_Statement" LowerBound="162.1" HigherBound="166.1">
+                                                <om:Property Name="Expression" Value="EXPORT_IMF1(FILE.ReceivedFileName) = sSystem + &quot;_&quot; + sXprotID +&quot;_030_&quot; + sRecord_id1 +&quot;IMF_Before_Validate&quot;; &#xD;&#xA;&#xD;&#xA;EXPORT_IMF1 = objBTHelper_1.PrettyXml(EXPORT_IMF1, record_1, async_logger1, manager);" />
+                                                <om:Property Name="ReportToAnalyst" Value="False" />
+                                                <om:Property Name="Name" Value="MessageAssignment_1" />
+                                                <om:Property Name="Signal" Value="False" />
+                                            </om:Element>
+                                        </om:Element>
+                                        <om:Element Type="Send" OID="c74e5a0f-0e80-4d56-bdfe-88161e0baa09" ParentLink="ComplexStatement_Statement" LowerBound="167.1" HigherBound="169.1">
+                                            <om:Property Name="PortName" Value="snd_ExportIMF_BeforeValidate" />
+                                            <om:Property Name="MessageName" Value="EXPORT_IMF1" />
+                                            <om:Property Name="OperationName" Value="Operation_1" />
+                                            <om:Property Name="OperationMessageName" Value="Request" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Send_EXPORT_IMF1" />
+                                            <om:Property Name="Signal" Value="True" />
+                                        </om:Element>
+                                        <om:Element Type="VariableAssignment" OID="cbe51c87-290f-4b53-91d8-bddccaae3083" ParentLink="ComplexStatement_Statement" LowerBound="169.1" HigherBound="173.1">
+                                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Validation started for &quot; + record_1);&#xD;&#xA;is_validate = objBTHelper_1.ValidateRQ1ExtractFile( RQ1Extract1, record_1, async_logger1, manager);&#xD;&#xA; " />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Validate" />
+                                            <om:Property Name="Signal" Value="False" />
+                                        </om:Element>
+                                        <om:Element Type="Decision" OID="974ad448-5872-47c4-88d0-4b8172b0b66a" ParentLink="ComplexStatement_Statement" LowerBound="173.1" HigherBound="214.1">
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Decide_6" />
+                                            <om:Property Name="Signal" Value="False" />
+                                            <om:Element Type="DecisionBranch" OID="74c8c9d1-9158-42a8-8c03-a879124d834a" ParentLink="ReallyComplexStatement_Branch" LowerBound="174.29" HigherBound="214.1">
+                                                <om:Property Name="Expression" Value="is_validate == true" />
+                                                <om:Property Name="IsGhostBranch" Value="True" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="Validation check" />
+                                                <om:Property Name="Signal" Value="False" />
+                                                <om:Element Type="Construct" OID="d203ee77-a581-4e14-823c-32f6621c1c87" ParentLink="ComplexStatement_Statement" LowerBound="176.1" HigherBound="192.1">
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="ConstructIMF_AfterValidate" />
+                                                    <om:Property Name="Signal" Value="True" />
+                                                    <om:Element Type="Transform" OID="b42461b4-1329-464c-93b0-9d50b0b5ae55" ParentLink="ComplexStatement_Statement" LowerBound="179.1" HigherBound="181.1">
+                                                        <om:Property Name="ClassName" Value="RB.ROCustomerInterfaceExport.CreateIMF" />
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Name" Value="Transform_4" />
+                                                        <om:Property Name="Signal" Value="True" />
+                                                        <om:Element Type="MessagePartRef" OID="0b0d6928-92d9-4fbc-900e-186e742f65aa" ParentLink="Transform_OutputMessagePartRef" LowerBound="180.48" HigherBound="180.59">
+                                                            <om:Property Name="MessageRef" Value="EXPORT_IMF1" />
+                                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                                            <om:Property Name="Name" Value="MessagePartReference_2" />
+                                                            <om:Property Name="Signal" Value="False" />
+                                                        </om:Element>
+                                                        <om:Element Type="MessagePartRef" OID="158df1d7-9eec-4258-9249-04237bd327c6" ParentLink="Transform_InputMessagePartRef" LowerBound="180.103" HigherBound="180.114">
+                                                            <om:Property Name="MessageRef" Value="RQ1Extract1" />
+                                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                                            <om:Property Name="Name" Value="MessagePartReference_1" />
+                                                            <om:Property Name="Signal" Value="False" />
+                                                        </om:Element>
+                                                    </om:Element>
+                                                    <om:Element Type="MessageAssignment" OID="ed28a9ac-0967-4f01-af2a-6ea3405e172a" ParentLink="ComplexStatement_Statement" LowerBound="181.1" HigherBound="191.1">
+                                                        <om:Property Name="Expression" Value="EXPORT_IMF1 = objBTHelper_1.PrettyXml(EXPORT_IMF1, record_1, async_logger1, manager);&#xD;&#xA;&#xD;&#xA;EXPORT_IMF1 = objBTHelper_1.UpdateIMFAfterValidation(RQ1Extract1, EXPORT_IMF1, record_1 , sXprotID, manager);&#xD;&#xA;&#xD;&#xA;EXPORT_IMF1(FILE.ReceivedFileName) = sSystem + &quot;_&quot; + sXprotID +&quot;_030_&quot; + sRecord_id1 +&quot;IMF_After_Validate&quot;; &#xD;&#xA;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Validation Success for &quot; + record_1);&#xD;&#xA;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;After Validate File Created = &quot; + EXPORT_IMF1(FILE.ReceivedFileName));" />
+                                                        <om:Property Name="ReportToAnalyst" Value="False" />
+                                                        <om:Property Name="Name" Value="MessageAssignment_1" />
+                                                        <om:Property Name="Signal" Value="False" />
+                                                    </om:Element>
+                                                    <om:Element Type="MessageRef" OID="9426bcf3-94fa-40c0-a0e7-38f77e5f7646" ParentLink="Construct_MessageRef" LowerBound="177.43" HigherBound="177.54">
+                                                        <om:Property Name="Ref" Value="EXPORT_IMF1" />
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Signal" Value="False" />
+                                                    </om:Element>
+                                                </om:Element>
+                                                <om:Element Type="Send" OID="2cade61f-6150-4bbe-8747-e41eaf609b4a" ParentLink="ComplexStatement_Statement" LowerBound="192.1" HigherBound="194.1">
+                                                    <om:Property Name="PortName" Value="snd_ExportIMF_AfterValidate" />
+                                                    <om:Property Name="MessageName" Value="EXPORT_IMF1" />
+                                                    <om:Property Name="OperationName" Value="Operation_1" />
+                                                    <om:Property Name="OperationMessageName" Value="Request" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="Send_3" />
+                                                    <om:Property Name="Signal" Value="True" />
+                                                </om:Element>
+                                                <om:Element Type="VariableAssignment" OID="d7e72fc2-cabb-4c6e-a10c-25b20b9ea659" ParentLink="ComplexStatement_Statement" LowerBound="194.1" HigherBound="198.1">
+                                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;, &quot;Creating ASAM File&quot;);&#xD;&#xA;asam_file = objBTHelper_1.CreateASAMFile(RQ1Extract1,record_1,sXprotID, sSystem,sInterfaceName,async_logger1, manager);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;, &quot;ASAM File Generated = &quot; + asam_file);" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="Create ASAM File" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                                <om:Element Type="VariableAssignment" OID="bc760d68-2ab9-45bb-b7df-e59e6afce3cf" ParentLink="ComplexStatement_Statement" LowerBound="198.1" HigherBound="213.1">
+                                                    <om:Property Name="Expression" Value="&#xD;&#xA;if(asam_file != &quot;&quot; &amp;&amp; asam_file != null){&#xD;&#xA;    isUpdated = objBTHelper_1.UpdateRecords(EXPORT_IMF1, record_1, sXprotID, sSystem,sInterfaceName, async_logger1, manager);&#xD;&#xA;&#xD;&#xA;    if(isUpdated){&#xD;&#xA;        System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;, record_1 + &quot; Update Successful&quot;);&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    else{&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;, record_1 + &quot; Update Failure&quot;);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="update record" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                            </om:Element>
+                                            <om:Element Type="DecisionBranch" OID="1d527d04-43c8-4aad-85ec-006b8ba1209e" ParentLink="ReallyComplexStatement_Branch">
+                                                <om:Property Name="IsGhostBranch" Value="True" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="Else" />
+                                                <om:Property Name="Signal" Value="False" />
+                                            </om:Element>
+                                        </om:Element>
+                                    </om:Element>
+                                    <om:Element Type="DecisionBranch" OID="a59434c1-8b69-492e-ab1d-b19c27d77def" ParentLink="ReallyComplexStatement_Branch">
+                                        <om:Property Name="IsGhostBranch" Value="True" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="Else" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="DecisionBranch" OID="8a2a18d8-4c2d-4e4e-9704-6adbc7b8afef" ParentLink="ReallyComplexStatement_Branch">
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Else" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="VariableAssignment" OID="cd79de91-a017-4e46-b5d7-d59daff7e109" ParentLink="ComplexStatement_Statement" LowerBound="218.1" HigherBound="224.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Process Ends : &quot; + record_1);&#xD;&#xA;if(verifyLock_1 == false)&#xD;&#xA;{&#xD;&#xA;   objBTHelper_1.UpdateTokenManager(record_1, sXprotID, manager);&#xD;&#xA;}" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="End" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="ParallelBranch" OID="bd0319db-fcf3-45a8-811a-a6b51f42d20d" ParentLink="ReallyComplexStatement_Branch" LowerBound="228.1" HigherBound="328.1">
+                        <om:Property Name="IsGhostBranch" Value="True" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="ParallelBranch_2" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="VariableAssignment" OID="498d910b-8a5e-4113-9d35-330bb242f2eb" ParentLink="ComplexStatement_Statement" LowerBound="228.1" HigherBound="238.1">
+                            <om:Property Name="Expression" Value="async_logger2 = new RB.ROCustomerInterfaceExportLibrary.AsyncLogger(sConfigPath, sXprotID);&#xD;&#xA;&#xD;&#xA;record_2 = objBTHelper_2.GetEachRecordFromBatch(sRecordNamesOfBatch, 2);&#xD;&#xA;&#xD;&#xA;record_2 = objBTHelper_2.GetRecordID(record_2);&#xD;&#xA;&#xD;&#xA;async_logger2.LogInfoAsync(record_2, &quot;Log Set&quot;);&#xD;&#xA;&#xD;&#xA;verifyLock_2 = objBTHelper_2.VerifyStageLock(record_2, sXprotID);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Set Variables_2" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="Decision" OID="35ceaf59-34ca-43f3-a4ee-87d41ef8195a" ParentLink="ComplexStatement_Statement" LowerBound="238.1" HigherBound="328.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Decide_2" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="DecisionBranch" OID="5e6a1a58-55a1-4ff5-a237-c8682877e0be" ParentLink="ReallyComplexStatement_Branch" LowerBound="239.21" HigherBound="319.1">
+                                <om:Property Name="Expression" Value="record_2 != System.String.Empty &amp;&amp; verifyLock_2 == true" />
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Rule_1" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="VariableAssignment" OID="0b1ef171-a35a-4e6f-abd9-6ebbdf01c2c7" ParentLink="ComplexStatement_Statement" LowerBound="241.1" HigherBound="258.1">
+                                    <om:Property Name="Expression" Value="&#xD;&#xA;construct RQ1Extract2&#xD;&#xA; {&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Processing the records : &quot; + record_2);&#xD;&#xA;&#xD;&#xA;    RQ1Extract2 = objBTHelper_2.CreateRQ1DataExtractFile(record_2, sXprotID, sSystem, sInterfaceName, async_logger2, manager);&#xD;&#xA;&#xD;&#xA;    RQ1Extract2 = objBTHelper_2.PrettyXml(RQ1Extract2, record_2, async_logger2, manager);&#xD;&#xA;&#xD;&#xA;    sRecord_id2 = record_2.Substring(0, record_2.IndexOf(&quot;:&quot;));&#xD;&#xA;    RQ1Extract2(FILE.ReceivedFileName) = sSystem + &quot;_&quot; + sXprotID +&quot;_030_&quot; + sRecord_id2 +&quot;_RQ1_Extract&quot;; &#xD;&#xA;&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;RQ1 Extract File Created = &quot; + RQ1Extract2(FILE.ReceivedFileName));&#xD;&#xA; }&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Construct_RQ1Extract" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                                <om:Element Type="Decision" OID="d93742be-eb91-4ecd-8872-9d26601b04c9" ParentLink="ComplexStatement_Statement" LowerBound="258.1" HigherBound="318.1">
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Decide_9" />
+                                    <om:Property Name="Signal" Value="False" />
+                                    <om:Element Type="DecisionBranch" OID="556dee00-7afb-4fcf-b88e-8037fe7ccfe7" ParentLink="ReallyComplexStatement_Branch" LowerBound="259.25" HigherBound="318.1">
+                                        <om:Property Name="Expression" Value="!objBTHelper_2.VerifyTokenOfRecord(sRecord_id2,manager)" />
+                                        <om:Property Name="IsGhostBranch" Value="True" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="Rule_1" />
+                                        <om:Property Name="Signal" Value="False" />
+                                        <om:Element Type="Send" OID="8850b447-9320-458f-9e76-91a840d09707" ParentLink="ComplexStatement_Statement" LowerBound="261.1" HigherBound="263.1">
+                                            <om:Property Name="PortName" Value="snd_RQ1Extract" />
+                                            <om:Property Name="MessageName" Value="RQ1Extract2" />
+                                            <om:Property Name="OperationName" Value="Operation_1" />
+                                            <om:Property Name="OperationMessageName" Value="Request" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Send_RQ1Extract2" />
+                                            <om:Property Name="Signal" Value="True" />
+                                        </om:Element>
+                                        <om:Element Type="Construct" OID="1280fa01-2d2a-4165-bd63-9bbc51b465bd" ParentLink="ComplexStatement_Statement" LowerBound="263.1" HigherBound="273.1">
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="ConstructIMF2" />
+                                            <om:Property Name="Signal" Value="True" />
+                                            <om:Element Type="MessageRef" OID="bf16572f-894c-4543-a1da-624eef9e3d1e" ParentLink="Construct_MessageRef" LowerBound="264.39" HigherBound="264.50">
+                                                <om:Property Name="Ref" Value="EXPORT_IMF2" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Signal" Value="False" />
+                                            </om:Element>
+                                            <om:Element Type="Transform" OID="ea383468-e612-4ba6-906e-c5def96eac8e" ParentLink="ComplexStatement_Statement" LowerBound="266.1" HigherBound="268.1">
+                                                <om:Property Name="ClassName" Value="RB.ROCustomerInterfaceExport.CreateIMF" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="Transform_2" />
+                                                <om:Property Name="Signal" Value="False" />
+                                                <om:Element Type="MessagePartRef" OID="d72c818d-4df6-4768-8101-cc6f92664502" ParentLink="Transform_InputMessagePartRef" LowerBound="267.99" HigherBound="267.110">
+                                                    <om:Property Name="MessageRef" Value="RQ1Extract2" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="MessagePartReference_3" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                                <om:Element Type="MessagePartRef" OID="7167af51-18a0-43d7-be09-e332d783f437" ParentLink="Transform_OutputMessagePartRef" LowerBound="267.44" HigherBound="267.55">
+                                                    <om:Property Name="MessageRef" Value="EXPORT_IMF2" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="MessagePartReference_4" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                            </om:Element>
+                                            <om:Element Type="MessageAssignment" OID="866ac327-84a0-46f0-8e58-e4843aa1a63b" ParentLink="ComplexStatement_Statement" LowerBound="268.1" HigherBound="272.1">
+                                                <om:Property Name="Expression" Value="EXPORT_IMF2(FILE.ReceivedFileName) = sSystem + &quot;_&quot; + sXprotID +&quot;_030_&quot; + sRecord_id2 +&quot;IMF_Before_Validate&quot;; &#xD;&#xA;&#xD;&#xA;EXPORT_IMF2 = objBTHelper_2.PrettyXml(EXPORT_IMF2, record_2, async_logger2, manager);" />
+                                                <om:Property Name="ReportToAnalyst" Value="False" />
+                                                <om:Property Name="Name" Value="MessageAssignment_1" />
+                                                <om:Property Name="Signal" Value="True" />
+                                            </om:Element>
+                                        </om:Element>
+                                        <om:Element Type="Send" OID="3eb4d947-97c5-44fc-972e-ee07a6153227" ParentLink="ComplexStatement_Statement" LowerBound="273.1" HigherBound="275.1">
+                                            <om:Property Name="PortName" Value="snd_ExportIMF_BeforeValidate" />
+                                            <om:Property Name="MessageName" Value="EXPORT_IMF2" />
+                                            <om:Property Name="OperationName" Value="Operation_1" />
+                                            <om:Property Name="OperationMessageName" Value="Request" />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Send_EXPORT_IMF2" />
+                                            <om:Property Name="Signal" Value="True" />
+                                        </om:Element>
+                                        <om:Element Type="VariableAssignment" OID="32a4c10c-4263-461f-82de-1b90c5fb5e29" ParentLink="ComplexStatement_Statement" LowerBound="275.1" HigherBound="279.1">
+                                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Validation started for &quot; + record_2);&#xD;&#xA;is_validate2 = objBTHelper_2.ValidateRQ1ExtractFile( RQ1Extract2, record_2, async_logger2, manager);&#xD;&#xA; " />
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Validate" />
+                                            <om:Property Name="Signal" Value="False" />
+                                        </om:Element>
+                                        <om:Element Type="Decision" OID="36cc7485-ffc4-4319-b1a4-c5720a46e48d" ParentLink="ComplexStatement_Statement" LowerBound="279.1" HigherBound="317.1">
+                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                            <om:Property Name="Name" Value="Decide_7" />
+                                            <om:Property Name="Signal" Value="True" />
+                                            <om:Element Type="DecisionBranch" OID="4ffc212f-a481-4d9a-8655-2b2316360110" ParentLink="ReallyComplexStatement_Branch" LowerBound="280.29" HigherBound="317.1">
+                                                <om:Property Name="Expression" Value="is_validate2 == true" />
+                                                <om:Property Name="IsGhostBranch" Value="True" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="Validation check" />
+                                                <om:Property Name="Signal" Value="True" />
+                                                <om:Element Type="Construct" OID="78a683fc-393c-4bde-a44c-f209f8866901" ParentLink="ComplexStatement_Statement" LowerBound="282.1" HigherBound="298.1">
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="ConstructIMF_AfterValidate" />
+                                                    <om:Property Name="Signal" Value="True" />
+                                                    <om:Element Type="MessageRef" OID="f6c28b8c-b5ca-4a10-8b8a-ddc2cd54e8e3" ParentLink="Construct_MessageRef" LowerBound="283.43" HigherBound="283.54">
+                                                        <om:Property Name="Ref" Value="EXPORT_IMF2" />
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Signal" Value="False" />
+                                                    </om:Element>
+                                                    <om:Element Type="Transform" OID="3cacfc99-7da1-44c7-927e-fd656cfcc53f" ParentLink="ComplexStatement_Statement" LowerBound="285.1" HigherBound="287.1">
+                                                        <om:Property Name="ClassName" Value="RB.ROCustomerInterfaceExport.CreateIMF" />
+                                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                                        <om:Property Name="Name" Value="Transform_3" />
+                                                        <om:Property Name="Signal" Value="True" />
+                                                        <om:Element Type="MessagePartRef" OID="7cf0da74-6f12-4430-86db-58589bf156b9" ParentLink="Transform_InputMessagePartRef" LowerBound="286.103" HigherBound="286.114">
+                                                            <om:Property Name="MessageRef" Value="RQ1Extract2" />
+                                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                                            <om:Property Name="Name" Value="MessagePartReference_5" />
+                                                            <om:Property Name="Signal" Value="False" />
+                                                        </om:Element>
+                                                        <om:Element Type="MessagePartRef" OID="ab74e1c0-a898-47d2-8224-76e73d7440f9" ParentLink="Transform_OutputMessagePartRef" LowerBound="286.48" HigherBound="286.59">
+                                                            <om:Property Name="MessageRef" Value="EXPORT_IMF2" />
+                                                            <om:Property Name="ReportToAnalyst" Value="True" />
+                                                            <om:Property Name="Name" Value="MessagePartReference_6" />
+                                                            <om:Property Name="Signal" Value="False" />
+                                                        </om:Element>
+                                                    </om:Element>
+                                                    <om:Element Type="MessageAssignment" OID="114afe87-8b2e-4059-9475-2a5211fe0c11" ParentLink="ComplexStatement_Statement" LowerBound="287.1" HigherBound="297.1">
+                                                        <om:Property Name="Expression" Value="EXPORT_IMF2 = objBTHelper_2.PrettyXml(EXPORT_IMF2, record_2, async_logger2, manager);&#xD;&#xA;&#xD;&#xA;EXPORT_IMF2 = objBTHelper_2.UpdateIMFAfterValidation(RQ1Extract2, EXPORT_IMF2, record_2 , sXprotID, manager);&#xD;&#xA;&#xD;&#xA;EXPORT_IMF2(FILE.ReceivedFileName) = sSystem + &quot;_&quot; + sXprotID +&quot;_030_&quot; + sRecord_id2 +&quot;IMF_After_Validate&quot;; &#xD;&#xA;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Validation Success for &quot; + record_2);&#xD;&#xA;&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;After Validate File Created = &quot; + EXPORT_IMF2(FILE.ReceivedFileName));" />
+                                                        <om:Property Name="ReportToAnalyst" Value="False" />
+                                                        <om:Property Name="Name" Value="MessageAssignment_2" />
+                                                        <om:Property Name="Signal" Value="False" />
+                                                    </om:Element>
+                                                </om:Element>
+                                                <om:Element Type="Send" OID="13acd33e-ace7-4056-8d54-cab905b61abb" ParentLink="ComplexStatement_Statement" LowerBound="298.1" HigherBound="300.1">
+                                                    <om:Property Name="PortName" Value="snd_ExportIMF_AfterValidate" />
+                                                    <om:Property Name="MessageName" Value="EXPORT_IMF2" />
+                                                    <om:Property Name="OperationName" Value="Operation_1" />
+                                                    <om:Property Name="OperationMessageName" Value="Request" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="Send_EXPORT_IMF2_AV" />
+                                                    <om:Property Name="Signal" Value="True" />
+                                                </om:Element>
+                                                <om:Element Type="VariableAssignment" OID="8c0d2d9f-eebe-4a97-aea5-0a5df1808de4" ParentLink="ComplexStatement_Statement" LowerBound="300.1" HigherBound="304.1">
+                                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;, &quot;Creating ASAM File&quot;);&#xD;&#xA;asam_file2 = objBTHelper_2.CreateASAMFile(RQ1Extract2,record_2,sXprotID, sSystem,sInterfaceName,async_logger2, manager);&#xD;&#xA;System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;, &quot;ASAM File Generated = &quot; + asam_file2);" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="Create ASAM File2" />
+                                                    <om:Property Name="Signal" Value="False" />
+                                                </om:Element>
+                                                <om:Element Type="VariableAssignment" OID="e8ee222c-0ebd-4801-b5aa-919a4e38d8cb" ParentLink="ComplexStatement_Statement" LowerBound="304.1" HigherBound="316.1">
+                                                    <om:Property Name="Expression" Value="if(asam_file2 != &quot;&quot; &amp;&amp; asam_file2 != null){&#xD;&#xA;    isUpdated_2 = objBTHelper_2.UpdateRecords(EXPORT_IMF2, record_2, sXprotID, sSystem,sInterfaceName, async_logger2, manager);&#xD;&#xA;&#xD;&#xA;    if(isUpdated_2){&#xD;&#xA;        System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;, record_2 + &quot; Update Successful&quot;);&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    else{&#xD;&#xA;    System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;, record_2 + &quot; Update Failure&quot;);&#xD;&#xA;    }&#xD;&#xA;}" />
+                                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                                    <om:Property Name="Name" Value="update record" />
+                                                    <om:Property Name="Signal" Value="True" />
+                                                </om:Element>
+                                            </om:Element>
+                                            <om:Element Type="DecisionBranch" OID="75387507-ea92-49e6-abe9-337796a9b2b6" ParentLink="ReallyComplexStatement_Branch">
+                                                <om:Property Name="IsGhostBranch" Value="True" />
+                                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                                <om:Property Name="Name" Value="Else" />
+                                                <om:Property Name="Signal" Value="False" />
+                                            </om:Element>
+                                        </om:Element>
+                                    </om:Element>
+                                    <om:Element Type="DecisionBranch" OID="380ddf6f-b825-4357-aa27-a327c9828079" ParentLink="ReallyComplexStatement_Branch">
+                                        <om:Property Name="IsGhostBranch" Value="True" />
+                                        <om:Property Name="ReportToAnalyst" Value="True" />
+                                        <om:Property Name="Name" Value="Else" />
+                                        <om:Property Name="Signal" Value="False" />
+                                    </om:Element>
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="DecisionBranch" OID="106f5599-6fff-4ddc-8f8f-07eb08149ce2" ParentLink="ReallyComplexStatement_Branch">
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Else" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="VariableAssignment" OID="b791477a-a87c-4a8a-a68b-ff8a2f2c7fcf" ParentLink="ComplexStatement_Statement" LowerBound="321.1" HigherBound="327.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Process Ends : &quot; + record_2);&#xD;&#xA;if(verifyLock_2 == false)&#xD;&#xA;{&#xD;&#xA;   objBTHelper_2.UpdateTokenManager(record_2, sXprotID, manager);&#xD;&#xA;}" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="End" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="ParallelBranch" OID="77affe73-22a1-4da7-aa1b-02cbc935e876" ParentLink="ReallyComplexStatement_Branch" LowerBound="331.1" HigherBound="350.1">
+                        <om:Property Name="IsGhostBranch" Value="True" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="ParallelBranch_3" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="VariableAssignment" OID="a3e38ea1-d044-4de6-b439-46f7e7cbd28c" ParentLink="ComplexStatement_Statement" LowerBound="331.1" HigherBound="339.1">
+                            <om:Property Name="Expression" Value="async_logger3 = new RB.ROCustomerInterfaceExportLibrary.AsyncLogger(sConfigPath, sXprotID);&#xD;&#xA;&#xD;&#xA;record_3 = objBTHelper_3.GetEachRecordFromBatch(sRecordNamesOfBatch, 3);&#xD;&#xA;&#xD;&#xA;record_3 = objBTHelper_3.GetRecordID(record_3);&#xD;&#xA;&#xD;&#xA;async_logger3.LogInfoAsync(record_3, &quot;Log Set&quot;);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Set Variables_3" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                        <om:Element Type="Decision" OID="a11bcd5f-4e16-49b6-9321-dcd982bf882c" ParentLink="ComplexStatement_Statement" LowerBound="339.1" HigherBound="350.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Decide_3" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="DecisionBranch" OID="b9c64240-9a46-4ef0-898e-fc95d23745eb" ParentLink="ReallyComplexStatement_Branch" LowerBound="340.21" HigherBound="345.1">
+                                <om:Property Name="Expression" Value="record_3 != System.String.Empty" />
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Rule_1" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="VariableAssignment" OID="d16cf294-8682-471d-839c-e04c744fbe5c" ParentLink="ComplexStatement_Statement" LowerBound="342.1" HigherBound="344.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Processing the records : &quot; + record_3);" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Expression_4" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="DecisionBranch" OID="c8cd9814-7159-4a5e-86b1-65ea4ba9478e" ParentLink="ReallyComplexStatement_Branch">
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Else" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="VariableAssignment" OID="7888364f-4b6b-4aee-9d65-68c3af350f6a" ParentLink="ComplexStatement_Statement" LowerBound="347.1" HigherBound="349.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Process Ends : &quot; + record_3);" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="End" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="ParallelBranch" OID="de6c4119-47a5-4110-a876-f7d535b79d74" ParentLink="ReallyComplexStatement_Branch" LowerBound="353.1" HigherBound="372.1">
+                        <om:Property Name="IsGhostBranch" Value="True" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="ParallelBranch_4" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="VariableAssignment" OID="d09f8ae6-50b2-4fff-a8e2-c7377a8e9376" ParentLink="ComplexStatement_Statement" LowerBound="353.1" HigherBound="361.1">
+                            <om:Property Name="Expression" Value="async_logger4 = new RB.ROCustomerInterfaceExportLibrary.AsyncLogger(sConfigPath, sXprotID);&#xD;&#xA;&#xD;&#xA;record_4 = objBTHelper_4.GetEachRecordFromBatch(sRecordNamesOfBatch, 4);&#xD;&#xA;&#xD;&#xA;record_4 = objBTHelper_4.GetRecordID(record_4);&#xD;&#xA;&#xD;&#xA;async_logger4.LogInfoAsync(record_4, &quot;Log Set&quot;);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Set Variables_4" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                        <om:Element Type="Decision" OID="78115a98-3cf9-4c3e-ac1c-08a8732b9464" ParentLink="ComplexStatement_Statement" LowerBound="361.1" HigherBound="372.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Decide_4" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="DecisionBranch" OID="cfd325b6-ae1e-417d-9222-6cde86d00d69" ParentLink="ReallyComplexStatement_Branch" LowerBound="362.21" HigherBound="367.1">
+                                <om:Property Name="Expression" Value="record_4 != System.String.Empty" />
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Rule_1" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="VariableAssignment" OID="2afbebf1-b2f2-4710-99f4-4ebc222ebfd3" ParentLink="ComplexStatement_Statement" LowerBound="364.1" HigherBound="366.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Processing the records : &quot; + record_4);" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Expression_5" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="DecisionBranch" OID="67001391-f74f-492b-aa59-3fe5be2fb0c5" ParentLink="ReallyComplexStatement_Branch">
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Else" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="VariableAssignment" OID="ead2d9a5-c743-4e6d-8192-83ff05c43262" ParentLink="ComplexStatement_Statement" LowerBound="369.1" HigherBound="371.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Process Ends : &quot; + record_4);" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="End" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="ParallelBranch" OID="857a6d32-9084-416c-847b-324ff6f4528b" ParentLink="ReallyComplexStatement_Branch" LowerBound="375.1" HigherBound="394.1">
+                        <om:Property Name="IsGhostBranch" Value="True" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="ParallelBranch_5" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="VariableAssignment" OID="f9f59832-efd4-4cb7-bf7b-e3ba23b77fb8" ParentLink="ComplexStatement_Statement" LowerBound="375.1" HigherBound="383.1">
+                            <om:Property Name="Expression" Value="async_logger5 = new RB.ROCustomerInterfaceExportLibrary.AsyncLogger(sConfigPath, sXprotID);&#xD;&#xA;&#xD;&#xA;record_5 = objBTHelper_5.GetEachRecordFromBatch(sRecordNamesOfBatch, 5);&#xD;&#xA;&#xD;&#xA;record_5 = objBTHelper_5.GetRecordID(record_5);&#xD;&#xA;&#xD;&#xA;async_logger5.LogInfoAsync(record_5, &quot;Log Set&quot;);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Set Variables_5" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="Decision" OID="77310f3f-639a-4326-98e9-b39359380b1e" ParentLink="ComplexStatement_Statement" LowerBound="383.1" HigherBound="394.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Decide_5" />
+                            <om:Property Name="Signal" Value="False" />
+                            <om:Element Type="DecisionBranch" OID="1532230e-4bf0-455f-9f57-f224c540bd9c" ParentLink="ReallyComplexStatement_Branch" LowerBound="384.21" HigherBound="389.1">
+                                <om:Property Name="Expression" Value="record_5 != System.String.Empty" />
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Rule_1" />
+                                <om:Property Name="Signal" Value="True" />
+                                <om:Element Type="VariableAssignment" OID="835f8744-5596-4990-9607-fd0b401c0fd1" ParentLink="ComplexStatement_Statement" LowerBound="386.1" HigherBound="388.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Processing the records : &quot; + record_5);" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="Expression_6" />
+                                    <om:Property Name="Signal" Value="True" />
+                                </om:Element>
+                            </om:Element>
+                            <om:Element Type="DecisionBranch" OID="83f822a7-1edc-4584-9c2e-3342e96df8a0" ParentLink="ReallyComplexStatement_Branch">
+                                <om:Property Name="IsGhostBranch" Value="True" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Name" Value="Else" />
+                                <om:Property Name="Signal" Value="False" />
+                                <om:Element Type="VariableAssignment" OID="05030e42-cc1c-42e0-add6-aeb61fdead4a" ParentLink="ComplexStatement_Statement" LowerBound="391.1" HigherBound="393.1">
+                                    <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;ROINTERFACE_Export&quot;,&quot;Process Ends : &quot; + record_5);" />
+                                    <om:Property Name="ReportToAnalyst" Value="True" />
+                                    <om:Property Name="Name" Value="End" />
+                                    <om:Property Name="Signal" Value="False" />
+                                </om:Element>
+                            </om:Element>
+                        </om:Element>
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="VariableAssignment" OID="631cf19c-6de5-4d49-8aa1-e33407ac5896" ParentLink="ServiceBody_Statement" LowerBound="396.1" HigherBound="398.1">
+                    <om:Property Name="Expression" Value="LifeToken4Files = manager.UpdateLifeToken4FilesString(LifeToken4Files);&#xD;&#xA;" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Update LifeTokens" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="66547591-3717-4b14-8a2b-55b3fcd92398" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="35.1" HigherBound="37.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="30" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExport.Send_RQ1Extract" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="snd_RQ1Extract" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="LogicalBindingAttribute" OID="92721f72-1590-4f13-a32f-66cd56cd8e14" ParentLink="PortDeclaration_CLRAttribute" LowerBound="35.1" HigherBound="36.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="d93a5994-9a27-4e37-b7e1-c9908358ba4f" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="37.1" HigherBound="39.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="81" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExport.afterValidate" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="snd_ExportIMF_AfterValidate" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="c761dfe0-afdd-4a06-9751-87cb80e6fa57" ParentLink="PortDeclaration_CLRAttribute" LowerBound="37.1" HigherBound="38.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="4f770153-fcb1-41bc-b0bc-09e10c7663f8" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="39.1" HigherBound="41.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="48" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="RB.ROCustomerInterfaceExport.IMF_Before_Validate" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="snd_ExportIMF_BeforeValidate" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="f730836a-807a-4a7f-b84d-1f9f68adf0ca" ParentLink="PortDeclaration_CLRAttribute" LowerBound="39.1" HigherBound="40.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="6c5b50f0-5b8d-4588-a84d-53ca5a854555" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_2" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="dfcd3d6f-1ffb-4669-adf3-e9178b1c0f74" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="76dbfe82-51c8-4476-b42a-ada9d1001d15" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.42">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterfaceExport.Schemas.RO_Extract.RQ1Extract" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="81e166fe-8cdb-4a3a-b5d2-9bbbce7681b8" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="Send_RQ1Extract" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="abcef021-290f-4519-a1e5-5e95784c2585" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="9ce4dc07-645e-446f-a031-279ad116eec6" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.42">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterfaceExport.Schemas.RO_Extract.RQ1Extract" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="3f83a2d6-147c-48e1-b828-e1cf5cb49edf" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="IMF_Before_Validate" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="baa9000b-cc8a-4c82-8d3c-5f10a353651e" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="0cc393c8-f6df-4897-aab8-b18ba1923685" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.42">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterfaceExport.Schemas.Export_IMF.Export_IMF" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="691fbd05-a12b-4656-b65b-42a66775323d" ParentLink="Module_PortType" LowerBound="25.1" HigherBound="32.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="afterValidate" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="152b85ec-34e4-4512-9de6-ba9b8fb7c8d5" ParentLink="PortType_OperationDeclaration" LowerBound="27.1" HigherBound="31.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="9a7d4bc8-ca49-46e5-aada-d60edf68c3b7" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="29.13" HigherBound="29.42">
+                    <om:Property Name="Ref" Value="RB.ROCustomerInterfaceExport.Schemas.Export_IMF.Export_IMF" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module RB.ROCustomerInterfaceExport
+{
+    internal porttype PortType_2
+    {
+        oneway Operation_1
+        {
+            Schemas.RO_Extract.RQ1Extract
+        };
+    };
+    internal porttype Send_RQ1Extract
+    {
+        oneway Operation_1
+        {
+            Schemas.RO_Extract.RQ1Extract
+        };
+    };
+    internal porttype IMF_Before_Validate
+    {
+        oneway Operation_1
+        {
+            Schemas.Export_IMF.Export_IMF
+        };
+    };
+    internal porttype afterValidate
+    {
+        oneway Operation_1
+        {
+            Schemas.Export_IMF.Export_IMF
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service ValidateandExecute
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses Send_RQ1Extract snd_RQ1Extract;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses afterValidate snd_ExportIMF_AfterValidate;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses IMF_Before_Validate snd_ExportIMF_BeforeValidate;
+        message Schemas.Export_IMF.Export_IMF EXPORT_IMF2;
+        message Schemas.RO_Extract.RQ1Extract RQ1Extract2;
+        message Schemas.RO_Extract.RQ1Extract RQ1Extract1;
+        message Schemas.Export_IMF.Export_IMF EXPORT_IMF1;
+        System.String sRecordNamesOfBatch;
+        System.String record_1;
+        System.String record_2;
+        System.String record_3;
+        System.String record_4;
+        System.String record_5;
+        System.String sConfigPath;
+        RB.ROCustomerInterfaceExportLibrary.AsyncLogger async_logger1;
+        RB.ROCustomerInterfaceExportLibrary.AsyncLogger async_logger2;
+        RB.ROCustomerInterfaceExportLibrary.AsyncLogger async_logger3;
+        RB.ROCustomerInterfaceExportLibrary.AsyncLogger async_logger4;
+        RB.ROCustomerInterfaceExportLibrary.AsyncLogger async_logger5;
+        RB.ROCustomerInterfaceExportLibrary.BTHelper objBTHelper_1;
+        RB.ROCustomerInterfaceExportLibrary.BTHelper objBTHelper_2;
+        RB.ROCustomerInterfaceExportLibrary.BTHelper objBTHelper_3;
+        RB.ROCustomerInterfaceExportLibrary.BTHelper objBTHelper_4;
+        RB.ROCustomerInterfaceExportLibrary.BTHelper objBTHelper_5;
+        System.String sRecord_id1;
+        System.Boolean is_validate;
+        System.Boolean isUpdated;
+        System.String asam_file;
+        System.String LifeTokenofFile1;
+        System.String sRecord_id2;
+        System.String LifeTokenofFile2;
+        System.Boolean is_validate2;
+        System.Boolean isUpdated_2;
+        System.String asam_file2;
+        RB.ROCustomerInterfaceExportLibrary.LifeTokenManager manager;
+        System.Boolean isException1;
+        System.Boolean verifyLock_2;
+        System.Boolean verifyLock_1;
+        body (RB.ROCustomerInterfaceExportLibrary.Logger ROLogger, System.Int32 batchCount, ref System.String LifeToken4Files, System.String sXprotID, RB.ROCustomerInterfaceExportLibrary.BTHelper ROCustomerExportLibrary, System.String sSystem, System.String sInterfaceName, System.Int32 loopIndex)
+        {
+            sRecordNamesOfBatch = "";
+            record_1 = "";
+            record_2 = "";
+            record_3 = "";
+            record_4 = "";
+            record_5 = "";
+            sConfigPath = "";
+            objBTHelper_1 = new RB.ROCustomerInterfaceExportLibrary.BTHelper();
+            objBTHelper_2 = new RB.ROCustomerInterfaceExportLibrary.BTHelper();
+            objBTHelper_3 = new RB.ROCustomerInterfaceExportLibrary.BTHelper();
+            objBTHelper_4 = new RB.ROCustomerInterfaceExportLibrary.BTHelper();
+            objBTHelper_5 = new RB.ROCustomerInterfaceExportLibrary.BTHelper();
+            sRecord_id1 = "";
+            is_validate = true;
+            isUpdated = true;
+            asam_file = "";
+            LifeTokenofFile1 = "";
+            sRecord_id2 = "";
+            LifeTokenofFile2 = "";
+            is_validate2 = true;
+            isUpdated_2 = true;
+            asam_file2 = "";
+            manager = new RB.ROCustomerInterfaceExportLibrary.LifeTokenManager();
+            isException1 = true;
+            verifyLock_2 = true;
+            verifyLock_1 = true;
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("47680ca8-7462-4ce0-806e-b554fa2a313d")]
+            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Validate and Execute Orchestration Starts : " );
+            
+            sRecordNamesOfBatch = ROCustomerExportLibrary.GetRecordNamesFromBatch(LifeToken4Files, loopIndex, ROLogger);
+            
+            manager =  new RB.ROCustomerInterfaceExportLibrary.LifeTokenManager();
+            manager.Initialize(LifeToken4Files);
+            
+            //creating an instance for AsyncLogger
+            sConfigPath = ROCustomerExportLibrary.GetConfigPathForFolderCreation(sInterfaceName,sXprotID);
+            
+            
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("694c0094-e1be-4247-a834-8533f95d0657")]
+            parallel
+            {
+                task
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("fb51336c-2f3b-46a9-9035-c182832e597d")]
+                    async_logger1 = new RB.ROCustomerInterfaceExportLibrary.AsyncLogger(sConfigPath, sXprotID);
+                    
+                    record_1 = objBTHelper_1.GetEachRecordFromBatch(sRecordNamesOfBatch, 1);
+                    
+                    record_1 = objBTHelper_1.GetRecordID(record_1);
+                    
+                    async_logger1.LogInfoAsync(record_1, "Log Set");
+                    
+                    verifyLock_1 = objBTHelper_1.VerifyStageLock(record_1, sXprotID);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("aec60798-fe0d-480d-ae1e-bc207b431ef6")]
+                    if (record_1 != System.String.Empty && verifyLock_1 == true)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("87116fbe-e79c-40f3-ac85-cdf84cb9bc48")]
+                        
+                        construct RQ1Extract1
+                         {
+                            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Processing the records : " + record_1);
+                        
+                            RQ1Extract1 = objBTHelper_1.CreateRQ1DataExtractFile(record_1, sXprotID, sSystem, sInterfaceName, async_logger1, manager);
+                        
+                            RQ1Extract1 = objBTHelper_1.PrettyXml(RQ1Extract1, record_1, async_logger1, manager);
+                        
+                            sRecord_id1 = record_1.Substring(0, record_1.IndexOf(":"));
+                            RQ1Extract1(FILE.ReceivedFileName) = sSystem + "_" + sXprotID +"_030_" + sRecord_id1 +"_RQ1_Extract"; 
+                        
+                            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","RQ1 Extract File Created = " + RQ1Extract1(FILE.ReceivedFileName));
+                          
+                         }
+                        
+                        
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("af580bb1-f3e0-4320-9963-f6e0881cc173")]
+                        if (!objBTHelper_1.VerifyTokenOfRecord(sRecord_id1,manager))
+                        {
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("13f8ef49-e877-4239-85d7-9b867c352588")]
+                            send (snd_RQ1Extract.Operation_1, RQ1Extract1);
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("821e0a49-7957-46dc-9825-2717d6e1a4a3")]
+                            construct EXPORT_IMF1
+                            {
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("a3f5386c-da17-46f4-9767-757e1ac5c08a")]
+                                transform (EXPORT_IMF1) = RB.ROCustomerInterfaceExport.CreateIMF (RQ1Extract1);
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("72e0b467-75dc-4b04-a1a0-df12b8d6741c")]
+                                EXPORT_IMF1(FILE.ReceivedFileName) = sSystem + "_" + sXprotID +"_030_" + sRecord_id1 +"IMF_Before_Validate"; 
+                                
+                                EXPORT_IMF1 = objBTHelper_1.PrettyXml(EXPORT_IMF1, record_1, async_logger1, manager);
+                            }
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c74e5a0f-0e80-4d56-bdfe-88161e0baa09")]
+                            send (snd_ExportIMF_BeforeValidate.Operation_1, EXPORT_IMF1);
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("cbe51c87-290f-4b53-91d8-bddccaae3083")]
+                            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Validation started for " + record_1);
+                            is_validate = objBTHelper_1.ValidateRQ1ExtractFile( RQ1Extract1, record_1, async_logger1, manager);
+                             
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("974ad448-5872-47c4-88d0-4b8172b0b66a")]
+                            if (is_validate == true)
+                            {
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("d203ee77-a581-4e14-823c-32f6621c1c87")]
+                                construct EXPORT_IMF1
+                                {
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("b42461b4-1329-464c-93b0-9d50b0b5ae55")]
+                                    transform (EXPORT_IMF1) = RB.ROCustomerInterfaceExport.CreateIMF (RQ1Extract1);
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("ed28a9ac-0967-4f01-af2a-6ea3405e172a")]
+                                    EXPORT_IMF1 = objBTHelper_1.PrettyXml(EXPORT_IMF1, record_1, async_logger1, manager);
+                                    
+                                    EXPORT_IMF1 = objBTHelper_1.UpdateIMFAfterValidation(RQ1Extract1, EXPORT_IMF1, record_1 , sXprotID, manager);
+                                    
+                                    EXPORT_IMF1(FILE.ReceivedFileName) = sSystem + "_" + sXprotID +"_030_" + sRecord_id1 +"IMF_After_Validate"; 
+                                    
+                                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Validation Success for " + record_1);
+                                    
+                                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","After Validate File Created = " + EXPORT_IMF1(FILE.ReceivedFileName));
+                                }
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("2cade61f-6150-4bbe-8747-e41eaf609b4a")]
+                                send (snd_ExportIMF_AfterValidate.Operation_1, EXPORT_IMF1);
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("d7e72fc2-cabb-4c6e-a10c-25b20b9ea659")]
+                                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export", "Creating ASAM File");
+                                asam_file = objBTHelper_1.CreateASAMFile(RQ1Extract1,record_1,sXprotID, sSystem,sInterfaceName,async_logger1, manager);
+                                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export", "ASAM File Generated = " + asam_file);
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("bc760d68-2ab9-45bb-b7df-e59e6afce3cf")]
+                                
+                                if(asam_file != "" && asam_file != null){
+                                    isUpdated = objBTHelper_1.UpdateRecords(EXPORT_IMF1, record_1, sXprotID, sSystem,sInterfaceName, async_logger1, manager);
+                                
+                                    if(isUpdated){
+                                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export", record_1 + " Update Successful");
+                                    }
+                                
+                                    else{
+                                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export", record_1 + " Update Failure");
+                                    }
+                                }
+                                
+                                
+                            }
+                        }
+                    }
+                    else 
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("cd79de91-a017-4e46-b5d7-d59daff7e109")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Process Ends : " + record_1);
+                        if(verifyLock_1 == false)
+                        {
+                           objBTHelper_1.UpdateTokenManager(record_1, sXprotID, manager);
+                        }
+                    }
+                }
+                task
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("498d910b-8a5e-4113-9d35-330bb242f2eb")]
+                    async_logger2 = new RB.ROCustomerInterfaceExportLibrary.AsyncLogger(sConfigPath, sXprotID);
+                    
+                    record_2 = objBTHelper_2.GetEachRecordFromBatch(sRecordNamesOfBatch, 2);
+                    
+                    record_2 = objBTHelper_2.GetRecordID(record_2);
+                    
+                    async_logger2.LogInfoAsync(record_2, "Log Set");
+                    
+                    verifyLock_2 = objBTHelper_2.VerifyStageLock(record_2, sXprotID);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("35ceaf59-34ca-43f3-a4ee-87d41ef8195a")]
+                    if (record_2 != System.String.Empty && verifyLock_2 == true)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("0b1ef171-a35a-4e6f-abd9-6ebbdf01c2c7")]
+                        
+                        construct RQ1Extract2
+                         {
+                            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Processing the records : " + record_2);
+                        
+                            RQ1Extract2 = objBTHelper_2.CreateRQ1DataExtractFile(record_2, sXprotID, sSystem, sInterfaceName, async_logger2, manager);
+                        
+                            RQ1Extract2 = objBTHelper_2.PrettyXml(RQ1Extract2, record_2, async_logger2, manager);
+                        
+                            sRecord_id2 = record_2.Substring(0, record_2.IndexOf(":"));
+                            RQ1Extract2(FILE.ReceivedFileName) = sSystem + "_" + sXprotID +"_030_" + sRecord_id2 +"_RQ1_Extract"; 
+                        
+                            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","RQ1 Extract File Created = " + RQ1Extract2(FILE.ReceivedFileName));
+                         }
+                        
+                        
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("d93742be-eb91-4ecd-8872-9d26601b04c9")]
+                        if (!objBTHelper_2.VerifyTokenOfRecord(sRecord_id2,manager))
+                        {
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("8850b447-9320-458f-9e76-91a840d09707")]
+                            send (snd_RQ1Extract.Operation_1, RQ1Extract2);
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("1280fa01-2d2a-4165-bd63-9bbc51b465bd")]
+                            construct EXPORT_IMF2
+                            {
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("ea383468-e612-4ba6-906e-c5def96eac8e")]
+                                transform (EXPORT_IMF2) = RB.ROCustomerInterfaceExport.CreateIMF (RQ1Extract2);
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("866ac327-84a0-46f0-8e58-e4843aa1a63b")]
+                                EXPORT_IMF2(FILE.ReceivedFileName) = sSystem + "_" + sXprotID +"_030_" + sRecord_id2 +"IMF_Before_Validate"; 
+                                
+                                EXPORT_IMF2 = objBTHelper_2.PrettyXml(EXPORT_IMF2, record_2, async_logger2, manager);
+                            }
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("3eb4d947-97c5-44fc-972e-ee07a6153227")]
+                            send (snd_ExportIMF_BeforeValidate.Operation_1, EXPORT_IMF2);
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("32a4c10c-4263-461f-82de-1b90c5fb5e29")]
+                            System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Validation started for " + record_2);
+                            is_validate2 = objBTHelper_2.ValidateRQ1ExtractFile( RQ1Extract2, record_2, async_logger2, manager);
+                             
+                            [Microsoft.XLANGs.BaseTypes.DesignerPosition("36cc7485-ffc4-4319-b1a4-c5720a46e48d")]
+                            if (is_validate2 == true)
+                            {
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("78a683fc-393c-4bde-a44c-f209f8866901")]
+                                construct EXPORT_IMF2
+                                {
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("3cacfc99-7da1-44c7-927e-fd656cfcc53f")]
+                                    transform (EXPORT_IMF2) = RB.ROCustomerInterfaceExport.CreateIMF (RQ1Extract2);
+                                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("114afe87-8b2e-4059-9475-2a5211fe0c11")]
+                                    EXPORT_IMF2 = objBTHelper_2.PrettyXml(EXPORT_IMF2, record_2, async_logger2, manager);
+                                    
+                                    EXPORT_IMF2 = objBTHelper_2.UpdateIMFAfterValidation(RQ1Extract2, EXPORT_IMF2, record_2 , sXprotID, manager);
+                                    
+                                    EXPORT_IMF2(FILE.ReceivedFileName) = sSystem + "_" + sXprotID +"_030_" + sRecord_id2 +"IMF_After_Validate"; 
+                                    
+                                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Validation Success for " + record_2);
+                                    
+                                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","After Validate File Created = " + EXPORT_IMF2(FILE.ReceivedFileName));
+                                }
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("13acd33e-ace7-4056-8d54-cab905b61abb")]
+                                send (snd_ExportIMF_AfterValidate.Operation_1, EXPORT_IMF2);
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("8c0d2d9f-eebe-4a97-aea5-0a5df1808de4")]
+                                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export", "Creating ASAM File");
+                                asam_file2 = objBTHelper_2.CreateASAMFile(RQ1Extract2,record_2,sXprotID, sSystem,sInterfaceName,async_logger2, manager);
+                                System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export", "ASAM File Generated = " + asam_file2);
+                                [Microsoft.XLANGs.BaseTypes.DesignerPosition("e8ee222c-0ebd-4801-b5aa-919a4e38d8cb")]
+                                if(asam_file2 != "" && asam_file2 != null){
+                                    isUpdated_2 = objBTHelper_2.UpdateRecords(EXPORT_IMF2, record_2, sXprotID, sSystem,sInterfaceName, async_logger2, manager);
+                                
+                                    if(isUpdated_2){
+                                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export", record_2 + " Update Successful");
+                                    }
+                                
+                                    else{
+                                    System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export", record_2 + " Update Failure");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else 
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("b791477a-a87c-4a8a-a68b-ff8a2f2c7fcf")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Process Ends : " + record_2);
+                        if(verifyLock_2 == false)
+                        {
+                           objBTHelper_2.UpdateTokenManager(record_2, sXprotID, manager);
+                        }
+                    }
+                }
+                task
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("a3e38ea1-d044-4de6-b439-46f7e7cbd28c")]
+                    async_logger3 = new RB.ROCustomerInterfaceExportLibrary.AsyncLogger(sConfigPath, sXprotID);
+                    
+                    record_3 = objBTHelper_3.GetEachRecordFromBatch(sRecordNamesOfBatch, 3);
+                    
+                    record_3 = objBTHelper_3.GetRecordID(record_3);
+                    
+                    async_logger3.LogInfoAsync(record_3, "Log Set");
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("a11bcd5f-4e16-49b6-9321-dcd982bf882c")]
+                    if (record_3 != System.String.Empty)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("d16cf294-8682-471d-839c-e04c744fbe5c")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Processing the records : " + record_3);
+                    }
+                    else 
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("7888364f-4b6b-4aee-9d65-68c3af350f6a")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Process Ends : " + record_3);
+                    }
+                }
+                task
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("d09f8ae6-50b2-4fff-a8e2-c7377a8e9376")]
+                    async_logger4 = new RB.ROCustomerInterfaceExportLibrary.AsyncLogger(sConfigPath, sXprotID);
+                    
+                    record_4 = objBTHelper_4.GetEachRecordFromBatch(sRecordNamesOfBatch, 4);
+                    
+                    record_4 = objBTHelper_4.GetRecordID(record_4);
+                    
+                    async_logger4.LogInfoAsync(record_4, "Log Set");
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("78115a98-3cf9-4c3e-ac1c-08a8732b9464")]
+                    if (record_4 != System.String.Empty)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("2afbebf1-b2f2-4710-99f4-4ebc222ebfd3")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Processing the records : " + record_4);
+                    }
+                    else 
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("ead2d9a5-c743-4e6d-8192-83ff05c43262")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Process Ends : " + record_4);
+                    }
+                }
+                task
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("f9f59832-efd4-4cb7-bf7b-e3ba23b77fb8")]
+                    async_logger5 = new RB.ROCustomerInterfaceExportLibrary.AsyncLogger(sConfigPath, sXprotID);
+                    
+                    record_5 = objBTHelper_5.GetEachRecordFromBatch(sRecordNamesOfBatch, 5);
+                    
+                    record_5 = objBTHelper_5.GetRecordID(record_5);
+                    
+                    async_logger5.LogInfoAsync(record_5, "Log Set");
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("77310f3f-639a-4326-98e9-b39359380b1e")]
+                    if (record_5 != System.String.Empty)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("835f8744-5596-4990-9607-fd0b401c0fd1")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Processing the records : " + record_5);
+                    }
+                    else 
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("05030e42-cc1c-42e0-add6-aeb61fdead4a")]
+                        System.Diagnostics.EventLog.WriteEntry("ROINTERFACE_Export","Process Ends : " + record_5);
+                    }
+                }
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("631cf19c-6de5-4d49-8aa1-e33407ac5896")]
+            LifeToken4Files = manager.UpdateLifeToken4FilesString(LifeToken4Files);
+        }
+    }
+}
+

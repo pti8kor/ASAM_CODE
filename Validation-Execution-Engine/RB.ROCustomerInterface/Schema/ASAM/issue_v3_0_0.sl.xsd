@@ -1,0 +1,1045 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--*******************************************************************
+ASAM Automotive Electronics - AE-ISSUE 3.0.0  Issue Schema 
+
+CONTACT: If you want to read more about ASAM Automotive Electronics and their documentation
+check out the website below:
+
+http://www.asam.net/
+
+COPYRIGHT: Copyright 2007 ASAM e.V
+All rights reserved.
+
+
+DISCLAIMER OF WARRANTY
+
+ALTHOUGH THIS XML MODEL WAS CREATED WITH THE UTMOST CARE IT CANNOT
+BE GUARANTEED THAT IT IS COMPLETELY FREE OF ERRORS OR INCONSISTENCIES.
+ASAM E.V. MAKES NO REPRESENTATIONS OR WARRANTIES WITH RESPECT TO THE
+CONTENTS OR USE OF THIS XML MODEL, AND SPECIFICALLY DISCLAIMS ANY
+EXPRESSED OR IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+PARTICULAR PURPOSE. NEITHER ASAM NOR THE AUTHOR(S) THEREFORE ACCEPT
+ANY LIABILITY FOR DAMAGES OR OTHER CONSEQUENCES THAT ARISE FROM THE
+USE OF THIS XML MODEL AND IT'S DOCUMENTATION.
+ASAM E.V. RESERVES THE RIGHT TO REVISE THIS PUBLICATION AND TO MAKE
+CHANGES TO ITS CONTENT, AT ANY TIME, WITHOUT OBLIGATION TO NOTIFY
+ANY PERSON OR ENTITY OF SUCH REVISIONS OR CHANGES.
+
+Contributed by Herbert Klein (XI-Works)
+
+$Id:$
+$Log:$
+
+*******************************************************************-->
+<xs:schema targetNamespace="http://www.asam.net/schemas/issue/issue300" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.asam.net/schemas/issue/issue300" elementFormDefault="qualified">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+	<xs:attributeGroup name="DefaultAttributes">
+		<xs:attribute name="C" type="xs:string"/>
+		<xs:attribute name="SI" type="xs:string"/>
+		<xs:attribute name="VIEW" type="xs:string"/>
+	</xs:attributeGroup>
+	<xs:complexType name="ABSType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ACCOUNT-IDType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ADDRESSType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ADMIN-DATAType">
+		<xs:sequence>
+			<xs:element name="DOC-REVISIONS" type="DOC-REVISIONSType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ANNOTATIONType">
+		<xs:sequence>
+			<xs:element name="TEAM-MEMBER-REF" type="TEAM-MEMBER-REFType"/>
+			<xs:element name="DATE" type="DATEType" minOccurs="0"/>
+			<xs:element name="ANNOTATION-TEXT" type="ANNOTATION-TEXTType"/>
+			<xs:element name="ANNOTATION-RELATED-DOCUMENTS" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ANNOTATION-RELATED-DOCUMENT" type="DOCUMENTType" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ANNOTATION-ORIGINType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ANNOTATION-TEXTType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="P" type="PType"/>
+		</xs:choice>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ANNOTATIONSType">
+		<xs:sequence>
+			<xs:element name="ISSUE-ANNOTATION" type="ANNOTATIONType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="CATEGORYType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ISSUE-CATEGORY-ENUMType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CHANGE-REQUEST"/>
+			<xs:enumeration value="CLARIFICATION-REQUEST"/>
+			<xs:enumeration value="PROBLEM-REPORT"/>
+			<xs:enumeration value="EFFORT-ESTIMATION"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ISSUE-CATEGORYType">
+		<xs:simpleContent>
+			<xs:extension base="ISSUE-CATEGORY-ENUMType">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="CITYType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="COMPANY-DATAType">
+		<xs:sequence>
+			<xs:element name="SHORT-NAME" type="SHORT-NAMEType"/>
+			<xs:element name="LONG-NAME" type="LONG-NAMEType" minOccurs="0"/>
+			<xs:element name="TEAM-MEMBERS" type="TEAM-MEMBERSType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+		<xs:attribute name="F-ID-CLASS" type="xs:NMTOKEN" fixed="COMPANY-DATA"/>
+		<xs:attribute name="F-NAMESPACE" type="xs:NMTOKENS" fixed="TEAM-MEMBER"/>
+		<xs:attribute name="ID" type="xs:ID"/>
+	</xs:complexType>
+	<xs:complexType name="COMPANY-DATA-REFType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+				<xs:attribute name="F-ID-CLASS" type="xs:NMTOKEN" fixed="COMPANY-DATA"/>
+				<xs:attribute name="HYNAMES" type="xs:NMTOKENS" fixed="LINKEND ID-REF"/>
+				<xs:attribute name="HYTIME" type="xs:NMTOKEN" fixed="CLINK"/>
+				<xs:attribute name="ID-REF" type="xs:IDREF"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="COMPANY-DATASType">
+		<xs:sequence>
+			<xs:element name="COMPANY-DATA" type="COMPANY-DATAType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="COMPANY-DOC-INFOType">
+		<xs:sequence>
+			<xs:element name="COMPANY-DATA-REF" type="COMPANY-DATA-REFType"/>
+			<xs:element name="DOC-LABEL" type="DOC-LABELType" minOccurs="0"/>
+			<xs:element name="TEAM-MEMBER-REF" type="TEAM-MEMBER-REFType" minOccurs="0"/>
+			<xs:element name="SDGS" type="SDGSType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="COMPANY-DOC-INFOSType">
+		<xs:sequence>
+			<xs:element name="COMPANY-DOC-INFO" type="COMPANY-DOC-INFOType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="COMPANY-ISSUE-INFOType">
+		<xs:sequence>
+			<xs:element name="COMPANY-DATA-REF" type="COMPANY-DATA-REFType"/>
+			<xs:element name="ISSUE-ID" type="ISSUE-IDType"/>
+			<xs:element name="PROJECT-ID" type="PROJECT-IDType"/>
+			<xs:element name="TEAM-MEMBER-REF" type="TEAM-MEMBER-REFType">
+				<xs:annotation>
+					<xs:documentation>Contact partner for the ISSUE</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRANSACTION-ID" type="TRANSACTION-IDType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Transaction ID within a issue tracking system of a company. For enabling the acknowledgement exchange</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="COMPANY-ISSUE-INFOSType">
+		<xs:sequence>
+			<xs:element name="COMPANY-ISSUE-INFO" type="COMPANY-ISSUE-INFOType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="CONDType">
+		<xs:sequence>
+			<xs:element name="P" type="PType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="CONTENTType">
+		<xs:simpleContent>
+			<xs:extension base="xs:base64Binary"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="AMOUNTType">
+		<xs:simpleContent>
+			<xs:extension base="xs:decimal"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="COST-CURRENCYType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PERCENTAGEType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EFFORT-SHAREType">
+		<xs:sequence>
+			<xs:element name="COMPANY-DATA-REF" type="COMPANY-DATA-REFType" minOccurs="0"/>
+			<xs:element name="PERCENTAGE" type="PERCENTAGEType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="EFFORT-SHARESType">
+		<xs:sequence>
+			<xs:element name="EFFORT-SHARE" type="EFFORT-SHAREType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="DATEType">
+		<xs:simpleContent>
+			<xs:extension base="xs:dateTime"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DELIVERY-MILESTONEType">
+		<xs:sequence>
+			<xs:element name="SHORT-LABEL" type="SHORT-LABELType"/>
+			<xs:element name="CATEGORY" type="CATEGORYType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Release Plan State (e.g. Requested, Estimated, Delivered)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="COMPANY-DATA-REF" type="COMPANY-DATA-REFType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="DELIVERY-MILESTONESType">
+		<xs:sequence>
+			<xs:element name="DELIVERY-MILESTONE" type="DELIVERY-MILESTONEType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="DEPARTMENTType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DESCType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DOC-LABELType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DOC-REVISIONType">
+		<xs:sequence>
+			<xs:element name="TEAM-MEMBER-REF" type="TEAM-MEMBER-REFType"/>
+			<xs:element name="DATE" type="DATEType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="DOC-REVISIONSType">
+		<xs:sequence>
+			<xs:element name="DOC-REVISION" type="DOC-REVISIONType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="DOMAINType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EFFORT-AMOUNTType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="EFFORT-UNIT-ENUMType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="h"/>
+			<xs:enumeration value="d"/>
+			<xs:enumeration value="w"/>
+			<xs:enumeration value="m"/>
+			<xs:enumeration value="y"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="UNITType">
+		<xs:simpleContent>
+			<xs:extension base="EFFORT-UNIT-ENUMType">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="EMAILType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ENGINEERING-OBJECTType">
+		<xs:sequence>
+			<xs:element name="SHORT-LABEL" type="SHORT-LABELType"/>
+			<xs:element name="CATEGORY" type="CATEGORYType"/>
+			<xs:element name="REVISION-LABELS" type="REVISION-LABELSType"/>
+			<xs:element name="DOMAIN" type="DOMAINType" minOccurs="0"/>
+			<xs:element name="SDGS" type="SDGSType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ENGINEERING-OBJECTSType">
+		<xs:sequence>
+			<xs:element name="ENGINEERING-OBJECT" type="ENGINEERING-OBJECTType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="FAXType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="HOMEPAGEType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ISSUEType">
+		<xs:sequence>
+			<xs:element name="SHORT-NAME" type="SHORT-NAMEType">
+				<xs:annotation>
+					<xs:documentation>Best practise: Company short name + ISSUE ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LONG-NAME" type="LONG-NAMEType">
+				<xs:annotation>
+					<xs:documentation>Used for title</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CATEGORY" type="ISSUE-CATEGORYType"/>
+			<xs:element name="ISSUE-DESC" type="ISSUE-DESCType"/>
+			<xs:element name="COMPANY-ISSUE-INFOS" type="COMPANY-ISSUE-INFOSType"/>
+			<xs:element name="ISSUE-PROPERTIES" type="ISSUE-PROPERTIESType"/>
+			<xs:element name="ISSUE-RELATED-DOCUMENTS" type="ISSUE-RELATED-DOCUMENTSType" minOccurs="0"/>
+			<xs:element name="ISSUE-ENVIRONMENT" type="ISSUE-ENVIRONMENTType" minOccurs="0"/>
+			<xs:element name="RELATED-ISSUES" type="RELATED-ISSUESType" minOccurs="0"/>
+			<xs:element name="ISSUE-SOLUTIONS" type="ISSUE-SOLUTIONSType" minOccurs="0"/>
+			<xs:element name="ISSUE-HISTORY-STATES" type="ISSUE-HISTORY-STATESType" minOccurs="0"/>
+			<xs:element name="ISSUE-ANNOTATIONS" type="ANNOTATIONSType" minOccurs="0"/>
+			<xs:element name="SDGS" type="SDGSType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="F-ID-CLASS" type="xs:NMTOKEN" fixed="ISSUE"/>
+		<xs:attribute name="ID" type="xs:ID"/>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-COSTSType">
+		<xs:sequence/>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-CURRENT-STATEType">
+		<xs:sequence>
+			<xs:element name="DATE" type="DATEType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date of setting the current issue state</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TEAM-MEMBER-REF" type="TEAM-MEMBER-REFType">
+				<xs:annotation>
+					<xs:documentation>Responsible for setting state</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ISSUE-STATE" type="ISSUE-STATEType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-DESCType">
+		<xs:sequence>
+			<xs:element name="P" type="PType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-EFFORTType">
+		<xs:sequence>
+			<xs:element name="AMOUNT" type="AMOUNTType"/>
+			<xs:element name="UNIT" type="UNITType"/>
+			<xs:element name="EFFORT-SHARES" type="EFFORT-SHARESType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-ENVIRONMENTType">
+		<xs:sequence>
+			<xs:element name="ENGINEERING-OBJECTS" type="ENGINEERING-OBJECTSType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-HISTORY-STATESType">
+		<xs:sequence>
+			<xs:element name="ISSUE-HISTORY-STATE" type="ISSUE-CURRENT-STATEType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-IDType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-PRIORITYType">
+		<xs:simpleContent>
+			<xs:extension base="ISSUE-PRIOITY-ENUMType">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ISSUE-PRIOITY-ENUMType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TOP"/>
+			<xs:enumeration value="HIGH"/>
+			<xs:enumeration value="MEDIUM"/>
+			<xs:enumeration value="LOW"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ISSUE-PROPERTIESType">
+		<xs:sequence>
+			<xs:element name="ISSUE-CURRENT-STATE" type="ISSUE-CURRENT-STATEType"/>
+			<xs:element name="ISSUE-PRIORITY" type="ISSUE-PRIOITY-ENUMType"/>
+			<xs:element name="ISSUE-SEVERITY" type="ISSUE-SEVERITYType" minOccurs="0"/>
+			<xs:element name="REPRODUCIBILITY" type="REPRODUCIBILITYType" minOccurs="0"/>
+			<xs:element name="DELIVERY-MILESTONES" type="DELIVERY-MILESTONESType" minOccurs="0"/>
+			<xs:element name="PRMS" type="PRMSType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-REASONType">
+		<xs:sequence>
+			<xs:element name="P" type="PType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-REFType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="F-ID-CLASS" type="xs:NMTOKEN" fixed="ISSUE"/>
+				<xs:attribute name="HYNAMES" type="xs:NMTOKENS" fixed="LINKEND ID-REF"/>
+				<xs:attribute name="HYTIME" type="xs:NMTOKEN" fixed="CLINK"/>
+				<xs:attribute name="ID-REF" type="xs:IDREF"/>
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-RELATED-DOCUMENTSType">
+		<xs:sequence>
+			<xs:element name="ISSUE-RELATED-DOCUMENT" type="DOCUMENTType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:simpleType name="ISSUE-RELATION-ENUMType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PARENT"/>
+			<xs:enumeration value="CHILD"/>
+			<xs:enumeration value="SIBLING"/>
+			<xs:enumeration value="PREDECESSOR"/>
+			<xs:enumeration value="SUCCESSOR"/>
+			<xs:enumeration value="SIMILAR"/>
+			<xs:enumeration value="DEPENDENT ON"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ISSUE-RELATIONType">
+		<xs:simpleContent>
+			<xs:extension base="ISSUE-RELATION-ENUMType">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ISSUE-SEVERITY-ENUMType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TOP"/>
+			<xs:enumeration value="HIGH"/>
+			<xs:enumeration value="MEDIUM"/>
+			<xs:enumeration value="LOW"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ISSUE-SEVERITYType">
+		<xs:simpleContent>
+			<xs:extension base="ISSUE-SEVERITY-ENUMType">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-SOLUTIONType">
+		<xs:sequence>
+			<xs:element name="CATEGORY" type="CATEGORYType"/>
+			<xs:element name="ISSUE-SOLUTION-DESC" type="ISSUE-SOLUTION-DESCType" minOccurs="0"/>
+			<xs:element name="ISSUE-RELATED-DOCUMENTS" type="ISSUE-RELATED-DOCUMENTSType" minOccurs="0"/>
+			<xs:element name="ENGINEERING-OBJECTS" type="ENGINEERING-OBJECTSType" minOccurs="0"/>
+			<xs:element name="ISSUE-EFFORT" type="ISSUE-EFFORTType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-SOLUTION-DESCType">
+		<xs:sequence>
+			<xs:element name="P" type="PType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ISSUE-SOLUTIONSType">
+		<xs:sequence>
+			<xs:element name="ISSUE-SOLUTION" type="ISSUE-SOLUTIONType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:simpleType name="ISSUE-STATE-ENUMType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="REQUESTED"/>
+			<xs:enumeration value="RECEIVED"/>
+			<xs:enumeration value="ESTIMATED"/>
+			<xs:enumeration value="ACCEPTED"/>
+			<xs:enumeration value="SPECIFIED"/>
+			<xs:enumeration value="APPROVED"/>
+			<xs:enumeration value="DELIVERED"/>
+			<xs:enumeration value="CLOSED-OK"/>
+			<xs:enumeration value="CLOSED-NOT-OK"/>
+			<xs:enumeration value="REJECTED"/>
+			<xs:enumeration value="CANCELED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ISSUE-STATEType">
+		<xs:simpleContent>
+			<xs:extension base="ISSUE-STATE-ENUMType">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ISSUED-BYType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ISSUESType">
+		<xs:sequence>
+			<xs:element name="ISSUE" type="ISSUEType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="LABELType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LONG-NAMEType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="LONG-NAME-1Type">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MATCHING-DCIType">
+		<xs:sequence>
+			<xs:element name="LABEL" type="LABELType" minOccurs="0"/>
+			<xs:element name="SHORT-LABEL" type="SHORT-LABELType" minOccurs="0"/>
+			<xs:element name="URL" type="URLType" minOccurs="0"/>
+			<xs:element name="REMARK" type="REMARKType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="MATCHING-DCISType">
+		<xs:sequence>
+			<xs:element name="MATCHING-DCI" type="MATCHING-DCIType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="MAXType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="MINType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="MSR-ISSUE">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SHORT-NAME" type="SHORT-NAMEType" minOccurs="0"/>
+				<xs:element name="CATEGORY" type="CATEGORYType" minOccurs="0"/>
+				<xs:element name="COMPANY-DATAS" type="COMPANY-DATASType"/>
+				<xs:element name="ADMIN-DATA" type="ADMIN-DATAType"/>
+				<xs:element name="ISSUES" type="ISSUESType"/>
+				<xs:element name="MSR-PROCESSING-LOG" type="MSR-PROCESSING-LOGType" minOccurs="0"/>
+				<xs:element name="MATCHING-DCIS" type="MATCHING-DCISType" minOccurs="0"/>
+				<xs:element name="SDGS" type="SDGSType" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="DefaultAttributes"/>
+			<xs:attribute name="CREATOR" type="xs:string"/>
+			<xs:attribute name="CREATOR-VERSION" type="xs:string"/>
+			<xs:attribute name="F-CM-TOOL-ID" type="xs:string" fixed="$Id:$"/>
+			<xs:attribute name="F-DTD-BUILD" type="xs:string" fixed="1"/>
+			<xs:attribute name="F-DTD-VERSION" type="xs:string" fixed="3.0.0"/>
+			<xs:attribute name="F-PUBID" type="xs:string" fixed="-//ASAM//DTD MSR ISSUE DTD:V3.0.0:LAI:IAI:XML:MSRISSUE.DTD//EN"/>
+			<xs:attribute name="PUBID" type="xs:string" default="-//ASAM//DTD MSR ISSUE DTD:V3.0.0:LAI:IAI:XML:MSRISSUE.DTD//EN"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="MSR-PROCESSING-LOGType">
+		<xs:sequence>
+			<xs:element name="VERBATIM" type="VERBATIMType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="NUMBERType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+				<xs:attribute name="HELP-ENTRY" type="xs:string"/>
+				<xs:attribute name="KEEP-WITH-PREVIOUS">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="KEEP"/>
+							<xs:enumeration value="NO-KEEP"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PAYMENT-RESPONSIBILITYType">
+		<xs:sequence>
+			<xs:element name="COMPANY-DATA-REF" type="COMPANY-DATA-REFType"/>
+			<xs:element name="RATIO" type="RATIOType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PHONEType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="POSITIONType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PRMType">
+		<xs:sequence>
+			<xs:element name="SHORT-NAME" type="SHORT-NAMEType"/>
+			<xs:element name="LONG-NAME" type="LONG-NAMEType" minOccurs="0"/>
+			<xs:element name="DESC" type="DESCType" minOccurs="0"/>
+			<xs:element name="PRM-CHAR" type="PRM-CHARType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+		<xs:attribute name="F-ID-CLASS" type="xs:NMTOKEN" fixed="PRM"/>
+		<xs:attribute name="ID" type="xs:ID"/>
+	</xs:complexType>
+	<xs:complexType name="PRM-CHARType">
+		<xs:sequence>
+			<xs:element name="COND" type="CONDType" minOccurs="0"/>
+			<xs:choice>
+				<xs:sequence>
+					<xs:choice>
+						<xs:sequence>
+							<xs:element name="ABS" type="ABSType"/>
+							<xs:element name="TOL" type="TOLType"/>
+						</xs:sequence>
+						<xs:sequence>
+							<xs:element name="MIN" type="MINType"/>
+							<xs:element name="TYP" type="TYPType"/>
+							<xs:element name="MAX" type="MAXType"/>
+						</xs:sequence>
+					</xs:choice>
+					<xs:element name="PRM-UNIT" type="PRM-UNITType"/>
+				</xs:sequence>
+				<xs:element name="TEXT" type="TEXTType"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="PRM-UNITType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PRMSType">
+		<xs:sequence>
+			<xs:element name="LABEL" type="LABELType" minOccurs="0"/>
+			<xs:element name="PRM" type="PRMType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+		<xs:attribute name="KEEP-WITH-PREVIOUS">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="KEEP"/>
+					<xs:enumeration value="NO-KEEP"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PROJECT-IDType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="PROJECT-IDSType">
+		<xs:sequence>
+			<xs:element name="PROJECT-ID" type="PROJECT-IDType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Remove..</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="PUBLISHERType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RATIOType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="RELATED-ISSUEType">
+		<xs:sequence>
+			<xs:element name="ISSUE-RELATION" type="ISSUE-RELATIONType"/>
+			<xs:element name="ISSUE-REF" type="ISSUE-REFType"/>
+			<xs:element name="COMPANY-DATA-REF" type="COMPANY-DATA-REFType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="RELATED-ISSUESType">
+		<xs:sequence>
+			<xs:element name="RELATED-ISSUE" type="RELATED-ISSUEType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="REMARKType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="P" type="PType"/>
+			<xs:element name="VERBATIM" type="VERBATIMType"/>
+		</xs:choice>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:simpleType name="REPRODUCIBILITY-ENUMType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="REPEATABLE"/>
+			<xs:enumeration value="SPORADIC"/>
+			<xs:enumeration value="SELDOM"/>
+			<xs:enumeration value="SINGLE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="REPRODUCIBILITYType">
+		<xs:simpleContent>
+			<xs:extension base="REPRODUCIBILITY-ENUMType">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="REVISION-LABELType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="REVISION-LABELSType">
+		<xs:sequence>
+			<xs:element name="REVISION-LABEL" type="REVISION-LABELType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ROLEType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="ROLESType">
+		<xs:sequence>
+			<xs:element name="ROLE" type="ROLEType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="SDType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+				<xs:attribute name="GID" type="xs:string" use="required"/>
+				<xs:attribute name="ID-CLASS" type="xs:NMTOKEN"/>
+				<xs:attribute name="ID-REF" type="xs:IDREF"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SDGType">
+		<xs:sequence>
+			<xs:element name="SDG-CAPTION" type="SDG-CAPTIONType" minOccurs="0"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="SD" type="SDType" minOccurs="0"/>
+				<xs:element name="SDG" type="SDGType" minOccurs="0"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+		<xs:attribute name="GID" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="SDG-CAPTIONType">
+		<xs:sequence>
+			<xs:element name="SHORT-NAME" type="SHORT-NAMEType"/>
+			<xs:element name="LONG-NAME" type="LONG-NAMEType" minOccurs="0"/>
+			<xs:element name="DESC" type="DESCType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+		<xs:attribute name="F-ID-CLASS" type="xs:NMTOKEN" fixed="SDG"/>
+		<xs:attribute name="ID" type="xs:ID"/>
+	</xs:complexType>
+	<xs:complexType name="SDGSType">
+		<xs:sequence>
+			<xs:element name="SDG" type="SDGType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="SHORT-LABELType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SHORT-NAMEType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="STATEType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="STATE-1Type">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TEAM-MEMBERType">
+		<xs:sequence>
+			<xs:element name="SHORT-NAME" type="SHORT-NAMEType"/>
+			<xs:element name="LONG-NAME" type="LONG-NAMEType" minOccurs="0"/>
+			<xs:element name="ROLES" type="ROLESType" minOccurs="0"/>
+			<xs:element name="DEPARTMENT" type="DEPARTMENTType" minOccurs="0"/>
+			<xs:element name="ADDRESS" type="ADDRESSType" minOccurs="0"/>
+			<xs:element name="ZIP" type="ZIPType" minOccurs="0"/>
+			<xs:element name="CITY" type="CITYType" minOccurs="0"/>
+			<xs:element name="PHONE" type="PHONEType" minOccurs="0"/>
+			<xs:element name="FAX" type="FAXType" minOccurs="0"/>
+			<xs:element name="EMAIL" type="EMAILType" minOccurs="0"/>
+			<xs:element name="HOMEPAGE" type="HOMEPAGEType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+		<xs:attribute name="F-ID-CLASS" type="xs:NMTOKEN" fixed="TEAM-MEMBER"/>
+		<xs:attribute name="ID" type="xs:ID"/>
+	</xs:complexType>
+	<xs:complexType name="TEAM-MEMBER-REFType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+				<xs:attribute name="F-ID-CLASS" type="xs:NMTOKEN" fixed="TEAM-MEMBER"/>
+				<xs:attribute name="HYNAMES" type="xs:NMTOKENS" fixed="LINKEND ID-REF"/>
+				<xs:attribute name="HYTIME" type="xs:NMTOKEN" fixed="CLINK"/>
+				<xs:attribute name="ID-REF" type="xs:IDREF"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TEAM-MEMBER-REFSType">
+		<xs:sequence>
+			<xs:element name="TEAM-MEMBER-REF" type="TEAM-MEMBER-REFType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="TEAM-MEMBERSType">
+		<xs:sequence>
+			<xs:element name="TEAM-MEMBER" type="TEAM-MEMBERType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="TEXTType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TOLType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TRANSACTION-IDType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TYPType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="URLType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+				<xs:attribute name="MIME-TYPE" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="VERBATIMType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="ALLOW-BREAK" type="xs:NMTOKEN" default="1"/>
+				<xs:attributeGroup ref="DefaultAttributes"/>
+				<xs:attribute name="FLOAT">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="FLOAT"/>
+							<xs:enumeration value="NO-FLOAT"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="HELP-ENTRY" type="xs:string"/>
+				<xs:attribute name="KEEP-WITH-PREVIOUS">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="KEEP"/>
+							<xs:enumeration value="NO-KEEP"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="PGWIDE">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="PGWIDE"/>
+							<xs:enumeration value="NO-PGWIDE"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute ref="xml:space"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="DOCUMENTType">
+		<xs:sequence>
+			<xs:element name="LABEL" type="LABELType" minOccurs="0"/>
+			<xs:element name="REVISION-LABEL" type="REVISION-LABELType" minOccurs="0"/>
+			<xs:element name="COMPANY-DATA-REF" type="COMPANY-DATA-REFType" minOccurs="0"/>
+			<xs:element name="URL" type="URLType"/>
+			<xs:element name="CONTENT" type="CONTENTType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="DefaultAttributes"/>
+	</xs:complexType>
+	<xs:complexType name="ZIPType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attributeGroup ref="DefaultAttributes"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

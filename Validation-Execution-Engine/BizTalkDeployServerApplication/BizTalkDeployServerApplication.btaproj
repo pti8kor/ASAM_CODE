@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <CustomProjectExtensionsPath>$(MSBuildExtensionsPath)\Microsoft\BizTalk\BuildSystem\</CustomProjectExtensionsPath>
+    <ProjectGuid>9e67eda0-c2c4-4bd3-a41d-f5b9789be7a7</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <Import Project="$(CustomProjectExtensionsPath)CustomProject.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" Label="Configuration">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" Label="Configuration">
+  </PropertyGroup>
+  <Import Project="$(CustomProjectExtensionsPath)CustomProject.props" />
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Binding.xml" />
+    <Content Include="BizTalkServerInventory.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RB.ROCustomerIntefaceLibrary\RB.ROCustomerInterfaceLibrary.csproj" />
+    <ProjectReference Include="..\RB.ROCustomerInterface\RB.BT.ROCustomerInterface.btproj" />
+  </ItemGroup>
+  <Import Project="$(CustomProjectExtensionsPath)CustomProject.targets" />
+  <!-- This next bit is required unless the macro used to Import your targets is defined in an MSBuild toolset. -->
+  <ProjectExtensions>
+    <ProjectCapabilities>
+      <ProjectConfigurationsDeclaredAsItems />
+    </ProjectCapabilities>
+  </ProjectExtensions>
+</Project>

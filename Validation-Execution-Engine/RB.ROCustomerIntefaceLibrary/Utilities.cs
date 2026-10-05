@@ -1,0 +1,850 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Configuration;
+using System.Xml;
+using System.Xml.Linq;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using System.Net.Mail;
+using System.Net;
+
+namespace RB.ROCustomerIntefaceLibrary
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks></remarks>
+    public static class Utilities
+    {
+
+        // public static LogHelper objLogger = LogHelper.GetLoggerInstance(); REUBK-1916
+
+
+
+
+      /*  public static LogHelper GetLogger(string sExchangeformat)
+        {
+
+            LogHelper objlogger = LogHelper.GetLoggerInstance(sExchangeformat);
+            return objlogger;
+        }*/
+
+
+
+        /// <summary>
+        /// This method will load BizTalk's AppConfig and get the Value for the KEY given
+        /// </summary>
+        /// <param name="strKey">Key against which the search will be performed</param>
+        /// <returns>VALUE for the given KEY</returns>
+        public static string LoadItemFromBizTalkAppConfig(string strKey)
+        {
+
+            string strValue = ConfigurationManager.AppSettings[strKey];
+            return strValue;
+        }
+
+
+        public static int utf8Length(string fileName)
+        {
+            int len;
+            byte[] byteStream;
+
+            byteStream = Encoding.UTF8.GetBytes(fileName);
+            len = byteStream.GetUpperBound(0);
+            return len + 1;
+        }
+
+        public static string utf8Trunc(string fileName)
+        {
+            int i;
+            string truncTry;
+            string fileBody, fileExtender;
+
+            fileBody = System.Text.RegularExpressions.Regex.Replace(fileName, "(.+)\\.\\w*?$", "$1");
+            fileExtender = System.Text.RegularExpressions.Regex.Replace(fileName, ".+(\\.\\w*?)$", "$1");
+
+            //iteratively compose truncFileName
+            //2 byte Umlaute shall not be cut in midth
+            i = 0; // how many chars shall be removed
+            do
+            {
+                i++;
+                truncTry = fileBody.Substring(0, fileBody.Length - i) + fileExtender; //subtract chars
+            } while (utf8Length(truncTry) > GlobalConstants.MAX_ATTNAMELENGTH);
+             //while (utf8Length(truncTry) > 50);
+
+            truncTry = fileBody.Substring(0, fileBody.Length - i - 1) + "~" + fileExtender;
+
+            return truncTry;
+        }
+
+        public static string ReduceChar(string fileName, int count)
+        {
+            string fileBody, fileExtender, sreturn = string.Empty;
+            fileBody = System.Text.RegularExpressions.Regex.Replace(fileName, "(.+)\\.\\w*?$", "$1");
+            fileExtender = System.Text.RegularExpressions.Regex.Replace(fileName, ".+(\\.\\w*?)$", "$1");
+
+            if (count > 0)
+            {
+                sreturn = fileBody.Substring(0, fileBody.Length - 2) + "~" + count.ToString() + fileExtender;
+            }
+            if (count >= 10)
+            {
+                sreturn = fileBody.Substring(0, fileBody.Length - 3) + "~" + count.ToString() + fileExtender;
+            }
+            if (count >= 100)
+            {
+                sreturn = fileBody.Substring(0, fileBody.Length - 4) + "~" + count.ToString() + fileExtender;
+            }
+            return sreturn;
+
+        }
+        public static string ReplaceString(string sValue, string sToReplace)
+        {
+            string sToReturn = string.Empty;
+            if (sValue.Contains(RulesFileTags.ROFIELD))
+            {
+                sToReturn = Regex.Replace(sValue, RulesFileTags.ROFIELD, " ");
+
+            }
+            else
+            {
+                sToReturn = Regex.Replace(sValue, RulesFileTags.IMFFIELD, " ");
+
+            }
+            return sToReturn;
+        }
+
+        public static string ReplaceValuesInQuery(string sQuery, string skey, string sField, string sValue)
+        {
+            string sToReplace = "$" + skey + "." + sField;
+            sQuery = Regex.Replace(sQuery, sToReplace, sValue);
+            return sQuery;
+
+        }
+
+        public static Dictionary<string, string> GetFieldsToUpdate(string sQuery)
+        {
+            Dictionary<string, string> oValues = new Dictionary<string, string>();
+            MatchCollection matchcoll;
+            string ToReplace = string.Empty;
+
+
+            if ((sQuery.Contains(RulesFileTags.IMFFIELD)) || (sQuery.Contains(RulesFileTags.RUNTIMEFIELD)))
+            {
+                matchcoll = Regex.Matches(sQuery, "\"[?`Key([^\"]*)]\"", RegexOptions.Multiline);
+                foreach (Match m in matchcoll)
+                {
+                    for (int i = 0; i < m.Groups.Count; i++)
+                    {
+                        //if (m.Value.Contains(RulesFileTags.IMFFIELD))
+                        //{
+                        ToReplace = m.Value.Substring(0, m.Value.IndexOf(".")).Trim();
+                        oValues.Add(m.Value, ToReplace);
+                        //}
+                        //else
+                        //{
+                        //ToReplace = m.Value.Substring(0, m.Value.IndexOf(".")).Trim();
+                        //oValues.Add(m.Value, ToReplace);
+                        //}
+                    }
+                }
+            }
+
+            return oValues;
+        }
+
+        public static string FormatToEnglishOnly(string sValue)
+        {
+            sValue = sValue.Replace("ü", "u");
+            sValue = sValue.Replace("Ü", "U");
+            sValue = sValue.Replace("ö", "oParmPackage");
+            sValue = sValue.Replace("Ö", "O");
+            sValue = sValue.Replace("ä", "a");
+            sValue = sValue.Replace("Ä", "A");
+            sValue = sValue.Replace("ß", "s");
+
+            return sValue;
+        }
+
+        public static XDocument LoadXMLDocument(string strXMLPath)
+        {
+            XDocument XDoc = null;
+            try
+            {
+                if (System.IO.File.Exists(strXMLPath))
+                {
+                    XDoc = XDocument.Load(strXMLPath);
+                }
+                else
+                {
+                    //objLogger.LogInfo("XMLPath: " + strXMLPath + " - File Not found");
+                }
+            }
+            catch (Exception ex)
+            {
+                //objLogger.LogException(ex, "Utilities::LoadXMLDocument");
+            }
+            finally
+            {
+
+            }
+            // objLogger.LogInfo("Utilities::LoadXMLDocument - ends");
+            return XDoc;
+        }
+
+        /// <summary>
+        /// Performs the operation based on the given parameters. The opration is only for INTEGER data Type
+        /// </summary>
+        /// <param name="sLeftVal">Left side value</param>
+        /// <param name="sRightVal">Right side value</param>
+        /// <param name="operation">Operation that needs to be performed</param>        
+        /// <returns>returns true or false based on the operation result </returns>
+        public static bool PerformOperation(int iLeftValue, int iRightVal, GlobalConstants.Operation operation)
+        {
+            bool blnRetVal = false;
+            //objLogger.LogInfo("Utilities::PerformOperation() Integter - Starts");
+            //objLogger.LogInfo("iLeftVal: " + iLeftValue.ToString() + " , iRightVal: " + iRightVal.ToString() + " , operation: " + operation.ToString());
+            try
+            {
+                switch (operation)
+                {
+                    case GlobalConstants.Operation.EQ:
+                        if (iLeftValue == iRightVal)
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+                    case GlobalConstants.Operation.NE:
+                        if (iLeftValue != iRightVal)
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+                    case GlobalConstants.Operation.LT:
+                        if (iLeftValue < iRightVal)
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+                    case GlobalConstants.Operation.LE:
+                        if (iLeftValue <= iRightVal)
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+                    case GlobalConstants.Operation.LTE:
+                        if (iLeftValue <= iRightVal)
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+                    case GlobalConstants.Operation.GT:
+                        if (iLeftValue > iRightVal)
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+                    case GlobalConstants.Operation.GTE:
+                        if (iLeftValue >= iRightVal)
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+                    default:
+                        blnRetVal = false;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                blnRetVal = false;
+                //objLogger.LogException(ex, "Utilities::PerformOperation() - Error in Interger comparison");
+            }
+            //objLogger.LogInfo("Utilities::PerformOperation() Integer - ends");
+            return blnRetVal;
+        }
+
+
+        /// <summary>
+        /// Performs the operation based on the given parameters. The opration is only for STRING data Type
+        /// Only LT, GT,LTE and GTE can handle strings with datetime values of format "yyyy-MM-ddTHH:mm:ssZ" 
+        /// </summary>
+        /// <param name="sLeftVal">Left side value</param>
+        /// <param name="sRightVal">Right side value</param>
+        /// <param name="operation">Operation that needs to be performed</param>
+        /// <param name="IgnoreCase">IgnoreCase, default value is false</param>
+        /// <returns>returns true or false based on the operation result </returns>
+        public static bool PerformOperation(string sLeftVal, string sRightVal,
+            GlobalConstants.Operation operation, bool IgnoreCase = false, string sDelimiter = ";")
+        {
+            bool blnRetVal = false;
+            //objLogger.LogInfo("Utilities::PerformOperation() ErrorMessage  - Starts");
+            //objLogger.LogInfo("sLeftVal: " + sLeftVal + " , sRightVal: " + sRightVal + " , operation: " + operation.ToString() + ", IgnoreCase:" + IgnoreCase.ToString());
+            //IgnoreCase optional Param
+            if (IgnoreCase)
+            {
+                sLeftVal = sLeftVal.ToUpper();
+                sRightVal = sRightVal.ToUpper();
+            }
+            int result;
+            try
+            {
+                switch (operation)
+                {
+                    case GlobalConstants.Operation.EQ:
+                        if (sLeftVal.Trim() == sRightVal.Trim())
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+                    case GlobalConstants.Operation.NE:
+                        if (sLeftVal.Trim() != sRightVal.Trim())
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+                    case GlobalConstants.Operation.LT:
+                        //REUBK - 550018 , 561879
+                        result = PerformLessOrGreaterThanOperation(sLeftVal, sRightVal);
+                        if (result < 0)
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+                    case GlobalConstants.Operation.LTE:
+                        //[1038] - REUBK - 595725
+                        int numericValue1, numericValue2;
+                        bool isLeftValNumber = int.TryParse(sLeftVal, out numericValue1);
+                        bool isRightValNumber = int.TryParse(sRightVal, out numericValue2);
+                        if (isLeftValNumber && isRightValNumber)
+                        {
+                            if (numericValue2 <= numericValue1)
+                                blnRetVal = true;
+                        }
+                        else
+                        {
+                            result = PerformLessOrGreaterThanOperation(sLeftVal, sRightVal);
+                            if (result <= 0)
+                            {
+                                blnRetVal = true;
+                            }
+                        }
+                        break;
+                    case GlobalConstants.Operation.GT:
+                        //REUBK - 550018 , 561879 
+                        result = PerformLessOrGreaterThanOperation(sLeftVal, sRightVal);
+                        if (result > 0)
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+
+                    case GlobalConstants.Operation.GTE:
+                        //throw new OperatorNotImplementedException("Operator 'Greater Than or Equals' not implemented for strings");
+                        //REUBK - 550018 , 561879
+                        result = PerformLessOrGreaterThanOperation(sLeftVal, sRightVal);
+                        if (result >= 0)
+                        {
+                            blnRetVal = true;
+                        }
+                        break;
+
+                    //REUBK-956
+                    case GlobalConstants.Operation.IN:
+                        // objLogger.LogInfo("Utilities::PerformOperation() IN operation exec starts");
+                        if (!string.IsNullOrEmpty(sDelimiter))
+                        {
+                            char[] l_sDelimiter = sDelimiter.ToArray();
+
+                            if (sDelimiter.ToUpper().Contains("NEWLINE")) l_sDelimiter = System.Environment.NewLine.ToArray();
+
+                            if (!(string.IsNullOrEmpty(sLeftVal)))
+                            {
+                                //objLogger.LogInfo("sLeftVal" + sLeftVal);
+                                //objLogger.LogInfo("sRightVal" + sRightVal);
+
+                                string[] sArrayValues = sLeftVal.Split(l_sDelimiter);
+
+                                foreach (string sValue in sArrayValues)
+                                {
+                                    if (sRightVal.Trim().ToUpper() == sValue.Trim().ToUpper())
+                                    {
+                                        //objLogger.LogInfo("string match found -- return true");
+                                        blnRetVal = true;
+                                        break;
+                                    }
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            if(sLeftVal.ToUpper().Contains(sRightVal.ToUpper()))
+                            {
+                                blnRetVal = true;
+                            }
+                        }
+                        break;
+                    case GlobalConstants.Operation.IN_CS: //Case sensitive IN REUBK-2222
+                        // objLogger.LogInfo("Utilities::PerformOperation() IN operation exec starts");
+                        char[] l_cDelimiter = sDelimiter.ToArray();
+
+                        if (sDelimiter.ToUpper().Contains("NEWLINE")) l_cDelimiter = System.Environment.NewLine.ToArray();
+
+                        if (!(string.IsNullOrEmpty(sLeftVal)))
+                        {
+                            //objLogger.LogInfo("sLeftVal" + sLeftVal);
+                            //objLogger.LogInfo("sRightVal" + sRightVal);
+
+                            string[] sArrayValues = sLeftVal.Split(l_cDelimiter);
+
+                            foreach (string sValue in sArrayValues)
+                            {
+                                if (sRightVal.Trim() == sValue.Trim())
+                                {
+                                    //objLogger.LogInfo("string match found -- return true");
+                                    blnRetVal = true;
+                                    break;
+                                }
+                            }
+
+                        }
+                        break;
+
+                    case GlobalConstants.Operation.VC:
+                        blnRetVal = PerformVersionComparison(sLeftVal, sRightVal);
+                        break;
+
+                    case GlobalConstants.Operation.NOT_IN:
+                        if (!string.IsNullOrEmpty(sDelimiter))
+                        {
+                            blnRetVal = true;
+                            char[] l_sDelimiter = sDelimiter.ToArray();
+
+                            if (sDelimiter.ToUpper().Contains("NEWLINE")) l_sDelimiter = System.Environment.NewLine.ToArray();
+
+                            if (!(string.IsNullOrEmpty(sLeftVal)))
+                            {
+                                //objLogger.LogInfo("sLeftVal" + sLeftVal);
+                                //objLogger.LogInfo("sRightVal" + sRightVal);
+
+                                string[] sArrayValues = sLeftVal.Split(l_sDelimiter);
+
+                                foreach (string sValue in sArrayValues)
+                                {
+                                    if (sRightVal.Trim().ToUpper() == sValue.Trim().ToUpper())
+                                    {
+                                        //objLogger.LogInfo("string match found -- return true");
+                                        blnRetVal = false;
+                                        break;
+                                    }
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            if (!sLeftVal.ToUpper().Contains(sRightVal.ToUpper()))
+                            {
+                                blnRetVal = true;
+                            }
+                        }
+                        break;
+
+                    default:
+                        blnRetVal = false;
+                        break;
+                }
+            }
+            catch (OperatorNotImplementedException oex)
+            {
+                blnRetVal = false;
+                //objLogger.LogException(oex, "Utilities::PerformOperation() - Operation not implemented");
+            }
+            catch (Exception ex)
+            {
+                blnRetVal = false;
+                //objLogger.LogException(ex, "Utilities::PerformOperation() - Error in ErrorMessage Comparison ");
+            }
+            //objLogger.LogInfo("Utilities::PerformOperation() ErrorMessage - ends");
+            return blnRetVal;
+        }
+
+
+        /// <summary>
+        /// Performs LT , GT and GTE operator actions
+        /// </summary>
+        /// <param name="sLeftVal"></param>
+        /// <param name="sRightVal"></param>
+        /// <returns></returns>
+        private static int PerformLessOrGreaterThanOperation(string sLeftVal, string sRightVal)
+        {
+            int result;
+            DateTime? operand2Value = GetDateTimeFromString(sLeftVal);
+            DateTime? operand1Value = GetDateTimeFromString(sRightVal);
+            if (operand1Value != null && operand2Value != null)
+            {
+                result = DateTime.Compare(operand1Value.Value, operand2Value.Value);
+            }
+            else
+            {
+                result = string.Compare(sLeftVal, sRightVal);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Gets date time from the string
+        /// </summary>
+        /// <param name="operand"></param>
+        /// <returns></returns>
+        private static DateTime? GetDateTimeFromString(string operand)
+        {
+            try
+            {
+                //If the string is of "date time" extract datetime,else return null
+                DateTime? dateTime = null;
+                dateTime = DateTime.ParseExact(operand, "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.GetCultureInfo("de-DE"), DateTimeStyles.None);
+                return dateTime;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        public static bool PerformVersionComparison(string sLeftVal, string sRightVal)
+        {
+            bool blnRetVal = true;
+
+            string asamFileVersioNumber = sLeftVal;
+            string ROVersioNumber = sRightVal;
+            string asamFileDAIVersion = string.Empty;
+            string asamFileRBVersion = string.Empty;
+            string RODAIVersion = string.Empty;
+            string RORBVersion = string.Empty;
+
+            MatchCollection matchcolASAMFile, matchcolRO;
+            matchcolASAMFile = Regex.Matches(asamFileVersioNumber, "DAI(?'Match1'([0-9]*))#RB(?'Match2'([0-9]*))", RegexOptions.Singleline);
+            matchcolRO = Regex.Matches(ROVersioNumber, "DAI(?'Match1'([0-9]*))#RB(?'Match2'([0-9]*))", RegexOptions.Singleline);
+
+            foreach (Match m in matchcolASAMFile)
+            {
+                if ((m.Groups["Match1"].Length != 0) && (m.Groups["Match2"].Length != 0))
+                {
+                    asamFileDAIVersion = m.Groups["Match1"].ToString();
+                    asamFileRBVersion = m.Groups["Match2"].ToString();
+                }
+            }
+            foreach (Match m in matchcolRO)
+            {
+                if ((m.Groups["Match1"].Length != 0) && (m.Groups["Match2"].Length != 0))
+                {
+                    RODAIVersion = m.Groups["Match1"].ToString();
+                    RORBVersion = m.Groups["Match2"].ToString();
+                }
+            }
+
+            if ((Convert.ToInt32(asamFileDAIVersion) != Convert.ToInt32(RODAIVersion) + 1) || (Convert.ToInt32(asamFileRBVersion) != Convert.ToInt32(RORBVersion)))
+            {
+                blnRetVal = false;
+            }
+
+            return blnRetVal;
+        }
+
+        public static bool PerformOperation(string sLeftVal, List<string> sValues,
+           GlobalConstants.Operation operation, Logger objLogger)
+        {
+            bool blnRetVal = false;
+            //objLogger.LogInfo("Utilities::PerformOperation()");
+            objLogger.LogInfo("Utilities::PerformOperation()- sLeftVal: " + sLeftVal + " , sRightVal: " + sValues + " , operation: " + operation.ToString(), GlobalConstants.LOGGERLEVEL1);
+            //IgnoreCase optional Param
+
+            try
+            {
+                switch (operation)
+                {
+                    case GlobalConstants.Operation.NAV:
+                        if (sValues.Count == 0)
+                        {
+                            objLogger.LogInfo("Utilities::lst count is 0", GlobalConstants.LOGGERLEVEL1);                          
+                           
+                            blnRetVal = true;
+                        }
+                        else
+                        {
+                            objLogger.LogInfo("Utilities::lst count is not 0", GlobalConstants.LOGGERLEVEL1);    
+                            if (!(sValues.Contains(sLeftVal)))
+                            {
+                                objLogger.LogInfo("Utilities::sValues does nt contain", GlobalConstants.LOGGERLEVEL1);  
+                                blnRetVal = true;
+                            }
+                        }
+                        break;
+
+                    default:
+                        blnRetVal = false;
+                        break;
+                }
+            }
+            catch (OperatorNotImplementedException oex)
+            {
+                blnRetVal = false;
+                objLogger.LogException(oex, "Utilities::PerformOperation() - Operation not implemented");
+            }
+            catch (Exception ex)
+            {
+                blnRetVal = false;
+                objLogger.LogException(ex, "Utilities::PerformOperation() - Error in ErrorMessage Comparison ");
+            }
+            //objLogger.LogInfo("Utilities::PerformOperation() ErrorMessage - ends");
+            return blnRetVal;
+        }
+
+        /// <summary>
+        /// Returns the namespace of the given XDocument in the form of XmlNameSpaceManager
+        /// </summary>
+        /// <param name="xIMFDoc">XML Document containing namespace</param>
+        /// <returns>XMLNamespaceManager with the namespace from sthe intput xml</returns>
+        public static XmlNamespaceManager GetIMFNameSpace(XDocument xIMFDoc)
+        {
+            XmlNamespaceManager nsIMFMgr;
+            XmlReader xReader = xIMFDoc.CreateReader();
+            XmlNameTable xNameTable = xReader.NameTable;
+            nsIMFMgr = new XmlNamespaceManager(xNameTable);
+            nsIMFMgr.AddNamespace("ns0", GlobalConstants.IMF_NAMESPACE_URI);
+            return nsIMFMgr;
+        }
+
+        /// <summary>
+        /// Returns the namespace of the given XDocument in the form of XmlNameSpaceManager
+        /// </summary>
+        /// <param name="xIMFDoc">XML Document containing namespace</param>
+        /// <returns>XMLNamespaceManager with the namespace from sthe intput xml</returns>
+        public static XmlNamespaceManager GetBinCompareNameSpace(XDocument xDoc)
+        {
+            XmlNamespaceManager nsMgr;
+            XmlReader xReader = xDoc.CreateReader();
+            XmlNameTable xNameTable = xReader.NameTable;
+            nsMgr = new XmlNamespaceManager(xNameTable);
+            nsMgr.AddNamespace("ns0", GlobalConstants.BIN_COMPARE_URI);
+            return nsMgr;
+        }
+
+        /// <summary>
+        /// Calculate and Returns the date of the week in the given Year and Calendar week. The calculation is based on CalendarWeekRule
+        /// </summary>
+        /// <param name="year">Year</param>
+        /// <param name="weekNum">Week Number.</param>
+        /// <param name="rule">CalendarWeekRule</param>
+        /// <returns>Date </returns>
+        /// <remarks></remarks>
+        static DateTime FirstDateOfWeek(int year, int weekNum, CalendarWeekRule rule)
+        {
+            DateTime jan1 = new DateTime(year, 1, 1);
+            int daysOffset = DayOfWeek.Monday - jan1.DayOfWeek;
+            DateTime firstMonday = jan1.AddDays(daysOffset);
+            var cal = CultureInfo.CurrentCulture.Calendar;
+            int firstWeek = cal.GetWeekOfYear(jan1, rule, DayOfWeek.Monday);
+            if (firstWeek <= 1)
+            {
+                weekNum -= 1;
+            }
+            DateTime result = firstMonday.AddDays(weekNum * 7);
+            return result;
+        }
+
+        public static void SendMail(XDocument p_oInterfaceConfig, MailMessage oMail, Logger objLogger)
+        {
+            try
+            {
+                string sSMTPMailServer = p_oInterfaceConfig.Element("CONFIGURATIONS").Element("INTERFACE_SETTINGS")
+                                .Element("EMAIL_SETTINGS").Element("SMTP").Value;
+
+                string smtp_user = p_oInterfaceConfig.Element("CONFIGURATIONS").Element("INTERFACE_SETTINGS")
+                                .Element("EMAIL_SETTINGS").Element("EMAIL_USER").Value;
+
+                string smtp_password = p_oInterfaceConfig.Element("CONFIGURATIONS").Element("INTERFACE_SETTINGS")
+                                .Element("EMAIL_SETTINGS").Element("EMAIL_PASSWORD").Value;
+
+                string encodedPassword = Encryption.DecryptString(smtp_password, "RO");
+
+                //string sEmailAddres = p_oInterfaceConfig.Element("CONFIGURATIONS").Element("INTERFACE_SETTINGS").Element("EMAIL_SETTINGS").Element("EMAIL_ADDRESS").Value;
+                var basicCredential = new NetworkCredential(smtp_user, encodedPassword);
+
+                using (SmtpClient SmtpServer = new SmtpClient(sSMTPMailServer))
+                {
+                    SmtpServer.EnableSsl = true;
+                    SmtpServer.UseDefaultCredentials = false;
+                    SmtpServer.Credentials = basicCredential;
+                    // oMail.From = new MailAddress(sEmailAddres);
+                    SmtpServer.Send(oMail);
+                }
+            }
+
+            catch(Exception ex)
+            {
+                objLogger.LogException(ex, "Utilities::PerformOperation() - Error in ErrorMessage Comparison ");
+            }
+            
+        }
+
+        /// <summary>
+        /// Returns the dict object which contain strings , value of SI and value of tag  (REUBK-1034)
+        /// </summary>
+        /// <param name="sInput"></param>
+        /// <returns></returns>
+        public static Dictionary<string, string> GetProjectInternalValue(string sInput, string description)
+        {
+            Dictionary<string, string> oValues = new Dictionary<string, string>();
+            MatchCollection matchcoll;
+            string sOutputValue = string.Empty;
+
+            //objLogger.LogInfo("Utilities::GetProjectInternalValue - starts");
+            //objLogger.LogInfo("Utilities::GetProjectInternalValue - sInput-->" + sInput);
+            //objLogger.LogInfo("Utilities::GetProjectInternalValue - description" + description);
+
+
+            //get value in <>  as match2 and value in "" as match1
+            //matchcoll = Regex.Matches(sInput, "(?'Match2'([0-9A-Za-z_]+))\\s*=\\s*(?'Match1'([0-9A-Za-z_]*))", RegexOptions.Multiline);
+
+
+            matchcoll = Regex.Matches(sInput, "<MAPINT2EXT SI=\"(?'Match1'([0-9A-Za-z_:]*))\">(?'Match2'([0-9A-Za-z_:]*))</MAPINT2EXT>", RegexOptions.Multiline);
+
+            foreach (Match m in matchcoll)
+            {
+                if ((m.Groups["Match2"].Length != 0) && (m.Groups["Match1"].Length != 0))
+                {
+                    if (m.Groups["Match2"].ToString() == description)
+                    {
+                        //objLogger.LogInfo("match found for  - description" + m.Groups["Match2"].ToString());
+                        //objLogger.LogInfo("match found for  - int value" + m.Groups["Match1"].ToString());
+                        oValues.Add(OrcPFAM.DESCRIPTION, m.Groups["Match2"].ToString()); //get string inside <>  
+                        oValues.Add(OrcPFAM.INTERNALVALUE, m.Groups["Match1"].ToString()); //get value of SI  
+                        break;
+                    }
+                }
+            }
+            //objLogger.LogInfo("Utilities::GetProjectInternalValue - ends");
+            return oValues;
+        }
+
+
+        public static string LoadATTID(string sInput, int iVal)
+        {
+            string sReturn = sInput;
+            MatchCollection matchcoll;
+            matchcoll = Regex.Matches(sInput, "(?'Match1'([0-9A-Za-z]*)):(?'Match2'([0-9. :]*))", RegexOptions.Multiline);
+            foreach (Match m in matchcoll)
+            {
+                if ((m.Groups["Match1"].Length != 0))
+                {
+                    if (iVal <= 9)
+                    {
+                        sReturn = sInput.Replace(m.Groups["Match1"].ToString(), "ATT00" + iVal.ToString());
+                    }
+                    else
+                    {
+                        sReturn = sInput.Replace(m.Groups["Match1"].ToString(), "ATT0" + iVal.ToString());
+                    }
+                }
+            }
+            return sReturn;
+        }
+
+        public static string FilterInvalidChar(string strMessage)
+        {
+            string sToReturn = strMessage;
+            List<string> l_oxmlinvalidchar = new List<string> { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0B", "0C", "0E", "0F" ,
+                                                                "10", "11", "12", "13", "14", "15", "16", "17", "18", "19","1A", "1B", "1C","1D", "1E", "1F"};
+
+            Encoding utf8 = Encoding.UTF8;
+            var utf16String = strMessage;
+            var utf8String = utf8.GetBytes(utf16String);
+
+            byte[] utf8Bytes = utf8.GetBytes(utf16String);
+            string sutf8String = BitConverter.ToString(utf8String);
+
+            foreach (string strSymbol in l_oxmlinvalidchar)
+            {
+                if (sutf8String.Contains(strSymbol))
+                {
+                    utf8Bytes = ReplaceBytes(utf8Bytes, strSymbol, "");
+                    char[] utf8Chars = new char[utf8.GetCharCount(utf8Bytes, 0, utf8Bytes.Length)];
+                    utf8.GetChars(utf8Bytes, 0, utf8Bytes.Length, utf8Chars, 0);
+                    sToReturn = new string(utf8Chars);
+                    //replace xtra spaces linefeeds and blank ''
+                    // sToReturn = Regex.Replace(sToReturn, @"['|,]", @"");
+                    sToReturn = Regex.Replace(sToReturn, @"['|]", @""); //REUBK-1388 comma included in exp msgs
+                }
+            }
+
+
+            return sToReturn;
+        }
+
+        public static byte[] ReplaceBytes(byte[] src, string replace, string replacewith)
+        {
+            string hex = BitConverter.ToString(src);
+            hex = hex.Replace("-", "");
+            hex = hex.Replace(replace, replacewith);
+            int NumberChars = hex.Length;
+            byte[] bytes = new byte[NumberChars / 2];
+            for (int i = 0; i < NumberChars; i += 2)
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            return bytes;
+        }
+
+        /// <summary>
+        /// Gets the XML element value for the given element name
+        /// </summary>
+        /// <param name="parentElement"></param>
+        /// <param name="elementNameToBeFound"></param>
+        /// <returns></returns>
+        public static object TryGetElementValue(XElement parentElement, string elementNameToBeFound)
+        {
+            try
+            {
+                var foundElement = parentElement.Element(elementNameToBeFound);
+
+                if (foundElement != null)
+                {
+                    return foundElement;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Gets the attribute value of a xelment
+        /// </summary>
+        /// <param name="parentElement"></param>
+        /// <param name="attributeNameToBeFound"></param>
+        /// <returns></returns>
+        public static string TryGetAttributeValue(XElement parentElement, string attributeNameToBeFound)
+        {
+            try
+            {
+                var foundAttribute = parentElement?.Attribute(attributeNameToBeFound);
+                if (foundAttribute != null)
+                {
+                    return foundAttribute.Value;
+                }
+                return null;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+    }
+
+
+}

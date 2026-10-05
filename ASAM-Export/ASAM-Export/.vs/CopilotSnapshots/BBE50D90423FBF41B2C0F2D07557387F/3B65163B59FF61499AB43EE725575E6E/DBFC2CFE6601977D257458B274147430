@@ -1,0 +1,94 @@
+﻿using System;
+using System.Configuration;
+using RB.ROCustomerInterfaceExportLibrary;
+using Xunit;
+
+namespace RB.ROCustomerIntefaceLibrary.Tests
+{
+    /// <summary>
+    /// Unit tests for GlobalConstants static methods and Utilities.
+    /// </summary>
+    public class GlobalConstantsTests
+    {
+        #region Constants Validation
+
+        [Fact]
+        public void BatchSize_IsFive()
+        {
+            Assert.Equal(5, GlobalConstants.BatchSize);
+        }
+
+        [Fact]
+        public void LoggerLevels_AreSequential()
+        {
+            Assert.Equal(1, GlobalConstants.LOGGERLEVEL1);
+            Assert.Equal(2, GlobalConstants.LOGGERLEVEL2);
+            Assert.Equal(3, GlobalConstants.LOGGERLEVEL3);
+        }
+
+        #endregion
+
+        #region Struct Constants
+
+        [Fact]
+        public void IMFFileTags_HasExpectedValues()
+        {
+            Assert.Equal("EXPORT_IMF", IMFFileTags.Root_Node);
+            Assert.Equal("ISSUE", IMFFileTags.Issue);
+            Assert.Equal("ISSUERELEASEMAP", IMFFileTags.Irmap);
+            Assert.Equal("ExternalNextState", IMFFileTags.ExternalNextState);
+            Assert.Equal("ExternalState_Parallel1", IMFFileTags.ExternalState_Parallel1);
+            Assert.Equal("ExternalState_Parallel2", IMFFileTags.ExternalState_Parallel2);
+            Assert.Equal("ExternalHistory", IMFFileTags.ExternalHistory);
+            Assert.Equal("ExternalConversation", IMFFileTags.ExternalConversation);
+            Assert.Equal("ISSUERELEASEMAP", IMFFileTags.IRMAP);
+            Assert.Equal("ExternalExchangedAttach", IMFFileTags.ExternalExchangedAttach);
+            Assert.Equal("ExternalUpdateVersion", IMFFileTags.ExternalUpdateVersion);
+            Assert.Equal("CommercialQuotationReq", IMFFileTags.CommercialQuotationReq);
+            Assert.Equal("ExternalLastExportedDate", IMFFileTags.ExternalLastExportedDate);
+        }
+
+        [Fact]
+        public void QueryMethods_HasExpectedValues()
+        {
+            Assert.Equal("getIssueById", GlobalConstants.QueryMethods.getIssueByIdForIssueEntrypoint);
+            Assert.Equal("getIssueReleaseMapByRQ1Id", GlobalConstants.QueryMethods.getIssueReleaseMapByRQ1Id);
+            Assert.Equal("updateIssue", GlobalConstants.QueryMethods.UpdateIssue);
+            Assert.Equal("UpdateIssueReleaseMap", GlobalConstants.QueryMethods.UpdateIssueReleaseMap);
+            Assert.Equal("updateExchangeProtocol", GlobalConstants.QueryMethods.UpdateXprot);
+            Assert.Equal("uploadCommercialFiles", GlobalConstants.QueryMethods.uploadCommercialFiles);
+            Assert.Equal("uploadExchangedFiles", GlobalConstants.QueryMethods.uploadExchangedFiles);
+            Assert.Equal("getIssueByDBId", GlobalConstants.QueryMethods.getIssueByDBId);
+            Assert.Equal("getReleaseByDBId", GlobalConstants.QueryMethods.getReleaseByDBId);
+            Assert.Equal("getProjectByDbId", GlobalConstants.QueryMethods.getProjectByDbId);
+        }
+
+        [Fact]
+        public void BizTalkConfigParams_PathsAreNotEmpty()
+        {
+            Assert.False(string.IsNullOrEmpty(BizTalkConfigParams.ROASAMLOGGER));
+            Assert.False(string.IsNullOrEmpty(BizTalkConfigParams.EX_RO_INTERFACE_CONFIG));
+        }
+
+        [Fact]
+        public void XsltConfig_PathsAreNotEmpty()
+        {
+            Assert.False(string.IsNullOrEmpty(XsltConfig.xslFilePath));
+            Assert.False(string.IsNullOrEmpty(XsltConfig.Audi_Validator));
+            Assert.False(string.IsNullOrEmpty(XsltConfig.ASAM_Templates));
+        }
+
+        #endregion
+
+        #region Utilities
+
+        [Fact]
+        public void LoadItemFromBizTalkAppConfig_NonExistentKey_ReturnsNull()
+        {
+            string result = Utilities.LoadItemFromBizTalkAppConfig("NonExistentKey_12345");
+            Assert.Null(result);
+        }
+
+        #endregion
+    }
+}
