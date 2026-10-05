@@ -17,6 +17,8 @@ The repository does not establish the migration scope, business priority, Azure 
 
 The exports contain legacy Windows `D:\` file locations, internal SOAP/WCF service URLs, and schedule URIs. Exact endpoint values should be verified against the deployment environment and should not be treated as approved Azure configuration.
 
+**External-system view from the binding labels:** `FTPIssueTransfer` names Daimler, BMW, and BMW-CC SOAP services; `RB.BT.ROCustomerInterface` has a WCF-Custom endpoint labelled for the HIS `vwid2ttn` service; `FTPGetNames` exposes a SOAP request-response receive endpoint, but its consumers are not identified. The scheduler emits a file for its XPROT handler, while the other observed FILE ports use shared-directory inputs and outputs. These labels are clues for discovery, not confirmation of current ownership, connectivity, or production use.
+
 **Related but unconfirmed scope:** `DBMapper` has a BizTalk project and a separate SQL adapter binding dated 2013, but no matching export under `Exported_binidngs/`. The binding targets `localhost` and names an HIS simulation database, so it is not evidence of a current production dependency. The `RB.ROCustomerInterfaceExport` BizTalk project is also present without a corresponding application export. Confirm whether either project is deployed or in scope before sizing migration work.
 
 ## 2. Inventory and deployment gaps
